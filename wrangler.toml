@@ -1,0 +1,37 @@
+# wrangler.toml - Cloudflare Pages configuration for KnowledgeOS
+# Recreate the Pages project and bindings in the Cloudflare dashboard before deploying.
+# Pages Functions do not support Cron Triggers, so the cron worker stays separate.
+
+name = "knowledgeos-web"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "out"
+
+[dev]
+port = 8788
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "VOICE_KV"
+id = "b37aa1043f544632a002618ec4270bc2"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "knowledgeos-assets"
+
+# Recreate a D1 database for the application metadata layer.
+# Suggested name: knowledgeos_app
+# Apply: schema-knowledgeos-d1.sql
+#
+# Cloudflare Dashboard variables to recreate:
+# NEXT_PUBLIC_SITE_URL=https://your-pages-domain
+# NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxx.supabase.co
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+# SUPABASE_SERVICE_KEY=...
+# SUPABASE_JWT_ISS=...
+# SUPABASE_JWT_AUD=authenticated
+# DEEPINFRA_API_KEY=...
+# GEMINI_API_KEY=... (for image/vision fallback)
+# CRON_SECRET=...

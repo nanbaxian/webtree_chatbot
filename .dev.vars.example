@@ -1,0 +1,20 @@
+# .dev.vars - local development env vars for KnowledgeOS
+# Do not commit real secrets.
+
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+DEEPINFRA_API_KEY=your-deepinfra-api-key-here
+DEEPINFRA_MODEL=meta-llama/Llama-3.2-3B-Instruct
+DEEPINFRA_MAX_TOKENS=220
+DEEPINFRA_COALESCE_CHARS=14
+GEMINI_API_KEY=your-gemini-api-key-here
+GEMINI_VISION_MODEL=gemini-2.5-flash-lite
+DEEPGRAM_API_KEY=your-deepgram-api-key-here
+DEEPGRAM_TTS_MODEL_EN=aura-2-thalia-en
+GOOGLE_TTS_API_KEY=your-google-tts-api-key-here
+ELEVENLABS_API_KEY=your-elevenlabs-api-key-here
+ELEVENLABS_VOICE_ID=optional-elevenlabs-voice-id
+SUPABASE_URL=https://xxxxxxxx.supabase.co
+SUPABASE_SERVICE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.your-service-role-key
+SUPABASE_JWT_ISS=https://xxxxxxxx.supabase.co/auth/v1
+SUPABASE_JWT_AUD=authenticated
+CRON_SECRET=any-random-string-you-choose

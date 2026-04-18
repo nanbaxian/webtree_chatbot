@@ -1,6 +1,16 @@
 import { createApiLogger } from '../../lib/api-log'
 import { json, options } from './_knowledgeos-shared'
-import { conversationSeed, listConversations, readTenantId, type D1Conversation, type D1Env, upsertConversation } from '../../lib/knowledgeos-d1'
+import {
+  botSeed,
+  conversationSeed,
+  getDefaultBot,
+  listConversations,
+  readTenantId,
+  type D1Conversation,
+  type D1Env,
+  upsertBot,
+  upsertConversation,
+} from '../../lib/knowledgeos-d1'
 
 interface Env extends D1Env {}
 
@@ -24,11 +34,16 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   log.start()
   const tenantId = readTenantId(ctx.request)
   const body = await ctx.request.json().catch(() => ({})) as Partial<D1Conversation> & { bot_id?: string }
+  const defaultBot = body.bot_id ? null : await getDefaultBot(ctx.env, tenantId)
+  const seededBot = body.bot_id
+    ? null
+    : (ctx.env.DB ? (await upsertBot(ctx.env, botSeed(tenantId))) ?? botSeed(tenantId) : botSeed(tenantId))
+  const botId = body.bot_id ? String(body.bot_id) : (defaultBot?.id || seededBot.id)
   const now = new Date().toISOString()
   const payload: D1Conversation = {
     id: String(body.id || `conv_${Date.now()}`),
     tenant_id: tenantId,
-    bot_id: body.bot_id ? String(body.bot_id) : 'bot_demo',
+    bot_id: botId,
     created_by: body.created_by ?? null,
     title: String(body.title || 'New conversation'),
     channel: String(body.channel || 'dashboard'),

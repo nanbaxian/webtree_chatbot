@@ -67,6 +67,17 @@ export default function KnowledgeOSDashboard({ section }: { section: Section }) 
   const [data, setData] = useState<DashboardData>(initialData)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0)
+  const [botName, setBotName] = useState('KnowledgeOS Assistant')
+  const [botPersona, setBotPersona] = useState('Professional and concise')
+  const [botTone, setBotTone] = useState('concise')
+  const [sourceName, setSourceName] = useState('Company website')
+  const [sourceType, setSourceType] = useState<DataSource['type']>('website')
+  const [sourceStatus, setSourceStatus] = useState('draft')
+  const [conversationTitle, setConversationTitle] = useState('New conversation')
+  const [conversationBotId, setConversationBotId] = useState('')
+  const [memberUserId, setMemberUserId] = useState('')
+  const [memberRole, setMemberRole] = useState<TenantMember['role']>('member')
 
   useEffect(() => {
     const id = getTenantId()
@@ -104,7 +115,7 @@ export default function KnowledgeOSDashboard({ section }: { section: Section }) 
     return () => {
       active = false
     }
-  }, [])
+  }, [refreshKey])
 
   const title = {
     overview: 'Workspace overview',
@@ -132,6 +143,60 @@ export default function KnowledgeOSDashboard({ section }: { section: Section }) 
       { label: 'Queries', value: latest?.queries_count ?? 0, width: Math.min(100, ((latest?.queries_count ?? 0) / 1000) * 100) },
     ]
   }, [data.usage])
+
+  async function postJson<T>(path: string, body: Record<string, unknown>): Promise<T> {
+    const res = await fetch(path, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Tenant-Id': tenantId,
+      },
+      body: JSON.stringify(body),
+    })
+    if (!res.ok) {
+      const detail = await res.text().catch(() => '')
+      throw new Error(detail || `${path} ${res.status}`)
+    }
+    return res.json() as Promise<T>
+  }
+
+  async function createBot() {
+    await postJson('/api/bots', {
+      name: botName,
+      persona: botPersona,
+      tone: botTone,
+    })
+    setRefreshKey(k => k + 1)
+  }
+
+  async function createSource() {
+    await postJson('/api/sources', {
+      name: sourceName,
+      type: sourceType,
+      status: sourceStatus,
+    })
+    setRefreshKey(k => k + 1)
+  }
+
+  async function createConversation() {
+    const botId = conversationBotId || data.bots[0]?.id
+    if (!botId) {
+      throw new Error('Create a bot first before creating a conversation.')
+    }
+    await postJson('/api/conversations', {
+      title: conversationTitle,
+      bot_id: botId,
+    })
+    setRefreshKey(k => k + 1)
+  }
+
+  async function inviteMember() {
+    await postJson('/api/members', {
+      user_id: memberUserId,
+      role: memberRole,
+    })
+    setRefreshKey(k => k + 1)
+  }
 
   return (
     <main className="min-h-screen bg-[#0b0e13] text-white">
@@ -219,71 +284,164 @@ export default function KnowledgeOSDashboard({ section }: { section: Section }) 
           )}
 
           {section === 'sources' && (
-            <div className="mt-6 overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
-              <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] border-b border-white/10 px-5 py-4 text-xs uppercase tracking-[0.24em] text-white/45">
-                <span>Name</span>
-                <span>Type</span>
-                <span>Status</span>
-                <span>Updated</span>
+            <div className="mt-6 space-y-4">
+              <div className="grid gap-3 rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl md:grid-cols-[1.2fr_0.7fr_0.7fr_auto]">
+                <input
+                  value={sourceName}
+                  onChange={e => setSourceName(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                  placeholder="Source name"
+                />
+                <select
+                  value={sourceType}
+                  onChange={e => setSourceType(e.target.value as DataSource['type'])}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                >
+                  <option value="website">Website</option>
+                  <option value="pdf">PDF</option>
+                  <option value="qa">QA</option>
+                  <option value="manual">Manual</option>
+                </select>
+                <select
+                  value={sourceStatus}
+                  onChange={e => setSourceStatus(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                >
+                  <option value="draft">draft</option>
+                  <option value="ready">ready</option>
+                  <option value="parsing">parsing</option>
+                  <option value="queued">queued</option>
+                </select>
+                <button
+                  onClick={() => void createSource()}
+                  className="rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950"
+                >
+                  Add source
+                </button>
               </div>
-              {data.sources.length === 0 ? (
-                <div className="px-5 py-6 text-sm text-white/55">No sources yet.</div>
-              ) : (
-                data.sources.map(item => (
-                  <div key={item.id} className="grid grid-cols-[1.8fr_1fr_1fr_1fr] border-b border-white/6 px-5 py-4 text-sm last:border-b-0">
-                    <span className="font-medium text-white">{item.name}</span>
-                    <span className="text-white/65">{item.type}</span>
-                    <span className="text-amber-100">{item.status}</span>
-                    <span className="text-white/65">{item.updated_at || item.created_at}</span>
-                  </div>
-                ))
-              )}
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
+                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] border-b border-white/10 px-5 py-4 text-xs uppercase tracking-[0.24em] text-white/45">
+                  <span>Name</span>
+                  <span>Type</span>
+                  <span>Status</span>
+                  <span>Updated</span>
+                </div>
+                {data.sources.length === 0 ? (
+                  <div className="px-5 py-6 text-sm text-white/55">No sources yet.</div>
+                ) : (
+                  data.sources.map(item => (
+                    <div key={item.id} className="grid grid-cols-[1.8fr_1fr_1fr_1fr] border-b border-white/6 px-5 py-4 text-sm last:border-b-0">
+                      <span className="font-medium text-white">{item.name}</span>
+                      <span className="text-white/65">{item.type}</span>
+                      <span className="text-amber-100">{item.status}</span>
+                      <span className="text-white/65">{item.updated_at || item.created_at}</span>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           )}
 
           {section === 'bots' && (
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {data.bots.length === 0 ? (
-                <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl text-sm text-white/55">
-                  No bots yet.
-                </div>
-              ) : (
-                data.bots.map(bot => (
-                  <article key={bot.id} className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl">
-                    <div className="flex items-center justify-between">
-                      <h2 className="text-lg font-semibold">{bot.name}</h2>
-                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs">{bot.language}</span>
-                    </div>
-                    <p className="mt-4 text-sm leading-7 text-white/65">{bot.persona}</p>
-                    <p className="mt-3 text-sm text-white/45">{bot.tone}</p>
-                  </article>
-                ))
-              )}
+            <div className="mt-6 space-y-4">
+              <div className="grid gap-3 rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl md:grid-cols-[1fr_1.2fr_0.8fr_auto]">
+                <input
+                  value={botName}
+                  onChange={e => setBotName(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                  placeholder="Bot name"
+                />
+                <input
+                  value={botPersona}
+                  onChange={e => setBotPersona(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                  placeholder="Persona"
+                />
+                <input
+                  value={botTone}
+                  onChange={e => setBotTone(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                  placeholder="Tone"
+                />
+                <button
+                  onClick={() => void createBot()}
+                  className="rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950"
+                >
+                  Add bot
+                </button>
+              </div>
+              <div className="grid gap-4 md:grid-cols-3">
+                {data.bots.length === 0 ? (
+                  <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl text-sm text-white/55">
+                    No bots yet.
+                  </div>
+                ) : (
+                  data.bots.map(bot => (
+                    <article key={bot.id} className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl">
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-lg font-semibold">{bot.name}</h2>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs">{bot.language}</span>
+                      </div>
+                      <p className="mt-4 text-sm leading-7 text-white/65">{bot.persona}</p>
+                      <p className="mt-3 text-sm text-white/45">{bot.tone}</p>
+                    </article>
+                  ))
+                )}
+              </div>
             </div>
           )}
 
           {section === 'conversations' && (
-            <div className="mt-6 overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
-              <div className="grid grid-cols-[1.2fr_1fr_0.7fr_0.7fr_0.7fr] border-b border-white/10 px-5 py-4 text-xs uppercase tracking-[0.24em] text-white/45">
-                <span>Updated</span>
-                <span>Title</span>
-                <span>Bot</span>
-                <span>Channel</span>
-                <span>Created by</span>
+            <div className="mt-6 space-y-4">
+              <div className="grid gap-3 rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl md:grid-cols-[1.1fr_0.9fr_auto]">
+                <input
+                  value={conversationTitle}
+                  onChange={e => setConversationTitle(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                  placeholder="Conversation title"
+                />
+                <select
+                  value={conversationBotId}
+                  onChange={e => setConversationBotId(e.target.value)}
+                  className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                >
+                  <option value="">Use first bot</option>
+                  {data.bots.map(bot => (
+                    <option key={bot.id} value={bot.id}>
+                      {bot.name}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => void createConversation()}
+                  disabled={data.bots.length === 0}
+                  className="rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950"
+                >
+                  Create conversation
+                </button>
               </div>
-              {data.conversations.length === 0 ? (
-                <div className="px-5 py-6 text-sm text-white/55">No conversations yet.</div>
-              ) : (
-                data.conversations.map(conv => (
-                  <div key={conv.id} className="grid grid-cols-[1.2fr_1fr_0.7fr_0.7fr_0.7fr] border-b border-white/6 px-5 py-4 text-sm last:border-b-0">
-                    <span className="text-white/75">{conv.updated_at}</span>
-                    <span className="font-medium text-white">{conv.title}</span>
-                    <span className="text-white/65">{conv.bot_id}</span>
-                    <span className="text-white/65">{conv.channel}</span>
-                    <span className="text-white/65">{conv.created_by || 'system'}</span>
-                  </div>
-                ))
-              )}
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
+                <div className="grid grid-cols-[1.2fr_1fr_0.7fr_0.7fr_0.7fr] border-b border-white/10 px-5 py-4 text-xs uppercase tracking-[0.24em] text-white/45">
+                  <span>Updated</span>
+                  <span>Title</span>
+                  <span>Bot</span>
+                  <span>Channel</span>
+                  <span>Created by</span>
+                </div>
+                {data.conversations.length === 0 ? (
+                  <div className="px-5 py-6 text-sm text-white/55">No conversations yet.</div>
+                ) : (
+                  data.conversations.map(conv => (
+                    <div key={conv.id} className="grid grid-cols-[1.2fr_1fr_0.7fr_0.7fr_0.7fr] border-b border-white/6 px-5 py-4 text-sm last:border-b-0">
+                      <span className="text-white/75">{conv.updated_at}</span>
+                      <span className="font-medium text-white">{conv.title}</span>
+                      <span className="text-white/65">{conv.bot_id}</span>
+                      <span className="text-white/65">{conv.channel}</span>
+                      <span className="text-white/65">{conv.created_by || 'system'}</span>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           )}
 
@@ -321,6 +479,29 @@ export default function KnowledgeOSDashboard({ section }: { section: Section }) 
             <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_0.8fr]">
               <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl">
                 <div className="text-sm uppercase tracking-[0.24em] text-white/45">Members</div>
+                <div className="mt-4 grid gap-3 md:grid-cols-[1fr_0.6fr_auto]">
+                  <input
+                    value={memberUserId}
+                    onChange={e => setMemberUserId(e.target.value)}
+                    className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                    placeholder="User ID or email"
+                  />
+                  <select
+                    value={memberRole}
+                    onChange={e => setMemberRole(e.target.value as TenantMember['role'])}
+                    className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-white outline-none"
+                  >
+                    <option value="admin">admin</option>
+                    <option value="member">member</option>
+                    <option value="viewer">viewer</option>
+                  </select>
+                  <button
+                    onClick={() => void inviteMember()}
+                    className="rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950"
+                  >
+                    Invite
+                  </button>
+                </div>
                 <div className="mt-4 space-y-3 text-sm">
                   {data.members.length === 0 ? (
                     <div className="text-white/55">No members yet.</div>

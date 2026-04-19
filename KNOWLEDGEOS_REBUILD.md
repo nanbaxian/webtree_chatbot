@@ -23,8 +23,8 @@ This repository is being converted from a personal AI companion into a multi-ten
 
 ## Cloudflare resources to recreate
 
-- Pages project name: `webtree_chatbot_front`
-- Worker / backend project name: `webtree_chatbot_back`
+- Pages project name: `webtree-chatbot-front`
+- Worker / backend project name: `webtree-chatbot-back`
 - R2 bucket: `knowledgeos-assets`
 - KV binding: `VOICE_KV`
 - AI binding: `AI`
@@ -38,7 +38,7 @@ Use this order when recreating the Cloudflare side from scratch:
    - `npx wrangler login`
 2. Recreate the Pages project:
    - `npx wrangler pages project create`
-   - Project name: `webtree_chatbot_front`
+   - Project name: `webtree-chatbot-front`
    - Production branch: your default deploy branch
 3. Recreate the R2 bucket:
    - `npx wrangler r2 bucket create knowledgeos-assets`
@@ -59,7 +59,7 @@ Use this order when recreating the Cloudflare side from scratch:
    - `GEMINI_API_KEY`
    - `CRON_SECRET`
    - Optional CLI equivalent:
-     - `npx wrangler pages secret put NEXT_PUBLIC_SITE_URL --project-name=webtree_chatbot_front`
+     - `npx wrangler pages secret put NEXT_PUBLIC_SITE_URL --project-name=webtree-chatbot-front`
      - repeat for the remaining keys
 8. Recreate worker-level secrets for the cron worker in Cloudflare Workers:
    - `DEEPINFRA_API_KEY`
@@ -68,15 +68,15 @@ Use this order when recreating the Cloudflare side from scratch:
    - `CRON_SECRET`
    - Optional CLI equivalent:
      - `npx wrangler secret put DEEPINFRA_API_KEY`
-     - repeat for the remaining worker secrets in the `webtree_chatbot_back` project
+     - repeat for the remaining worker secrets in the `webtree-chatbot-back` project
 9. Bind the recreated resources back into `wrangler.toml` and `workers/wrangler-cron.toml` with the real IDs Cloudflare gives you.
 
 ## Cloudflare binding map
 
 - Pages app:
-  - `webtree_chatbot_front`
+  - `webtree-chatbot-front`
 - Worker / backend:
-  - `webtree_chatbot_back`
+  - `webtree-chatbot-back`
 - Pages / worker shared storage:
   - `VOICE_KV`
   - `knowledgeos-assets`

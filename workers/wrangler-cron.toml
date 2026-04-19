@@ -1,7 +1,7 @@
-# workers/wrangler-cron.toml - standalone cron worker for webtree_chatbot_back
+# workers/wrangler-cron.toml - standalone cron worker for webtree-chatbot-back
 # Deploy separately because Pages Functions do not support Cron Triggers.
 
-name = "webtree_chatbot_back"
+name = "webtree-chatbot-back"
 main = "cron-worker.ts"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]

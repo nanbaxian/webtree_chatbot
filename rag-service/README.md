@@ -72,8 +72,22 @@ export RAG_API_KEY="your-rag-token"
 npm start
 ```
 
+## Quick QA seed example
+
+You can load sample Q&A pairs with:
+
+```bash
+curl -X POST https://rag.webtreeedu.com/ingest/qa \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-rag-token" \
+  --data-binary @examples/ingest-qa.example.json
+```
+
+If you are running locally, point the URL at `http://127.0.0.1:8789/ingest/qa`.
+
 ## Notes
 
 - Search currently uses PostgreSQL full-text + substring matching so it works now.
 - The `vector` extension is installed and ready for embeddings later.
 - When you add embeddings, you can extend the search SQL without changing the API contract.
+- The chat API returns top citations in `X-KnowledgeOS-Citations` and stores them in `message_citations` for auditability.

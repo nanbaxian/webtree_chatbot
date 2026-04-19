@@ -2,7 +2,14 @@
 // POST /api/chat - KnowledgeOS RAG orchestration entry
 
 import { createApiLogger } from '../../lib/api-log'
-import { buildRagSearchRequest, formatRagPromptBlock, normalizeRagSearchResponse, type RagChunk } from '../../lib/rag-protocol'
+import {
+  buildRagSearchRequest,
+  formatRagPromptBlock,
+  normalizeRagSearchResponse,
+  selectRagCitations,
+  serializeRagCitationsHeader,
+  type RagChunk,
+} from '../../lib/rag-protocol'
 import { streamGemini, streamGeminiFlashLite, type GeminiMessage } from '../../lib/gemini-client'
 import { type ReplyLanguage } from '../../types/index'
 import {
@@ -11,6 +18,7 @@ import {
   getBot,
   getConversation,
   insertMessage,
+  insertMessageCitations,
   listMessages,
   parseSettings,
   readTenantId,
@@ -318,7 +326,11 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
 
   const ragStartedAt = Date.now()
   const rag = await loadRagContext(env, tenantId, bot.id, message, 8, reqId, conversationKey, replyLanguage)
-  await saveRetrievalLog(env, tenantId, bot.id, message, rag.chunks, Date.now() - ragStartedAt)
+  const ragLatencyMs = Date.now() - ragStartedAt
+  await saveRetrievalLog(env, tenantId, bot.id, message, rag.chunks, ragLatencyMs)
+  const citations = selectRagCitations(rag.chunks, 3)
+  const citationsHeader = serializeRagCitationsHeader(citations)
+  const assistantMessageId = crypto.randomUUID()
 
   const systemPrompt = buildSystemPrompt(bot, tenantId, replyLanguage, rag.promptBlock, message)
   const messages = toGeminiHistory(history, message, imageBase64)
@@ -403,7 +415,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
               savedAi = true
               if (env.DB) {
                 void insertMessage(env, {
-                  id: crypto.randomUUID(),
+                  id: assistantMessageId,
                   conversation_id: conversationId,
                   role: 'assistant',
                   content: fullText || '...',
@@ -412,6 +424,9 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
                   output_tokens: 0,
                   created_at: new Date().toISOString(),
                 })
+                if (citations.length > 0) {
+                  void insertMessageCitations(env, assistantMessageId, citations)
+                }
               }
               void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, fullText.length)
               apiLog.ok({
@@ -438,7 +453,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
             savedAi = true
             if (env.DB) {
               void insertMessage(env, {
-                id: crypto.randomUUID(),
+                id: assistantMessageId,
                 conversation_id: conversationId,
                 role: 'assistant',
                 content: fullText || '...',
@@ -447,6 +462,9 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
                 output_tokens: 0,
                 created_at: new Date().toISOString(),
               })
+              if (citations.length > 0) {
+                void insertMessageCitations(env, assistantMessageId, citations)
+              }
             }
             void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, fullText.length)
             apiLog.ok({
@@ -468,12 +486,25 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   return new Response(upstream.pipeThrough(transform), {
     headers: {
       ...cors,
+      'Access-Control-Expose-Headers': [
+        'X-Tenant-Id',
+        'X-Bot-Id',
+        'X-Conversation-Id',
+        'X-KnowledgeOS-Request-Id',
+        'X-KnowledgeOS-Citations',
+        'X-KnowledgeOS-Citation-Count',
+        'X-KnowledgeOS-RAG-Latency-Ms',
+      ].join(', '),
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       'X-Accel-Buffering': 'no',
       'X-Tenant-Id': tenantId,
       'X-Bot-Id': bot.id,
       'X-Conversation-Id': conversationId,
+      'X-KnowledgeOS-Request-Id': reqId,
+      'X-KnowledgeOS-Citations': citationsHeader,
+      'X-KnowledgeOS-Citation-Count': String(citations.length),
+      'X-KnowledgeOS-RAG-Latency-Ms': String(ragLatencyMs),
     },
   })
 }

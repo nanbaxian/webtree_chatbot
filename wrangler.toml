@@ -34,4 +34,7 @@ bucket_name = "knowledgeos-assets"
 # SUPABASE_JWT_AUD=authenticated
 # DEEPINFRA_API_KEY=...
 # GEMINI_API_KEY=... (for image/vision fallback)
+# RAG_API_URL=https://rag.webtreeedu.com
+# RAG_API_KEY=... (if the external RAG service is protected)
+# RAG_REQUEST_TIMEOUT_MS=5000
 # CRON_SECRET=...

@@ -379,6 +379,42 @@ export async function insertMessage(env: D1Env, message: D1Message): Promise<D1M
   return rows?.[0] ?? null
 }
 
+export type D1MessageCitationInput = {
+  id?: string
+  chunk_id?: string | null
+  qa_pair_id?: string | null
+  score?: number | null
+  source_label?: string | null
+  source_url?: string | null
+  page_num?: number | null
+}
+
+export async function insertMessageCitations(
+  env: D1Env,
+  messageId: string,
+  citations: D1MessageCitationInput[],
+): Promise<void> {
+  if (!env.DB || citations.length === 0) return
+  for (const citation of citations) {
+    await dbRun(
+      env,
+      `INSERT INTO message_citations (id, message_id, chunk_id, qa_pair_id, score, source_label, source_url, page_num, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        citation.id ?? crypto.randomUUID(),
+        messageId,
+        citation.chunk_id ?? null,
+        citation.qa_pair_id ?? null,
+        citation.score ?? null,
+        citation.source_label ?? null,
+        citation.source_url ?? null,
+        citation.page_num ?? null,
+        isoNow(),
+      ],
+    )
+  }
+}
+
 export async function updateConversationTouch(env: D1Env, conversationId: string, title?: string): Promise<void> {
   if (!env.DB) return
   if (typeof title === 'string' && title.trim()) {

@@ -1,0 +1,24 @@
+{
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What is KnowledgeOS?",
+      "answer": "KnowledgeOS is a multi-tenant enterprise knowledge chatbot platform with citations, retrieval logs, and auditable answers.",
+      "tags": ["overview", "product"],
+      "priority": 90
+    },
+    {
+      "question": "How do citations work?",
+      "answer": "The chat layer stores top retrieval hits, surfaces them in the response metadata, and renders them as source cards in the UI.",
+      "tags": ["chat", "citations"],
+      "priority": 80
+    },
+    {
+      "question": "Where should source data live?",
+      "answer": "Application metadata stays in Cloudflare D1 while the external RAG corpus lives in PostgreSQL behind the private RAG service.",
+      "tags": ["architecture", "storage"],
+      "priority": 85
+    }
+  ]
+}

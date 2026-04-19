@@ -20,7 +20,22 @@ export interface Message {
   image_preview?: string
   image_url?: string
   is_typing?: boolean
+  citations?: MessageCitationPreview[]
   created_at: string
+}
+
+export interface MessageCitationPreview {
+  id?: string
+  chunk_id?: string | null
+  qa_pair_id?: string | null
+  title?: string | null
+  section?: string | null
+  source_label?: string | null
+  source_url?: string | null
+  page_num?: number | null
+  score?: number | null
+  source_type?: string | null
+  excerpt?: string | null
 }
 
 export interface DbMessage {

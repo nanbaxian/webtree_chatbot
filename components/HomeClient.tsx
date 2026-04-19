@@ -11,6 +11,7 @@ import VoiceCallOverlay from '@/components/VoiceCallOverlay'
 import SettingsPanel from '@/components/SettingsPanel'
 import type { ChatSessionDetail, ChatSessionSummary, Message, Persona, ReplyLanguage } from '@/types'
 import { apiUrl } from '@/lib/api-url'
+import { parseRagCitationsHeader } from '@/lib/rag-protocol'
 import { useI18n } from '@/lib/i18n/context'
 import { localizePersona } from '@/lib/persona-localization'
 
@@ -203,6 +204,7 @@ export default function HomeClient() {
       })
 
       if (!res.ok) throw new Error('API error')
+      const citations = parseRagCitationsHeader(res.headers.get('X-KnowledgeOS-Citations'))
 
       const reader = res.body?.getReader()
       if (!reader) throw new Error('No stream body')
@@ -249,6 +251,7 @@ export default function HomeClient() {
                         id: `ai-${Date.now()}`,
                         is_typing: false,
                         content: finalText,
+                        citations,
                         session_id: sessionId ?? undefined,
                       }
                     : m,

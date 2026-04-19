@@ -31,6 +31,20 @@ export type RagChunk = {
   metadata?: Record<string, unknown>
 }
 
+export type RagCitation = {
+  id?: string
+  chunk_id?: string
+  qa_pair_id?: string
+  title?: string
+  section?: string
+  source_label?: string
+  source_url?: string
+  page_num?: number
+  score?: number
+  source_type?: string
+  excerpt?: string
+}
+
 export type RagSearchResponse = {
   request_id?: string | null
   latency_ms?: number
@@ -151,4 +165,66 @@ export function formatRagPromptBlock(chunks: RagChunk[], topK: number): string {
         .join('\n')
     })
     .join('\n\n')
+}
+
+function clampExcerpt(text: string | undefined, maxChars = 220): string | undefined {
+  if (!text) return undefined
+  const compact = text.replace(/\s+/g, ' ').trim()
+  if (!compact) return undefined
+  if (compact.length <= maxChars) return compact
+  return `${compact.slice(0, maxChars - 1).trimEnd()}...`
+}
+
+function scoreValue(value: unknown): number {
+  return typeof value === 'number' && Number.isFinite(value) ? value : 0
+}
+
+export function selectRagCitations(chunks: RagChunk[], limit = 3): RagCitation[] {
+  return [...chunks]
+    .sort((left, right) => scoreValue(right.score) - scoreValue(left.score))
+    .slice(0, Math.max(0, limit))
+    .map(chunk => ({
+      id: chunk.id || chunk.chunk_id || chunk.qa_pair_id,
+      chunk_id: chunk.chunk_id || chunk.id,
+      qa_pair_id: chunk.qa_pair_id,
+      title: chunk.title,
+      section: chunk.section,
+      source_label: chunk.source_label,
+      source_url: chunk.source_url,
+      page_num: chunk.page_num,
+      score: chunk.score,
+      source_type: chunk.source_type,
+      excerpt: clampExcerpt(chunk.content),
+    }))
+}
+
+export function serializeRagCitationsHeader(citations: RagCitation[]): string {
+  return encodeURIComponent(JSON.stringify(citations))
+}
+
+export function parseRagCitationsHeader(header: string | null | undefined): RagCitation[] {
+  if (!header) return []
+  try {
+    const decoded = decodeURIComponent(header)
+    const parsed = JSON.parse(decoded) as unknown
+    if (!Array.isArray(parsed)) return []
+    return parsed.filter(item => item && typeof item === 'object').map(item => {
+      const record = item as Record<string, unknown>
+      return {
+        id: typeof record.id === 'string' ? record.id : undefined,
+        chunk_id: typeof record.chunk_id === 'string' ? record.chunk_id : undefined,
+        qa_pair_id: typeof record.qa_pair_id === 'string' ? record.qa_pair_id : undefined,
+        title: typeof record.title === 'string' ? record.title : undefined,
+        section: typeof record.section === 'string' ? record.section : undefined,
+        source_label: typeof record.source_label === 'string' ? record.source_label : undefined,
+        source_url: typeof record.source_url === 'string' ? record.source_url : undefined,
+        page_num: typeof record.page_num === 'number' && Number.isFinite(record.page_num) ? record.page_num : undefined,
+        score: typeof record.score === 'number' && Number.isFinite(record.score) ? record.score : undefined,
+        source_type: typeof record.source_type === 'string' ? record.source_type : undefined,
+        excerpt: typeof record.excerpt === 'string' ? record.excerpt : undefined,
+      }
+    })
+  } catch {
+    return []
+  }
 }

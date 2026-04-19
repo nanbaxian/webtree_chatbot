@@ -128,7 +128,29 @@ Each chunk should be able to carry:
 - `source_label`
 - `source_type`
 
-The repo includes a reusable protocol helper at `lib/rag-protocol.ts` and a separate external-worker skeleton in `rag-service/`.
+The repo includes a reusable protocol helper at `lib/rag-protocol.ts` and a runnable PostgreSQL-backed retrieval service in `rag-service/`.
+
+To run the external RAG service on the server:
+
+1. `cd rag-service`
+2. `npm install`
+3. Set `DATABASE_URL` to your PostgreSQL connection string
+4. Run `npm start`
+
+If you want a quick smoke test without the database, set `RAG_MOCK=true` and start the service anyway.
+
+Example connection strings:
+
+- Local PostgreSQL on the same server:
+  - `postgresql://webtree_rag:your_password@127.0.0.1:5432/webtree_rag`
+- Remote PostgreSQL on a cloud server:
+  - `postgresql://webtree_rag:your_password@203.0.113.10:5432/webtree_rag`
+
+Main app example:
+
+- `RAG_API_URL=http://127.0.0.1:8789` for local development
+- `RAG_API_URL=https://rag.your-domain.com` for production
+- `RAG_API_KEY=your-rag-token` if you enabled RAG API authentication
 
 ## Environment variables
 

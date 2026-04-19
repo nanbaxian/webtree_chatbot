@@ -1,3 +1,6 @@
+# Legacy Cloudflare Worker mock/adapter.
+# The primary runtime for the external RAG service is now `server.cjs`.
+
 name = "knowledgeos-rag"
 main = "src/index.ts"
 compatibility_date = "2024-09-23"

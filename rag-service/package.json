@@ -1,0 +1,13 @@
+{
+  "name": "knowledgeos-rag-service",
+  "private": true,
+  "version": "0.1.0",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.cjs",
+    "dev": "node server.cjs"
+  },
+  "dependencies": {
+    "pg": "^8.15.6"
+  }
+}

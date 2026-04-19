@@ -46,6 +46,7 @@ export type RagIngestDocumentRequest = {
     id?: string
     title: string
     file_name?: string | null
+    r2_key?: string | null
     source_url?: string | null
     mime_type?: string | null
     text?: string

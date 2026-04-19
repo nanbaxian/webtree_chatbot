@@ -1,0 +1,14 @@
+[Unit]
+Description=KnowledgeOS RAG Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/knowledgeos/rag-service
+EnvironmentFile=/opt/knowledgeos/rag-service/.env
+ExecStart=/usr/bin/node /opt/knowledgeos/rag-service/server.cjs
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

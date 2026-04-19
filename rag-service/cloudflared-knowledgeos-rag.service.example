@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare Tunnel for KnowledgeOS RAG
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/cloudflared tunnel run knowledgeos-rag
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

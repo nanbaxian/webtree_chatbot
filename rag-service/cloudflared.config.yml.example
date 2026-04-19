@@ -1,0 +1,10 @@
+# cloudflared.config.yml.example
+# Copy to ~/.cloudflared/config.yml on the server running rag-service.
+
+tunnel: YOUR_TUNNEL_UUID
+credentials-file: /root/.cloudflared/YOUR_TUNNEL_UUID.json
+
+ingress:
+  - hostname: rag.your-domain.com
+    service: http://127.0.0.1:8789
+  - service: http_status:404

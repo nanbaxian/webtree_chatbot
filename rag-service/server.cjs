@@ -4,6 +4,7 @@ const http = require('node:http')
 const crypto = require('node:crypto')
 const { Pool } = require('pg')
 
+const HOST = process.env.HOST || '127.0.0.1'
 const PORT = parseInt(process.env.PORT || '8789', 10)
 const DATABASE_URL = process.env.DATABASE_URL || process.env.RAG_DATABASE_URL || ''
 const RAG_API_KEY = process.env.RAG_API_KEY || ''
@@ -489,6 +490,6 @@ const server = http.createServer(async (req, res) => {
   }
 })
 
-server.listen(PORT, () => {
-  console.log(`[rag-service] listening on http://127.0.0.1:${PORT}`)
+server.listen(PORT, HOST, () => {
+  console.log(`[rag-service] listening on http://${HOST}:${PORT}`)
 })

@@ -139,6 +139,23 @@ To run the external RAG service on the server:
 
 If you want a quick smoke test without the database, set `RAG_MOCK=true` and start the service anyway.
 
+To keep the service private behind Cloudflare:
+
+1. Keep `rag-service` bound to `127.0.0.1`.
+2. Run `cloudflared tunnel login` on the server.
+3. Create a tunnel, for example `knowledgeos-rag`.
+4. Route a hostname such as `rag.your-domain.com` to `http://127.0.0.1:8789`.
+5. Protect that hostname with Cloudflare Access or a service token.
+
+The repo includes a tunnel config sample at
+`rag-service/cloudflared.config.yml.example`.
+
+For server installs, also see:
+
+- `rag-service/knowledgeos-rag.service.example`
+- `rag-service/cloudflared-knowledgeos-rag.service.example`
+- `rag-service/deploy-private.md`
+
 Example connection strings:
 
 - Local PostgreSQL on the same server:
@@ -151,6 +168,9 @@ Main app example:
 - `RAG_API_URL=http://127.0.0.1:8789` for local development
 - `RAG_API_URL=https://rag.your-domain.com` for production
 - `RAG_API_KEY=your-rag-token` if you enabled RAG API authentication
+
+If you use Cloudflare Access service tokens, the app can keep calling the
+`RAG_API_URL` hostname while the tunnel blocks direct public access.
 
 ## Environment variables
 

@@ -38,11 +38,22 @@ If you want a reusable config file, copy `.env.example` to `.env` and fill in
 
 Optional environment variables:
 
+- `HOST` default `127.0.0.1` so the service does not expose a public port
 - `PORT` default `8789`
 - `RAG_API_KEY` if you want to protect the API with a bearer token
 - `PGPOOL_MAX` to tune PostgreSQL pool size
 - `PGSSLMODE=disable` if you are connecting to a local non-SSL database
 - `RAG_MOCK=true` to run without a database
+
+If you are using Cloudflare Tunnel, copy
+[`cloudflared.config.yml.example`](./cloudflared.config.yml.example) to
+`~/.cloudflared/config.yml`, then run the tunnel against `http://127.0.0.1:8789`.
+
+For a long-running server install, see:
+
+- [`knowledgeos-rag.service.example`](./knowledgeos-rag.service.example)
+- [`cloudflared-knowledgeos-rag.service.example`](./cloudflared-knowledgeos-rag.service.example)
+- [`deploy-private.md`](./deploy-private.md)
 
 ## Example connection strings
 
@@ -55,6 +66,7 @@ For a local shell session on Ubuntu:
 
 ```bash
 export DATABASE_URL="postgresql://webtree_rag:your_password@203.0.113.10:5432/webtree_rag"
+export HOST=127.0.0.1
 export PORT=8789
 export RAG_API_KEY="your-rag-token"
 npm start

@@ -2,6 +2,7 @@
 // POST /api/chat - KnowledgeOS RAG orchestration entry
 
 import { createApiLogger } from '../../lib/api-log'
+import { buildRagSearchRequest, formatRagPromptBlock, normalizeRagSearchResponse, type RagChunk } from '../../lib/rag-protocol'
 import { streamGemini, streamGeminiFlashLite, type GeminiMessage } from '../../lib/gemini-client'
 import { type ReplyLanguage } from '../../types/index'
 import {
@@ -31,17 +32,8 @@ interface Env extends D1Env {
   DEEPINFRA_COALESCE_CHARS?: string
   RAG_API_URL?: string
   RAG_API_KEY?: string
+  RAG_REQUEST_TIMEOUT_MS?: string
   AI: Ai
-}
-
-type RAGChunk = {
-  title?: string
-  section?: string
-  source_url?: string
-  page_num?: number
-  content?: string
-  score?: number
-  source_label?: string
 }
 
 function extractR2KeyFromUrl(imageUrl: string): string | null {
@@ -78,7 +70,10 @@ async function loadRagContext(
   botId: string,
   query: string,
   topK: number,
-): Promise<{ chunks: RAGChunk[]; promptBlock: string }> {
+  requestId: string,
+  conversationId?: string | null,
+  locale?: ReplyLanguage,
+): Promise<{ chunks: RagChunk[]; promptBlock: string }> {
   if (!env.RAG_API_URL) {
     return {
       chunks: [],
@@ -91,13 +86,32 @@ async function loadRagContext(
   }
 
   try {
+    const abortController = new AbortController()
+    const timeoutMs = Number.parseInt(env.RAG_REQUEST_TIMEOUT_MS || '', 10)
+    const timeout = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 5000
+    const timer = setTimeout(() => abortController.abort('RAG request timed out'), timeout)
+    const request = buildRagSearchRequest({
+      tenantId,
+      botId,
+      query,
+      topK,
+      conversationId,
+      requestId,
+      locale,
+    })
     const res = await fetch(`${env.RAG_API_URL.replace(/\/+$/, '')}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'X-Tenant-Id': tenantId,
+        'X-Bot-Id': botId,
+        'X-Request-Id': requestId,
         ...(env.RAG_API_KEY ? { Authorization: `Bearer ${env.RAG_API_KEY}` } : {}),
       },
-      body: JSON.stringify({ tenant_id: tenantId, bot_id: botId, query, top_k: topK }),
+      body: JSON.stringify(request),
+      signal: abortController.signal,
+    }).finally(() => {
+      clearTimeout(timer)
     })
     if (!res.ok) {
       return {
@@ -105,24 +119,9 @@ async function loadRagContext(
         promptBlock: `External RAG service returned ${res.status}.`,
       }
     }
-    const data = (await res.json()) as { chunks?: RAGChunk[] }
-    const chunks = Array.isArray(data.chunks) ? data.chunks : []
-    const promptBlock = chunks.length
-      ? chunks
-          .slice(0, topK)
-          .map((chunk, idx) => {
-            const label = chunk.source_label || chunk.title || `Source ${idx + 1}`
-            const location = [chunk.section, chunk.page_num ? `page ${chunk.page_num}` : null].filter(Boolean).join(' / ')
-            return [
-              `- ${label}${location ? ` (${location})` : ''}`,
-              chunk.source_url ? `  URL: ${chunk.source_url}` : '',
-              chunk.content ? `  Excerpt: ${chunk.content.slice(0, 500)}` : '',
-            ]
-              .filter(Boolean)
-              .join('\n')
-          })
-          .join('\n\n')
-      : 'No relevant chunks were returned by the external RAG service.'
+    const data = normalizeRagSearchResponse(await res.json())
+    const chunks = data.chunks
+    const promptBlock = formatRagPromptBlock(chunks, topK)
     return { chunks, promptBlock }
   } catch (error) {
     console.error('[knowledgeos:rag] retrieval failed', error)
@@ -223,7 +222,7 @@ async function saveRetrievalLog(
   tenantId: string,
   botId: string,
   query: string,
-  chunks: RAGChunk[],
+  chunks: RagChunk[],
   latencyMs: number,
 ): Promise<void> {
   if (!env.DB) return
@@ -318,7 +317,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const history = Array.isArray(recentMessages) ? recentMessages : []
 
   const ragStartedAt = Date.now()
-  const rag = await loadRagContext(env, tenantId, bot.id, message, 8)
+  const rag = await loadRagContext(env, tenantId, bot.id, message, 8, reqId, conversationKey, replyLanguage)
   await saveRetrievalLog(env, tenantId, bot.id, message, rag.chunks, Date.now() - ragStartedAt)
 
   const systemPrompt = buildSystemPrompt(bot, tenantId, replyLanguage, rag.promptBlock, message)

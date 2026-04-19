@@ -90,6 +90,46 @@ Use this order when recreating the Cloudflare side from scratch:
 - Keep the RAG corpus in the external cloud database later, as planned.
 - Apply `schema-knowledgeos.sql` only to that external RAG database, not to D1.
 
+## External RAG contract
+
+The chat orchestration layer expects the retrieval service to expose:
+
+- `GET /health`
+- `POST /search`
+- `POST /ingest/document`
+- `POST /ingest/qa`
+
+`POST /search` should accept:
+
+- `tenant_id`
+- `bot_id`
+- `query`
+- `top_k`
+- optional `conversation_id`
+- optional `request_id`
+- optional `locale`
+- optional `filters`
+
+`POST /search` should return:
+
+- `request_id`
+- `latency_ms`
+- `chunks`
+- optional `warnings`
+
+Each chunk should be able to carry:
+
+- `title`
+- `section`
+- `content`
+- `source_url`
+- `page_num`
+- `score`
+- `source_label`
+- `source_type`
+
+The repo includes a reusable protocol helper at `lib/rag-protocol.ts` and a separate external-worker skeleton in `rag-service/`.
+
 ## Environment variables
 
 Set these in Cloudflare Pages and local dev as needed:

@@ -18,3 +18,8 @@ SUPABASE_SERVICE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.your-service-role-key
 SUPABASE_JWT_ISS=https://xxxxxxxx.supabase.co/auth/v1
 SUPABASE_JWT_AUD=authenticated
 CRON_SECRET=any-random-string-you-choose
+
+# Optional external RAG service used by /api/chat.
+RAG_API_URL=
+RAG_API_KEY=
+RAG_REQUEST_TIMEOUT_MS=5000

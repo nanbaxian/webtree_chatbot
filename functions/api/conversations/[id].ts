@@ -1,6 +1,15 @@
 import { createApiLogger } from '../../../lib/api-log'
 import { json, options } from '../_knowledgeos-shared'
-import { deleteConversation, getConversation, readTenantId, type D1Conversation, type D1Env, upsertConversation } from '../../../lib/knowledgeos-d1'
+import {
+  deleteConversation,
+  getConversation,
+  listMessageCitations,
+  listMessages,
+  readTenantId,
+  type D1Conversation,
+  type D1Env,
+  upsertConversation,
+} from '../../../lib/knowledgeos-d1'
 
 interface Env extends D1Env {}
 
@@ -11,7 +20,35 @@ export const onRequestGet: PagesFunction<Env, 'id'> = async ctx => {
   log.start()
   const conversationId = ctx.params.id
   const row = await getConversation(ctx.env, conversationId)
-  if (row) return json(row)
+  if (row) {
+    const [messages, citations] = await Promise.all([
+      listMessages(ctx.env, conversationId, 100),
+      listMessageCitations(ctx.env, conversationId),
+    ])
+    const citationMap = new Map<string, Array<Record<string, unknown>>>()
+    for (const citation of citations || []) {
+      const mapped = {
+        id: citation.id,
+        chunk_id: citation.chunk_id,
+        qa_pair_id: citation.qa_pair_id,
+        score: citation.score,
+        source_label: citation.source_label,
+        source_url: citation.source_url,
+        page_num: citation.page_num,
+        created_at: citation.created_at,
+      }
+      const list = citationMap.get(citation.message_id) || []
+      list.push(mapped)
+      citationMap.set(citation.message_id, list)
+    }
+    return json({
+      ...row,
+      messages: (messages || []).map(message => ({
+        ...message,
+        citations: citationMap.get(message.id) || [],
+      })),
+    })
+  }
   return json({ error: 'Conversation not found' }, 404)
 }
 

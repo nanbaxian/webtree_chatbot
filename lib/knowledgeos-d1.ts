@@ -367,6 +367,18 @@ export async function listMessages(env: D1Env, conversationId: string, limit = 2
   )
 }
 
+export type D1MessageCitationRow = {
+  id: string
+  message_id: string
+  chunk_id: string | null
+  qa_pair_id: string | null
+  score: number | null
+  source_label: string | null
+  source_url: string | null
+  page_num: number | null
+  created_at: string
+}
+
 export async function insertMessage(env: D1Env, message: D1Message): Promise<D1Message | null> {
   if (!env.DB) return null
   const rows = await dbAll<D1Message>(
@@ -377,6 +389,18 @@ export async function insertMessage(env: D1Env, message: D1Message): Promise<D1M
     [message.id, message.conversation_id, message.role, message.content, message.model, message.input_tokens, message.output_tokens, message.created_at],
   )
   return rows?.[0] ?? null
+}
+
+export async function listMessageCitations(env: D1Env, conversationId: string): Promise<D1MessageCitationRow[] | null> {
+  return dbAll<D1MessageCitationRow>(
+    env,
+    `SELECT mc.*
+     FROM message_citations mc
+     INNER JOIN messages m ON m.id = mc.message_id
+     WHERE m.conversation_id = ?
+     ORDER BY mc.created_at ASC`,
+    [conversationId],
+  )
 }
 
 export type D1MessageCitationInput = {

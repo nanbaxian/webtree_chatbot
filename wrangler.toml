@@ -1,8 +1,8 @@
-# wrangler.toml - Cloudflare Pages configuration for KnowledgeOS
+# wrangler.toml - Cloudflare Pages configuration for webtree_chatbot_front
 # Recreate the Pages project and bindings in the Cloudflare dashboard before deploying.
 # Pages Functions do not support Cron Triggers, so the cron worker stays separate.
 
-name = "knowledgeos-web"
+name = "webtree_chatbot_front"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "out"

@@ -30,7 +30,7 @@ database_id = "c54b61b6-2f7b-4851-b3af-c44d489234b7"
 # Apply: schema-knowledgeos-d1.sql
 #
 # Cloudflare Dashboard variables to recreate:
-# NEXT_PUBLIC_SITE_URL=https://aiassistant.webtreedu.com
+# NEXT_PUBLIC_SITE_URL=https://aiassistant.webtreeedu.com
 # NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxx.supabase.co
 # NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 # SUPABASE_SERVICE_KEY=...

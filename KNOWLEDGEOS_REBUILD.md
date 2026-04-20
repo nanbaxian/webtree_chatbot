@@ -49,27 +49,34 @@ Use this order when recreating the Cloudflare side from scratch:
 6. Apply the D1 schema:
    - `npx wrangler d1 execute knowledgeos_app --file=./schema-knowledgeos-d1.sql`
 7. Recreate Pages secrets in the Cloudflare dashboard:
-   - `NEXT_PUBLIC_SITE_URL`
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_KEY`
-   - `SUPABASE_JWT_ISS`
-   - `SUPABASE_JWT_AUD`
-   - `OPENAI_API_KEY`
-   - `OPENAI_MODEL`
-   - `CRON_SECRET`
+    - `NEXT_PUBLIC_SITE_URL`
+    - `NEXT_PUBLIC_SUPABASE_URL`
+    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+    - `SUPABASE_SERVICE_KEY`
+    - `SUPABASE_JWT_ISS`
+    - `SUPABASE_JWT_AUD`
+    - `CHAT_BACKEND_URL`
+    - `OPENAI_MODEL`
+    - `CRON_SECRET`
    - Optional CLI equivalent:
      - `npx wrangler pages secret put NEXT_PUBLIC_SITE_URL --project-name=webtree-chatbot-front`
      - repeat for the remaining keys
 8. Recreate worker-level secrets for the cron worker in Cloudflare Workers:
-   - `OPENAI_API_KEY`
-   - `SUPABASE_URL`
-   - `SUPABASE_SERVICE_KEY`
-   - `CRON_SECRET`
-   - Optional CLI equivalent:
-     - `npx wrangler secret put OPENAI_API_KEY`
-     - repeat for the remaining worker secrets in the `webtree-chatbot-back` project
-9. Bind the recreated resources back into `wrangler.toml` and `workers/wrangler-cron.toml` with the real IDs Cloudflare gives you.
+    - `OPENAI_API_KEY`
+    - `SUPABASE_URL`
+    - `SUPABASE_SERVICE_KEY`
+    - `CRON_SECRET`
+    - Optional CLI equivalent:
+      - `npx wrangler secret put OPENAI_API_KEY`
+    - repeat for the remaining worker secrets in the `webtree-chatbot-cron` project
+9. Recreate worker-level secrets for the chat backend worker:
+    - `OPENAI_API_KEY`
+    - `OPENAI_ORG_ID` if you use one
+    - `OPENAI_PROJECT_ID` if you use one
+    - Optional CLI equivalent:
+      - `npx wrangler secret put OPENAI_API_KEY --config workers/wrangler-cron.toml`
+      - repeat for any optional OpenAI organization/project secrets
+10. Bind the recreated resources back into `wrangler.toml` and `workers/wrangler-cron.toml` with the real IDs Cloudflare gives you.
 
 ## Cloudflare binding map
 
@@ -168,6 +175,8 @@ Main app example:
 - `RAG_API_URL=http://127.0.0.1:8789` for local development
 - `RAG_API_URL=https://rag.your-domain.com` for production
 - `RAG_API_KEY=your-rag-token` if you enabled RAG API authentication
+- `CHAT_BACKEND_URL=http://127.0.0.1:8788` for local development
+- `CHAT_BACKEND_URL=https://webtree-chatbot-back.<your-workers-domain>` for production
 
 If you use Cloudflare Access service tokens, the app can keep calling the
 `RAG_API_URL` hostname while the tunnel blocks direct public access.
@@ -182,7 +191,7 @@ Set these in Cloudflare Pages and local dev as needed:
 - `SUPABASE_SERVICE_KEY`
 - `SUPABASE_JWT_ISS`
 - `SUPABASE_JWT_AUD`
-- `OPENAI_API_KEY`
+- `CHAT_BACKEND_URL`
 - `OPENAI_MODEL`
 - `CRON_SECRET`
 

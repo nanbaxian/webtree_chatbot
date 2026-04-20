@@ -2,10 +2,7 @@
 # Do not commit real secrets.
 
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-OPENAI_API_KEY=your-openai-api-key-here
-OPENAI_MODEL=gpt-4.1-nano
-OPENAI_MAX_TOKENS=220
-OPENAI_COALESCE_CHARS=14
+CHAT_BACKEND_URL=http://127.0.0.1:8790
 DEEPGRAM_API_KEY=your-deepgram-api-key-here
 DEEPGRAM_TTS_MODEL_EN=aura-2-thalia-en
 GOOGLE_TTS_API_KEY=your-google-tts-api-key-here
@@ -21,3 +18,5 @@ CRON_SECRET=any-random-string-you-choose
 RAG_API_URL=
 RAG_API_KEY=
 RAG_REQUEST_TIMEOUT_MS=5000
+
+# OPENAI_API_KEY belongs to webtree_chatbot_back, not the Pages frontend.

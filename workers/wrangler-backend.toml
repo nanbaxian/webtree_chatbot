@@ -1,0 +1,15 @@
+# workers/wrangler-backend.toml - backend chat worker for webtree-chatbot-back
+# This worker owns OPENAI_API_KEY and is called by the Pages frontend.
+
+name = "webtree-chatbot-back"
+main = "chat-backend.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+OPENAI_MODEL = "gpt-4.1-nano"
+
+# Recreate these secrets in the Worker namespace:
+# OPENAI_API_KEY
+# OPENAI_ORG_ID
+# OPENAI_PROJECT_ID

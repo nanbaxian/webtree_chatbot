@@ -10,7 +10,7 @@ import {
   serializeRagCitationsHeader,
   type RagChunk,
 } from '../../lib/rag-protocol'
-import { streamOpenAIChat, type OpenAIMessage } from '../../lib/openai-client'
+import { type OpenAIMessage } from '../../lib/openai-client'
 import { type ReplyLanguage } from '../../types/index'
 import {
   botSeed,
@@ -31,12 +31,11 @@ import {
 
 interface Env extends D1Env {
   BUCKET: R2Bucket
-  OPENAI_API_KEY: string
   OPENAI_MODEL?: string
   OPENAI_MAX_TOKENS?: string
   OPENAI_COALESCE_CHARS?: string
-  OPENAI_ORG_ID?: string
-  OPENAI_PROJECT_ID?: string
+  CHAT_BACKEND_URL: string
+  CHAT_BACKEND_TIMEOUT_MS?: string
   RAG_API_URL?: string
   RAG_API_KEY?: string
   RAG_REQUEST_TIMEOUT_MS?: string
@@ -354,7 +353,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const maxOutputTokens = voiceMode ? 64 : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10)
   const coalesceChars = voiceMode ? 4 : Number.parseInt(env.OPENAI_COALESCE_CHARS || '', 10)
   const openaiModel = env.OPENAI_MODEL || 'gpt-4.1-nano'
-  const provider = 'openai'
+  const provider = 'worker-backend'
 
   apiLog.info('generation:start', {
     tenantId,
@@ -368,19 +367,45 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
 
   let upstream: ReadableStream<Uint8Array>
   try {
-    if (!env.OPENAI_API_KEY) {
-      apiLog.fail('missing OPENAI_API_KEY', { stage: 'model', provider: 'openai' })
-      return errJson('缺少 OPENAI_API_KEY', 500)
+    if (!env.CHAT_BACKEND_URL) {
+      apiLog.fail('missing CHAT_BACKEND_URL', { stage: 'model', provider })
+      return errJson('缺少 CHAT_BACKEND_URL', 500)
     }
-    upstream = await streamOpenAIChat(env.OPENAI_API_KEY, systemPrompt, messages, {
-      debug: true,
-      reqId,
-      model: openaiModel,
-      maxOutputTokens: Number.isFinite(maxOutputTokens) ? maxOutputTokens : undefined,
-      coalesceChars: Number.isFinite(coalesceChars) ? coalesceChars : undefined,
-      orgId: env.OPENAI_ORG_ID,
-      projectId: env.OPENAI_PROJECT_ID,
+    const backendAbort = new AbortController()
+    const timeoutMs = Number.parseInt(env.CHAT_BACKEND_TIMEOUT_MS || '', 10)
+    const timeout = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 60000
+    const timer = setTimeout(() => backendAbort.abort('chat backend timed out'), timeout)
+    const backendRes = await fetch(`${env.CHAT_BACKEND_URL.replace(/\/+$/, '')}/chat`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-KnowledgeOS-Request-Id': reqId,
+      },
+      body: JSON.stringify({
+        systemPrompt,
+        messages,
+        model: openaiModel,
+        maxOutputTokens: Number.isFinite(maxOutputTokens) ? maxOutputTokens : undefined,
+        coalesceChars: Number.isFinite(coalesceChars) ? coalesceChars : undefined,
+        reqId,
+      }),
+      signal: backendAbort.signal,
+    }).finally(() => {
+      clearTimeout(timer)
     })
+    if (!backendRes.ok) {
+      const errText = await backendRes.text()
+      apiLog.fail(`backend status=${backendRes.status} body=${errText.slice(0, 300)}`, {
+        stage: 'model',
+        provider,
+      })
+      return errJson(`模型后端错误: ${errText.slice(0, 180) || backendRes.status}`, 500)
+    }
+    if (!backendRes.body) {
+      apiLog.fail('backend body empty', { stage: 'model', provider })
+      return errJson('模型调用失败', 500)
+    }
+    upstream = backendRes.body
   } catch (error) {
     apiLog.fail(error, { stage: 'model', provider })
     return errJson('模型调用失败', 500)

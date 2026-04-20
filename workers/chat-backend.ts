@@ -1,8 +1,6 @@
-// workers/cron-worker.ts
-// Standalone Cloudflare Worker for Cron Trigger and chat backend.
-// Deploy with: wrangler deploy --config workers/wrangler-cron.toml
+// workers/chat-backend.ts
+// Cloudflare Worker backend for OpenAI chat generation.
 
-import { compressMemories } from '../lib/memory-engine'
 import { streamOpenAIChat, type OpenAIMessage } from '../lib/openai-client'
 
 interface Env {
@@ -12,9 +10,6 @@ interface Env {
   OPENAI_COALESCE_CHARS?: string
   OPENAI_ORG_ID?: string
   OPENAI_PROJECT_ID?: string
-  SUPABASE_URL: string
-  SUPABASE_SERVICE_KEY: string
-  AI: Ai
 }
 
 interface ChatRequestBody {
@@ -44,21 +39,6 @@ function json(body: unknown, init: ResponseInit = {}): Response {
 }
 
 export default {
-  async scheduled(_event: ScheduledEvent, env: Env): Promise<void> {
-    console.log('[cron] Starting memory compression...')
-    try {
-      await compressMemories(
-        env.SUPABASE_URL,
-        env.SUPABASE_SERVICE_KEY,
-        env.OPENAI_API_KEY,
-        env.AI,
-      )
-      console.log('[cron] Done.')
-    } catch (err) {
-      console.error('[cron] Failed:', err)
-    }
-  },
-
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url)
 
@@ -76,22 +56,29 @@ export default {
     }
 
     if (request.method !== 'POST' || url.pathname !== '/chat') {
-      return new Response('POST /chat only', { status: 405, headers: cors })
+      return json({ error: 'Not found' }, { status: 404 })
+    }
+
+    if (!env.OPENAI_API_KEY) {
+      return json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 })
+    }
+
+    let body: ChatRequestBody
+    try {
+      body = (await request.json()) as ChatRequestBody
+    } catch {
+      return json({ error: 'Invalid JSON' }, { status: 400 })
+    }
+
+    const systemPrompt = String(body.systemPrompt || '').trim()
+    const messages = Array.isArray(body.messages) ? body.messages : []
+    if (!systemPrompt || !messages.length) {
+      return json({ error: 'systemPrompt and messages are required' }, { status: 400 })
     }
 
     try {
-      const body = (await request.json()) as ChatRequestBody
-      const systemPrompt = String(body.systemPrompt || '').trim()
-      const messages = Array.isArray(body.messages) ? body.messages : []
-      if (!systemPrompt || !messages.length) {
-        return json({ error: 'systemPrompt and messages are required' }, { status: 400 })
-      }
-      if (!env.OPENAI_API_KEY) {
-        return json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 })
-      }
-
       const stream = await streamOpenAIChat(env.OPENAI_API_KEY, systemPrompt, messages, {
-        reqId: body.reqId || 'cron-worker',
+        reqId: body.reqId || 'backend',
         model: body.model || env.OPENAI_MODEL || 'gpt-4.1-nano',
         maxOutputTokens: Number.isFinite(body.maxOutputTokens)
           ? body.maxOutputTokens
@@ -111,9 +98,9 @@ export default {
           'X-Accel-Buffering': 'no',
         },
       })
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err)
-      return json({ error: msg }, { status: 500 })
+    } catch (error) {
+      console.error('[chat-backend] generation failed', error)
+      return json({ error: error instanceof Error ? error.message : 'Generation failed' }, { status: 500 })
     }
   },
 }

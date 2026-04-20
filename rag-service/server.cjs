@@ -23,9 +23,13 @@ const pool = DATABASE_URL
   ? new Pool({
       connectionString: DATABASE_URL,
       max: parseInt(process.env.PGPOOL_MAX || '10', 10),
+      connectionTimeoutMillis: parseInt(process.env.DATABASE_CONNECT_TIMEOUT_MS || '5000', 10),
       ssl: String(process.env.PGSSLMODE || '').toLowerCase() === 'disable' ? undefined : false,
     })
   : null
+
+let schemaBootstrapReady = false
+let schemaBootstrapError = null
 
 const cors = {
   'Access-Control-Allow-Origin': '*',
@@ -140,6 +144,7 @@ async function bootstrapSchema() {
     const schemaSql = await fs.readFile(SCHEMA_PATH, 'utf8')
     await client.query(schemaSql)
     console.log('[rag-service] schema bootstrap complete')
+    schemaBootstrapReady = true
   } finally {
     client.release()
   }
@@ -170,11 +175,14 @@ async function health() {
       mock_mode: true,
       database: null,
       vector_extension: false,
+      schema_bootstrap_ready: schemaBootstrapReady,
+      schema_bootstrap_error: schemaBootstrapError,
     }
   }
 
-  const client = await pool.connect()
   try {
+    const client = await pool.connect()
+    try {
     const vector = await client.query(`SELECT EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'vector') AS installed`)
     const version = await client.query(`SELECT version() AS version`)
     return {
@@ -184,9 +192,23 @@ async function health() {
       database: true,
       vector_extension: Boolean(vector.rows[0]?.installed),
       postgres_version: version.rows[0]?.version || null,
+      schema_bootstrap_ready: schemaBootstrapReady,
+      schema_bootstrap_error: schemaBootstrapError,
     }
-  } finally {
-    client.release()
+    } finally {
+      client.release()
+    }
+  } catch (error) {
+    return {
+      ok: false,
+      service: 'knowledgeos-rag',
+      mock_mode: false,
+      database: false,
+      vector_extension: false,
+      error: error instanceof Error ? error.message : String(error),
+      schema_bootstrap_ready: schemaBootstrapReady,
+      schema_bootstrap_error: schemaBootstrapError,
+    }
   }
 }
 
@@ -491,8 +513,6 @@ async function ingestQa(req) {
 }
 
 async function main() {
-  await bootstrapSchema()
-
   const server = http.createServer(async (req, res) => {
     const started = Date.now()
     try {
@@ -547,6 +567,11 @@ async function main() {
 
   server.listen(PORT, HOST, () => {
     console.log(`[rag-service] listening on http://${HOST}:${PORT}`)
+  })
+
+  bootstrapSchema().catch(error => {
+    schemaBootstrapError = error instanceof Error ? error.message : String(error)
+    console.error('[rag-service] schema bootstrap failed', error)
   })
 }
 

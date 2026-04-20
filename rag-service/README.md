@@ -42,6 +42,7 @@ Optional environment variables:
 - `PORT` default `8789`
 - `RAG_API_KEY` if you want to protect the API with a bearer token
 - `PGPOOL_MAX` to tune PostgreSQL pool size
+- `DATABASE_CONNECT_TIMEOUT_MS` to reduce how long startup waits for PostgreSQL
 - `PGSSLMODE=disable` if you are connecting to a local non-SSL database
 - `RAG_MOCK=true` to run without a database
 - `RAG_AUTO_INIT_SCHEMA=true` to bootstrap `schema-knowledgeos.sql` on startup when tables are missing
@@ -92,9 +93,14 @@ The service will automatically apply [`../schema-knowledgeos.sql`](../schema-kno
 on startup when it detects missing core tables. This keeps the long-term RAG
 PostgreSQL self-healing if the schema has not been initialized yet.
 
+If PostgreSQL is temporarily unreachable, the service still starts and reports
+the error in `GET /health` instead of exiting. That makes Cloudflare Tunnel
+failures show up as backend health issues instead of immediate 502s.
+
 ## Notes
 
 - Search currently uses PostgreSQL full-text + substring matching so it works now.
 - The `vector` extension is installed and ready for embeddings later.
+- The schema no longer depends on `pgcrypto`; IDs are generated in the application layer.
 - When you add embeddings, you can extend the search SQL without changing the API contract.
 - The chat API returns top citations in `X-KnowledgeOS-Citations` and stores them in `message_citations` for auditability.

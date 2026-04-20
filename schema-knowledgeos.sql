@@ -2,12 +2,11 @@
 -- Target: Hostinger PostgreSQL or any pgvector-enabled Postgres
 -- Apply before wiring API routes that depend on these tables.
 
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE EXTENSION IF NOT EXISTS vector;
 
 -- Tenants and access control
 CREATE TABLE IF NOT EXISTS tenants (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
   slug TEXT NOT NULL UNIQUE,
   plan TEXT NOT NULL DEFAULT 'starter',
@@ -37,7 +36,7 @@ CREATE TABLE IF NOT EXISTS tenant_members (
 );
 
 CREATE TABLE IF NOT EXISTS bots (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   name TEXT NOT NULL,
   persona TEXT NOT NULL DEFAULT 'Professional',
@@ -54,7 +53,7 @@ CREATE INDEX IF NOT EXISTS idx_bots_tenant_id ON bots(tenant_id);
 
 -- Knowledge sources and documents
 CREATE TABLE IF NOT EXISTS data_sources (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   bot_id TEXT REFERENCES bots(id) ON DELETE SET NULL,
   type TEXT NOT NULL CHECK (type IN ('website', 'pdf', 'qa', 'manual')),
@@ -69,7 +68,7 @@ CREATE INDEX IF NOT EXISTS idx_data_sources_tenant_id ON data_sources(tenant_id)
 CREATE INDEX IF NOT EXISTS idx_data_sources_bot_id ON data_sources(bot_id);
 
 CREATE TABLE IF NOT EXISTS documents (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   source_id TEXT REFERENCES data_sources(id) ON DELETE SET NULL,
   title TEXT NOT NULL,
@@ -88,7 +87,7 @@ CREATE INDEX IF NOT EXISTS idx_documents_source_id ON documents(source_id);
 CREATE INDEX IF NOT EXISTS idx_documents_status ON documents(status);
 
 CREATE TABLE IF NOT EXISTS document_versions (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   doc_id TEXT NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
   version INTEGER NOT NULL,
   r2_key TEXT,
@@ -97,7 +96,7 @@ CREATE TABLE IF NOT EXISTS document_versions (
 );
 
 CREATE TABLE IF NOT EXISTS document_chunks (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   doc_id TEXT NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   content TEXT NOT NULL,
@@ -116,7 +115,7 @@ CREATE INDEX IF NOT EXISTS idx_document_chunks_tenant_id ON document_chunks(tena
 CREATE INDEX IF NOT EXISTS idx_document_chunks_doc_id ON document_chunks(doc_id);
 
 CREATE TABLE IF NOT EXISTS qa_pairs (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   bot_id TEXT REFERENCES bots(id) ON DELETE SET NULL,
   question TEXT NOT NULL,
@@ -133,7 +132,7 @@ CREATE INDEX IF NOT EXISTS idx_qa_pairs_bot_id ON qa_pairs(bot_id);
 
 -- Conversations and messages
 CREATE TABLE IF NOT EXISTS conversations (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   bot_id TEXT NOT NULL REFERENCES bots(id) ON DELETE CASCADE,
   created_by TEXT REFERENCES users(id) ON DELETE SET NULL,
@@ -147,7 +146,7 @@ CREATE INDEX IF NOT EXISTS idx_conversations_tenant_id ON conversations(tenant_i
 CREATE INDEX IF NOT EXISTS idx_conversations_bot_id ON conversations(bot_id);
 
 CREATE TABLE IF NOT EXISTS messages (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   conversation_id TEXT NOT NULL REFERENCES conversations(id) ON DELETE CASCADE,
   role TEXT NOT NULL CHECK (role IN ('user', 'assistant', 'system')),
   content TEXT NOT NULL,
@@ -160,7 +159,7 @@ CREATE TABLE IF NOT EXISTS messages (
 CREATE INDEX IF NOT EXISTS idx_messages_conversation_id ON messages(conversation_id);
 
 CREATE TABLE IF NOT EXISTS message_citations (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   message_id TEXT NOT NULL REFERENCES messages(id) ON DELETE CASCADE,
   chunk_id TEXT REFERENCES document_chunks(id) ON DELETE SET NULL,
   qa_pair_id TEXT REFERENCES qa_pairs(id) ON DELETE SET NULL,
@@ -174,7 +173,7 @@ CREATE TABLE IF NOT EXISTS message_citations (
 CREATE INDEX IF NOT EXISTS idx_message_citations_message_id ON message_citations(message_id);
 
 CREATE TABLE IF NOT EXISTS conversation_summaries (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   conversation_id TEXT NOT NULL REFERENCES conversations(id) ON DELETE CASCADE,
   summary TEXT NOT NULL,
   token_count INTEGER NOT NULL DEFAULT 0,
@@ -184,7 +183,7 @@ CREATE TABLE IF NOT EXISTS conversation_summaries (
 
 -- Async jobs
 CREATE TABLE IF NOT EXISTS ingestion_jobs (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   doc_id TEXT REFERENCES documents(id) ON DELETE SET NULL,
   status TEXT NOT NULL DEFAULT 'queued',
@@ -197,7 +196,7 @@ CREATE TABLE IF NOT EXISTS ingestion_jobs (
 );
 
 CREATE TABLE IF NOT EXISTS crawl_jobs (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   source_id TEXT REFERENCES data_sources(id) ON DELETE SET NULL,
   url TEXT NOT NULL,
@@ -211,7 +210,7 @@ CREATE TABLE IF NOT EXISTS crawl_jobs (
 );
 
 CREATE TABLE IF NOT EXISTS reindex_jobs (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   doc_id TEXT REFERENCES documents(id) ON DELETE SET NULL,
   triggered_by TEXT REFERENCES users(id) ON DELETE SET NULL,
@@ -231,7 +230,7 @@ CREATE TABLE IF NOT EXISTS bot_settings (
 );
 
 CREATE TABLE IF NOT EXISTS usage_logs (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   bot_id TEXT REFERENCES bots(id) ON DELETE SET NULL,
   date DATE NOT NULL,
@@ -244,7 +243,7 @@ CREATE TABLE IF NOT EXISTS usage_logs (
 );
 
 CREATE TABLE IF NOT EXISTS retrieval_logs (
-  id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  id TEXT PRIMARY KEY,
   tenant_id TEXT NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
   bot_id TEXT REFERENCES bots(id) ON DELETE SET NULL,
   query TEXT NOT NULL,

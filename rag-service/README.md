@@ -97,6 +97,14 @@ npm run ingest:qa-seed:dry
 npm run ingest:qa-seed
 ```
 
+To ingest the newer site-archive QA additions without replaying the full seed:
+
+```bash
+cd rag-service
+npm run ingest:qa-delta:dry
+npm run ingest:qa-delta
+```
+
 ## Ingest the processed source corpus
 
 The raw source files under `originaldata/processed/` can be ingested with:

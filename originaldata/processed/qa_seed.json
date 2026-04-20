@@ -82,6 +82,30 @@
       "priority": 25
     },
     {
+      "question": "What do P1, P2, and P3 mean in the schedule notes?",
+      "answer": "P1, P2, and P3 mean Period 1, Period 2, and Period 3.",
+      "tags": ["academic", "manual_note", "terminology"],
+      "priority": 35
+    },
+    {
+      "question": "What issue was noted for Term 1 with Atef?",
+      "answer": "Atef could not be scheduled for that Term 1 class because he was already teaching both Grade 11 and Grade 12.",
+      "tags": ["academic", "manual_note", "conflict"],
+      "priority": 40
+    },
+    {
+      "question": "How long are Grade 7 and Grade 8 classes?",
+      "answer": "Grade 7 and Grade 8 classes are 1 hour long.",
+      "tags": ["academic", "manual_note", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What do the red-boxed items in the schedule notes mean?",
+      "answer": "The red-boxed items are dropped classes and do not need to be processed.",
+      "tags": ["academic", "manual_note", "cleanup"],
+      "priority": 30
+    },
+    {
       "question": "What is Ms. Ashley Afful's qualification?",
       "answer": "Ms. Ashley Afful holds a Bachelor of Design in Environmental Design from OCAD University and a Diploma in Graphic Design and Interactive Media from Toronto Film School.",
       "tags": ["staff", "faculty"],

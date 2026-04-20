@@ -1,0 +1,49 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What is the admissions contact email?",
+      "answer": "info@webtreeedu.com.",
+      "tags": ["site_archive", "contact"],
+      "priority": 30
+    },
+    {
+      "question": "Does Webtree Academy operate year-round?",
+      "answer": "Yes. The About page says the school operates year-round, including a summer session.",
+      "tags": ["site_archive", "about"],
+      "priority": 30
+    },
+    {
+      "question": "What student cap is claimed on the About page?",
+      "answer": "The About page claims a cap of 10 students per class.",
+      "tags": ["site_archive", "about", "class_size"],
+      "priority": 25
+    },
+    {
+      "question": "What placement rate is claimed on the About page?",
+      "answer": "The About page claims that 100% of graduates are accepted into universities or colleges of their first choice.",
+      "tags": ["site_archive", "about", "placement"],
+      "priority": 20
+    },
+    {
+      "question": "What is the admissions interview format?",
+      "answer": "Applicants are interviewed in person if they are in the GTA and online if they are outside Toronto or overseas.",
+      "tags": ["site_archive", "admissions"],
+      "priority": 25
+    },
+    {
+      "question": "What is the application fee on the admissions page?",
+      "answer": "The admissions page says the application fee is $300 CAD.",
+      "tags": ["site_archive", "admissions", "fee"],
+      "priority": 30
+    },
+    {
+      "question": "What is the application fee in the View Book PDF?",
+      "answer": "The View Book PDF says the application fee is $250 CAD.",
+      "tags": ["site_archive", "admissions", "fee"],
+      "priority": 30
+    }
+  ]
+}

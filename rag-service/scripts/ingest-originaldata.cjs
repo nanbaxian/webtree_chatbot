@@ -16,6 +16,7 @@ function parseArgs(argv) {
     dryRun: false,
     includeExcluded: false,
     withSourceMetadata: false,
+    fallbackWithoutSourceMetadata: true,
   }
 
   for (let i = 2; i < argv.length; i += 1) {
@@ -26,6 +27,8 @@ function parseArgs(argv) {
       args.includeExcluded = true
     } else if (token === '--with-source-metadata') {
       args.withSourceMetadata = true
+    } else if (token === '--no-fallback') {
+      args.fallbackWithoutSourceMetadata = false
     } else if (token === '--base-url') {
       args.baseUrl = argv[++i]
     } else if (token === '--tenant-id') {
@@ -116,6 +119,7 @@ Options:
   --dry-run               Print planned payloads without writing to RAG
   --include-excluded      Include screenshot provenance assets
   --with-source-metadata  Send data_sources metadata when the RAG server supports it
+  --no-fallback           Disable automatic retry without source metadata
   --base-url <url>        RAG service base URL (default: ${process.env.RAG_INGEST_URL || process.env.RAG_API_URL || 'http://127.0.0.1:8789'})
   --tenant-id <id>        Tenant ID (default: tenant_demo)
   --bot-id <id>           Bot ID (default: bot_demo)
@@ -183,7 +187,20 @@ async function main() {
       continue
     }
 
-    const response = await postJson(`${args.baseUrl.replace(/\/$/, '')}/ingest/document`, payload, args.apiKey)
+    const ingestUrl = `${args.baseUrl.replace(/\/$/, '')}/ingest/document`
+    const sendAttempt = async attemptPayload => postJson(ingestUrl, attemptPayload, args.apiKey)
+    let response = await sendAttempt(payload)
+
+    if (!response.ok && args.withSourceMetadata && args.fallbackWithoutSourceMetadata) {
+      const fallbackPayload = {
+        tenant_id: payload.tenant_id,
+        bot_id: payload.bot_id,
+        document: payload.document,
+      }
+      console.log(`[fallback] ${source.source_type}: retrying without source metadata`)
+      response = await sendAttempt(fallbackPayload)
+    }
+
     if (!response.ok) {
       throw new Error(`Failed to ingest ${processedPath}: ${response.status} ${JSON.stringify(response.data)}`)
     }

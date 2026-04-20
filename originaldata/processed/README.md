@@ -19,6 +19,9 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `qa_seed.json`
   - Curated question/answer seed pairs distilled from the processed corpus
   - Best for direct lookup, canonical answers, and high-confidence retrieval
+- `qa_seed_delta.json`
+  - Additional site-archive QA items added later
+  - Best for top-up ingestion without replaying the original QA seed
 
 ## Recommended Ingestion Order
 

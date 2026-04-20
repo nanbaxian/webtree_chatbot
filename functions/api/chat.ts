@@ -10,6 +10,7 @@ import {
   serializeRagCitationsHeader,
   type RagChunk,
 } from '../../lib/rag-protocol'
+import { expandOssdCourseQuery } from '../../lib/ossd-course-mapper'
 import { type OpenAIMessage } from '../../lib/openai-client'
 import { type ReplyLanguage } from '../../types/index'
 import {
@@ -150,6 +151,7 @@ function buildSystemPrompt(
   language: ReplyLanguage,
   ragPromptBlock: string,
   latestUserText: string,
+  courseHint?: string,
 ): string {
   const langRule = language === 'en'
     ? [
@@ -175,6 +177,9 @@ function buildSystemPrompt(
     `Reasoning policy:\n- Map colloquial user phrasing to likely KB concepts.\n- For timetable or "what time" questions, search for course names, grades, teachers, days, periods, and time ranges.\n- For location or address questions, look for contact, campus, or map details.\n- For fee questions, look for tuition, registration, and supplemental fee sections.`,
     `Memory policy:\n- Use only the recent conversation history.\n- Respect the configured turn budget of ${maxTurns}.`,
     `Response shape:\n- Start with the answer.\n- Add a brief caveat only if needed.\n- Never say "I could not find" when the retrieved sources are semantically related; instead, give the closest supported answer and note the ambiguity.`,
+    `OSSD normalization policy:\n- If a course mapping hint is present, treat it as authoritative for Ontario course-code normalization.\n- When the hint lists candidate course codes, answer with those codes first even if the retrieved knowledge does not explicitly mention them.\n- Only say the course needs clarification when the hint explicitly says to clarify or the user's phrase is too generic to map safely.\n- Use retrieval for school-specific availability, schedule, teacher, and prerequisite details after naming the course code.`,
+    `If the course mapping hint says the query needs clarification, ask one short follow-up question before answering.`,
+    courseHint ? `Course mapping hint:\n${courseHint}` : '',
     `Latest user message:\n"""${latestUserText.slice(0, 1200)}"""`,
     `Retrieved knowledge:\n${ragPromptBlock}`,
   ].join('\n\n---\n\n')
@@ -318,16 +323,18 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     ? await listMessages(env, conversationId, 10)
     : null
   const history = Array.isArray(recentMessages) ? recentMessages : []
+  const ossdCourse = expandOssdCourseQuery(message)
+  const ragQuery = ossdCourse?.searchQuery || message
 
   const ragStartedAt = Date.now()
-  const rag = await loadRagContext(env, tenantId, bot.id, message, 8, reqId, conversationKey, replyLanguage)
+  const rag = await loadRagContext(env, tenantId, bot.id, ragQuery, 8, reqId, conversationKey, replyLanguage)
   const ragLatencyMs = Date.now() - ragStartedAt
   await saveRetrievalLog(env, tenantId, bot.id, message, rag.chunks, ragLatencyMs)
   const citations = selectRagCitations(rag.chunks, 3)
   const citationsHeader = serializeRagCitationsHeader(citations)
   const assistantMessageId = crypto.randomUUID()
 
-  const systemPrompt = buildSystemPrompt(bot, tenantId, replyLanguage, rag.promptBlock, message)
+  const systemPrompt = buildSystemPrompt(bot, tenantId, replyLanguage, rag.promptBlock, message, ossdCourse?.promptHint)
   const messages = toOpenAIHistory(history, message, imageBase64, imageMime)
 
   if (env.DB) {

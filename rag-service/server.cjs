@@ -61,6 +61,118 @@ function clampTopK(value) {
   return Math.min(n, 20)
 }
 
+const SEARCH_STOPWORDS = new Set([
+  'a',
+  'an',
+  'and',
+  'are',
+  'as',
+  'at',
+  'be',
+  'been',
+  'before',
+  'but',
+  'by',
+  'do',
+  'does',
+  'did',
+  'for',
+  'from',
+  'how',
+  'i',
+  'if',
+  'in',
+  'is',
+  'it',
+  'its',
+  'me',
+  'more',
+  'of',
+  'on',
+  'or',
+  'our',
+  'please',
+  'should',
+  'than',
+  'that',
+  'the',
+  'their',
+  'them',
+  'there',
+  'these',
+  'this',
+  'those',
+  'to',
+  'too',
+  'under',
+  'us',
+  'was',
+  'we',
+  'were',
+  'what',
+  'when',
+  'where',
+  'which',
+  'who',
+  'why',
+  'will',
+  'with',
+  'would',
+])
+
+function normalizeSearchQuery(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[\u2010-\u2015]/g, '-')
+    .replace(/[-_/]+/g, ' ')
+    .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function buildSearchVariants(value) {
+  const original = String(value || '').trim()
+  const normalized = normalizeSearchQuery(original)
+  const tokens = normalized
+    .split(' ')
+    .map(token => token.trim())
+    .filter(token => token && (!SEARCH_STOPWORDS.has(token) || /\d/.test(token)))
+
+  const variants = []
+  const pushVariant = candidate => {
+    const v = String(candidate || '').trim()
+    if (v && !variants.includes(v)) variants.push(v)
+  }
+
+  pushVariant(original)
+  pushVariant(normalized)
+  pushVariant(tokens.join(' '))
+
+  if (tokens.length > 1) {
+    pushVariant(tokens.join(' OR '))
+  }
+
+  const numericTokens = tokens.filter(token => /\d/.test(token))
+  if (numericTokens.length > 1) {
+    pushVariant(numericTokens.join(' '))
+    pushVariant(numericTokens.join(' OR '))
+  }
+
+  if (tokens.length > 2) {
+    pushVariant(tokens.slice(0, 3).join(' '))
+    pushVariant(tokens.slice(-3).join(' '))
+  }
+
+  return variants
+}
+
+async function searchWithQuery(client, req, queryText) {
+  return Promise.all([
+    searchChunks(client, { ...req, query: queryText }),
+    searchQaPairs(client, { ...req, query: queryText }),
+  ]).then(([docChunks, qaPairs]) => [...docChunks, ...qaPairs])
+}
+
 function chunkText(text, maxChars = 1200) {
   const clean = String(text || '').replace(/\r\n/g, '\n').trim()
   if (!clean) return []
@@ -481,15 +593,29 @@ async function search(req) {
   const client = await pool.connect()
   const started = Date.now()
   try {
-    const [docChunks, qaPairs] = await Promise.all([searchChunks(client, req), searchQaPairs(client, req)])
-    const merged = [...docChunks, ...qaPairs]
-      .sort((a, b) => (b.score || 0) - (a.score || 0))
-      .slice(0, clampTopK(req.top_k))
+    const topK = clampTopK(req.top_k)
+    const merged = []
+    const seen = new Set()
+    const variants = buildSearchVariants(req.query)
+
+    for (const variant of variants) {
+      const hits = await searchWithQuery(client, req, variant)
+      for (const item of hits) {
+        if (seen.has(item.id)) continue
+        seen.add(item.id)
+        merged.push(item)
+        if (merged.length >= topK) break
+      }
+      if (merged.length >= topK) break
+    }
+
+    merged.sort((a, b) => (b.score || 0) - (a.score || 0))
+    const trimmed = merged.slice(0, topK)
     return {
       request_id: req.request_id ?? null,
       latency_ms: Date.now() - started,
-      chunks: merged,
-      warnings: merged.length ? [] : ['No matches found.'],
+      chunks: trimmed,
+      warnings: trimmed.length ? [] : ['No matches found.'],
     }
   } finally {
     client.release()

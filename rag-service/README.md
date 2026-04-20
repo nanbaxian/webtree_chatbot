@@ -181,7 +181,9 @@ failures show up as backend health issues instead of immediate 502s.
 
 ## Notes
 
-- Search currently uses PostgreSQL full-text + substring matching so it works now.
+- Search currently uses PostgreSQL full-text + substring matching with normalized
+  query variants and OR-based fallback so it works now on both exact and looser
+  natural-language questions.
 - The `vector` extension is installed and ready for embeddings later.
 - The schema no longer depends on `pgcrypto`; IDs are generated in the application layer.
 - The service auto-seeds `tenant_demo` and `bot_demo` so the default smoke tests and sample

@@ -80,16 +80,7 @@ async function loadRagContext(
   conversationId?: string | null,
   locale?: ReplyLanguage,
 ): Promise<{ chunks: RagChunk[]; promptBlock: string }> {
-  if (!env.RAG_API_URL) {
-    return {
-      chunks: [],
-      promptBlock: [
-        'No external RAG service is configured yet.',
-        'Answer from the conversation state and bot settings only.',
-        'If the user asks for knowledge-base facts, say the knowledge store is not yet connected.',
-      ].join('\n'),
-    }
-  }
+  const ragApiUrl = (env.RAG_API_URL || 'https://rag.webtreeedu.com').replace(/\/+$/, '')
 
   try {
     const abortController = new AbortController()
@@ -105,7 +96,7 @@ async function loadRagContext(
       requestId,
       locale,
     })
-    const res = await fetch(`${env.RAG_API_URL.replace(/\/+$/, '')}/search`, {
+    const res = await fetch(`${ragApiUrl}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -101,6 +101,15 @@ function normalizeArray(value) {
   return Array.isArray(value) ? value.filter(Boolean).map(String) : []
 }
 
+function toSlug(value, fallback) {
+  const slug = String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 63)
+  return slug || fallback
+}
+
 async function bootstrapSchema() {
   if (!pool || !AUTO_INIT_SCHEMA) return
 
@@ -147,6 +156,91 @@ async function bootstrapSchema() {
     schemaBootstrapReady = true
   } finally {
     client.release()
+  }
+}
+
+async function seedDemoTenantAndBot(client) {
+  await client.query(
+    `INSERT INTO tenants (id, name, slug, plan, status, created_at, updated_at)
+     VALUES ($1, $2, $3, 'starter', 'active', NOW(), NOW())
+     ON CONFLICT (id) DO UPDATE SET
+       name = EXCLUDED.name,
+       slug = EXCLUDED.slug,
+       plan = EXCLUDED.plan,
+       status = EXCLUDED.status,
+       updated_at = NOW()`,
+    ['tenant_demo', 'Demo Tenant', 'demo-tenant'],
+  )
+
+  await client.query(
+    `INSERT INTO bots (id, tenant_id, name, persona, tone, welcome_msg, fallback_msg, language, settings_json, created_at, updated_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb, NOW(), NOW())
+     ON CONFLICT (id) DO UPDATE SET
+       tenant_id = EXCLUDED.tenant_id,
+       name = EXCLUDED.name,
+       persona = EXCLUDED.persona,
+       tone = EXCLUDED.tone,
+       welcome_msg = EXCLUDED.welcome_msg,
+       fallback_msg = EXCLUDED.fallback_msg,
+       language = EXCLUDED.language,
+       settings_json = EXCLUDED.settings_json,
+       updated_at = NOW()`,
+    [
+      'bot_demo',
+      'tenant_demo',
+      'Demo Bot',
+      'Professional enterprise assistant',
+      'concise',
+      'Hello, how can I help?',
+      'Sorry, I could not find a relevant answer.',
+      'zh-CN',
+      JSON.stringify({ max_history_turns: 10, citation_display: true, retrieval_top_k: 8 }),
+    ],
+  )
+}
+
+async function ensureTenantAndBot(client, tenantId, botId) {
+  const tenantSlug = toSlug(tenantId, 'tenant')
+  const botName = botId || 'KnowledgeOS Bot'
+
+  await client.query(
+    `INSERT INTO tenants (id, name, slug, plan, status, created_at, updated_at)
+     VALUES ($1, $2, $3, 'starter', 'active', NOW(), NOW())
+     ON CONFLICT (id) DO UPDATE SET
+       name = EXCLUDED.name,
+       slug = EXCLUDED.slug,
+       plan = EXCLUDED.plan,
+       status = EXCLUDED.status,
+       updated_at = NOW()`,
+    [tenantId, tenantId, tenantSlug],
+  )
+
+  if (botId) {
+    await client.query(
+      `INSERT INTO bots (id, tenant_id, name, persona, tone, welcome_msg, fallback_msg, language, settings_json, created_at, updated_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb, NOW(), NOW())
+       ON CONFLICT (id) DO UPDATE SET
+         tenant_id = EXCLUDED.tenant_id,
+         name = EXCLUDED.name,
+         persona = EXCLUDED.persona,
+         tone = EXCLUDED.tone,
+         welcome_msg = EXCLUDED.welcome_msg,
+         fallback_msg = EXCLUDED.fallback_msg,
+         language = EXCLUDED.language,
+         settings_json = EXCLUDED.settings_json,
+         updated_at = NOW()`,
+      [
+        botId,
+        tenantId,
+        botName,
+        'Professional enterprise assistant',
+        'concise',
+        'Hello, how can I help?',
+        'Sorry, I could not find a relevant answer.',
+        'zh-CN',
+        JSON.stringify({ max_history_turns: 10, citation_display: true, retrieval_top_k: 8 }),
+      ],
+    )
   }
 }
 
@@ -390,6 +484,7 @@ async function ingestDocument(req) {
   const client = await pool.connect()
   try {
     await client.query('BEGIN')
+    await ensureTenantAndBot(client, tenantId, botId)
     const docId = String(doc.id || crypto.randomUUID())
     const existing = await client.query('SELECT version FROM documents WHERE id = $1 LIMIT 1', [docId])
     const nextVersion = existing.rows[0] ? Number(existing.rows[0].version || 1) + 1 : 1
@@ -477,6 +572,7 @@ async function ingestQa(req) {
   const client = await pool.connect()
   try {
     await client.query('BEGIN')
+    await ensureTenantAndBot(client, tenantId, botId)
     const inserted = []
     for (const raw of qaPairs) {
       const item = raw || {}
@@ -513,6 +609,24 @@ async function ingestQa(req) {
 }
 
 async function main() {
+  if (pool && AUTO_INIT_SCHEMA) {
+    bootstrapSchema()
+      .then(async () => {
+        const client = await pool.connect()
+        try {
+          await seedDemoTenantAndBot(client)
+          schemaBootstrapReady = true
+          console.log('[rag-service] demo tenant and bot seeded')
+        } finally {
+          client.release()
+        }
+      })
+      .catch(error => {
+        schemaBootstrapError = error instanceof Error ? error.message : String(error)
+        console.error('[rag-service] schema bootstrap failed', error)
+      })
+  }
+
   const server = http.createServer(async (req, res) => {
     const started = Date.now()
     try {
@@ -567,11 +681,6 @@ async function main() {
 
   server.listen(PORT, HOST, () => {
     console.log(`[rag-service] listening on http://${HOST}:${PORT}`)
-  })
-
-  bootstrapSchema().catch(error => {
-    schemaBootstrapError = error instanceof Error ? error.message : String(error)
-    console.error('[rag-service] schema bootstrap failed', error)
   })
 }
 

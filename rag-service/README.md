@@ -102,5 +102,7 @@ failures show up as backend health issues instead of immediate 502s.
 - Search currently uses PostgreSQL full-text + substring matching so it works now.
 - The `vector` extension is installed and ready for embeddings later.
 - The schema no longer depends on `pgcrypto`; IDs are generated in the application layer.
+- The service auto-seeds `tenant_demo` and `bot_demo` so the default smoke tests and sample
+  ingestion requests work immediately after bootstrap.
 - When you add embeddings, you can extend the search SQL without changing the API contract.
 - The chat API returns top citations in `X-KnowledgeOS-Citations` and stores them in `message_citations` for auditability.

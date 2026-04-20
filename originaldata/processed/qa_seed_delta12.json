@@ -1,0 +1,67 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta12",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What time does Period 2 split into two halves?",
+      "answer": "Period 2 is split into 11:05-12:05 for the first half and 12:35-1:25 for the second half.",
+      "tags": ["academic", "schedule"],
+      "priority": 40
+    },
+    {
+      "question": "What time does Period 2 run in the Grade 9-12 daily schedule?",
+      "answer": "Period 2 runs from 11:05 to 1:25 with a lunch break in the middle.",
+      "tags": ["academic", "schedule"],
+      "priority": 40
+    },
+    {
+      "question": "What time do clubs and tutoring run in the daily schedule?",
+      "answer": "Clubs/Tutoring runs from 3:30 to 5:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time do clubs and tutoring run after school?",
+      "answer": "Clubs/Tutoring runs from 3:30 to 5:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does the Grade 9-12 daily schedule end?",
+      "answer": "The Grade 9-12 daily schedule ends at 5:00 with Clubs/Tutoring.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "What is the after-school IELTS training schedule?",
+      "answer": "After School IELTS Training runs on Tuesday and Thursday from 3:40 to 5:40.",
+      "tags": ["academic", "ielts"],
+      "priority": 35
+    },
+    {
+      "question": "What are the summer timetable courses?",
+      "answer": "The summer section shows July and August courses and student placements, including MHF4U and MCV4U.",
+      "tags": ["academic", "summer"],
+      "priority": 28
+    },
+    {
+      "question": "What is the term 1 issue with Atef teaching?",
+      "answer": "Atef cannot take the Term 1 class because he is also teaching both Grade 11 and Grade 12 classes at the same time.",
+      "tags": ["academic", "term1"],
+      "priority": 30
+    },
+    {
+      "question": "Which club is HOSA in the timetable?",
+      "answer": "HOSA Club appears in the after-school timetable as a meeting-room activity.",
+      "tags": ["academic", "club"],
+      "priority": 24
+    },
+    {
+      "question": "Which club is Robotics in the timetable?",
+      "answer": "Robotics Club appears in the after-school timetable, including the consulting room and related schedule blocks.",
+      "tags": ["academic", "club"],
+      "priority": 24
+    }
+  ]
+}

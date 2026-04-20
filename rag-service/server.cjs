@@ -551,7 +551,7 @@ async function searchQaPairs(client, req) {
       )
       + CASE WHEN q.question ILIKE '%' || $3 || '%' THEN 0.9 ELSE 0 END
       + CASE WHEN q.answer ILIKE '%' || $3 || '%' THEN 0.6 ELSE 0 END
-      + LEAST(q.priority::numeric / 100.0, 0.5) AS score
+      + LEAST(q.priority::numeric / 100.0, 1.0) AS score
     FROM qa_pairs q
     WHERE q.tenant_id = $1
       AND ($2::text IS NULL OR q.bot_id = $2 OR q.bot_id IS NULL)

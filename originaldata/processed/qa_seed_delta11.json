@@ -1,0 +1,67 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta11",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What time is Period 1 in the Grade 9-12 daily schedule?",
+      "answer": "Period 1 runs from 9:00 to 10:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time is Period 2 split into two halves?",
+      "answer": "Period 2 is split into 11:05-12:05 for the first half and 12:35-1:25 for the second half.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time is Period 3 in the Grade 9-12 daily schedule?",
+      "answer": "Period 3 runs from 1:35 to 2:35 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time do clubs and tutoring run?",
+      "answer": "Clubs/Tutoring runs from 3:30 to 5:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "What time is the after-school IELTS training?",
+      "answer": "After School IELTS Training runs on Tuesday and Thursday from 3:40 to 5:40.",
+      "tags": ["academic", "ielts"],
+      "priority": 30
+    },
+    {
+      "question": "When is the after-school IELTS training?",
+      "answer": "After School IELTS Training runs on Tuesday and Thursday from 3:40 to 5:40.",
+      "tags": ["academic", "ielts"],
+      "priority": 30
+    },
+    {
+      "question": "What is the summer section in the timetable?",
+      "answer": "The summer section shows July and August courses and student placements, including MHF4U and MCV4U.",
+      "tags": ["academic", "summer"],
+      "priority": 25
+    },
+    {
+      "question": "Which courses are shown in the summer section?",
+      "answer": "The summer section shows July and August courses and student placements, including MHF4U and MCV4U.",
+      "tags": ["academic", "summer"],
+      "priority": 25
+    },
+    {
+      "question": "What is the term 1 conflict with Atef?",
+      "answer": "Atef cannot take the Term 1 class because he is also teaching both Grade 11 and Grade 12 classes at the same time.",
+      "tags": ["academic", "term1"],
+      "priority": 28
+    },
+    {
+      "question": "Why is Atef unavailable in Term 1?",
+      "answer": "Atef cannot take the Term 1 class because he is also teaching both Grade 11 and Grade 12 classes at the same time.",
+      "tags": ["academic", "term1"],
+      "priority": 28
+    }
+  ]
+}

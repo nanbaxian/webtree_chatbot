@@ -46,6 +46,8 @@ Processed, RAG-friendly artifacts are stored under `processed/`.
 - `processed/media/screenshots.manifest.md`
 - `processed/qa_seed.json`
 - `processed/qa_seed_delta.json`
+- `processed/qa_seed_delta2.json`
+- `processed/qa_seed_delta3.json`
 
 These files are intended for chunking, QA generation, and later ingestion into the external RAG PostgreSQL store.
 Screenshot assets are currently excluded from the ingestion set.

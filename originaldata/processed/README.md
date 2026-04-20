@@ -22,6 +22,12 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `qa_seed_delta.json`
   - Additional site-archive QA items added later
   - Best for top-up ingestion without replaying the original QA seed
+- `qa_seed_delta2.json`
+  - Faculty and leadership QA top-up
+  - Best for founder/principal/teacher lookups
+- `qa_seed_delta3.json`
+  - Teacher-profile QA top-up
+  - Best for staff subject, specialty, and teaching-style lookups
 
 ## Recommended Ingestion Order
 

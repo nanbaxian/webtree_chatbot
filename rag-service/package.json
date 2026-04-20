@@ -11,7 +11,11 @@
     "ingest:qa-seed": "node scripts/ingest-qa-seed.cjs",
     "ingest:qa-seed:dry": "node scripts/ingest-qa-seed.cjs --dry-run",
     "ingest:qa-delta": "node scripts/ingest-qa-delta.cjs",
-    "ingest:qa-delta:dry": "node scripts/ingest-qa-delta.cjs --dry-run"
+    "ingest:qa-delta:dry": "node scripts/ingest-qa-delta.cjs --dry-run",
+    "ingest:qa-delta2": "node scripts/ingest-qa-delta2.cjs",
+    "ingest:qa-delta2:dry": "node scripts/ingest-qa-delta2.cjs --dry-run",
+    "ingest:qa-delta3": "node scripts/ingest-qa-delta3.cjs",
+    "ingest:qa-delta3:dry": "node scripts/ingest-qa-delta3.cjs --dry-run"
   },
   "dependencies": {
     "pg": "^8.15.6"

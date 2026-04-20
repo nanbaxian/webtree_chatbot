@@ -1,0 +1,79 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta2",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "Who is the founder of Webtree Academy?",
+      "answer": "Yvonne Guo is listed as the founder.",
+      "tags": ["site_archive", "people"],
+      "priority": 35
+    },
+    {
+      "question": "Who is the principal of Webtree Academy?",
+      "answer": "Henry Michels is listed as the principal.",
+      "tags": ["site_archive", "people"],
+      "priority": 35
+    },
+    {
+      "question": "Who is the vice principal of Webtree Academy?",
+      "answer": "Nancy Aziz is listed as the vice principal.",
+      "tags": ["site_archive", "people"],
+      "priority": 35
+    },
+    {
+      "question": "What is Yvonne Guo's experience?",
+      "answer": "Yvonne Guo has an MSc from Liaoning University, more than 35 years of education experience, and more than 18 research publications in pharmaceutical and scientific studies.",
+      "tags": ["site_archive", "people"],
+      "priority": 30
+    },
+    {
+      "question": "What is Henry Michels's background?",
+      "answer": "Henry Michels holds a B.Ed. and B.Sc. from the University of Toronto and has four decades of experience in public and private school education.",
+      "tags": ["site_archive", "people"],
+      "priority": 30
+    },
+    {
+      "question": "What is Nancy Aziz's background?",
+      "answer": "Nancy Aziz has a Master's degree from the University of the Arts London, is a Ph.D. candidate in Educational Leadership and Policy, and has taught across Europe, North America, and Asia.",
+      "tags": ["site_archive", "people"],
+      "priority": 30
+    },
+    {
+      "question": "What is Ashley Afful known for?",
+      "answer": "Ashley Afful is a graphic designer with a background in Environmental Design and Graphic Design & Interactive Media who brings bold, conceptual thinking to her teaching.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    },
+    {
+      "question": "What subjects does Michael Chemello specialize in?",
+      "answer": "Michael Chemello specializes in human anatomy, physiology, injury assessment, rehabilitation, injury prevention, and strength and conditioning.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    },
+    {
+      "question": "What are Mr. Colton Mowbray's instruments and teaching focus?",
+      "answer": "Colton Mowbray teaches guitar, drums, piano, clarinet, saxophone, and bass, and focuses on structured, skill-focused music instruction.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    },
+    {
+      "question": "What are Dr. Ullah's chemistry teaching strengths?",
+      "answer": "Dr. Ehsan Ullah emphasizes hands-on learning, real-world applications, strong conceptual foundations, industry-standard analytical techniques, and green chemistry principles.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    },
+    {
+      "question": "What is Dr. Titi's teaching profile?",
+      "answer": "Dr. Titi has more than 20 years of experience teaching mathematics and physics in Ontario high schools and is known for rigorous, meticulous teaching.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    },
+    {
+      "question": "What is Dr. Yang's teaching profile?",
+      "answer": "Dr. Jeffery Yang has a PhD in Environmental Science, a postdoc in Natural Science, more than 20 years of high school teaching experience, and experience training students for math and physics competitions.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    }
+  ]
+}

@@ -105,6 +105,22 @@ npm run ingest:qa-delta:dry
 npm run ingest:qa-delta
 ```
 
+To ingest the people/faculty QA top-up:
+
+```bash
+cd rag-service
+npm run ingest:qa-delta2:dry
+npm run ingest:qa-delta2
+```
+
+To ingest the teacher-profile QA top-up:
+
+```bash
+cd rag-service
+npm run ingest:qa-delta3:dry
+npm run ingest:qa-delta3
+```
+
 ## Ingest the processed source corpus
 
 The raw source files under `originaldata/processed/` can be ingested with:

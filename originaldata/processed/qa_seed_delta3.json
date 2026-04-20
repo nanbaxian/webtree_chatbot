@@ -1,0 +1,67 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta3",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What is Michelle Ali's teaching focus?",
+      "answer": "Michelle Ali teaches English and Social Science and specializes in individualized lesson plans for diverse learning needs.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What is James Dickinson known for?",
+      "answer": "James Dickinson is an ESL, English, and IELTS teacher with over 30 years of teaching experience.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What is Peyton Farley's teaching style?",
+      "answer": "Peyton Farley supports each student's unique learning journey and encourages confidence, creativity, and academic and personal growth.",
+      "tags": ["staff", "faculty"],
+      "priority": 30
+    },
+    {
+      "question": "What does Colton Mowbray teach?",
+      "answer": "Colton Mowbray teaches guitar, drums, piano, clarinet, saxophone, and bass.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What is Sahar Jamali's subject area?",
+      "answer": "Sahar Jamali is a mathematics teacher for Grades 7-12 with expertise in Advanced Functions.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What is Fatima Tahrirchi's teaching approach?",
+      "answer": "Fatima Tahrirchi focuses on deep understanding of mathematical concepts through practice, experimentation, interactive questioning, and technology-supported learning.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What is Ehsan Ullah's chemistry focus?",
+      "answer": "Ehsan Ullah teaches organic and analytical chemistry, spectroscopy, and quality management, with an emphasis on hands-on learning and real-world applications.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What is Jeffery Yang's academic background?",
+      "answer": "Jeffery Yang has a PhD in Environmental Science from the University of Mainz and a postdoc in Natural Science from McGill University.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What does El Mahdi Kadraoui teach?",
+      "answer": "El Mahdi Kadraoui teaches French and physical education and emphasizes teamwork, collaboration, and cultural awareness.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    },
+    {
+      "question": "What subject does Daniel Direkoglu teach?",
+      "answer": "Daniel Direkoglu teaches English literature and philosophy with a focus on critical reading and writing.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    }
+  ]
+}

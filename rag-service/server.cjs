@@ -167,6 +167,11 @@ function buildSearchVariants(value) {
   return variants
 }
 
+function isScheduleHeavyQuery(query) {
+  const normalized = normalizeSearchQuery(query)
+  return /(?:\bperiod\b|\bschedule\b|\bclubs?\b|\btutoring\b|\bielts\b|\bterm\b|\bbreak\b|\bafter school\b|\bdaily schedule\b)/i.test(normalized)
+}
+
 async function searchWithQuery(client, req, queryText) {
   return Promise.all([
     searchChunks(client, { ...req, query: queryText }),
@@ -595,6 +600,7 @@ async function search(req) {
   const started = Date.now()
   try {
     const topK = clampTopK(req.top_k)
+    const scheduleHeavyQuery = isScheduleHeavyQuery(req.query)
     const merged = []
     const seen = new Set()
     const variants = buildSearchVariants(req.query)
@@ -612,13 +618,21 @@ async function search(req) {
       if (merged.length >= topK) break
     }
 
-    merged.sort((a, b) => (b.score || 0) - (a.score || 0))
+    merged.sort((a, b) => {
+      const aBoost = scheduleHeavyQuery && a.source_type === 'qa' ? 2.0 : 0
+      const bBoost = scheduleHeavyQuery && b.source_type === 'qa' ? 2.0 : 0
+      const aRank = (a.score || 0) + aBoost
+      const bRank = (b.score || 0) + bBoost
+      if (bRank !== aRank) return bRank - aRank
+      return (b.score || 0) - (a.score || 0)
+    })
     const trimmed = merged.slice(0, topK)
     if (SEARCH_DEBUG || !trimmed.length) {
       console.log('[rag-service] search trace', JSON.stringify({
         tenant_id: req.tenant_id || null,
         bot_id: req.bot_id || null,
         query: req.query || '',
+        schedule_heavy_query: scheduleHeavyQuery,
         variants,
         trace: debugTrace,
         result_count: trimmed.length,

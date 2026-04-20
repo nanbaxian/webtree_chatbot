@@ -93,3 +93,16 @@ P2 ✅ 向量语义搜索 + 记忆管理页面 + 多人设切换
 - Bind an R2 bucket as `BUCKET`
 - Upload endpoint: POST /api/upload (multipart field: file)
 - Public read: GET /r2/:key
+
+
+如果是你服务器上的常驻服务，直接用 systemd：
+
+sudo systemctl restart knowledgeos-rag
+sudo systemctl restart cloudflared-knowledgeos-rag
+查看状态：
+
+sudo systemctl status knowledgeos-rag --no-pager
+sudo systemctl status cloudflared-knowledgeos-rag --no-pager
+看 RAG 日志：
+
+sudo journalctl -u knowledgeos-rag -n 100 --no-pager

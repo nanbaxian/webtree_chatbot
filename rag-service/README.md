@@ -184,6 +184,8 @@ failures show up as backend health issues instead of immediate 502s.
 - Search currently uses PostgreSQL full-text + substring matching with normalized
   query variants and OR-based fallback so it works now on both exact and looser
   natural-language questions.
+- Schedule / term / after-school style queries get an extra QA ranking boost so
+  answer-style rows can outrank longer timetable chunks when both match.
 - Set `RAG_SEARCH_DEBUG=true` to log the query variants and hit counts for each
   search request.
 - The `vector` extension is installed and ready for embeddings later.

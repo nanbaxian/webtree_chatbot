@@ -1,90 +1,315 @@
-import { ArrowUpRight, CheckCircle2, Quote, Sparkles } from 'lucide-react'
+'use client'
 
-const citations = [
-  {
-    label: 'Knowledge base | Refund policy | Page 12',
-    text: 'This answer was grounded in the refund policy and the latest service terms.',
-  },
-  {
-    label: 'Product manual | Setup guide | Section 3',
-    text: 'The retrieval layer also surfaced the installation steps from the product manual.',
-  },
-]
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { CheckCircle2, Loader2, Quote, SendHorizontal, Sparkles } from 'lucide-react'
+import { apiUrl } from '@/lib/api-url'
+import { parseRagCitationsHeader, type RagCitation } from '@/lib/rag-protocol'
+
+type ChatMessage = {
+  id: string
+  role: 'assistant' | 'user'
+  content: string
+  isTyping?: boolean
+}
+
+function getTenantId(): string {
+  if (typeof window === 'undefined') return 'tenant_demo'
+  const params = new URLSearchParams(window.location.search)
+  return params.get('tenant_id') || window.localStorage.getItem('knowledgeos_tenant_id') || 'tenant_demo'
+}
+
+function citationLabel(citation: RagCitation, index: number): string {
+  const label = citation.source_label || citation.title || `Source ${index + 1}`
+  const location = [citation.section, citation.page_num ? `Page ${citation.page_num}` : null].filter(Boolean).join(' | ')
+  return location ? `${label} | ${location}` : label
+}
 
 export default function KnowledgeChatDemo({ botId }: { botId: string }) {
-  return (
-    <main className="min-h-screen bg-[#0b0e13] px-6 py-8 text-white">
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[280px_minmax(0,1fr)_300px]">
-        <aside className="rounded-[2rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl">
-          <div className="text-xs uppercase tracking-[0.28em] text-amber-100/80">Bot demo</div>
-          <h1 className="mt-3 text-2xl font-semibold">bot/{botId}</h1>
-          <p className="mt-3 text-sm leading-7 text-white/60">
-            This route is a public-facing chat shell for the PRD. Connect the Worker API and citations layer here next.
-          </p>
-          <div className="mt-6 space-y-3 text-sm text-white/70">
-            <div className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3">Multi-tenant prompt controls</div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3">Streamed answers and source cards</div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3">Public widget phase later</div>
-          </div>
-        </aside>
+  const [tenantId, setTenantId] = useState('tenant_demo')
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: 'welcome',
+      role: 'assistant',
+      content: 'Ask a question. I will stream the answer here and keep source hints on the side.',
+    },
+  ])
+  const [input, setInput] = useState('How does source citation work?')
+  const [isSending, setIsSending] = useState(false)
+  const [citations, setCitations] = useState<RagCitation[]>([
+    {
+      title: 'Knowledge base',
+      source_label: 'Refund policy',
+      section: 'Page 12',
+      excerpt: 'This answer was grounded in the refund policy and the latest service terms.',
+    },
+    {
+      title: 'Product manual',
+      source_label: 'Setup guide',
+      section: 'Section 3',
+      excerpt: 'The retrieval layer also surfaced the installation steps from the product manual.',
+    },
+  ])
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const bottomRef = useRef<HTMLDivElement>(null)
 
-        <section className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] p-5 backdrop-blur-xl">
-          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <div>
-              <div className="text-xs uppercase tracking-[0.28em] text-amber-100/80">Live chat shell</div>
-              <h2 className="mt-2 text-xl font-semibold">KnowledgeOS Assistant</h2>
+  useEffect(() => {
+    setTenantId(getTenantId())
+  }, [])
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
+
+  useEffect(() => {
+    const el = textareaRef.current
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${Math.min(el.scrollHeight, 180)}px`
+  }, [input])
+
+  const recentSources = useMemo(() => citations.slice(0, 2), [citations])
+
+  async function sendMessage() {
+    const text = input.trim()
+    if (!text || isSending) return
+
+    const userMessage: ChatMessage = {
+      id: `user-${Date.now()}`,
+      role: 'user',
+      content: text,
+    }
+    const typingId = `typing-${Date.now()}`
+    const typingMessage: ChatMessage = {
+      id: typingId,
+      role: 'assistant',
+      content: '',
+      isTyping: true,
+    }
+
+    setMessages(prev => [...prev, userMessage, typingMessage])
+    setInput('')
+    setIsSending(true)
+
+    try {
+      const res = await fetch(apiUrl('/api/chat'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Tenant-Id': tenantId,
+        },
+        body: JSON.stringify({
+          tenant_id: tenantId,
+          bot_id: botId,
+          message: text,
+          replyLanguage: 'en',
+        }),
+      })
+
+      if (!res.ok) {
+        throw new Error(await res.text())
+      }
+
+      const parsedCitations = parseRagCitationsHeader(res.headers.get('X-KnowledgeOS-Citations'))
+      if (parsedCitations.length > 0) {
+        setCitations(parsedCitations)
+      }
+
+      const reader = res.body?.getReader()
+      if (!reader) throw new Error('No stream body')
+
+      const decoder = new TextDecoder()
+      let buffer = ''
+      let content = ''
+      let finished = false
+
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
+
+        buffer += decoder.decode(value, { stream: true })
+        const lines = buffer.split('\n')
+        buffer = lines.pop() ?? ''
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue
+          try {
+            const payload = JSON.parse(line.slice(6)) as { text?: string; done?: boolean; error?: string }
+            if (payload.text) {
+              content += payload.text
+              setMessages(prev =>
+                prev.map(msg =>
+                  msg.id === typingId
+                    ? { ...msg, content, isTyping: false }
+                    : msg,
+                ),
+              )
+            }
+            if (payload.done) {
+              finished = true
+              setMessages(prev =>
+                prev.map(msg =>
+                  msg.id === typingId
+                    ? { ...msg, id: `assistant-${Date.now()}`, content: content || 'No response returned.', isTyping: false }
+                    : msg,
+                ),
+              )
+            }
+          } catch {
+            // ignore malformed chunks
+          }
+        }
+      }
+
+      if (!finished) {
+        setMessages(prev =>
+          prev.map(msg =>
+            msg.id === typingId
+              ? { ...msg, id: `assistant-${Date.now()}`, content: content || 'No response returned.', isTyping: false }
+              : msg,
+          ),
+        )
+      }
+    } catch (error) {
+      setMessages(prev =>
+        prev.map(msg =>
+          msg.id === typingId
+            ? {
+                ...msg,
+                id: `error-${Date.now()}`,
+                content: error instanceof Error ? error.message : 'Request failed.',
+                isTyping: false,
+              }
+            : msg,
+        ),
+      )
+    } finally {
+      setIsSending(false)
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      void sendMessage()
+    }
+  }
+
+  return (
+    <main className="min-h-screen bg-[#0b0e13] px-4 py-4 text-white lg:px-6 lg:py-6">
+      <div className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-[1920px] gap-4 lg:gap-5">
+        <section className="flex min-w-0 flex-1 flex-col rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] backdrop-blur-xl">
+          <header className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:px-6">
+            <div className="min-w-0">
+              <div className="text-xs uppercase tracking-[0.3em] text-amber-100/80">Live chat shell</div>
+              <h1 className="mt-2 truncate text-2xl font-semibold text-white lg:text-3xl">KnowledgeOS Assistant</h1>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-white/55">
+                Main chat surface first. Citations stay available, but the conversation area owns the screen.
+              </p>
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-100">
               <Sparkles className="h-3.5 w-3.5" />
               RAG ready
             </div>
+          </header>
+
+          <div className="flex-1 overflow-y-auto px-4 py-5 lg:px-6">
+            <div className="mx-auto flex w-full max-w-5xl flex-col gap-4">
+              {messages.map(message => (
+                <div
+                  key={message.id}
+                  className={`max-w-[92%] rounded-[1.5rem] px-4 py-4 text-sm leading-7 lg:text-[15px] ${
+                    message.role === 'user'
+                      ? 'ml-auto rounded-br-md border border-amber-300/20 bg-amber-300 text-slate-950'
+                      : 'rounded-bl-md border border-white/10 bg-white/6 text-white/80'
+                  }`}
+                >
+                  {message.isTyping ? (
+                    <span className="inline-flex items-center gap-2 text-white/65">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Thinking
+                    </span>
+                  ) : (
+                    message.content
+                  )}
+                </div>
+              ))}
+              <div ref={bottomRef} />
+            </div>
           </div>
 
-          <div className="space-y-4 py-5">
-            <div className="max-w-2xl rounded-[1.5rem] rounded-bl-md border border-white/10 bg-white/6 px-4 py-4 text-sm leading-7 text-white/80">
-              Hello. I found the answer in the knowledge base and attached the source hints below.
-            </div>
-            <div className="ml-auto max-w-2xl rounded-[1.5rem] rounded-br-md border border-amber-300/20 bg-amber-300 px-4 py-4 text-sm leading-7 text-slate-950">
-              What is the official refund window for annual subscriptions?
-            </div>
-            <div className="max-w-2xl rounded-[1.5rem] rounded-bl-md border border-white/10 bg-white/6 px-4 py-4 text-sm leading-7 text-white/80">
-              Annual subscriptions can be refunded within 14 days when the contract has not been materially consumed.
-            </div>
-          </div>
-
-          <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/55 p-4">
-            <label className="text-xs uppercase tracking-[0.24em] text-white/45">Ask a question</label>
-            <div className="mt-3 flex gap-3">
-              <input
-                value="How does source citation work?"
-                readOnly
-                className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
-              />
-              <button className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950">
-                Send
-                <ArrowUpRight className="h-4 w-4" />
-              </button>
+          <div className="border-t border-white/10 px-4 py-4 lg:px-6">
+            <div className="mx-auto w-full max-w-5xl rounded-[1.75rem] border border-white/10 bg-slate-950/65 p-4 shadow-2xl shadow-black/20">
+              <label className="text-xs uppercase tracking-[0.26em] text-white/45">Ask a question</label>
+              <div className="mt-3 flex items-end gap-3">
+                <textarea
+                  ref={textareaRef}
+                  value={input}
+                  onChange={e => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  rows={1}
+                  placeholder="Type your question..."
+                  className="min-h-[56px] max-h-[180px] flex-1 resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6 text-white outline-none placeholder:text-white/35 focus:border-amber-200/40 focus:ring-2 focus:ring-amber-200/15"
+                />
+                <button
+                  onClick={() => void sendMessage()}
+                  disabled={isSending || !input.trim()}
+                  className="inline-flex h-14 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-slate-950 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {isSending ? 'Sending' : 'Send'}
+                  <SendHorizontal className="h-4 w-4" />
+                </button>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/45">
+                <button
+                  onClick={() => setInput('What sources were used to answer the last question?')}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"
+                >
+                  Explain citations
+                </button>
+                <button
+                  onClick={() => setInput('Summarize the answer in one sentence.')}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"
+                >
+                  Short answer
+                </button>
+                <button
+                  onClick={() => setInput('What should I ask next?')}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"
+                >
+                  Follow-up prompt
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
-        <aside className="rounded-[2rem] border border-white/10 bg-white/6 p-5 backdrop-blur-xl">
-          <div className="text-xs uppercase tracking-[0.28em] text-amber-100/80">Citations</div>
-          <div className="mt-4 space-y-3">
-            {citations.map(item => (
-              <article key={item.label} className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
-                <div className="flex items-start gap-2 text-sm font-medium text-white">
-                  <Quote className="mt-0.5 h-4 w-4 text-amber-100" />
-                  <span>{item.label}</span>
-                </div>
-                <p className="mt-3 text-sm leading-7 text-white/65">{item.text}</p>
-              </article>
-            ))}
+        <aside className="hidden w-[300px] shrink-0 flex-col gap-4 xl:flex">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+            <div className="text-xs uppercase tracking-[0.28em] text-amber-100/80">Sources</div>
+            <div className="mt-4 space-y-3">
+              {recentSources.map((item, index) => (
+                <article key={`${item.id || item.chunk_id || index}`} className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
+                  <div className="flex items-start gap-2 text-sm font-medium text-white">
+                    <Quote className="mt-0.5 h-4 w-4 text-amber-100" />
+                    <span>{citationLabel(item, index)}</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-white/65">{item.excerpt || 'Retrieved source excerpt will appear here.'}</p>
+                </article>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm text-emerald-100">
+          <div className="rounded-[2rem] border border-emerald-400/20 bg-emerald-400/10 p-5 text-sm text-emerald-100 backdrop-blur-xl">
             <CheckCircle2 className="mb-2 h-4 w-4" />
-            Keep this route connected to the Worker once the API layer is rebuilt.
+            This layout keeps the conversation area dominant and pushes supporting material into a slim side rail.
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 text-sm leading-7 text-white/60 backdrop-blur-xl">
+            bot/{botId}
+            <div className="mt-2 text-xs uppercase tracking-[0.22em] text-white/40">Tenant</div>
+            <div className="mt-1 text-white/80">{tenantId}</div>
+            <div className="mt-4 text-xs uppercase tracking-[0.22em] text-white/40">Mode</div>
+            <div className="mt-1 text-white/80">Chat-first demo</div>
           </div>
         </aside>
       </div>

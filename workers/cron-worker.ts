@@ -71,7 +71,7 @@ export default {
         ok: true,
         service: 'webtree-chatbot-back',
         has_openai_key: Boolean(env.OPENAI_API_KEY),
-        model: env.OPENAI_MODEL || 'gpt-4.1-nano',
+        model: env.OPENAI_MODEL || 'gpt-4.1',
       })
     }
 
@@ -92,7 +92,7 @@ export default {
 
       const stream = await streamOpenAIChat(env.OPENAI_API_KEY, systemPrompt, messages, {
         reqId: body.reqId || 'cron-worker',
-        model: body.model || env.OPENAI_MODEL || 'gpt-4.1-nano',
+        model: body.model || env.OPENAI_MODEL || 'gpt-4.1',
         maxOutputTokens: Number.isFinite(body.maxOutputTokens)
           ? body.maxOutputTokens
           : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10) || undefined,

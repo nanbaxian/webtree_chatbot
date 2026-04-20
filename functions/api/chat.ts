@@ -171,8 +171,10 @@ function buildSystemPrompt(
     `Welcome: ${bot.welcome_msg}`,
     `Fallback if knowledge is missing: ${bot.fallback_msg}`,
     `Language rules:\n${langRule}`,
-    `Conversation policy:\n- Answer directly.\n- Do not invent knowledge-base facts.\n- If the user asks for a source-backed answer, prefer retrieved evidence.\n- Cite sources in plain language when available.`,
+    `Conversation policy:\n- Answer directly and concisely.\n- Do not invent knowledge-base facts.\n- Treat retrieved evidence as the source of truth.\n- Prefer exact extraction over paraphrase for schedules, fees, addresses, dates, names, and numbers.\n- If the user asks for a source-backed answer, cite the strongest matching evidence in plain language.\n- If the request is vague and several sources could match, ask one short clarifying question instead of guessing.\n- If there is related evidence but no exact match, say what is supported and what remains ambiguous.`,
+    `Reasoning policy:\n- Map colloquial user phrasing to likely KB concepts.\n- For timetable or "what time" questions, search for course names, grades, teachers, days, periods, and time ranges.\n- For location or address questions, look for contact, campus, or map details.\n- For fee questions, look for tuition, registration, and supplemental fee sections.`,
     `Memory policy:\n- Use only the recent conversation history.\n- Respect the configured turn budget of ${maxTurns}.`,
+    `Response shape:\n- Start with the answer.\n- Add a brief caveat only if needed.\n- Never say "I could not find" when the retrieved sources are semantically related; instead, give the closest supported answer and note the ambiguity.`,
     `Latest user message:\n"""${latestUserText.slice(0, 1200)}"""`,
     `Retrieved knowledge:\n${ragPromptBlock}`,
   ].join('\n\n---\n\n')
@@ -343,7 +345,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
 
   const maxOutputTokens = voiceMode ? 64 : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10)
   const coalesceChars = voiceMode ? 4 : Number.parseInt(env.OPENAI_COALESCE_CHARS || '', 10)
-  const openaiModel = env.OPENAI_MODEL || 'gpt-4.1-nano'
+  const openaiModel = env.OPENAI_MODEL || 'gpt-4.1'
   const provider = 'worker-backend'
 
   apiLog.info('generation:start', {

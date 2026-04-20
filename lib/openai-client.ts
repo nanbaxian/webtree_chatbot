@@ -138,7 +138,7 @@ export async function streamOpenAIChat(
   const debug = opts.debug === true
   const reqId = opts.reqId ?? 'na'
   const startedAt = Date.now()
-  const model = opts.model ?? 'gpt-4.1-nano'
+  const model = opts.model ?? 'gpt-4.1'
   const maxOutputTokens = Math.max(64, Math.min(32768, opts.maxOutputTokens ?? 300))
   const coalesceChars = Math.max(4, Math.min(64, opts.coalesceChars ?? 12))
 
@@ -320,7 +320,7 @@ export async function completeOpenAIChat(
   const debug = opts.debug === true
   const reqId = opts.reqId ?? 'na'
   const startedAt = Date.now()
-  const model = opts.model ?? 'gpt-4.1-nano'
+  const model = opts.model ?? 'gpt-4.1'
   const maxOutputTokens = Math.max(64, Math.min(32768, opts.maxOutputTokens ?? 800))
 
   if (debug) {

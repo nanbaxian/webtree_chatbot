@@ -7,7 +7,7 @@ compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
-OPENAI_MODEL = "gpt-4.1-nano"
+OPENAI_MODEL = "gpt-4.1"
 
 # Recreate these secrets in the Worker namespace:
 # OPENAI_API_KEY

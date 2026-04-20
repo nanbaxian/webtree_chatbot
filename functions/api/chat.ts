@@ -10,7 +10,7 @@ import {
   serializeRagCitationsHeader,
   type RagChunk,
 } from '../../lib/rag-protocol'
-import { streamGemini, streamGeminiFlashLite, type GeminiMessage } from '../../lib/gemini-client'
+import { streamOpenAIChat, type OpenAIMessage } from '../../lib/openai-client'
 import { type ReplyLanguage } from '../../types/index'
 import {
   botSeed,
@@ -31,13 +31,12 @@ import {
 
 interface Env extends D1Env {
   BUCKET: R2Bucket
-  DEEPINFRA_API_KEY: string
-  GEMINI_API_KEY?: string
-  GEMINI_VISION_MODEL?: string
-  VOICE_FAST_MODEL?: string
-  DEEPINFRA_MODEL?: string
-  DEEPINFRA_MAX_TOKENS?: string
-  DEEPINFRA_COALESCE_CHARS?: string
+  OPENAI_API_KEY: string
+  OPENAI_MODEL?: string
+  OPENAI_MAX_TOKENS?: string
+  OPENAI_COALESCE_CHARS?: string
+  OPENAI_ORG_ID?: string
+  OPENAI_PROJECT_ID?: string
   RAG_API_URL?: string
   RAG_API_KEY?: string
   RAG_REQUEST_TIMEOUT_MS?: string
@@ -140,15 +139,15 @@ async function loadRagContext(
   }
 }
 
-function toGeminiHistory(messages: D1Message[], currentUserText: string, imageBase64?: string): GeminiMessage[] {
-  const history: GeminiMessage[] = messages.map(msg => ({
-    role: msg.role === 'assistant' ? 'model' : 'user',
+function toOpenAIHistory(messages: D1Message[], currentUserText: string, imageBase64?: string, imageMime?: string): OpenAIMessage[] {
+  const history: OpenAIMessage[] = messages.map(msg => ({
+    role: msg.role === 'assistant' ? 'assistant' : 'user',
     parts: [{ text: msg.content || '' }],
   }))
 
-  const parts: GeminiMessage['parts'] = []
+  const parts: OpenAIMessage['parts'] = []
   if (imageBase64) {
-    parts.push({ inlineData: { mimeType: 'image/jpeg', data: imageBase64 } })
+    parts.push({ inlineData: { mimeType: imageMime || 'image/jpeg', data: imageBase64 } })
   }
   parts.push({ text: currentUserText || 'Please answer the latest user message.' })
   history.push({ role: 'user', parts })
@@ -290,10 +289,14 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const voiceMode = body.voice_mode === true
   const replyLanguage: ReplyLanguage = body.replyLanguage === 'en' ? 'en' : 'zh'
   let imageBase64 = body.imageBase64
+  let imageMime = 'image/jpeg'
 
   if (!imageBase64 && body.imageUrl) {
     const r2 = await r2ImageUrlToBase64(env, body.imageUrl)
-    if (r2?.base64) imageBase64 = r2.base64
+    if (r2?.base64) {
+      imageBase64 = r2.base64
+      imageMime = r2.mime
+    }
   }
 
   if (!message && !imageBase64) {
@@ -333,7 +336,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const assistantMessageId = crypto.randomUUID()
 
   const systemPrompt = buildSystemPrompt(bot, tenantId, replyLanguage, rag.promptBlock, message)
-  const messages = toGeminiHistory(history, message, imageBase64)
+  const messages = toOpenAIHistory(history, message, imageBase64, imageMime)
 
   if (env.DB) {
     await insertMessage(env, {
@@ -348,13 +351,10 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     })
   }
 
-  const maxOutputTokens = voiceMode ? 64 : Number.parseInt(env.DEEPINFRA_MAX_TOKENS || '', 10)
-  const coalesceChars = voiceMode ? 4 : Number.parseInt(env.DEEPINFRA_COALESCE_CHARS || '', 10)
-  const deepinfraModel = voiceMode
-    ? (env.VOICE_FAST_MODEL || env.DEEPINFRA_MODEL || 'meta-llama/Llama-3.2-3B-Instruct')
-    : (env.DEEPINFRA_MODEL || 'meta-llama/Llama-3.2-3B-Instruct')
-  const visionModel = env.GEMINI_VISION_MODEL || 'gemini-2.5-flash-lite'
-  const provider = imageBase64 ? 'gemini' : 'deepinfra'
+  const maxOutputTokens = voiceMode ? 64 : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10)
+  const coalesceChars = voiceMode ? 4 : Number.parseInt(env.OPENAI_COALESCE_CHARS || '', 10)
+  const openaiModel = env.OPENAI_MODEL || 'gpt-4.1-nano'
+  const provider = 'openai'
 
   apiLog.info('generation:start', {
     tenantId,
@@ -368,27 +368,19 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
 
   let upstream: ReadableStream<Uint8Array>
   try {
-    if (imageBase64) {
-      if (!env.GEMINI_API_KEY) {
-        apiLog.fail('missing GEMINI_API_KEY', { stage: 'model', provider: 'gemini' })
-        return errJson('缺少 GEMINI_API_KEY（图片分析需要 Gemini）', 500)
-      }
-      upstream = await streamGeminiFlashLite(env.GEMINI_API_KEY, systemPrompt, messages, {
-        debug: true,
-        reqId,
-        model: visionModel,
-        maxOutputTokens: Number.isFinite(maxOutputTokens) ? maxOutputTokens : undefined,
-        coalesceChars: Number.isFinite(coalesceChars) ? coalesceChars : undefined,
-      })
-    } else {
-      upstream = await streamGemini(env.DEEPINFRA_API_KEY, systemPrompt, messages, {
-        debug: true,
-        reqId,
-        model: deepinfraModel,
-        maxOutputTokens: Number.isFinite(maxOutputTokens) ? maxOutputTokens : undefined,
-        coalesceChars: Number.isFinite(coalesceChars) ? coalesceChars : undefined,
-      })
+    if (!env.OPENAI_API_KEY) {
+      apiLog.fail('missing OPENAI_API_KEY', { stage: 'model', provider: 'openai' })
+      return errJson('缺少 OPENAI_API_KEY', 500)
     }
+    upstream = await streamOpenAIChat(env.OPENAI_API_KEY, systemPrompt, messages, {
+      debug: true,
+      reqId,
+      model: openaiModel,
+      maxOutputTokens: Number.isFinite(maxOutputTokens) ? maxOutputTokens : undefined,
+      coalesceChars: Number.isFinite(coalesceChars) ? coalesceChars : undefined,
+      orgId: env.OPENAI_ORG_ID,
+      projectId: env.OPENAI_PROJECT_ID,
+    })
   } catch (error) {
     apiLog.fail(error, { stage: 'model', provider })
     return errJson('模型调用失败', 500)
@@ -419,7 +411,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
                   conversation_id: conversationId,
                   role: 'assistant',
                   content: fullText || '...',
-                  model: imageBase64 ? visionModel : deepinfraModel,
+                  model: openaiModel,
                   input_tokens: 0,
                   output_tokens: 0,
                   created_at: new Date().toISOString(),
@@ -452,16 +444,16 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
           if (d.done) {
             savedAi = true
             if (env.DB) {
-              void insertMessage(env, {
-                id: assistantMessageId,
-                conversation_id: conversationId,
-                role: 'assistant',
-                content: fullText || '...',
-                model: imageBase64 ? visionModel : deepinfraModel,
-                input_tokens: 0,
-                output_tokens: 0,
-                created_at: new Date().toISOString(),
-              })
+                void insertMessage(env, {
+                  id: assistantMessageId,
+                  conversation_id: conversationId,
+                  role: 'assistant',
+                  content: fullText || '...',
+                  model: openaiModel,
+                  input_tokens: 0,
+                  output_tokens: 0,
+                  created_at: new Date().toISOString(),
+                })
               if (citations.length > 0) {
                 void insertMessageCitations(env, assistantMessageId, citations)
               }

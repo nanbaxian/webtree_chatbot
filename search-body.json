@@ -1,0 +1,7 @@
+{
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "query": "KnowledgeOS",
+  "top_k": 3,
+  "request_id": "smoke-test-004"
+}

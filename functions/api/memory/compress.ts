@@ -5,7 +5,7 @@ import { compressMemories } from '../../../lib/memory-engine'
 import { createApiLogger } from '../../../lib/api-log'
 
 interface Env {
-  DEEPINFRA_API_KEY: string
+  OPENAI_API_KEY: string
   SUPABASE_URL: string
   SUPABASE_SERVICE_KEY: string
   CRON_SECRET: string
@@ -44,7 +44,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
   }
 
   try {
-    await compressMemories(env.SUPABASE_URL, env.SUPABASE_SERVICE_KEY, env.DEEPINFRA_API_KEY, env.AI)
+    await compressMemories(env.SUPABASE_URL, env.SUPABASE_SERVICE_KEY, env.OPENAI_API_KEY, env.AI)
     log.ok({ triggeredBy: auth ? 'cron' : 'same-origin' })
     return json({ success: true, timestamp: new Date().toISOString() })
   } catch (err: unknown) {
@@ -53,4 +53,3 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     return json({ error: msg }, 500)
   }
 }
-

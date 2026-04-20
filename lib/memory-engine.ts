@@ -102,7 +102,7 @@ function parseSnap(s: Record<string, unknown>): MemorySnapshot {
 //   → 只用于本地联调，避免与你的数据库维度不一致（生产务必使用 bge-m3）
 // ================================================
 export async function generateEmbedding(
-  geminiApiKey: string,
+  _apiKey: string,
   text: string,
   cfAi?: Ai,
 ): Promise<number[]> {
@@ -159,7 +159,7 @@ export async function loadMemoryContext(
   supabaseUrl: string,
   supabaseKey: string,
   currentQuery?: string,
-  geminiApiKey?: string,
+  openaiApiKey?: string,
   personaId?: string,
   cfAi?: Ai,
 ): Promise<MemoryContext> {
@@ -194,9 +194,9 @@ export async function loadMemoryContext(
   const parsedSnaps = snapshots.map(parseSnap)
 
   let semanticMatches: MemorySnapshot[] = []
-  if (currentQuery && geminiApiKey) {
+  if (currentQuery && openaiApiKey) {
     try {
-      const embedding = await generateEmbedding(geminiApiKey, currentQuery, cfAi)
+      const embedding = await generateEmbedding(openaiApiKey, currentQuery, cfAi)
       const raw = await db.rpc<Record<string, unknown>>('match_memories', {
         query_embedding: embedding,
         match_count: 3,
@@ -246,16 +246,16 @@ export async function saveMessage(
 export async function compressMemories(
   supabaseUrl: string,
   supabaseKey: string,
-  geminiApiKey: string,
+  openaiApiKey: string,
   cfAi?: Ai,
 ): Promise<void> {
   const db = new SupabaseRest(supabaseUrl, supabaseKey)
   // extractCoreMemories 必须在 compressShortToMid 之前执行
   // 原因：compressShortToMid 会把 memory_tier 改为 mid，
   //       之后 extractCoreMemories 查 short 消息就查不到了
-  await extractCoreMemories(db, daysAgo(3), geminiApiKey)
-  await compressShortToMid(db, daysAgo(3), geminiApiKey, cfAi)
-  await compressMidToLong(db, daysAgo(30), geminiApiKey, cfAi)
+  await extractCoreMemories(db, daysAgo(3), openaiApiKey)
+  await compressShortToMid(db, daysAgo(3), openaiApiKey, cfAi)
+  await compressMidToLong(db, daysAgo(30), openaiApiKey, cfAi)
 }
 
 async function compressShortToMid(db: SupabaseRest, cutoff: string, apiKey: string, cfAi?: Ai) {
@@ -270,7 +270,7 @@ async function compressShortToMid(db: SupabaseRest, cutoff: string, apiKey: stri
   for (let i = 0; i < old.length; i += 50) {
     const chunk = old.slice(i, i + 50)
     const conv  = chunk.map(m => `${m.role === 'user' ? '用户' : 'AI'}: ${m.content}`).join('\n')
-    const text  = await callGemini(apiKey,
+    const text  = await callOpenAI(apiKey,
       `将以下对话压缩为记忆摘要（200字以内）。保留情感状态、重要事件、偏好、关系。用第三人称描述用户。\n\n${conv}\n\nSUMMARY: [摘要]\nFACTS: ["事实1","事实2"]\nTONE: [情绪]`)
 
     const { summary, facts, tone } = parseCompression(text)
@@ -302,7 +302,7 @@ async function compressMidToLong(db: SupabaseRest, cutoff: string, apiKey: strin
   if (!old.length) return
 
   const allText = old.map(s => s['summary_text'] as string).join('\n\n')
-  const text    = await callGemini(apiKey,
+  const text    = await callOpenAI(apiKey,
     `将以下记忆压缩为零散长期碎片（100字以内）。用模糊语气（好像、似乎）。\n\n${allText}\n\nSUMMARY: [碎片]\nFACTS: ["碎片1"]\nTONE: [情绪]`)
 
   const { summary, facts, tone } = parseCompression(text)
@@ -334,7 +334,7 @@ async function extractCoreMemories(db: SupabaseRest, cutoff: string, apiKey: str
   if (!recent.length) return
 
   const conv = recent.map(m => `${m.role === 'user' ? '用户' : 'AI'}: ${m.content}`).join('\n')
-  const text = await callGemini(apiKey,
+  const text = await callOpenAI(apiKey,
     `从对话中提取值得永久记住的核心事实（姓名、重要偏好、关键关系、重大事件）。不要提取闲聊。\n\n${conv}\n\n只返回JSON数组，无内容则返回[]：\n[{"fact":"...","category":"preference","importance":8}]`)
 
   try {
@@ -354,11 +354,11 @@ async function extractCoreMemories(db: SupabaseRest, cutoff: string, apiKey: str
 // ================================================
 // 工具
 // ================================================
-async function callGemini(apiKey: string, prompt: string): Promise<string> {
+async function callOpenAI(apiKey: string, prompt: string): Promise<string> {
   const startedAt = Date.now()
   const reqId = Math.random().toString(36).slice(2, 10)
-  console.log(`[memory:deepinfra ${reqId}] start prompt_chars=${prompt.length}`)
-  const url = 'https://api.deepinfra.com/v1/openai/chat/completions'
+  console.log(`[memory:openai ${reqId}] start prompt_chars=${prompt.length}`)
+  const url = 'https://api.openai.com/v1/chat/completions'
   const res = await fetch(url, {
     method: 'POST',
     headers: {
@@ -366,24 +366,24 @@ async function callGemini(apiKey: string, prompt: string): Promise<string> {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'meta-llama/Llama-3.2-3B-Instruct',
+      model: 'gpt-4.1-nano',
       temperature: 0.2,
       max_tokens: 800,
       messages: [{ role: 'user', content: prompt }],
     }),
   })
   console.log(
-    `[memory:deepinfra ${reqId}] upstream status=${res.status} ok=${res.ok} ` +
+    `[memory:openai ${reqId}] upstream status=${res.status} ok=${res.ok} ` +
     `latency_ms=${Date.now() - startedAt}`
   )
   if (!res.ok) {
     const err = await res.text()
-    console.error(`[memory:deepinfra ${reqId}] upstream error body=${err.slice(0, 600)}`)
-    throw new Error(`DeepInfra ${res.status}: ${err}`)
+    console.error(`[memory:openai ${reqId}] upstream error body=${err.slice(0, 600)}`)
+    throw new Error(`OpenAI ${res.status}: ${err}`)
   }
   const data = await res.json() as { choices?: Array<{ message?: { content?: string } }> }
   const text = data?.choices?.[0]?.message?.content ?? ''
-  console.log(`[memory:deepinfra ${reqId}] done output_chars=${text.length}`)
+  console.log(`[memory:openai ${reqId}] done output_chars=${text.length}`)
   return text
 }
 

@@ -2,6 +2,8 @@
 
 const http = require('node:http')
 const crypto = require('node:crypto')
+const fs = require('node:fs/promises')
+const path = require('node:path')
 const { Pool } = require('pg')
 
 const HOST = process.env.HOST || '127.0.0.1'
@@ -9,6 +11,8 @@ const PORT = parseInt(process.env.PORT || '8789', 10)
 const DATABASE_URL = process.env.DATABASE_URL || process.env.RAG_DATABASE_URL || ''
 const RAG_API_KEY = process.env.RAG_API_KEY || ''
 const ALLOW_MOCK = String(process.env.RAG_MOCK || '').toLowerCase() === 'true'
+const AUTO_INIT_SCHEMA = String(process.env.RAG_AUTO_INIT_SCHEMA || 'true').toLowerCase() !== 'false'
+const SCHEMA_PATH = path.resolve(__dirname, '..', 'schema-knowledgeos.sql')
 
 if (!DATABASE_URL && !ALLOW_MOCK) {
   console.error('[rag-service] missing DATABASE_URL')
@@ -91,6 +95,54 @@ function chunkText(text, maxChars = 1200) {
 
 function normalizeArray(value) {
   return Array.isArray(value) ? value.filter(Boolean).map(String) : []
+}
+
+async function bootstrapSchema() {
+  if (!pool || !AUTO_INIT_SCHEMA) return
+
+  const client = await pool.connect()
+  try {
+    const requiredTables = [
+      'tenants',
+      'users',
+      'tenant_members',
+      'bots',
+      'data_sources',
+      'documents',
+      'document_versions',
+      'document_chunks',
+      'qa_pairs',
+      'conversations',
+      'messages',
+      'message_citations',
+      'conversation_summaries',
+      'ingestion_jobs',
+      'crawl_jobs',
+      'reindex_jobs',
+    ]
+    const existing = await client.query(
+      `
+      SELECT table_name
+      FROM information_schema.tables
+      WHERE table_schema = 'public'
+        AND table_name = ANY($1::text[])
+      `,
+      [requiredTables],
+    )
+    const existingSet = new Set(existing.rows.map(row => row.table_name))
+    const missing = requiredTables.filter(table => !existingSet.has(table))
+    if (!missing.length) {
+      console.log('[rag-service] schema already initialized')
+      return
+    }
+
+    console.log('[rag-service] bootstrapping schema; missing tables:', missing.join(', '))
+    const schemaSql = await fs.readFile(SCHEMA_PATH, 'utf8')
+    await client.query(schemaSql)
+    console.log('[rag-service] schema bootstrap complete')
+  } finally {
+    client.release()
+  }
 }
 
 function buildFilterClause(params, filters, alias) {
@@ -438,58 +490,67 @@ async function ingestQa(req) {
   }
 }
 
-const server = http.createServer(async (req, res) => {
-  const started = Date.now()
-  try {
-    const url = new URL(req.url || '/', `http://${req.headers.host || '127.0.0.1'}`)
-    const method = String(req.method || 'GET').toUpperCase()
-    const auth = String(req.headers.authorization || '')
+async function main() {
+  await bootstrapSchema()
 
-    if (method === 'OPTIONS') {
-      res.writeHead(204, cors)
-      res.end()
-      return
+  const server = http.createServer(async (req, res) => {
+    const started = Date.now()
+    try {
+      const url = new URL(req.url || '/', `http://${req.headers.host || '127.0.0.1'}`)
+      const method = String(req.method || 'GET').toUpperCase()
+      const auth = String(req.headers.authorization || '')
+
+      if (method === 'OPTIONS') {
+        res.writeHead(204, cors)
+        res.end()
+        return
+      }
+
+      if (RAG_API_KEY && auth !== `Bearer ${RAG_API_KEY}` && url.pathname !== '/health') {
+        sendJson(res, 401, { error: 'Unauthorized' })
+        return
+      }
+
+      if (method === 'GET' && url.pathname === '/health') {
+        const data = await health()
+        sendJson(res, 200, data)
+        return
+      }
+
+      if (method === 'POST' && url.pathname === '/search') {
+        const body = await readJson(req)
+        const data = await search(body)
+        sendJson(res, 200, { ...data, request_ms: Date.now() - started })
+        return
+      }
+
+      if (method === 'POST' && url.pathname === '/ingest/document') {
+        const body = await readJson(req)
+        const data = await ingestDocument(body)
+        sendJson(res, data.ok ? 200 : 400, data)
+        return
+      }
+
+      if (method === 'POST' && url.pathname === '/ingest/qa') {
+        const body = await readJson(req)
+        const data = await ingestQa(body)
+        sendJson(res, data.ok ? 200 : 400, data)
+        return
+      }
+
+      sendJson(res, 404, { error: 'Not found' })
+    } catch (error) {
+      console.error('[rag-service] error', error)
+      sendJson(res, 500, { error: error instanceof Error ? error.message : 'Internal server error' })
     }
+  })
 
-    if (RAG_API_KEY && auth !== `Bearer ${RAG_API_KEY}` && url.pathname !== '/health') {
-      sendJson(res, 401, { error: 'Unauthorized' })
-      return
-    }
+  server.listen(PORT, HOST, () => {
+    console.log(`[rag-service] listening on http://${HOST}:${PORT}`)
+  })
+}
 
-    if (method === 'GET' && url.pathname === '/health') {
-      const data = await health()
-      sendJson(res, 200, data)
-      return
-    }
-
-    if (method === 'POST' && url.pathname === '/search') {
-      const body = await readJson(req)
-      const data = await search(body)
-      sendJson(res, 200, { ...data, request_ms: Date.now() - started })
-      return
-    }
-
-    if (method === 'POST' && url.pathname === '/ingest/document') {
-      const body = await readJson(req)
-      const data = await ingestDocument(body)
-      sendJson(res, data.ok ? 200 : 400, data)
-      return
-    }
-
-    if (method === 'POST' && url.pathname === '/ingest/qa') {
-      const body = await readJson(req)
-      const data = await ingestQa(body)
-      sendJson(res, data.ok ? 200 : 400, data)
-      return
-    }
-
-    sendJson(res, 404, { error: 'Not found' })
-  } catch (error) {
-    console.error('[rag-service] error', error)
-    sendJson(res, 500, { error: error instanceof Error ? error.message : 'Internal server error' })
-  }
-})
-
-server.listen(PORT, HOST, () => {
-  console.log(`[rag-service] listening on http://${HOST}:${PORT}`)
+main().catch(error => {
+  console.error('[rag-service] fatal startup error', error)
+  process.exit(1)
 })

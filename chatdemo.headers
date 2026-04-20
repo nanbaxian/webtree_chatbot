@@ -1,0 +1,31 @@
+HTTP/1.1 308 Permanent Redirect
+Date: Mon, 20 Apr 2026 00:01:58 GMT
+Content-Length: 0
+Connection: keep-alive
+Location: /chat/demo/
+Access-Control-Allow-Origin: *
+referrer-policy: strict-origin-when-cross-origin
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=43adwOD4nnM7qTkwuOvg36u%2BS3g8RQ9QfZExR84ryplYkBE%2BgRtdL13z9DaOBuJTG8s%2BMJG0J0j9j4MF5%2B%2FuWBSXh0LPu3jQb7jP5uByQNh%2Fl%2F7z7UshORgvbjYJXqASbDT3spuMeUX%2BeNhA2g%3D%3D"}]}
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Server: cloudflare
+cf-cache-status: DYNAMIC
+CF-RAY: 9eefe0a57fa836ac-YYZ
+alt-svc: h3=":443"; ma=86400
+
+HTTP/1.1 200 OK
+Date: Mon, 20 Apr 2026 00:01:58 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Cache-Control: public, max-age=0, must-revalidate
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Link: <https://fonts.googleapis.com>; rel="preconnect"
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=rMbip4kGbhezN49zks9krgwmpwpKMVqh3vpUJuxNCcWXnEOkYhoPyaWaBuK4Km%2BPi3DWPIrDorg92QvYuvqkzD4UnV%2FqM9bQ022vt9Fbs%2FZJhB4MdO7Y7WO4Gnh30k%2B8Vsg1wjlyMV0ZGvHLvA%3D%3D"}]}
+Server: cloudflare
+cf-cache-status: DYNAMIC
+CF-RAY: 9eefe0a5f80936ac-YYZ
+alt-svc: h3=":443"; ma=86400
+

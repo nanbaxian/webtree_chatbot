@@ -55,19 +55,19 @@ Use this order when recreating the Cloudflare side from scratch:
    - `SUPABASE_SERVICE_KEY`
    - `SUPABASE_JWT_ISS`
    - `SUPABASE_JWT_AUD`
-   - `DEEPINFRA_API_KEY`
-   - `GEMINI_API_KEY`
+   - `OPENAI_API_KEY`
+   - `OPENAI_MODEL`
    - `CRON_SECRET`
    - Optional CLI equivalent:
      - `npx wrangler pages secret put NEXT_PUBLIC_SITE_URL --project-name=webtree-chatbot-front`
      - repeat for the remaining keys
 8. Recreate worker-level secrets for the cron worker in Cloudflare Workers:
-   - `DEEPINFRA_API_KEY`
+   - `OPENAI_API_KEY`
    - `SUPABASE_URL`
    - `SUPABASE_SERVICE_KEY`
    - `CRON_SECRET`
    - Optional CLI equivalent:
-     - `npx wrangler secret put DEEPINFRA_API_KEY`
+     - `npx wrangler secret put OPENAI_API_KEY`
      - repeat for the remaining worker secrets in the `webtree-chatbot-back` project
 9. Bind the recreated resources back into `wrangler.toml` and `workers/wrangler-cron.toml` with the real IDs Cloudflare gives you.
 
@@ -182,8 +182,8 @@ Set these in Cloudflare Pages and local dev as needed:
 - `SUPABASE_SERVICE_KEY`
 - `SUPABASE_JWT_ISS`
 - `SUPABASE_JWT_AUD`
-- `DEEPINFRA_API_KEY`
-- `GEMINI_API_KEY`
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
 - `CRON_SECRET`
 
 ## Database

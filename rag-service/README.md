@@ -44,6 +44,7 @@ Optional environment variables:
 - `PGPOOL_MAX` to tune PostgreSQL pool size
 - `PGSSLMODE=disable` if you are connecting to a local non-SSL database
 - `RAG_MOCK=true` to run without a database
+- `RAG_AUTO_INIT_SCHEMA=true` to bootstrap `schema-knowledgeos.sql` on startup when tables are missing
 
 If you are using Cloudflare Tunnel, copy
 [`cloudflared.config.yml.example`](./cloudflared.config.yml.example) to
@@ -84,6 +85,12 @@ curl -X POST https://rag.webtreeedu.com/ingest/qa \
 ```
 
 If you are running locally, point the URL at `http://127.0.0.1:8789/ingest/qa`.
+
+## Schema bootstrap
+
+The service will automatically apply [`../schema-knowledgeos.sql`](../schema-knowledgeos.sql)
+on startup when it detects missing core tables. This keeps the long-term RAG
+PostgreSQL self-healing if the schema has not been initialized yet.
 
 ## Notes
 

@@ -24,7 +24,7 @@ bucket_name = "knowledgeos-assets"
 # For now the cron worker only needs auth + storage bindings.
 #
 # Recreate these secrets in the Worker namespace:
-# DEEPINFRA_API_KEY
+# OPENAI_API_KEY
 # SUPABASE_URL
 # SUPABASE_SERVICE_KEY
 # CRON_SECRET

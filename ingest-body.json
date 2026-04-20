@@ -1,0 +1,7 @@
+{
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {"question": "What is KnowledgeOS?", "answer": "KnowledgeOS is the company knowledge base SaaS.", "priority": 10}
+  ]
+}

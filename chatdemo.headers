@@ -2,7 +2,7 @@ HTTP/1.1 308 Permanent Redirect
 Date: Mon, 20 Apr 2026 00:01:58 GMT
 Content-Length: 0
 Connection: keep-alive
-Location: /chat/demo/
+Location: /chat/
 Access-Control-Allow-Origin: *
 referrer-policy: strict-origin-when-cross-origin
 Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=43adwOD4nnM7qTkwuOvg36u%2BS3g8RQ9QfZExR84ryplYkBE%2BgRtdL13z9DaOBuJTG8s%2BMJG0J0j9j4MF5%2B%2FuWBSXh0LPu3jQb7jP5uByQNh%2Fl%2F7z7UshORgvbjYJXqASbDT3spuMeUX%2BeNhA2g%3D%3D"}]}

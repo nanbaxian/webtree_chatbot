@@ -12,17 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/en`,
+      url: `${siteUrl}/chat`,
       lastModified: new Date(),
-      alternates: {
-        languages: {
-          en: `${siteUrl}/en`,
-          zh: `${siteUrl}/zh`,
-        },
-      },
     },
     {
-      url: `${siteUrl}/zh`,
+      url: `${siteUrl}/en`,
       lastModified: new Date(),
       alternates: {
         languages: {

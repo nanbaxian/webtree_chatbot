@@ -150,7 +150,7 @@ export default function KnowledgeLanding({ locale }: { locale: Locale }) {
             <Link href="/dashboard" className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/15">
               {c.hero.primary}
             </Link>
-            <Link href="/chat/demo" className="rounded-full bg-amber-300 px-4 py-2 text-sm font-medium text-slate-950 transition hover:bg-amber-200">
+            <Link href="/chat" className="rounded-full bg-amber-300 px-4 py-2 text-sm font-medium text-slate-950 transition hover:bg-amber-200">
               {c.hero.secondary}
             </Link>
           </div>
@@ -171,7 +171,7 @@ export default function KnowledgeLanding({ locale }: { locale: Locale }) {
                 {c.hero.primary}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/chat/demo" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white transition hover:bg-white/10">
+              <Link href="/chat" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white transition hover:bg-white/10">
                 {c.hero.secondary}
               </Link>
             </div>

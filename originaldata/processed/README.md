@@ -28,6 +28,15 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `qa_seed_delta3.json`
   - Teacher-profile QA top-up
   - Best for staff subject, specialty, and teaching-style lookups
+- `qa_seed_delta4.json`
+  - Schedule and after-school QA top-up
+  - Best for timetable and club-time questions
+- `qa_seed_delta5.json`
+  - Alias QA for schedule phrasing variants
+  - Best for natural-language variants of timetable questions
+- `qa_seed_delta6.json`
+  - Additional academic schedule and club QA
+  - Best for period timing, summer, planning, and club questions
 
 ## Recommended Ingestion Order
 

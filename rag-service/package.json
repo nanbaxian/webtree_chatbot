@@ -15,7 +15,21 @@
     "ingest:qa-delta2": "node scripts/ingest-qa-delta2.cjs",
     "ingest:qa-delta2:dry": "node scripts/ingest-qa-delta2.cjs --dry-run",
     "ingest:qa-delta3": "node scripts/ingest-qa-delta3.cjs",
-    "ingest:qa-delta3:dry": "node scripts/ingest-qa-delta3.cjs --dry-run"
+    "ingest:qa-delta3:dry": "node scripts/ingest-qa-delta3.cjs --dry-run",
+    "ingest:qa-delta4": "node scripts/ingest-qa-delta4.cjs",
+    "ingest:qa-delta4:dry": "node scripts/ingest-qa-delta4.cjs --dry-run",
+    "ingest:qa-delta5": "node scripts/ingest-qa-delta5.cjs",
+    "ingest:qa-delta5:dry": "node scripts/ingest-qa-delta5.cjs --dry-run",
+    "ingest:qa-delta6": "node scripts/ingest-qa-delta6.cjs",
+    "ingest:qa-delta6:dry": "node scripts/ingest-qa-delta6.cjs --dry-run",
+    "ingest:qa-delta7": "node scripts/ingest-qa-delta7.cjs",
+    "ingest:qa-delta7:dry": "node scripts/ingest-qa-delta7.cjs --dry-run",
+    "ingest:qa-delta8": "node scripts/ingest-qa-delta8.cjs",
+    "ingest:qa-delta8:dry": "node scripts/ingest-qa-delta8.cjs --dry-run",
+    "ingest:qa-delta9": "node scripts/ingest-qa-delta9.cjs",
+    "ingest:qa-delta9:dry": "node scripts/ingest-qa-delta9.cjs --dry-run",
+    "ingest:qa-delta10": "node scripts/ingest-qa-delta10.cjs",
+    "ingest:qa-delta10:dry": "node scripts/ingest-qa-delta10.cjs --dry-run"
   },
   "dependencies": {
     "pg": "^8.15.6"

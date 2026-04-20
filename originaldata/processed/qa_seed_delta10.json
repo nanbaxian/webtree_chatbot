@@ -1,0 +1,67 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta10",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What is the 2026 2027 sheet about?",
+      "answer": "The 2026-2027 sheet lists planned courses such as SCH4U, ENG4U, MCV4U, SPH4U, MHF4U, ICS4U, and other grade 12 planning options.",
+      "tags": ["academic", "planning"],
+      "priority": 25
+    },
+    {
+      "question": "What are the planned grade 12 courses?",
+      "answer": "The 2026-2027 sheet lists planned courses such as SCH4U, ENG4U, MCV4U, SPH4U, MHF4U, ICS4U, and other grade 12 planning options.",
+      "tags": ["academic", "planning"],
+      "priority": 25
+    },
+    {
+      "question": "What is the summer section about?",
+      "answer": "The summer section shows July and August courses and student placements, including MHF4U and MCV4U.",
+      "tags": ["academic", "summer"],
+      "priority": 25
+    },
+    {
+      "question": "What are the July and August courses?",
+      "answer": "The summer section shows July and August courses and student placements, including MHF4U and MCV4U.",
+      "tags": ["academic", "summer"],
+      "priority": 25
+    },
+    {
+      "question": "What time does Period 2 start after lunch?",
+      "answer": "Period 2 starts after the lunch break at 12:35 in the Grade 9-12 schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does Period 2 happen after lunch?",
+      "answer": "Period 2 starts after the lunch break at 12:35 in the Grade 9-12 schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does the second break start?",
+      "answer": "The second break starts at 1:25 and Period 3 begins at 1:35.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "What clubs meet after school?",
+      "answer": "The after-school timetable includes clubs such as UWaterloo Financial Literacy, DECA, HOSA, Robotics, and Drama.",
+      "tags": ["academic", "club"],
+      "priority": 22
+    },
+    {
+      "question": "What is the after-school club list?",
+      "answer": "The after-school timetable includes clubs such as UWaterloo Financial Literacy, DECA, HOSA, Robotics, and Drama.",
+      "tags": ["academic", "club"],
+      "priority": 22
+    },
+    {
+      "question": "What is UWaterloo Financial Literacy Club?",
+      "answer": "UWaterloo Financial Literacy Club appears in the Term 3 after-school timetable.",
+      "tags": ["academic", "club"],
+      "priority": 25
+    }
+  ]
+}

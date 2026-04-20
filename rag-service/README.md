@@ -121,6 +121,30 @@ npm run ingest:qa-delta3:dry
 npm run ingest:qa-delta3
 ```
 
+To ingest the schedule / after-school QA top-up:
+
+```bash
+cd rag-service
+npm run ingest:qa-delta4:dry
+npm run ingest:qa-delta4
+```
+
+If you want more natural language aliases for the same schedule facts:
+
+```bash
+cd rag-service
+npm run ingest:qa-delta5:dry
+npm run ingest:qa-delta5
+```
+
+To ingest more timetable and club coverage:
+
+```bash
+cd rag-service
+npm run ingest:qa-delta6:dry
+npm run ingest:qa-delta6
+```
+
 ## Ingest the processed source corpus
 
 The raw source files under `originaldata/processed/` can be ingested with:

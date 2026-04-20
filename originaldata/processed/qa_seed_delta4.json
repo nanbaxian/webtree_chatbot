@@ -1,0 +1,67 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta4",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What time does the Grade 9-12 daily schedule start?",
+      "answer": "The Grade 9-12 daily schedule starts at 9:00.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does Period 1 end in the Grade 9-12 schedule?",
+      "answer": "Period 1 ends at 10:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time is the lunch break in the Grade 9-12 schedule?",
+      "answer": "Lunch break is from 12:05 to 12:35.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does Period 3 end in the Grade 9-12 schedule?",
+      "answer": "Period 3 ends at 2:35 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time do clubs and tutoring end in the Grade 9-12 schedule?",
+      "answer": "Clubs and tutoring run until 5:00.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "How long is the lunch break?",
+      "answer": "Lunch break is 30 minutes long.",
+      "tags": ["academic", "schedule"],
+      "priority": 25
+    },
+    {
+      "question": "How long are the grade 9-12 class blocks?",
+      "answer": "Period 1 and Period 3 are one hour blocks in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "When is after-school IELTS training?",
+      "answer": "After-school IELTS training is on Tuesday and Thursday from 3:40 to 5:40.",
+      "tags": ["academic", "after_school"],
+      "priority": 40
+    },
+    {
+      "question": "What clubs are shown in the after-school timetable?",
+      "answer": "The after-school timetable includes UWaterloo Financial Literacy Club, IELTS Training, DECA Club, AP Calculus, MCR3U Tutoring, Waterloo Math Gr12, MHF4U Tutoring, ENG4U Tutoring, Social Studies, Robotics, Drama, HOSA Club, and more.",
+      "tags": ["academic", "after_school"],
+      "priority": 25
+    },
+    {
+      "question": "What time is the Monday lunch break meeting room block shown?",
+      "answer": "The timetable includes Monday Lunch Break blocks in the Meeting Room and Music Room sections.",
+      "tags": ["academic", "after_school"],
+      "priority": 20
+    }
+  ]
+}

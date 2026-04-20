@@ -1,0 +1,67 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta6",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What time does Period 2 start in the Grade 9-12 schedule?",
+      "answer": "Period 2 starts after the lunch break at 12:35 in the Grade 9-12 schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does Period 2 end in the Grade 9-12 schedule?",
+      "answer": "Period 2 ends at 1:25 in the Grade 9-12 schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "What time does the second break start in the Grade 9-12 schedule?",
+      "answer": "The second break starts at 1:25 and Period 3 begins at 1:35.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "What is the summer timetable about?",
+      "answer": "The summer section shows July and August courses and student placements, including MHF4U and MCV4U.",
+      "tags": ["academic", "summer"],
+      "priority": 25
+    },
+    {
+      "question": "What is listed in the 2026-2027 planning sheet?",
+      "answer": "The 2026-2027 sheet lists planned courses such as SCH4U, ENG4U, MCV4U, SPH4U, MHF4U, ICS4U, and other grade 12 planning options.",
+      "tags": ["academic", "planning"],
+      "priority": 25
+    },
+    {
+      "question": "What club is UWaterloo Financial Literacy?",
+      "answer": "UWaterloo Financial Literacy Club appears in the Term 3 after-school timetable.",
+      "tags": ["academic", "club"],
+      "priority": 25
+    },
+    {
+      "question": "What club is DECA?",
+      "answer": "DECA Club appears repeatedly in the after-school timetables as a recurring club option.",
+      "tags": ["academic", "club"],
+      "priority": 20
+    },
+    {
+      "question": "What club is HOSA?",
+      "answer": "HOSA Club appears in the after-school timetable as a meeting-room activity.",
+      "tags": ["academic", "club"],
+      "priority": 20
+    },
+    {
+      "question": "What club is Robotics?",
+      "answer": "Robotics Club appears in the after-school timetable, including the consulting room and related schedule blocks.",
+      "tags": ["academic", "club"],
+      "priority": 20
+    },
+    {
+      "question": "What club is Drama?",
+      "answer": "Drama Club appears in the after-school timetable, including Room C scheduling blocks.",
+      "tags": ["academic", "club"],
+      "priority": 20
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_delta5",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What time does clubs and tutoring end?",
+      "answer": "Clubs and tutoring run until 5:00.",
+      "tags": ["academic", "schedule", "alias"],
+      "priority": 50
+    },
+    {
+      "question": "When do clubs and tutoring finish?",
+      "answer": "Clubs and tutoring run until 5:00.",
+      "tags": ["academic", "schedule", "alias"],
+      "priority": 45
+    },
+    {
+      "question": "What time does the school day end?",
+      "answer": "In the Grade 9-12 daily schedule, the final clubs and tutoring block runs until 5:00.",
+      "tags": ["academic", "schedule", "alias"],
+      "priority": 40
+    },
+    {
+      "question": "What time does the daily schedule finish?",
+      "answer": "The Grade 9-12 daily schedule ends with clubs and tutoring at 5:00.",
+      "tags": ["academic", "schedule", "alias"],
+      "priority": 40
+    }
+  ]
+}

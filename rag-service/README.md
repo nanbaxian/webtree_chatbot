@@ -87,6 +87,40 @@ curl -X POST https://rag.webtreeedu.com/ingest/qa \
 
 If you are running locally, point the URL at `http://127.0.0.1:8789/ingest/qa`.
 
+## Ingest the curated QA seed
+
+The curated QA seed from `originaldata/processed/qa_seed.json` can be ingested with:
+
+```bash
+cd rag-service
+npm run ingest:qa-seed:dry
+npm run ingest:qa-seed
+```
+
+## Ingest the processed source corpus
+
+The raw source files under `originaldata/processed/` can be ingested with:
+
+```bash
+cd rag-service
+npm run ingest:originaldata:dry
+```
+
+To write the processed Markdown into the RAG store:
+
+```bash
+cd rag-service
+npm run ingest:originaldata
+```
+
+The ingestion script reads `originaldata/processed/ingestion_manifest.json`,
+skips excluded sources such as screenshots, and posts one document per processed
+source file to `/ingest/document`.
+
+By default it uses document-only ingestion for compatibility with the currently
+deployed RAG service. If the RAG server has the newer source upsert logic, you
+can add `--with-source-metadata` to populate `data_sources` as well.
+
 ## Schema bootstrap
 
 The service will automatically apply [`../schema-knowledgeos.sql`](../schema-knowledgeos.sql)

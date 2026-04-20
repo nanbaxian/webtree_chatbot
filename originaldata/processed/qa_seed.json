@@ -1,0 +1,109 @@
+{
+  "name": "webtree_chatbot_originaldata_qa_seed",
+  "tenant_id": "tenant_demo",
+  "bot_id": "bot_demo",
+  "qa_pairs": [
+    {
+      "question": "What is Webtree Academy?",
+      "answer": "Webtree Academy is a private school in North York, Ontario, with public website and PDF archive content captured in the site archive source.",
+      "tags": ["site_archive", "overview"],
+      "priority": 30
+    },
+    {
+      "question": "What is the school's address?",
+      "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
+      "tags": ["site_archive", "contact"],
+      "priority": 30
+    },
+    {
+      "question": "What is the school's phone number?",
+      "answer": "(416) 792-8280.",
+      "tags": ["site_archive", "contact"],
+      "priority": 30
+    },
+    {
+      "question": "What is the school's website?",
+      "answer": "https://www.webtreeedu.com/",
+      "tags": ["site_archive", "contact"],
+      "priority": 25
+    },
+    {
+      "question": "What is the domestic tuition for Grades 7-12?",
+      "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000.",
+      "tags": ["site_archive", "tuition"],
+      "priority": 40
+    },
+    {
+      "question": "What is the international tuition for Grades 7-12?",
+      "answer": "The archive shows international tuition for Grades 7-12 at $27,000.",
+      "tags": ["site_archive", "tuition"],
+      "priority": 40
+    },
+    {
+      "question": "What support services are listed for international students?",
+      "answer": "The archive lists English language and academic support, university applications and credit transfers, immigration and visa guidance, health insurance, homestay placement, social and academic support, emergency help, and one-on-one counseling and tutoring.",
+      "tags": ["site_archive", "international_students"],
+      "priority": 35
+    },
+    {
+      "question": "How many countries are represented by the international student body?",
+      "answer": "The archive says students represent 14 countries.",
+      "tags": ["site_archive", "international_students"],
+      "priority": 25
+    },
+    {
+      "question": "What student-to-teacher ratio values appear in the archive?",
+      "answer": "The archive captures two values: the About page says 6:1 average student-to-teacher ratio, while the Our People page says 5:1 student-to-faculty ratio. Verify manually before operational use.",
+      "tags": ["site_archive", "ratio", "discrepancy"],
+      "priority": 20
+    },
+    {
+      "question": "What application fee discrepancy is captured in the archive?",
+      "answer": "The admissions page says the application fee is $300 CAD, while the View Book PDF says it is $250 CAD.",
+      "tags": ["site_archive", "discrepancy", "admissions"],
+      "priority": 20
+    },
+    {
+      "question": "What is the daily schedule for Period 1 in the timetable?",
+      "answer": "Period 1 runs from 9:00 to 10:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 35
+    },
+    {
+      "question": "When is lunch break in the timetable?",
+      "answer": "Lunch break is shown from 12:05 to 12:35 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 30
+    },
+    {
+      "question": "What are the clubs and tutoring hours in the timetable?",
+      "answer": "Clubs and tutoring run from 3:30 to 5:00 in the Grade 9-12 daily schedule.",
+      "tags": ["academic", "schedule"],
+      "priority": 25
+    },
+    {
+      "question": "What is Ms. Ashley Afful's qualification?",
+      "answer": "Ms. Ashley Afful holds a Bachelor of Design in Environmental Design from OCAD University and a Diploma in Graphic Design and Interactive Media from Toronto Film School.",
+      "tags": ["staff", "faculty"],
+      "priority": 40
+    },
+    {
+      "question": "What does Ms. Michelle Ali specialize in?",
+      "answer": "Ms. Michelle Ali has over 20 years of experience teaching high school English and Social Science and specializes in individualized lesson plans for diverse learning needs.",
+      "tags": ["staff", "faculty"],
+      "priority": 40
+    },
+    {
+      "question": "What is Michael Chemello's teaching focus?",
+      "answer": "Michael Chemello specializes in human anatomy, physiology, injury assessment, rehabilitation, injury prevention, and strength and conditioning.",
+      "tags": ["staff", "faculty"],
+      "priority": 40
+    },
+    {
+      "question": "How long has Mr. James Dickinson been teaching?",
+      "answer": "Mr. James Dickinson has over 30 years of teaching experience specializing in ESL, English, and IELTS training.",
+      "tags": ["staff", "faculty"],
+      "priority": 35
+    }
+  ]
+}

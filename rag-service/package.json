@@ -5,7 +5,11 @@
   "type": "commonjs",
   "scripts": {
     "start": "node server.cjs",
-    "dev": "node server.cjs"
+    "dev": "node server.cjs",
+    "ingest:originaldata": "node scripts/ingest-originaldata.cjs",
+    "ingest:originaldata:dry": "node scripts/ingest-originaldata.cjs --dry-run",
+    "ingest:qa-seed": "node scripts/ingest-qa-seed.cjs",
+    "ingest:qa-seed:dry": "node scripts/ingest-qa-seed.cjs --dry-run"
   },
   "dependencies": {
     "pg": "^8.15.6"

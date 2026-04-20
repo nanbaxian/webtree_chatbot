@@ -1,0 +1,64 @@
+{
+  "corpus_name": "webtree_chatbot_originaldata",
+  "generated_from": "originaldata/raw sources",
+  "suggested_ingestion_order": [
+    "site_archive",
+    "academic",
+    "staff",
+    "media/screenshots"
+  ],
+  "sources": [
+    {
+      "source_type": "site_archive",
+      "raw_path": "originaldata/site_archive/webtreeedu_site_archive_full.md",
+      "processed_path": "originaldata/processed/site_archive/webtreeedu_site_archive_full.normalized.md",
+      "status": "ready",
+      "recommended_use": [
+        "semantic chunking",
+        "citation generation",
+        "website knowledge base"
+      ]
+    },
+    {
+      "source_type": "academic",
+      "raw_path": "originaldata/academic/Master Timetable 2025-2026 (1).xlsx",
+      "processed_path": "originaldata/processed/academic/master_timetable.extracted.md",
+      "status": "ready",
+      "recommended_use": [
+        "schedule lookup",
+        "term/date questions",
+        "structured QA"
+      ]
+    },
+    {
+      "source_type": "staff",
+      "raw_path": "originaldata/staff/teachers.docx",
+      "processed_path": "originaldata/processed/staff/teachers.extracted.md",
+      "status": "ready",
+      "recommended_use": [
+        "faculty bios",
+        "teacher profile lookup",
+        "staff FAQ"
+      ]
+    },
+    {
+      "source_type": "media/screenshots",
+      "raw_path": [
+        "originaldata/media/screenshots/Screenshot_20260419_200523_WeChat.jpg",
+        "originaldata/media/screenshots/Screenshot_20260419_200532_WeChat.jpg"
+      ],
+      "processed_path": "originaldata/processed/media/screenshots.manifest.md",
+      "status": "excluded",
+      "recommended_use": [
+        "manual review",
+        "provenance tracking",
+        "future OCR"
+      ]
+    }
+  ],
+  "notes": [
+    "Processed files are derived artifacts and can be regenerated from the raw corpus.",
+    "Screenshots are excluded from the current ingestion set.",
+    "The external RAG database should ingest the processed markdown layer, not the raw binary sources."
+  ]
+}

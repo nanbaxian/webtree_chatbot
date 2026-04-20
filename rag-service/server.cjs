@@ -244,6 +244,32 @@ async function ensureTenantAndBot(client, tenantId, botId) {
   }
 }
 
+async function ensureSource(client, tenantId, botId, source) {
+  const sourceId = String(source?.id || '').trim()
+  if (!sourceId) return null
+
+  const sourceType = String(source?.type || 'manual').trim()
+  const sourceName = String(source?.name || sourceId).trim()
+  const sourceConfig = source?.config_json && typeof source.config_json === 'object' ? source.config_json : {}
+  const sourceStatus = String(source?.status || 'ready').trim()
+
+  await client.query(
+    `INSERT INTO data_sources (id, tenant_id, bot_id, type, name, config_json, status, created_at, updated_at)
+     VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7, NOW(), NOW())
+     ON CONFLICT (id) DO UPDATE SET
+       tenant_id = EXCLUDED.tenant_id,
+       bot_id = EXCLUDED.bot_id,
+       type = EXCLUDED.type,
+       name = EXCLUDED.name,
+       config_json = EXCLUDED.config_json,
+       status = EXCLUDED.status,
+       updated_at = NOW()`,
+    [sourceId, tenantId, botId || null, sourceType, sourceName, JSON.stringify(sourceConfig), sourceStatus],
+  )
+
+  return sourceId
+}
+
 function buildFilterClause(params, filters, alias) {
   const clauses = []
   if (filters && Array.isArray(filters.source_ids) && filters.source_ids.length) {
@@ -475,7 +501,8 @@ async function ingestDocument(req) {
   const payload = req || {}
   const tenantId = String(payload.tenant_id || '').trim()
   const doc = payload.document || {}
-  const sourceId = payload.source_id ? String(payload.source_id) : null
+  const source = payload.source || {}
+  const sourceId = payload.source_id ? String(payload.source_id) : String(source.id || '').trim() || null
   const botId = payload.bot_id ? String(payload.bot_id) : null
   const text = String(doc.text || '').trim()
   if (!tenantId) return { ok: false, error: 'tenant_id is required' }
@@ -485,6 +512,13 @@ async function ingestDocument(req) {
   try {
     await client.query('BEGIN')
     await ensureTenantAndBot(client, tenantId, botId)
+    const ensuredSourceId = await ensureSource(client, tenantId, botId, {
+      id: sourceId,
+      type: source.type || 'manual',
+      name: source.name || doc.title || 'KnowledgeOS Source',
+      config_json: source.config_json || {},
+      status: source.status || 'ready',
+    })
     const docId = String(doc.id || crypto.randomUUID())
     const existing = await client.query('SELECT version FROM documents WHERE id = $1 LIMIT 1', [docId])
     const nextVersion = existing.rows[0] ? Number(existing.rows[0].version || 1) + 1 : 1
@@ -508,7 +542,7 @@ async function ingestDocument(req) {
       [
         docId,
         tenantId,
-        sourceId,
+        ensuredSourceId,
         String(doc.title || 'Untitled document'),
         doc.file_name || null,
       doc.r2_key || null,
@@ -547,7 +581,7 @@ async function ingestDocument(req) {
     )
 
     if (botId) {
-      await client.query('UPDATE documents SET source_id = COALESCE(source_id, $1) WHERE id = $2', [sourceId, docId])
+      await client.query('UPDATE documents SET source_id = COALESCE(source_id, $1) WHERE id = $2', [ensuredSourceId, docId])
     }
 
     await client.query('COMMIT')
@@ -565,6 +599,7 @@ async function ingestQa(req) {
   const payload = req || {}
   const tenantId = String(payload.tenant_id || '').trim()
   const botId = payload.bot_id ? String(payload.bot_id) : null
+  const source = payload.source || {}
   const qaPairs = Array.isArray(payload.qa_pairs) ? payload.qa_pairs : []
   if (!tenantId) return { ok: false, error: 'tenant_id is required' }
   if (!qaPairs.length) return { ok: false, error: 'qa_pairs is required' }
@@ -573,6 +608,13 @@ async function ingestQa(req) {
   try {
     await client.query('BEGIN')
     await ensureTenantAndBot(client, tenantId, botId)
+    await ensureSource(client, tenantId, botId, {
+      id: String(payload.source_id || source.id || '').trim() || null,
+      type: source.type || 'qa',
+      name: source.name || 'Q&A',
+      config_json: source.config_json || {},
+      status: source.status || 'ready',
+    })
     const inserted = []
     for (const raw of qaPairs) {
       const item = raw || {}

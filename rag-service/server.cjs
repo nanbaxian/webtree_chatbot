@@ -12,6 +12,7 @@ const DATABASE_URL = process.env.DATABASE_URL || process.env.RAG_DATABASE_URL ||
 const RAG_API_KEY = process.env.RAG_API_KEY || ''
 const ALLOW_MOCK = String(process.env.RAG_MOCK || '').toLowerCase() === 'true'
 const AUTO_INIT_SCHEMA = String(process.env.RAG_AUTO_INIT_SCHEMA || 'true').toLowerCase() !== 'false'
+const SEARCH_DEBUG = String(process.env.RAG_SEARCH_DEBUG || '').toLowerCase() === 'true'
 const SCHEMA_PATH = path.resolve(__dirname, '..', 'schema-knowledgeos.sql')
 
 if (!DATABASE_URL && !ALLOW_MOCK) {
@@ -597,9 +598,11 @@ async function search(req) {
     const merged = []
     const seen = new Set()
     const variants = buildSearchVariants(req.query)
+    const debugTrace = []
 
     for (const variant of variants) {
       const hits = await searchWithQuery(client, req, variant)
+      debugTrace.push({ variant, hits: hits.length })
       for (const item of hits) {
         if (seen.has(item.id)) continue
         seen.add(item.id)
@@ -611,6 +614,16 @@ async function search(req) {
 
     merged.sort((a, b) => (b.score || 0) - (a.score || 0))
     const trimmed = merged.slice(0, topK)
+    if (SEARCH_DEBUG || !trimmed.length) {
+      console.log('[rag-service] search trace', JSON.stringify({
+        tenant_id: req.tenant_id || null,
+        bot_id: req.bot_id || null,
+        query: req.query || '',
+        variants,
+        trace: debugTrace,
+        result_count: trimmed.length,
+      }))
+    }
     return {
       request_id: req.request_id ?? null,
       latency_ms: Date.now() - started,

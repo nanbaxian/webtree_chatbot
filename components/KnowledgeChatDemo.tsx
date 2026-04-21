@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CheckCircle2, Loader2, Quote, SendHorizontal, Sparkles } from 'lucide-react'
+import { CheckCircle2, Loader2, Quote, SendHorizontal } from 'lucide-react'
 import { apiUrl } from '@/lib/api-url'
 import { parseRagCitationsHeader, type RagCitation } from '@/lib/rag-protocol'
 
@@ -198,17 +198,12 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
     <main className="min-h-screen bg-[#0b0e13] px-4 py-4 text-white lg:px-6 lg:py-6">
       <div className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-[1920px] gap-4 lg:gap-5">
         <section className="flex min-w-0 flex-1 flex-col rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] backdrop-blur-xl">
-          <header className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:px-6">
+          <header className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:px-6">
             <div className="min-w-0">
-              <div className="text-xs uppercase tracking-[0.3em] text-amber-100/80">Live chat shell</div>
-              <h1 className="mt-2 truncate text-2xl font-semibold text-white lg:text-3xl">KnowledgeOS Assistant</h1>
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-white/55">
-                Main chat surface first. Citations stay available, but the conversation area owns the screen.
-              </p>
+              <h1 className="truncate text-xl font-semibold text-white lg:text-2xl">Webtree Academy AI</h1>
             </div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-100">
-              <Sparkles className="h-3.5 w-3.5" />
-              RAG ready
+            <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/55">
+              RAG
             </div>
           </header>
 

@@ -1154,6 +1154,36 @@
       "answer": "McMaster's Honours Health Sciences page says the program requires a course that is not math, science, or technology-based for admission to Level I. The page shows an anticipated admission average in the mid-80s, and the supplementary applications page lists Honours Health Sciences as having a supplementary application due in the early or mid-February window.",
       "tags": ["university_programs", "mcmaster", "health_sciences"],
       "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Waterloo Accounting and Financial Management?",
+      "answer": "Ontario students need Any Grade 12 U English with a minimum grade of 75, Advanced Functions with a minimum grade of 75, and Calculus and Vectors with a minimum grade of 75. The admission average is mid-80s, and Waterloo recommends Grade 12 Principles of Financial Accounting and Grade 12 Mathematics of Data Management.",
+      "tags": ["university_programs", "waterloo", "accounting_and_financial_management"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Waterloo Data Science?",
+      "answer": "Ontario students need six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, any Grade 12 U English, and one other 4U course. Waterloo recommends Grade 11 U Introduction to Computer Science. The admission average is individual selection from the mid-80s if applying through Mathematics and low to mid-90s if applying through Computer Science, and the Admission Information Form is required.",
+      "tags": ["university_programs", "waterloo", "data_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for U of T Life Sciences?",
+      "answer": "The U of T Life Sciences entry path uses the OSSD with six subjects at the 4U/M level, including English. The U of T viewbook shows no additional requirements beyond English for Life Sciences.",
+      "tags": ["university_programs", "uoft", "life_sciences"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for TMU Accounting and Finance?",
+      "answer": "TMU's Accounting & Finance program is grades-only. Ontario high school applicants need the OSSD, six Grade 12 U or M courses, and a minimum overall average of 70%. The required Grade 12 U courses are ENG4U or EAE4U preferred, Advanced Functions, and Calculus and Vectors. The page shows a grade range in the mid-80s.",
+      "tags": ["university_programs", "tmu", "accounting_and_finance"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for McMaster iBioMed?",
+      "answer": "McMaster describes iBioMed as a blended engineering and health sciences program with limited enrolment of 155 students per year. The program page says the Faculty of Engineering offers $2.5M+ in entrance scholarships and research awards for students entering Level 1 engineering programs. The supplementary applications page lists iBioMed as having a required supplementary application.",
+      "tags": ["university_programs", "mcmaster", "ibioMed"],
+      "priority": 45
     }
   ]
 }

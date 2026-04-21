@@ -32,6 +32,17 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Application note: the Admission Information Form is required.
 - Extra note: Waterloo strongly encourages the Canadian Senior Mathematics Contest and/or Euclid Mathematics Contest.
 
+### Data Science
+- Ontario students need six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, any Grade 12 U English, and one other 4U course.
+- Recommended: Grade 11 U Introduction to Computer Science.
+- Admission average: individual selection from the mid-80s if applying through Mathematics and low to mid-90s if applying through Computer Science.
+- Application note: apply to Computer Science or Mathematics and choose Data Science as your major at the end of first year; the Admission Information Form is required.
+
+### Accounting and Financial Management
+- Ontario students need Any Grade 12 U English with a minimum grade of 75, Advanced Functions with a minimum grade of 75, and Calculus and Vectors with a minimum grade of 75.
+- Admission average: mid-80s.
+- Recommended background: Grade 12 Principles of Financial Accounting and Grade 12 Mathematics of Data Management.
+
 ## University of Toronto
 
 ### Computer Science at U of T Mississauga
@@ -48,6 +59,11 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - OSSD with six subjects at the 4U/M level, including English.
 - The co-op component of Grade 12 courses is not used for admission purposes.
 - Ontario secondary school qualifications shown on the page: ENG4U / EAE4U, MCV4U, and MHF4U.
+
+### Life Sciences
+- OSSD with six subjects at the 4U/M level, including English.
+- The U of T viewbook shows no additional requirements beyond English for Life Sciences.
+- This is a broad life sciences entry path that leads to multiple programs under the HBSc umbrella.
 
 ### Engineering Science
 - OSSD with six subjects at the 4U/M level, including English.
@@ -68,12 +84,23 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Required Grade 12 U courses: ENG4U/EAE4U preferred, MHF4U, one of MCV4U or MDM4U, and one of SPH4U, SCH4U, or SBI4U.
 - Due to competition, the average needed can fluctuate year to year.
 
+### Accounting & Finance
+- This is a grades-only program.
+- Ontario high school applicants need the OSSD, six Grade 12 U or M courses, and a minimum overall average of 70%.
+- Required Grade 12 U courses: ENG4U/EAE4U preferred, MHF4U, and MCV4U.
+- The page shows a grade range in the mid-80s.
+
 ## McMaster University
 
 ### Honours Health Sciences
 - The program page says the Honours Health Sciences program requires a course that is not math, science, or technology-based for admission to Level I.
 - The page also shows an anticipated admission average in the mid-80s.
 - The supplementary applications page lists Honours Health Sciences as having a supplementary application due in the early/mid-February window.
+
+### iBioMed
+- McMaster describes iBioMed as a blended engineering and health sciences program with limited enrolment of 155 students per year.
+- The program page says the Faculty of Engineering offers $2.5M+ in entrance scholarships and research awards for students entering Level 1 engineering programs.
+- The supplementary applications page lists iBioMed as having a required supplementary application.
 
 ## Notes
 

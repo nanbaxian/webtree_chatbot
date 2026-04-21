@@ -14,6 +14,9 @@ Files here are preserved in their original form and grouped by source type.
 - `academic/`
   - Schedules, calendars, and other operational spreadsheets
   - Best for table extraction and structured ingestion
+- `ossd/`
+  - Ontario Secondary School Diploma reference summaries
+  - Best for graduation requirements, course-code explanations, and stream reference
 - `media/screenshots/`
   - Image evidence and message captures
   - Best for OCR, manual transcription, or provenance-only storage
@@ -23,6 +26,7 @@ Files here are preserved in their original form and grouped by source type.
 - `site_archive/webtreeedu_site_archive_full.md`
 - `staff/teachers.docx`
 - `academic/Master Timetable 2025-2026 (1).xlsx`
+- `ossd/ossd_core_guide.md`
 - `media/screenshots/Screenshot_20260419_200523_WeChat.jpg`
 - `media/screenshots/Screenshot_20260419_200532_WeChat.jpg`
 
@@ -43,6 +47,7 @@ Processed, RAG-friendly artifacts are stored under `processed/`.
 - `processed/site_archive/webtreeedu_site_archive_full.normalized.md`
 - `processed/academic/master_timetable.extracted.md`
 - `processed/staff/teachers.extracted.md`
+- `processed/ossd/ossd_core_guide.md`
 - `processed/media/screenshots.manifest.md`
 - `processed/qa_seed.json`
 - `processed/qa_seed_delta.json`

@@ -4,6 +4,72 @@
   "bot_id": "bot_demo",
   "qa_pairs": [
     {
+      "question": "What are the OSSD graduation requirements?",
+      "answer": "For students who started Grade 9 in 2023 or earlier, the OSSD requires 18 compulsory credits, 12 optional credits, the literacy requirement, at least 2 online learning credits, and 40 community involvement hours. For students who started Grade 9 in 2024 or later, the requirements are 17 compulsory credits, 13 optional credits, the literacy requirement, at least 2 online learning credits, and 40 community involvement hours.",
+      "tags": ["ossd", "graduation", "requirements"],
+      "priority": 50
+    },
+    {
+      "question": "How many credits do I need for the OSSD?",
+      "answer": "It depends on the cohort. Students who started Grade 9 in 2023 or earlier need 18 compulsory credits and 12 optional credits. Students who started Grade 9 in 2024 or later need 17 compulsory credits and 13 optional credits.",
+      "tags": ["ossd", "credits", "requirements"],
+      "priority": 50
+    },
+    {
+      "question": "What compulsory credits are part of the OSSD?",
+      "answer": "The core OSSD framework includes 4 English credits, 3 math credits, 2 science credits, 1 Canadian geography credit, 1 Canadian history credit, 1 arts credit, 1 health and physical education credit, 1 French as a second language credit, 0.5 career studies credit, and 0.5 civics and citizenship credit. Newer cohorts also include 1 technological education credit in Grade 9 or 10.",
+      "tags": ["ossd", "compulsory credits", "requirements"],
+      "priority": 45
+    },
+    {
+      "question": "What is the OSSD literacy requirement?",
+      "answer": "Students must meet the provincial secondary school literacy requirement to earn the OSSD. If they do not pass the literacy test, there are alternative ways to satisfy the requirement through the school system.",
+      "tags": ["ossd", "literacy", "requirements"],
+      "priority": 45
+    },
+    {
+      "question": "How many community involvement hours are required for the OSSD?",
+      "answer": "Ontario students need 40 hours of community involvement activities to graduate and earn the OSSD.",
+      "tags": ["ossd", "community involvement", "requirements"],
+      "priority": 45
+    },
+    {
+      "question": "How many online learning credits are required for the OSSD?",
+      "answer": "Ontario requires at least 2 online learning credits for the OSSD unless the student is exempted or has opted out under the provincial rules.",
+      "tags": ["ossd", "online learning", "requirements"],
+      "priority": 40
+    },
+    {
+      "question": "What do Ontario course codes like ENG3U mean?",
+      "answer": "Ontario course codes usually show the subject area, the grade level, and the course level. For example, ENG3U means Grade 11 English at the university-preparation level.",
+      "tags": ["ossd", "course codes", "streams"],
+      "priority": 45
+    },
+    {
+      "question": "What do the Ontario course level letters mean?",
+      "answer": "Common Ontario course level letters are D for academic, P for applied, U for university preparation, C for college preparation, M for university/college preparation, E for workplace preparation, O for open, and L for locally developed compulsory credit.",
+      "tags": ["ossd", "course codes", "streams"],
+      "priority": 45
+    },
+    {
+      "question": "What are the common Grade 11 English course codes?",
+      "answer": "Common Grade 11 English OSSD course codes are ENG3U, ENG3C, and ENG3E.",
+      "tags": ["ossd", "english", "course codes"],
+      "priority": 40
+    },
+    {
+      "question": "What are the common Grade 11 math course codes?",
+      "answer": "Common Grade 11 math OSSD course codes are MCR3U, MCF3M, MBF3C, and MEL3E.",
+      "tags": ["ossd", "math", "course codes"],
+      "priority": 40
+    },
+    {
+      "question": "What are the common Grade 11 science course codes?",
+      "answer": "Common Grade 11 science OSSD course codes are SBI3U, SBI3C, SCH3U, SPH3U, SVN3M, and SVN3E.",
+      "tags": ["ossd", "science", "course codes"],
+      "priority": 40
+    },
+    {
       "question": "What is the school's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
       "tags": ["site_archive", "contact"],

@@ -73,6 +73,8 @@ function sourceTypeToName(sourceType) {
       return 'Master Timetable 2025-2026'
     case 'staff':
       return 'Teachers Directory'
+    case 'ossd_core':
+      return 'OSSD Core Guide'
     default:
       return sourceType
   }

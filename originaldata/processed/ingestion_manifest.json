@@ -42,6 +42,23 @@
       ]
     },
     {
+      "source_type": "ossd_core",
+      "raw_path": [
+        "https://www.ontario.ca/page/high-school-graduation-requirements",
+        "https://www.edu.gov.on.ca/eng/document/curricul/secondary/descript/descri9e.pdf",
+        "https://www.edu.gov.on.ca/eng/curriculum/secondary/english910currb.pdf",
+        "https://www.edu.gov.on.ca/eng/curriculum/secondary/math1112currb.pdf",
+        "https://www.edu.gov.on.ca/eng/curriculum/secondary/science910_2008.pdf"
+      ],
+      "processed_path": "originaldata/processed/ossd/ossd_core_guide.md",
+      "status": "ready",
+      "recommended_use": [
+        "OSSD graduation requirements",
+        "course-code reference",
+        "stream explanation"
+      ]
+    },
+    {
       "source_type": "media/screenshots",
       "raw_path": [
         "originaldata/media/screenshots/Screenshot_20260419_200523_WeChat.jpg",

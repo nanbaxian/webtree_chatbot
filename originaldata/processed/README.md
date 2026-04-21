@@ -13,6 +13,9 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `staff/teachers.extracted.md`
   - Text extraction of the staff directory document
   - Best for faculty bios, responsibilities, and teaching style lookup
+- `ossd/ossd_core_guide.md`
+  - Compact OSSD reference summary
+  - Best for graduation requirements, course-code interpretation, and stream explanations
 - `media/screenshots.manifest.md`
   - Provenance-only inventory of screenshot assets
   - Excluded from the current RAG ingestion set
@@ -20,7 +23,7 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
   - Curated question/answer seed pairs distilled from the processed corpus
   - Best for direct lookup, canonical answers, and high-confidence retrieval
 - `qa_seed_delta.json`
-  - Additional site-archive QA items added later
+  - Additional site-archive and OSSD core QA items added later
   - Best for top-up ingestion without replaying the original QA seed
 - `qa_seed_delta2.json`
   - Faculty and leadership QA top-up

@@ -214,6 +214,840 @@
       "priority": 45
     },
     {
+      "question": "What does ENG4U cover?",
+      "answer": "ENG4U is Grade 12 English at the university-preparation level. It emphasizes literary analysis, challenging texts, and strong academic writing for university, college, or work.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ENG4C cover?",
+      "answer": "ENG4C is Grade 12 English at the college-preparation level. It focuses on literacy, clear communication, practical writing, and a mix of informational and literary texts.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ENG4E cover?",
+      "answer": "ENG4E is Grade 12 English at the workplace level. It emphasizes workplace communication, short texts, reports, summaries, and practical reading and writing.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does CLU3M cover?",
+      "answer": "CLU3M is Understanding Canadian Law. It studies law, legal reasoning, rights, freedoms, and how Canadian law affects everyday life.",
+      "tags": ["ossd", "law", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does CLU3E cover?",
+      "answer": "CLU3E is Understanding Canadian Law in Everyday Life. It focuses on practical laws that affect daily life, including marriage, the workplace, cyberbullying, and criminal offences.",
+      "tags": ["ossd", "law", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does CIC4E cover?",
+      "answer": "CIC4E is Making Personal Economic Choices. It focuses on personal finance, economic decision-making, trade-offs, and the economic choices people make in daily life.",
+      "tags": ["ossd", "economics", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does CHY4U cover?",
+      "answer": "CHY4U is Canada: History, Identity, and Culture. It studies major themes and developments in Canadian history and the factors that shaped Canadian identity.",
+      "tags": ["ossd", "history", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HFC3M cover?",
+      "answer": "HFC3M is Food and Culture at the university/college-preparation level. It focuses on world cuisines, cooking techniques, food traditions, and cultural food practices.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HFC3E cover?",
+      "answer": "HFC3E is Food and Culture at the workplace level. It focuses on world cuisines, practical cooking skills, food etiquette, and food traditions across cultures.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HFA4C cover?",
+      "answer": "HFA4C is Nutrition and Health at the college-preparation level. It studies nutrition across life stages, health and disease, food security, environmental responsibility, and food-preparation skills.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HFL4E cover?",
+      "answer": "HFL4E is Food and Healthy Living. It focuses on basic food needs for young adults, kitchen basics, nutritious food choices, etiquette, and practical living skills.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HHG4M cover?",
+      "answer": "HHG4M is Human Development throughout the Lifespan. It studies development from infancy through adulthood and the social science ideas behind growth and change.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HHS4C cover?",
+      "answer": "HHS4C is Families in Canada at the college level. It examines individuals, intimate relationships, family development, and parent-child relationships in contemporary Canadian society.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSC4M cover?",
+      "answer": "HSC4M is World Cultures. It examines the nature of culture, cultural identity, religious and spiritual beliefs, art forms, philosophy, and issues facing ethnocultural groups.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HNB4M cover?",
+      "answer": "HNB4M is The World of Fashion. It explores fashion products, fabrics, fashion history, global fashion systems, specialized markets, and factors that affect the fashion industry.",
+      "tags": ["ossd", "fashion", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HIF1O cover?",
+      "answer": "HIF1O is Exploring Family Studies. It introduces families, daily living, basic food or resource skills, and how families meet needs and responsibilities.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HIF2O cover?",
+      "answer": "HIF2O is Exploring Family Studies. It continues the introduction to family studies, daily living, food skills, and how families manage resources and responsibilities.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HIP4O cover?",
+      "answer": "HIP4O is Personal Life Management. It focuses on independent living, managing food, clothing, housing, personal and financial responsibilities, and practical decision-making.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HPD4C cover?",
+      "answer": "HPD4C is Working with School-Age Children and Adolescents. It studies child and adolescent development, behavior, observation, and careers involving older children.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSG3M cover?",
+      "answer": "HSG3M is Gender Studies. It explores gender roles and norms, sexism and power relations, media representations, and gender equity issues in Canadian and global contexts.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSE3E cover?",
+      "answer": "HSE3E is Equity, Diversity, and Social Justice. It focuses on diversity, power relations, discrimination, harassment, rights, and social action.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HHD3O cover?",
+      "answer": "HHD3O is Dynamics of Human Relationships. It focuses on self-concept, healthy relationships, interpersonal skills, and the factors that support well-being.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HNL2O cover?",
+      "answer": "HNL2O is Clothing. It introduces clothing functions, wardrobe choices, garment quality, shopping strategies, and basic clothing-related skills.",
+      "tags": ["ossd", "fashion", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HNC3C cover?",
+      "answer": "HNC3C is Understanding Fashion. It explores fashion trends, media influence, retailing, fibers, fabrics, design, and creating fashion products.",
+      "tags": ["ossd", "fashion", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HLS3O cover?",
+      "answer": "HLS3O is Housing and Home Design. It focuses on housing needs, housing options, home maintenance, safety, and design and decorating decisions.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ASM4E cover?",
+      "answer": "ASM4E is Media Arts at the workplace level. It focuses on creating media art works for specific audiences using digital and emerging technologies, while practicing safe and responsible production habits.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ASM3O cover?",
+      "answer": "ASM3O is Media Arts at the open level. It focuses on creating media art works using digital tools and techniques, and developing the ability to create and interpret media art.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ADA4E cover?",
+      "answer": "ADA4E is Drama at the workplace level. It focuses on creating, presenting, and analysing dramatic works relevant to the workplace and building collaborative and self-confidence skills.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ATC4M cover?",
+      "answer": "ATC4M is Dance at the university/college-preparation level. It focuses on choreography, performance, analysis, and how dance connects with culture and society.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ATC4E cover?",
+      "answer": "ATC4E is Dance at the workplace level. It focuses on movement phrases, choreographing for specific audiences or events, and practical dance applications.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AMU4E cover?",
+      "answer": "AMU4E is Music at the workplace level. It focuses on practical music-making, performance, and applying music skills in a workplace-oriented context.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AVI4E cover?",
+      "answer": "AVI4E is Visual Arts at the workplace level. It focuses on practical visual art creation, interpretation, and workplace-oriented artistic production.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AEA3O cover?",
+      "answer": "AEA3O is Exploring and Creating in the Arts. It lets students work across more than one art form while exploring and creating artistic works.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BAT4M cover?",
+      "answer": "BAT4M is Financial Accounting Principles. It deepens accounting knowledge through financial analysis, accounting systems, and accounting for decision-making.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BAI3E cover?",
+      "answer": "BAI3E is Accounting Essentials. It focuses on accounting basics, bookkeeping, financial records, and practical small-business accounting skills.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BAN4E cover?",
+      "answer": "BAN4E is Accounting for a Small Business. It focuses on practical accounting tasks for small businesses, including records, statements, and decision-making.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TGJ4M cover?",
+      "answer": "TGJ4M is Communications Technology at the university/college level. It covers video, audio, print, photography, digital imaging, and new media production.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TGJ4O cover?",
+      "answer": "TGJ4O is Communications Technology at the open level. It covers media production, digital imaging, photography, audio, video, and graphic communications.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TDJ4M cover?",
+      "answer": "TDJ4M is Technological Design at the university/college level. It focuses on design thinking, problem solving, prototyping, and developing solutions to design challenges.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TDJ4O cover?",
+      "answer": "TDJ4O is Technological Design in the Twenty-first Century. It is an open design course focused on design thinking, creativity, and practical problem solving.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TMJ4M cover?",
+      "answer": "TMJ4M is Manufacturing Engineering Technology. It focuses on design, process planning, control systems, quality assurance, and business operations in manufacturing.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TMJ4E cover?",
+      "answer": "TMJ4E is Manufacturing Technology at the workplace level. It focuses on hands-on manufacturing projects, fabrication, tools, equipment, and practical production skills.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TPJ4M cover?",
+      "answer": "TPJ4M is Health Care at the university/college level. It focuses on clinical findings, health care practices, immune system concepts, disease prevention, and professional practice standards.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TPJ4E cover?",
+      "answer": "TPJ4E is Health Care: Support Services at the workplace level. It focuses on infection control, patient care support, safe equipment use, and health care workplace procedures.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TFJ4C cover?",
+      "answer": "TFJ4C is Hospitality and Tourism at the college level. It focuses on hospitality operations, nutrition, menu planning, and food preparation and presentation.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TTJ4E cover?",
+      "answer": "TTJ4E is Transportation Technology: Vehicle Maintenance. It focuses on servicing, repair, and maintenance of vehicles and prepares students for maintenance or apprenticeship paths.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does THJ4M cover?",
+      "answer": "THJ4M is Agricultural, Forestry, and Landscape Technology at the university/college level. It focuses on industry procedures, design and maintenance skills, sustainability, safety, and career pathways.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does THJ4E cover?",
+      "answer": "THJ4E is Agricultural, Forestry, and Landscape Technology at the workplace level. It focuses on hands-on projects, equipment, sustainable practices, safety, and industry-specific skills.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TCJ4C cover?",
+      "answer": "TCJ4C is Construction Engineering Technology at the college level. It focuses on residential and light commercial construction, building drawings, building codes, regulations, and safety standards.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TCJ4E cover?",
+      "answer": "TCJ4E is Construction Technology at the workplace level. It focuses on residential and light commercial construction, hands-on building, project planning, codes, safety, and entrepreneurship.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TWJ4E cover?",
+      "answer": "TWJ4E is Custom Woodworking. It focuses on planning, designing, and building cabinets and furniture, plus safe use of tools, finishes, and hardware.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TPJ4C cover?",
+      "answer": "TPJ4C is Health Care at the college level. It focuses on clinical skills, health care practices, immune system concepts, disease prevention, and health and safety issues.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does TFJ4E cover?",
+      "answer": "TFJ4E is Hospitality and Tourism at the workplace level. It focuses on nutrition, menu planning, food preparation, service operations, and the restaurant and tourism industry.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ASM3M cover?",
+      "answer": "ASM3M is Media Arts at the university/college level. It focuses on media arts skills using traditional and emerging technologies such as new media, computer animation, and web environments.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ASM4M cover?",
+      "answer": "ASM4M is Media Arts at the university/college level. It emphasizes a thematic body of work using multimedia, animation, installation, and performance art, with portfolios for postsecondary or career use.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ADA3M cover?",
+      "answer": "ADA3M is Drama at the university/college level. It focuses on creating and performing dramatic presentations, analysing works from various cultures and time periods, and studying acting and production roles.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ADA3O cover?",
+      "answer": "ADA3O is Drama at the open level. It focuses on dramatic processes, presenting original works, and applying drama skills in other contexts and opportunities.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ADA4M cover?",
+      "answer": "ADA4M is Drama at the university/college level. It focuses on experimenting with drama forms and conventions, interpreting dramatic literature, and analysing how drama relates to culture and personal goals.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AVI3M cover?",
+      "answer": "AVI3M is Visual Arts at the university/college level. It focuses on creating and analysing art works, reflecting on art's role in identity and society, and developing artistic technique.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AVI3O cover?",
+      "answer": "AVI3O is Visual Arts at the open level. It focuses on creating art works, exploring techniques and materials, and developing visual literacy and responsible art practices.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ATC3M cover?",
+      "answer": "ATC3M is Dance at the university/college level. It focuses on artistry, improvisation, composition, technical proficiency, and dance genres from around the world.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ATC3O cover?",
+      "answer": "ATC3O is Dance at the open level. It focuses on movement vocabulary, dance genres from around the world, composition tools, and applying dance skills in a variety of careers.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AEA4O cover?",
+      "answer": "AEA4O is Exploring and Creating in the Arts. It lets students work across more than one art form while exploring and creating artistic works.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AMU4M cover?",
+      "answer": "AMU4M is Music at the university/college level. It focuses on performance, composition, listening, theory, and reflection on musical styles and culture.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AVI4M cover?",
+      "answer": "AVI4M is Visual Arts at the university/college level. It focuses on creating and analysing art works, reflecting on identity and society, and developing strong artistic technique.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BTA3O cover?",
+      "answer": "BTA3O is Information and Communication Technology: The Digital Environment. It focuses on digital literacy, business software, e-commerce, website creation, and the modern workplace.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BDI3C cover?",
+      "answer": "BDI3C is Entrepreneurship: The Venture. It focuses on developing a venture plan, cash flow, financing, and practical planning for a business idea.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BDP3O cover?",
+      "answer": "BDP3O is Entrepreneurship: The Enterprising Person. It focuses on entrepreneurial thinking, opportunity spotting, and the skills and attitudes needed to start a venture.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BTX4C cover?",
+      "answer": "BTX4C is ICT: Multimedia Solutions. It focuses on applying business software, multimedia techniques, and electronic communication to projects and team work.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BTX4E cover?",
+      "answer": "BTX4E is ICT in the Workplace. It focuses on business software, multimedia tools, e-commerce, workplace technology, and job-ready digital skills.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BBB4M cover?",
+      "answer": "BBB4M is International Business Fundamentals. It focuses on global trade, international business operations, marketing, logistics, and cross-border business decisions.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BBB4E cover?",
+      "answer": "BBB4E is International Business Essentials. It focuses on the basics of global business, trade, markets, and practical international business concepts.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSB4U cover?",
+      "answer": "HSB4U is Challenge and Change in Society. It uses social science theories and research to study social change, power relations, and major challenges in society.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSP3C cover?",
+      "answer": "HSP3C is Introduction to Anthropology, Psychology, and Sociology at the college level. It introduces major theories, current issues, and social science research methods.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BBI1O cover?",
+      "answer": "BBI1O is Introduction to Business. It introduces basic business ideas, entrepreneurship, marketing, finance, and business communication.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does BBI2O cover?",
+      "answer": "BBI2O is Introduction to Business at the Grade 10 level. It introduces business operations, entrepreneurship, marketing, and practical business skills.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ENG1D cover?",
+      "answer": "ENG1D is Grade 9 English at the academic level. It builds reading, writing, speaking, listening, and media literacy skills with literary and informational texts.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ENG1P cover?",
+      "answer": "ENG1P is Grade 9 English at the applied level. It builds practical reading, writing, speaking, listening, and media literacy skills.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ENG1L cover?",
+      "answer": "ENG1L is Grade 9 English at the locally developed level. It supports essential literacy and communication skills.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ENG2D cover?",
+      "answer": "ENG2D is Grade 10 English at the academic level. It extends academic English with literary analysis, media literacy, and stronger writing skills.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ENG2P cover?",
+      "answer": "ENG2P is Grade 10 English at the applied level. It extends practical English with clear communication, interpretation, and writing skills.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ENG2L cover?",
+      "answer": "ENG2L is Grade 10 English at the locally developed level. It continues essential literacy and communication development.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does SNC1D cover?",
+      "answer": "SNC1D is Grade 9 Science at the academic level. It introduces biology, chemistry, earth and space science, and physics through scientific inquiry.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does SNC1P cover?",
+      "answer": "SNC1P is Grade 9 Science at the applied level. It introduces biology, chemistry, earth and space science, and physics in practical everyday contexts.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does SNC2D cover?",
+      "answer": "SNC2D is Grade 10 Science at the academic level. It deepens science through cells, reactions, climate change, and light.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does SNC2P cover?",
+      "answer": "SNC2P is Grade 10 Science at the applied level. It deepens practical science through cells, reactions, climate change, and light applications.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does SBI3C cover?",
+      "answer": "SBI3C is Grade 11 Biology at the college-preparation level. It covers cellular biology, microbiology, genetics, anatomy, and plants in the natural environment.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SCH4C cover?",
+      "answer": "SCH4C is Grade 12 Chemistry at the college-preparation level. It covers matter, organic chemistry, electrochemistry, chemical calculations, and chemistry in the environment.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SPH4C cover?",
+      "answer": "SPH4C is Grade 12 Physics at the college-preparation level. It covers forces, energy, waves, and practical applications of physics concepts.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ICS3U cover?",
+      "answer": "ICS3U is Grade 11 Computer Science at the university-preparation level. It focuses on programming, algorithms, software design, and problem solving.",
+      "tags": ["ossd", "computer studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ICS3C cover?",
+      "answer": "ICS3C is Grade 11 Computer Programming at the college-preparation level. It focuses on practical programming, software development, and computational thinking.",
+      "tags": ["ossd", "computer studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does MPM1D cover?",
+      "answer": "MPM1D is Grade 9 Principles of Mathematics at the academic level. It explores linear relationships, algebra, geometry, and measurement.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does MFM1P cover?",
+      "answer": "MFM1P is Grade 9 Foundations of Mathematics at the applied level. It focuses on linear relations, proportional reasoning, geometry, and practical problem solving.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does MPM2D cover?",
+      "answer": "MPM2D is Grade 10 Principles of Mathematics at the academic level. It extends academic math through quadratics, analytic geometry, and trigonometry.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does MFM2P cover?",
+      "answer": "MFM2P is Grade 10 Foundations of Mathematics at the applied level. It continues applied math through linear relations, geometry, measurement, and real-world problem solving.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CGC1D cover?",
+      "answer": "CGC1D is Issues in Canadian Geography at the academic level. It studies Canadian environmental, social, and economic issues through geographic thinking and inquiry.",
+      "tags": ["ossd", "geography", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CGC1P cover?",
+      "answer": "CGC1P is Issues in Canadian Geography at the applied level. It focuses on Canadian geographic issues, sustainability, and how land, resources, and people interact.",
+      "tags": ["ossd", "geography", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CHC2D cover?",
+      "answer": "CHC2D is Canadian History since World War I at the academic level. It studies major events, trends, and ideas in Canada since the First World War.",
+      "tags": ["ossd", "history", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CHC2P cover?",
+      "answer": "CHC2P is Canadian History since World War I at the applied level. It focuses on key events and themes in Canadian history in a practical, applied format.",
+      "tags": ["ossd", "history", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CHV2O cover?",
+      "answer": "CHV2O is Civics and Citizenship. It introduces rights, responsibilities, government, public issues, and democratic participation.",
+      "tags": ["ossd", "civics", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FSF1D cover?",
+      "answer": "FSF1D is core French at the Grade 9 academic level. It builds listening, speaking, reading, and writing skills in French with everyday communication and cultural understanding.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FSF1P cover?",
+      "answer": "FSF1P is core French at the Grade 9 applied level. It builds practical listening, speaking, reading, and writing skills for everyday communication in French.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FSF1O cover?",
+      "answer": "FSF1O is an open French course at the Grade 9 level. It emphasizes communication, practical vocabulary, and everyday language use.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FSF2D cover?",
+      "answer": "FSF2D is core French at the Grade 10 academic level. It continues listening, speaking, reading, and writing development with more advanced communication tasks.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FSF2P cover?",
+      "answer": "FSF2P is core French at the Grade 10 applied level. It continues practical communication skills and everyday language use in French.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FSF2O cover?",
+      "answer": "FSF2O is an open French course at the Grade 10 level. It emphasizes communication and practical use of French in everyday situations.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does FEF1D cover?",
+      "answer": "FEF1D is Grade 9 Extended French. It expands French communication skills with more advanced expectations in listening, speaking, reading, and writing.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does FEF2D cover?",
+      "answer": "FEF2D is Grade 10 Extended French. It continues advanced language development with more sophisticated communication tasks and texts.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does FIF1D cover?",
+      "answer": "FIF1D is Grade 9 French Immersion. It develops French language skills in listening, speaking, reading, and writing through immersion learning.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does FIF1P cover?",
+      "answer": "FIF1P is Grade 9 French Immersion at a practical level. It develops French communication skills through immersion learning and practical tasks.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does FIF2D cover?",
+      "answer": "FIF2D is Grade 10 French Immersion. It continues immersion-based French communication with more advanced reading and writing.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does FIF2P cover?",
+      "answer": "FIF2P is Grade 10 French Immersion at a practical level. It continues immersion-based French communication through practical tasks.",
+      "tags": ["ossd", "french", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does GLS1O cover?",
+      "answer": "GLS1O is a learning strategies and study skills course. It helps students build organization, note-taking, reading, and self-management skills.",
+      "tags": ["ossd", "guidance", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does GLS2O cover?",
+      "answer": "GLS2O continues learning strategies and study skills. It focuses on personal organization, academic success, and self-management skills.",
+      "tags": ["ossd", "guidance", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does GPP3O cover?",
+      "answer": "GPP3O is a guidance and career education course focused on pathway planning, goal setting, decision-making, and preparing for postsecondary and work transitions.",
+      "tags": ["ossd", "guidance", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does GWL3O cover?",
+      "answer": "GWL3O focuses on work experience, job readiness, transitions to adult life, and practical career development skills.",
+      "tags": ["ossd", "guidance", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does GWL4O cover?",
+      "answer": "GWL4O continues work experience and transitions to adult life, with more emphasis on job readiness and postsecondary planning.",
+      "tags": ["ossd", "guidance", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BMI3C cover?",
+      "answer": "BMI3C is Marketing: Goods, Services, Events. It focuses on marketing basics, consumer behaviour, promotion, branding, and selling products or services.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BMX3E cover?",
+      "answer": "BMX3E is Marketing: Retail and Services. It focuses on retail operations, customer service, promotion, and marketing in workplace settings.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BOH4M cover?",
+      "answer": "BOH4M is Business Leadership: Management Fundamentals. It focuses on leadership, management, decision-making, and business organization.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BOG4E cover?",
+      "answer": "BOG4E is Business Leadership: Becoming a Manager. It focuses on practical management, leadership, communication, and workplace decision-making.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does BTT1O cover?",
+      "answer": "BTT1O is Introduction to Information and Communication Technology. It introduces digital literacy, business software, communication tools, and basic workplace computing.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does BTT2O cover?",
+      "answer": "BTT2O is Introduction to Information and Communication Technology at the Grade 10 level. It covers digital literacy, business software, presentations, web pages, and basic workplace computing.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does ADA1O cover?",
+      "answer": "ADA1O is Drama at the open level. It introduces dramatic processes, performance, and basic dramatic creation in a supportive setting.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 35
+    },
+    {
+      "question": "What does ADA2O cover?",
+      "answer": "ADA2O is Drama at the open level. It develops dramatic skills through performance, scripting, and the presentation of dramatic works.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 35
+    },
+    {
+      "question": "What does AMU1O cover?",
+      "answer": "AMU1O is Music at the open level. It introduces music-making, performance, listening, and basic music theory and creativity.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 35
+    },
+    {
+      "question": "What does AMU2O cover?",
+      "answer": "AMU2O is Music at the open level. It continues music performance, listening, creativity, and basic theory in a broad, accessible format.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 35
+    },
+    {
+      "question": "What does AVI1O cover?",
+      "answer": "AVI1O is Visual Arts at the open level. It introduces visual arts materials, techniques, and creative expression through hands-on work.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 35
+    },
+    {
+      "question": "What does AVI2O cover?",
+      "answer": "AVI2O is Visual Arts at the open level. It develops creative expression, art-making skills, and basic analysis of visual works.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 35
+    },
+    {
+      "question": "What does TGJ2O cover?",
+      "answer": "TGJ2O is Communications Technology at the Grade 10 open level. It introduces video, audio, graphic communication, photography, and digital media tools.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TEJ2O cover?",
+      "answer": "TEJ2O is Computer Technology at the Grade 10 open level. It introduces computer systems, networking, electronics, robotics, and basic computer repair and configuration.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TCJ2O cover?",
+      "answer": "TCJ2O is Construction Technology at the Grade 10 open level. It introduces basic construction tools, materials, processes, and safe building practices.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does THJ2O cover?",
+      "answer": "THJ2O is Agricultural, Forestry, and Landscape Technology at the Grade 10 open level. It introduces agriculture, forestry, horticulture, floristry, landscaping, and hands-on projects.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TXJ2O cover?",
+      "answer": "TXJ2O is Hairstyling and Aesthetics at the Grade 10 open level. It introduces hairstyling, make-up, nail care, salon/spa techniques, and careers in aesthetics.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TPJ2O cover?",
+      "answer": "TPJ2O is Health Care at the Grade 10 open level. It introduces personal health promotion, anatomy, basic medical services, tools, and health care careers.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TFJ2O cover?",
+      "answer": "TFJ2O is Hospitality and Tourism at the Grade 10 open level. It introduces food, tourism, hospitality operations, nutrition, and environmental issues in the industry.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TMJ2O cover?",
+      "answer": "TMJ2O is Manufacturing Technology at the Grade 10 open level. It introduces manufacturing processes, tools, materials, and basic production systems.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TDJ2O cover?",
+      "answer": "TDJ2O is Technological Design at the Grade 10 open level. It introduces design thinking, drafting, prototyping, and problem solving through design projects.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does TTJ2O cover?",
+      "answer": "TTJ2O is Transportation Technology at the Grade 10 open level. It introduces vehicle systems, maintenance basics, tools, and transportation careers.",
+      "tags": ["ossd", "technology", "outline"],
+      "priority": 40
+    },
+    {
       "question": "What is the school's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
       "tags": ["site_archive", "contact"],
@@ -272,6 +1106,54 @@
       "answer": "The View Book PDF says the application fee is $250 CAD.",
       "tags": ["site_archive", "admissions", "fee"],
       "priority": 30
+    },
+    {
+      "question": "What are the admission requirements for Waterloo Computer Science?",
+      "answer": "Ontario students need six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, any Grade 12 U English, and one other 4U course. Waterloo recommends Grade 11 U Introduction to Computer Science. The admission average is individual selection from the low to mid-90s, and the Admission Information Form is required.",
+      "tags": ["university_programs", "waterloo", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Waterloo Software Engineering?",
+      "answer": "Ontario students need six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, Chemistry, Physics, and English. Waterloo also expects programming experience or self-study and a demonstrated interest in solving open problems, debugging code, testing code, and learning new software languages. The admission average is individual selection from the low to mid-90s, the Admission Information Form is required, and online interviews are required.",
+      "tags": ["university_programs", "waterloo", "software_engineering"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Waterloo Computing and Financial Management?",
+      "answer": "Ontario students need six Grade 12 U and/or M courses including any Grade 12 U English with a minimum final grade of 75%, Advanced Functions, Calculus and Vectors, and one other Grade 12 U course. Waterloo recommends Introduction to Computer Science and Principles of Financial Accounting. The admission average is individual selection from the low to mid-90s, and the Admission Information Form is required.",
+      "tags": ["university_programs", "waterloo", "computing_and_financial_management"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for U of T Commerce?",
+      "answer": "The U of T Commerce page says Ontario applicants need the OSSD with six subjects at the 4U/M level, including English. The co-op component of Grade 12 courses is not used for admission purposes. The Ontario qualifications shown on the page include ENG4U or EAE4U, MCV4U, and MHF4U.",
+      "tags": ["university_programs", "uoft", "commerce"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for U of T Engineering Science?",
+      "answer": "The U of T Engineering Science page says Ontario applicants need the OSSD with six subjects at the 4U/M level, including English. The co-op component of Grade 12 courses is not used for admission purposes. The Ontario qualifications shown on the page include ENG4U or EAE4U, MHF4U, MCV4U, SCH4U, and SPH4U, and a supplemental application is required.",
+      "tags": ["university_programs", "uoft", "engineering_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for TMU Business Management?",
+      "answer": "Ontario high school applicants need the OSSD, six Grade 12 U or M courses, and a minimum overall average of 70%. The required Grade 12 U courses include English and Mathematics, with ENG4U or EAE4U preferred and one of MCV4U, MHF4U, or MDM4U accepted. MCV4U is preferred, and because the program is competitive the average needed can change year to year.",
+      "tags": ["university_programs", "tmu", "business_management"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for TMU Computer Science?",
+      "answer": "Ontario high school applicants need the OSSD, six Grade 12 U or M courses, and a minimum overall average of 70%. The required Grade 12 U courses include ENG4U or EAE4U preferred, MHF4U, one of MCV4U or MDM4U, and one of SPH4U, SCH4U, or SBI4U. Because the program is competitive, the average needed can change year to year.",
+      "tags": ["university_programs", "tmu", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for McMaster Honours Health Sciences?",
+      "answer": "McMaster's Honours Health Sciences page says the program requires a course that is not math, science, or technology-based for admission to Level I. The page shows an anticipated admission average in the mid-80s, and the supplementary applications page lists Honours Health Sciences as having a supplementary application due in the early or mid-February window.",
+      "tags": ["university_programs", "mcmaster", "health_sciences"],
+      "priority": 45
     }
   ]
 }

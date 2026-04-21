@@ -18,6 +18,9 @@ Files here are preserved in their original form and grouped by source type.
   - Ontario Secondary School Diploma reference summaries
   - Best for graduation requirements, course-code explanations, and stream reference
   - Course outline summaries for common OSSD subjects
+- `university/`
+  - Ontario university program seed content
+  - Best for admission requirements and program comparison questions
 - `media/screenshots/`
   - Image evidence and message captures
   - Best for OCR, manual transcription, or provenance-only storage
@@ -29,6 +32,7 @@ Files here are preserved in their original form and grouped by source type.
 - `academic/Master Timetable 2025-2026 (1).xlsx`
 - `ossd/ossd_core_guide.md`
 - `ossd/ossd_course_outlines.md`
+- `university/ontario_university_programs_seed.md`
 - `media/screenshots/Screenshot_20260419_200523_WeChat.jpg`
 - `media/screenshots/Screenshot_20260419_200532_WeChat.jpg`
 
@@ -52,6 +56,7 @@ Processed, RAG-friendly artifacts are stored under `processed/`.
 - `processed/staff/teachers.extracted.md`
 - `processed/ossd/ossd_core_guide.md`
 - `processed/ossd/ossd_course_outlines.md`
+- `processed/university/ontario_university_programs_seed.md`
 - `processed/media/screenshots.manifest.md`
 - `processed/qa_seed.json`
 - `processed/qa_seed_delta.json`

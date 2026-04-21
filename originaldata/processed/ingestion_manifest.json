@@ -5,6 +5,9 @@
     "site_archive",
     "academic",
     "staff",
+    "ossd_core",
+    "ossd_outlines",
+    "university_programs",
     "media/screenshots"
   ],
   "sources": [
@@ -73,6 +76,28 @@
         "course outline summaries",
         "course-family retrieval",
         "program planning"
+      ]
+    },
+    {
+      "source_type": "university_programs",
+      "raw_path": [
+        "https://uwaterloo.ca/future-students/programs/computer-science",
+        "https://uwaterloo.ca/future-students/programs/software-engineering",
+        "https://uwaterloo.ca/computing-financial-management/future-students/apply-admissions",
+        "https://future.utoronto.ca/program/computer-science",
+        "https://future.utoronto.ca/program/commerce",
+        "https://future.utoronto.ca/program/engineering-science",
+        "https://www.torontomu.ca/tedrogersschool/business-management/students/admission-requirements/",
+        "https://www.torontomu.ca/programs/undergraduate/computer-science/",
+        "https://future.mcmaster.ca/programs/health-sciences/",
+        "https://future.mcmaster.ca/supplementary-applications/"
+      ],
+      "processed_path": "originaldata/processed/university/ontario_university_programs_seed.md",
+      "status": "ready",
+      "recommended_use": [
+        "university program admissions",
+        "Ontario applicant planning",
+        "program comparison"
       ]
     },
     {

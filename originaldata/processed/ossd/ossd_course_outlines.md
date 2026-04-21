@@ -24,6 +24,21 @@ High-level difference:
 - `C` courses focus on college preparation and applied analysis
 - `E` courses focus on practical communication and workplace readiness
 
+Common Grade 12 English pathways:
+
+- `ENG4U` emphasizes literary analysis, challenging texts, and academic writing for university, college, or work
+- `ENG4C` focuses on literacy, clear communication, practical writing, and a mix of informational and literary texts for college or work
+- `ENG4E` focuses on workplace communication, short texts, reports, summaries, and practical reading and writing
+
+Common Grade 9 and 10 English pathways:
+
+- `ENG1D` builds academic reading, writing, speaking, listening, and media literacy skills
+- `ENG1P` builds practical reading, writing, speaking, listening, and media literacy skills
+- `ENG1L` supports essential literacy and communication skills
+- `ENG2D` extends academic English with literary analysis and writing for higher-level study
+- `ENG2P` extends practical English with clear communication and text interpretation
+- `ENG2L` continues essential literacy and communication development
+
 ## Mathematics
 
 Common courses:
@@ -46,6 +61,13 @@ Common Grade 11 pathways:
 - `MCF3M` is a mixed university/college pathway
 - `MBF3C` is college-prep mathematics
 - `MEL3E` is workplace mathematics for everyday life
+
+Common Grade 9 and 10 pathways:
+
+- `MPM1D` explores linear relationships, algebra, geometry, and measurement in an academic pathway
+- `MFM1P` focuses on applied linear relations, proportional reasoning, geometry, and problem solving
+- `MPM2D` extends academic math through quadratics, analytic geometry, and trigonometry
+- `MFM2P` continues applied math through linear relations, geometry, and measurement in real-world contexts
 
 ## Science
 
@@ -86,6 +108,19 @@ Common Grade 12 science pathways:
 - `SNC4M` science for health-related and interdisciplinary postsecondary paths
 - `SNC4E` practical science for workplace readiness
 
+Common Grade 9 and 10 science pathways:
+
+- `SNC1D` introduces biology, chemistry, earth and space science, and physics in an academic pathway
+- `SNC1P` introduces the same science areas in a practical, everyday-life pathway
+- `SNC2D` deepens academic science through cells, reactions, climate, and light
+- `SNC2P` deepens practical science through cells, reactions, climate, and light applications
+
+Other common Grade 11 and 12 pathways:
+
+- `SBI3C` is biology for college preparation, with cellular biology, microbiology, genetics, and anatomy
+- `SCH4C` is chemistry for college preparation, with matter, organic chemistry, electrochemistry, and chemical calculations
+- `SPH4C` is physics for college preparation, with forces, energy, waves, and related practical applications
+
 ## Computer Studies
 
 Common courses:
@@ -105,6 +140,11 @@ Common Grade 12 computer studies pathways:
 - `ICS4U` is the university-preparation computer science course
 - `ICS4C` is the college-preparation programming course
 
+Common Grade 11 computer studies pathways:
+
+- `ICS3U` is the university-preparation computer science course for algorithms, programming, and software design
+- `ICS3C` is the college-preparation computer programming course with practical programming and software development
+
 ## Canadian and World Studies
 
 Common courses:
@@ -119,6 +159,7 @@ Common courses:
 - `CIA4U`, `CHY4U`
 - `CIE3M`, `CIC4E`
 - `CPW4U`, `CPC3O`
+- `CLU3M`
 
 What students do:
 
@@ -128,6 +169,24 @@ What students do:
 - use maps, sources, evidence, and argumentation
 - compare legal systems, government policy, and economic decision-making
 - examine global issues, citizenship, and change over time
+- study legal reasoning, economics, and political systems
+
+Common law and politics pathways:
+
+- `CLU3M` studies Canadian law and legal reasoning
+- `CLU3E` focuses on law in everyday life
+- `CLN4U` studies Canadian and international law at a university level
+- `CIC4E` explores personal economic choices and financial decision-making
+- `CHY4U` studies Canadian history, identity, and culture
+- `CGW4U` studies world issues through geographic analysis
+
+Common Grade 9 and 10 pathways:
+
+- `CGC1D` studies Canadian geographic issues through environmental, social, and economic lenses
+- `CGC1P` focuses on Canadian geographic issues and sustainability in everyday life
+- `CHC2D` studies Canadian history since the First World War through a historical inquiry lens
+- `CHC2P` focuses on Canadian history in a more applied, practical pathway
+- `CHV2O` introduces civics, rights, responsibilities, and democratic participation
 
 Common Grade 12 Canadian and world studies pathways:
 
@@ -136,6 +195,9 @@ Common Grade 12 Canadian and world studies pathways:
 - `CPW4U` examines Canadian and world politics
 - `CGW4U` explores world issues at a university-prep level
 - `CGR4M` and `CGO4M` support broader geography and world studies planning
+- `CLN4C` is Legal Studies at the college level
+- `HSB4U` is Challenge and Change in Society, focused on social science theory and social change
+- `HSP3C` is Introduction to Anthropology, Psychology, and Sociology at the college level
 
 ## Business Studies
 
@@ -161,6 +223,20 @@ What students do:
 - explore small-business planning and financial literacy
 - develop spreadsheet, communication, and business technology skills
 
+Common business pathways:
+
+- `BAF3M` / `BAT4M` cover financial accounting fundamentals and principles
+- `BAI3E` / `BAN4E` cover accounting essentials and accounting for a small business
+- `BDI3C` / `BDV4C` cover entrepreneurship and venture planning
+- `BTA3O` / `BTX4C` / `BTX4E` cover ICT and digital environment courses
+- `BMI3C` / `BMX3E` cover marketing for college and workplace pathways
+- `BBB4M` / `BBB4E` cover international business fundamentals and essentials
+- `BOH4M` / `BOG4E` cover business leadership and management fundamentals
+- `BTA3O` covers the digital environment, e-commerce, and website creation for business contexts
+- `BDI3C` is Entrepreneurship: The Venture, focused on venture planning and financing
+- `BDP3O` is Entrepreneurship: The Enterprising Person, focused on basic entrepreneurial thinking
+- `BTX4C` is ICT: Multimedia Solutions, and `BTX4E` is ICT in the Workplace
+
 ## French as a Second Language
 
 Common courses:
@@ -178,6 +254,36 @@ What students do:
 - practice communication in authentic situations
 - expand vocabulary, grammar, and cultural understanding
 - follow either core, extended, or immersion pathways
+
+Common French pathways:
+
+- `FSF1D`, `FSF2D`, `FSF3U`, and `FSF4U` are core French courses with a more academic focus
+- `FSF1P`, `FSF2P`, `FSF3O`, and `FSF4O` are practical/open French courses
+- `FSF1O` and `FSF2O` are open French courses that emphasize communication and everyday language use
+- `FEF1D`, `FEF2D`, `FEF3U`, and `FEF4U` are extended French courses with more advanced language expectations
+- `FIF1D`, `FIF1P`, `FIF2D`, `FIF2P`, `FIF3U`, `FIF3O`, `FIF4U`, and `FIF4O` are French immersion courses
+
+## Guidance and Career Education
+
+Common courses:
+
+- `GLC2O`
+- `GLS1O`, `GLS2O`
+- `GPP3O`
+- `GWL3O`, `GWL4O`
+
+What students do:
+
+- explore careers, pathways, goal setting, and learning strategies
+- build self-management, leadership, and transition skills
+- connect school planning to postsecondary and work goals
+
+Common guidance pathways:
+
+- `GLS1O` and `GLS2O` are learning strategies and personal organization courses
+- `GLC2O` is career studies
+- `GPP3O` is career planning and postsecondary preparation
+- `GWL3O` and `GWL4O` focus on work experience, job readiness, and transitions to adult life
 
 ## Technological Education
 
@@ -197,16 +303,38 @@ What students do:
 - learn safe tool use and project-based problem solving
 - connect technical work to real-world industry practice
 
+Common technological education pathways:
+
+- `TGJ4M` and `TGJ4O` cover communications technology, including video, audio, print, photography, digital imaging, and new media
+- `TDJ4M` and `TDJ4O` cover technological design and design thinking through problem solving and prototyping
+- `TMJ4M`, `TMJ4C`, and `TMJ4E` cover manufacturing technology, process planning, quality, tools, and production systems
+- `TCJ4C` and `TCJ4E` cover construction technology and hands-on building, materials, and safe work practices
+- `TWJ4E` covers custom woodworking, cabinetry, furniture, and small-business skills for woodworking
+- `TPJ4M`, `TPJ4C`, and `TPJ4E` cover health care and support services, clinical procedures, and infection control
+- `TFJ4C` and `TFJ4E` cover hospitality and tourism, nutrition, meal planning, food preparation, and service operations
+- `TTJ4C` and `TTJ4E` cover transportation technology, vehicle systems, maintenance, and repair
+- `THJ4M` and `THJ4E` cover agricultural, forestry, and landscape technology, including sustainability and industry operations
+
+Common pathway notes:
+
+- `TCJ4C` and `TCJ4E` focus on residential and light commercial construction, building codes, drawings, and project planning
+- `TWJ4E` focuses on safe woodworking, cabinets, furniture, tools, finishes, and entrepreneurship
+- `TPJ4C` and `TPJ4E` focus on health care basics, infection control, equipment, and support-service practice
+- `TFJ4E` focuses on hospitality, tourism, nutrition, and restaurant/service operations in workplace settings
+- `TGJ4O` and `TDJ4O` are open courses for communications and design
+- `AEA4O` is the open exploratory arts course for combining multiple art forms
+- `AMU4M` and `AVI4M` are senior music and visual arts courses for postsecondary-oriented work
+
 ## Arts
 
 Common courses:
 
-- `AVI1O`, `AVI2O`, `AVI3M`, `AVI4M`
-- `ADA1O`, `ADA2O`, `ADA3M`, `ADA4M`
-- `AMU1O`, `AMU2O`, `AMU3M`, `AMU4M`
-- `ASM3M`, `ASM4M`
-- `ADA3M`, `ADA4M`
-- `AVI3M`, `AVI4M`
+- `AVI1O`, `AVI2O`, `AVI3M`, `AVI3O`, `AVI4M`, `AVI4E`
+- `ADA1O`, `ADA2O`, `ADA3M`, `ADA3O`, `ADA4M`, `ADA4E`
+- `AMU1O`, `AMU2O`, `AMU3M`, `AMU3O`, `AMU4M`, `AMU4E`
+- `ASM3M`, `ASM3O`, `ASM4M`, `ASM4E`
+- `ATC3M`, `ATC3O`, `ATC4M`, `ATC4E`
+- `AEA3O`, `AEA4O`
 
 What students do:
 
@@ -214,6 +342,20 @@ What students do:
 - create and critique artwork and performances
 - use artistic process, reflection, and presentation
 - connect technique, creativity, and audience awareness
+
+Common arts pathways:
+
+- `ASM3M` / `ASM4M` are media arts courses for creating and analysing media works
+- `ASM3O` / `ASM4E` are open and workplace media arts courses
+- `ADA3M` / `ADA4M` are drama courses focused on performance, directing, and dramatic analysis
+- `ADA3O` / `ADA4E` are open and workplace drama courses
+- `AMU3M` / `AMU4M` are music courses focused on performance, composition, and theory
+- `AMU3O` / `AMU4E` are open and workplace music courses
+- `AVI3M` / `AVI4M` are visual arts courses focused on creation, analysis, and technique
+- `AVI3O` / `AVI4E` are open and workplace visual arts courses
+- `ATC3M` / `ATC4M` are dance courses focused on movement, choreography, and performance
+- `ATC3O` / `ATC4E` are open and workplace dance courses
+- `AEA3O` / `AEA4O` are exploring and creating in the arts courses across multiple art forms
 
 ## Guidance and Career Education
 
@@ -235,16 +377,40 @@ What students do:
 Common courses:
 
 - `HSP3U`, `HSP3C`
-- `HSB4U`, `HSE4M`
+- `HSG3M`
+- `HSB4U`, `HSE4M`, `HSE3E`
+- `HSC4M`
 - `HHS4U`, `HHS4C`
 - `HHG4M`, `HHD3O`
-- `HFA4U`, `HFA4C`, `HFC3M`, `HFC3E`, `HFL4E`
+- `HFA4U`, `HFA4C`, `HFC3M`, `HFC3E`, `HFL4E`, `HNB4M`
+- `HIF1O`, `HIF2O`, `HIP4O`, `HPD4C`
+- `HNL2O`, `HNC3C`, `HLS3O`
 
 What students do:
 
 - study psychology, sociology, anthropology, equity, families, nutrition, and food culture
 - analyze human behaviour, relationships, culture, and social change
 - apply research, inquiry, and social-science methods
+
+Common family studies and food pathways:
+
+- `HFC3M` is Food and Culture for university/college preparation, with world cuisines and cultural food traditions
+- `HFC3E` is Food and Culture for workplace preparation, with practical cooking and food traditions
+- `HFA4C` is Nutrition and Health for college preparation, focused on nutrition across life stages and food security
+- `HFL4E` is Food and Healthy Living, focused on food planning, kitchen basics, etiquette, and practical life skills
+- `HHS4C` is Families in Canada at the college level
+- `HHG4M` is Human Development throughout the Lifespan, focused on development from infancy through adulthood
+- `HNB4M` is The World of Fashion, focused on fashion products, fabrics, markets, and the global fashion industry
+- `HSC4M` is World Cultures, focused on culture, religion, art forms, philosophy, and ethnocultural groups
+- `HIF1O` and `HIF2O` are Exploring Family Studies courses that cover families, daily living, and basic food or resource skills
+- `HIP4O` is Personal Life Management, focused on independent living, food, clothing, housing, and personal responsibility
+- `HPD4C` is Working with School-Age Children and Adolescents, focused on child development and careers with older children
+- `HNL2O` is Clothing, focused on clothing functions, wardrobe choices, and basic garment or accessory skills
+- `HNC3C` is Understanding Fashion, focused on fashion trends, media influence, fibers, fabrics, and fashion product creation
+- `HLS3O` is Housing and Home Design, focused on housing options, home maintenance, safety, and design decisions
+- `HHD3O` is Dynamics of Human Relationships, focused on self-concept, healthy relationships, and interpersonal skills
+- `HSE3E` is Equity, Diversity, and Social Justice, focused on diversity, power relations, discrimination, harassment, and social action
+- `HSG3M` is Gender Studies, focused on gender roles, media representations, sexism, power relations, and equity issues
 
 Common Grade 12 social science pathways:
 

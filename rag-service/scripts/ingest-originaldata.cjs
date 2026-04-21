@@ -77,6 +77,8 @@ function sourceTypeToName(sourceType) {
       return 'OSSD Core Guide'
     case 'ossd_outlines':
       return 'OSSD Course Outlines'
+    case 'university_programs':
+      return 'Ontario University Program Seed'
     default:
       return sourceType
   }

@@ -61,6 +61,7 @@ Common courses:
 - `SCH4U`, `SCH4C`
 - `SPH4U`, `SPH4C`
 - `SES4U`
+- `SNC4M`, `SNC4E`
 
 What students do:
 
@@ -76,6 +77,34 @@ Common Grade 11 science pathways:
 - `SPH3U` physics
 - `SVN3M` environmental science
 
+Common Grade 12 science pathways:
+
+- `SBI4U` biology for deeper study of life sciences
+- `SCH4U` chemistry for organic chemistry, equilibrium, and electrochemistry
+- `SPH4U` physics for dynamics, fields, and modern physics
+- `SES4U` earth and space science for astronomy, geology, and planetary science
+- `SNC4M` science for health-related and interdisciplinary postsecondary paths
+- `SNC4E` practical science for workplace readiness
+
+## Computer Studies
+
+Common courses:
+
+- `ICS3U`, `ICS3C`
+- `ICS4U`, `ICS4C`
+
+What students do:
+
+- learn programming, software design, and algorithmic thinking
+- build programs with industry-standard tools
+- study object-oriented design in senior courses
+- explore ethics, emerging technologies, and computing careers
+
+Common Grade 12 computer studies pathways:
+
+- `ICS4U` is the university-preparation computer science course
+- `ICS4C` is the college-preparation programming course
+
 ## Canadian and World Studies
 
 Common courses:
@@ -88,6 +117,8 @@ Common courses:
 - `CGO4M`, `CGR4M`, `CGR4E`, `CGU4M`
 - `CLU3E`, `CLN4U`, `CLN4C`
 - `CIA4U`, `CHY4U`
+- `CIE3M`, `CIC4E`
+- `CPW4U`, `CPC3O`
 
 What students do:
 
@@ -95,6 +126,16 @@ What students do:
 - analyze current events and public issues
 - learn how communities, systems, and economies work
 - use maps, sources, evidence, and argumentation
+- compare legal systems, government policy, and economic decision-making
+- examine global issues, citizenship, and change over time
+
+Common Grade 12 Canadian and world studies pathways:
+
+- `CIA4U` analyzes current economic issues in Canada and internationally
+- `CLN4U` studies Canadian and international law
+- `CPW4U` examines Canadian and world politics
+- `CGW4U` explores world issues at a university-prep level
+- `CGR4M` and `CGO4M` support broader geography and world studies planning
 
 ## Business Studies
 
@@ -111,12 +152,14 @@ Common courses:
 - `BTX4C`, `BTX4E`
 - `BBB4M`, `BBB4E`
 - `BOH4M`, `BOG4E`
+- `BTT3O`, `BTT4O`
 
 What students do:
 
 - learn accounting, entrepreneurship, marketing, finance, leadership, and digital business skills
 - build practical understanding of business operations
 - explore small-business planning and financial literacy
+- develop spreadsheet, communication, and business technology skills
 
 ## French as a Second Language
 
@@ -162,6 +205,8 @@ Common courses:
 - `ADA1O`, `ADA2O`, `ADA3M`, `ADA4M`
 - `AMU1O`, `AMU2O`, `AMU3M`, `AMU4M`
 - `ASM3M`, `ASM4M`
+- `ADA3M`, `ADA4M`
+- `AVI3M`, `AVI4M`
 
 What students do:
 
@@ -185,18 +230,45 @@ What students do:
 - build self-management, leadership, and transition skills
 - connect school planning to postsecondary and work goals
 
+## Social Sciences and Humanities
+
+Common courses:
+
+- `HSP3U`, `HSP3C`
+- `HSB4U`, `HSE4M`
+- `HHS4U`, `HHS4C`
+- `HHG4M`, `HHD3O`
+- `HFA4U`, `HFA4C`, `HFC3M`, `HFC3E`, `HFL4E`
+
+What students do:
+
+- study psychology, sociology, anthropology, equity, families, nutrition, and food culture
+- analyze human behaviour, relationships, culture, and social change
+- apply research, inquiry, and social-science methods
+
+Common Grade 12 social science pathways:
+
+- `HSP3U` explores anthropology, psychology, and sociology
+- `HSB4U` studies challenge and change in society
+- `HSE4M` studies equity and social justice
+- `HHS4U` studies families in Canada
+- `HFA4U` studies nutrition and health
+- `HHG4M` studies human development across the lifespan
+
 ## Health and Physical Education
 
 Common courses:
 
 - `PPL1O`, `PPL2O`, `PPL3O`, `PPL4O`
 - `PSK4U`
+- `PAF4O`, `PAL4O`
 
 What students do:
 
 - develop fitness, movement, and healthy living habits
 - learn personal wellness, safety, and active living
 - in kinesiology, study human movement, anatomy, and physical performance
+- in fitness and recreation, build active-living and personal wellness routines
 
 ## Official references
 

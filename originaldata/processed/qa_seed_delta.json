@@ -112,6 +112,108 @@
       "priority": 40
     },
     {
+      "question": "What does ICS4U cover?",
+      "answer": "ICS4U is Grade 12 Computer Science at the university-preparation level. It focuses on modular program design, large software projects, algorithms, documentation, ethics, and emerging technologies.",
+      "tags": ["ossd", "computer studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does ICS4C cover?",
+      "answer": "ICS4C is Grade 12 Computer Programming at the college-preparation level. It focuses on object-oriented programming, graphical user interfaces, software development projects, and practical programming skills.",
+      "tags": ["ossd", "computer studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does MHF4U cover?",
+      "answer": "MHF4U is Advanced Functions. It extends students' knowledge of polynomial, rational, logarithmic, and trigonometric functions, and strengthens preparation for senior university math.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does MCV4U cover?",
+      "answer": "MCV4U is Calculus and Vectors. It covers vectors, lines and planes in three-dimensional space, and derivatives of common function types for modelling real-world relationships.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does MDM4U cover?",
+      "answer": "MDM4U is Mathematics of Data Management. It focuses on organizing and analysing data, probability, statistics, and a culminating statistical investigation.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SCH4U cover?",
+      "answer": "SCH4U is Grade 12 Chemistry at the university-preparation level. It covers organic chemistry, matter and properties, energy changes, reaction rates, equilibrium, and electrochemistry.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SPH4U cover?",
+      "answer": "SPH4U is Grade 12 Physics at the university-preparation level. It covers dynamics, energy and momentum, fields, wave nature of light, and modern physics.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SBI4U cover?",
+      "answer": "SBI4U is Grade 12 Biology at the university-preparation level. It covers biochemistry, metabolic processes, molecular genetics, homeostasis, and population dynamics.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SNC4M cover?",
+      "answer": "SNC4M is Grade 12 Science at the university/college level. It focuses on medical technologies, pathogens and disease, nutritional science, public health issues, and biotechnology.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does SNC4E cover?",
+      "answer": "SNC4E is Grade 12 Science at the workplace level. It covers workplace hazards, consumer chemicals, disease prevention, electricity at home and work, and nutritional science.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CIA4U cover?",
+      "answer": "CIA4U is Analysing Current Economic Issues. It examines Canadian and international economic issues, policies, trade-offs, growth, globalization, inequality, regulation, and sustainability.",
+      "tags": ["ossd", "canadian world studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does CLN4U cover?",
+      "answer": "CLN4U is Canadian and International Law. It examines the nature of law, legal theories and procedures, rights and freedoms, and major legal and social issues in Canada and internationally.",
+      "tags": ["ossd", "law", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does CPW4U cover?",
+      "answer": "CPW4U is Canadian and World Politics. It examines political structures, decision-making, global issues, citizenship, power, and the role of institutions in Canada and internationally.",
+      "tags": ["ossd", "politics", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSP3U cover?",
+      "answer": "HSP3U is Introduction to Anthropology, Psychology, and Sociology. It explores major ideas in those fields and uses social science research methods to study human behaviour and society.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HSE4M cover?",
+      "answer": "HSE4M is Equity and Social Justice: From Theory to Practice. It examines the theoretical, social, and historical roots of equity and social justice issues and asks students to analyse strategies for positive social change.",
+      "tags": ["ossd", "social sciences", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HHS4U cover?",
+      "answer": "HHS4U is Families in Canada. It uses sociological, psychological, and anthropological ideas to study individuals, intimate relationships, parent-child relationships, and family issues in Canada.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does HFA4U cover?",
+      "answer": "HFA4U is Nutrition and Health. It examines nutrition across life stages, the role of food in health and disease, food security, environmental responsibility, and healthy eating practices.",
+      "tags": ["ossd", "family studies", "outline"],
+      "priority": 45
+    },
+    {
       "question": "What is the school's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
       "tags": ["site_archive", "contact"],

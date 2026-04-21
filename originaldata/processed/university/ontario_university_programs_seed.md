@@ -219,6 +219,114 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - The Faculty of Engineering awards a $2,000 scholarship to seven female students, one from each engineering program except computer science, with a minimum admission average of 80%.
 - The Faculty of Engineering Program Guide also lists a Dean's Merit Scholarship of $5,000 for 95-100% and $4,000 for 90-94.9%.
 
+## Western University
+
+### Computer Science
+- OUAC code: ECS.
+- Required courses: ENG4U, MCV4U, MHF4U, and one of MDM4U, SBI4U, SCH4U, SPH4U, SES4U, or ICS4U.
+- Admission average guideline: low to mid 80s.
+- Western says admission is competitive and the suggested range is not a guarantee.
+
+### Engineering
+- Western Engineering says students must complete the first-year engineering program and then apply into a second-year program.
+- Direct admission and later specialization decisions are based on first-year performance.
+- The Engineering Excellence Admission Program says students with a minimum 85% mid-year and final admission average and at least an 80% year-weighted average in first year can be guaranteed acceptance into their program of choice except Mechatronic Systems Engineering.
+
+### Western tuition snapshot
+- Western's 2025-26 tuition schedule shows first-entry degree program fees.
+- Computer Science Year 1: $9,506.01 for Ontario residents and $9,506.01 for out-of-province in the listed table.
+- Engineering Year 1: $14,361.01 for Ontario residents and $17,008.01 for out-of-province in the listed table.
+
+### Western scholarship snapshot
+- Western's admission scholarship program includes automatic admission scholarships and faculty-specific entrance awards.
+- Western also highlights the Schulich Leader Scholarships at up to $120,000 for Engineering and up to $100,000 for Science, Technology, or Mathematics.
+- Western Engineering says entrance scholarships for domestic students are automatically awarded, while international students must have a complete OUAC application and supporting documents received by March 15 to be considered.
+
+## Wilfrid Laurier University
+
+### BBA
+- Laurier BBA has an average admission range in the high 80s.
+- Ontario prerequisites shown on the page are Advanced Functions at 70%, English at 70%, and one of Calculus and Vectors or Data Management at 60%.
+- Laurier says all prerequisite courses are calculated in the admissions average.
+
+### Computer Science
+- Laurier Computer Science at Milton offers BA and BSc pathways.
+- Ontario admission range is high 70s.
+- BA requires English at 60% and Advanced Functions at 60%.
+- BSc requires English at 60%, Advanced Functions at 60%, and one of Calculus and Vectors, Chemistry, or Physics at 60%.
+
+### Laurier tuition snapshot
+- Laurier's 2026/27 tuition tables show:
+  - BBA domestic Ontario: $5,777.82 per 3.5 credits and $6,749.08 for 4.0 credits.
+  - BBA domestic non-Ontario: $6,920.77 per 3.5 credits and $8,597.50 for 4.0 credits.
+  - Computer Science domestic Ontario: $1,922.00 per 1.0 credit.
+  - Computer Science domestic non-Ontario: $1,922.00 per 1.0 credit.
+
+### Laurier scholarship snapshot
+- Laurier's President's Gold Scholarship is automatically awarded at a 95%+ final admission average.
+- Values shown are $4,000 for domestic students and $6,000 for international students.
+- Laurier's CIBC STEM Entrance Award is $5,000 and is available to first-year students who identify as Black, Indigenous, and/or have disabilities and demonstrate financial need.
+
+## University of Guelph
+
+### Bachelor of Commerce
+- Ontario applicants generally need English and Advanced Functions, plus one additional 4U math for most majors.
+- Government, Economics and Management and Hospitality/Tourism Management use English, Advanced Functions, and four additional 4U/M courses.
+- Estimated cut-off range: 80-86% for Commerce overall.
+- Co-op consideration normally starts around 80%, but actual cutoffs can exceed the estimate.
+
+### Bachelor of Computing
+- Ontario applicants need English, Calculus and Vectors, and four additional 4U/M courses.
+- Majors include Computer Science and Software Engineering.
+- Estimated cut-off range: 85-90%.
+
+### Bachelor of Engineering
+- Ontario applicants need English, Advanced Functions, Calculus and Vectors, Chemistry, Physics, and one additional 4U/M course.
+- Majors include Computer, Software/Systems, Mechanical, Mechatronics, Civil, Environmental, Biological, Biomedical, and Water Resources Engineering.
+- Estimated cut-off range: 84-89%.
+
+### Guelph tuition snapshot
+- Bachelor of Commerce domestic Ontario: $12,281.04 for cohort 2025 in Fall/Winter 2025-26.
+- Bachelor of Commerce domestic non-Ontario: $12,766.08 for cohort 2025.
+- Bachelor of Commerce international: $48,810.49 for cohort 2025.
+- Bachelor of Computing domestic Ontario: $10,284.84 for cohort 2025.
+- Bachelor of Computing domestic non-Ontario: $12,118.90 for cohort 2025.
+- Bachelor of Computing international: $48,473.52 for cohort 2025.
+- Bachelor of Engineering domestic Ontario: $13,215.68 to $13,215.76 for cohort 2025 depending on major.
+- Bachelor of Engineering international: $53,345.77 to $53,345.85 for cohort 2025 depending on major.
+
+### Guelph scholarship snapshot
+- Canadian citizens and permanent residents entering first semester with a minimum 90.0% admission average are automatically considered for a University of Guelph Entrance Scholarship.
+- Values shown are $1,000 for 90.0% to 94.9% and $2,000 for 95.0%+.
+- Guelph's President's International Entrance Scholarship shows $7,500 for 95.0%+, $6,500 for 90.0% to 94.9%, $5,500 for 85.0% to 89.9%, and $2,000 for 70.0% to 84.9%.
+- The University also lists renewable international scholarships ranging from $32,000 to $37,500 over four years.
+
+## Ontario Tech University
+
+### Computer Science
+- Ontario applicants need the OSSD with six 4U or 4M credits, including English (ENG4U), Advanced Functions (MHF4U), and one of Calculus and Vectors (MCV4U), Physics (SPH4U), or Computer Science (ICS4U).
+- Ontario Tech also requires a combined minimum 70% average in prerequisite computer science, math, and science courses.
+- The published cut-off was 75% last year and the expected cut-off is 73%.
+
+### Software Engineering
+- Ontario applicants need the OSSD with six 4U or 4M credits, including English (ENG4U) with a minimum grade of 60%, Advanced Functions (MHF4U), Calculus and Vectors (MCV4U), Chemistry (SCH4U), and Physics (SPH4U).
+- Ontario Tech requires a combined minimum 70% average in prerequisite math and science courses, with no grade below 60%.
+- The published cut-off was 70% last year and the expected cut-off is in the mid-70s.
+
+### Commerce
+- Ontario applicants need the OSSD with six 4U or 4M credits, including English (ENG4U) with a minimum average of 60% and one of Advanced Functions (MHF4U), Calculus and Vectors (MCV4U), or Mathematics of Data Management (MDM4U), also with a minimum average of 60%.
+- The published cut-off was 70% last year and the expected cut-off is in the low 70s.
+
+### Ontario Tech tuition snapshot
+- Ontario Tech's 2025-26 domestic tuition page lists Bachelor of Science in Computer Science at $7,876.01 per year, Bachelor of Commerce at $10,048.02 per year, and Bachelor of Engineering at $11,219.00 per year for first through third year.
+- The same domestic page lists Bachelor of Engineering at $9,283.03 in fourth year and $9,159.26 in fifth year.
+- Ontario Tech's 2025-26 international tuition page lists Bachelor of Science in Computer Science at $36,729.54 per year, Bachelor of Commerce at $36,774.24 per year, and Bachelor of Engineering at $45,205.16 per year.
+
+### Ontario Tech scholarship snapshot
+- Ontario Tech's Awards of Recognition are automatic for Canadian secondary-school graduates with $4,000 at 95.0%+, $2,000 at 90.0% to 94.9%, and $1,000 at 85.0% to 89.9%.
+- The major entrance scholarships include a Chancellor's Scholarship worth $36,000, a President's Scholarship worth $30,000, a Founder’s Scholarship worth $24,000, a FIRST Robotics Canada Scholarship worth $12,000, and a Global Leadership Award worth $120,000.
+- Ontario Tech says these major entrance scholarships are renewable over four years.
+
 ## Notes
 
 - This is a seed set, not a complete catalog of Canadian universities or Ontario programs.
@@ -251,3 +359,22 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://telfer.uottawa.ca/en/bcom/faq/eligibility-and-admissions/
 - https://www.uottawa.ca/faculty-engineering/sites/g/files/bhrskd396/files/2025-09/uOttawaEngineeringProgramGuide2026-EN-web.pdf
 - https://www.uottawa.ca/study/fees-financial-support/scholarships-awards-overview
+- https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/computer-science.html
+- https://www.eng.uwo.ca/undergraduate/first-year/admission_to_programs.html
+- https://www.registrar.uwo.ca/student_finances/fees_refunds/2025-FW-UGRD-FT-Fee-Schedule-CDN1.pdf
+- https://ebithp-c1v71.eng.uwo.ca/undergraduate/future-students/admissions/scholarships.html
+- https://www.wlu.ca/programs/business-and-economics/undergraduate/business-administration-bba/
+- https://www.wlu.ca/programs/science/undergraduate/computer-science-ba-or-bsc-milton/index.html
+- https://students.wlu.ca/finances/tuition-and-fees/fees-breakdown/tuition-fees.html
+- https://wlu.ca/future-students/undergraduate/tuition-finances/entrance-scholarships.html
+- https://www.uoguelph.ca/admission/undergraduate/requirements/ontario/
+- https://www.uoguelph.ca/registrar/finances-fees/tuition-fees/guelph-undergrad/f25-w26-s26/
+- https://www.uoguelph.ca/registrar/finances-fees/scholarships-bursaries/
+- https://www.uoguelph.ca/admission/undergraduate/international/funding/
+- https://ontariotechu.ca/programs/undergraduate/computers-and-technology/computer-science/index.php
+- https://ontariotechu.ca/programs/undergraduate/engineering/software-engineering/index.php
+- https://ontariotechu.ca/programs/undergraduate/business/commerce/index.php
+- https://registrar.ontariotechu.ca/fees-and-payment/domestic-student-tuition/undergraduate-domestic-tuition1.php
+- https://registrar.ontariotechu.ca/fees-and-payment/international-student-tuition/undergraduate-international-tuition1.php
+- https://safa.ontariotechu.ca/awards-bursaries-and-scholarships/undergraduate-student-finances/scholarships/index.php
+- https://safa.ontariotechu.ca/awards-bursaries-and-scholarships/scholarships/application-based-scholarships/canadian-secondary-school-student-scholarships.php

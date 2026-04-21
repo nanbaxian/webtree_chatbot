@@ -1310,6 +1310,114 @@
       "answer": "University of Ottawa admission scholarships automatically provide between $1,000 and $3,000 to eligible full-time students with an average of 85% to 100% in a direct-entry faculty. The Faculty of Engineering also awards a $2,000 scholarship to seven female students, one from each engineering program except computer science, with a minimum admission average of 80%, and the Engineering Program Guide lists a Dean's Merit Scholarship of $5,000 for 95-100% and $4,000 for 90-94.9%.",
       "tags": ["university_programs", "uottawa", "scholarships"],
       "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Western Computer Science?",
+      "answer": "Western Computer Science uses OUAC code ECS. Ontario applicants need ENG4U, MCV4U, MHF4U, and one of MDM4U, SBI4U, SCH4U, SPH4U, SES4U, or ICS4U. Western's admission average guideline is low to mid 80s, and the university says admission is competitive so the suggested range is not a guarantee.",
+      "tags": ["university_programs", "western", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Western Engineering?",
+      "answer": "Western Engineering says students must complete the first-year engineering program and then apply into a second-year program. The Engineering Excellence Admission Program says students with a minimum 85% mid-year and final admission average and at least an 80% year-weighted average in first year can be guaranteed acceptance into their program of choice except Mechatronic Systems Engineering.",
+      "tags": ["university_programs", "western", "engineering"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Western Computer Science tuition?",
+      "answer": "Western's 2025-26 tuition schedule shows Computer Science Year 1 at $9,506.01 for Ontario residents and $9,506.01 for out-of-province students in the listed table.",
+      "tags": ["university_programs", "western", "computer_science", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Western offer?",
+      "answer": "Western's admission scholarship program includes automatic admission scholarships and faculty-specific entrance awards. Western also highlights the Schulich Leader Scholarships at up to $120,000 for Engineering and up to $100,000 for Science, Technology, or Mathematics. Western Engineering says domestic entrance awards are automatic, and international applicants are considered if their complete OUAC application and supporting documents are received by March 15.",
+      "tags": ["university_programs", "western", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Laurier BBA?",
+      "answer": "Laurier BBA has an average admission range in the high 80s. Ontario prerequisites shown on the page are Advanced Functions at 70%, English at 70%, and one of Calculus and Vectors or Data Management at 60%, and Laurier says all prerequisite courses are counted in the admissions average.",
+      "tags": ["university_programs", "laurier", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Laurier Computer Science?",
+      "answer": "Laurier Computer Science at Milton offers BA and BSc pathways. Ontario admission range is high 70s. BA requires English at 60% and Advanced Functions at 60%. BSc requires English at 60%, Advanced Functions at 60%, and one of Calculus and Vectors, Chemistry, or Physics at 60%.",
+      "tags": ["university_programs", "laurier", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Laurier tuition?",
+      "answer": "Laurier's 2026/27 tuition tables show BBA domestic Ontario at $5,777.82 per 3.5 credits and $6,749.08 for 4.0 credits, while Computer Science domestic Ontario is $1,922.00 per 1.0 credit. The BBA non-Ontario and Computer Science non-Ontario values are also listed on the official tuition page.",
+      "tags": ["university_programs", "laurier", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Laurier offer?",
+      "answer": "Laurier's President's Gold Scholarship is automatically awarded at a 95%+ final admission average and is worth $4,000 for domestic students and $6,000 for international students. Laurier's CIBC STEM Entrance Award is $5,000 and is available to first-year students who identify as Black, Indigenous, and/or have disabilities and demonstrate financial need.",
+      "tags": ["university_programs", "laurier", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Guelph Commerce?",
+      "answer": "Ontario Commerce applicants generally need English and Advanced Functions, plus one additional 4U math for most majors. Government, Economics and Management and Hospitality/Tourism Management use English, Advanced Functions, and four additional 4U/M courses. Guelph's estimated cut-off range for Commerce is 80-86%, and co-op averages normally start around 80% but can be higher in practice.",
+      "tags": ["university_programs", "guelph", "commerce"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Guelph Computing?",
+      "answer": "Ontario applicants to Guelph's Bachelor of Computing need English, Calculus and Vectors, and four additional 4U/M courses. Majors include Computer Science and Software Engineering, and the estimated cut-off range is 85-90%.",
+      "tags": ["university_programs", "guelph", "computing"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Guelph Engineering?",
+      "answer": "Ontario applicants to Guelph Engineering need English, Advanced Functions, Calculus and Vectors, Chemistry, Physics, and one additional 4U/M course. Majors include Computer, Software/Systems, Mechanical, Mechatronics, Civil, Environmental, Biological, Biomedical, and Water Resources Engineering, and the estimated cut-off range is 84-89%.",
+      "tags": ["university_programs", "guelph", "engineering"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Guelph tuition?",
+      "answer": "For the 2025-26 academic year, Guelph lists Bachelor of Commerce domestic Ontario at $12,281.04 for cohort 2025, Bachelor of Computing domestic Ontario at $10,284.84, and Bachelor of Engineering domestic Ontario at $13,215.68 to $13,215.76 depending on major. International Bachelor of Commerce is $48,810.49, Bachelor of Computing is $48,473.52, and Bachelor of Engineering is $53,345.77 to $53,345.85 depending on major.",
+      "tags": ["university_programs", "guelph", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Guelph offer?",
+      "answer": "Canadian citizens and permanent residents entering first semester with a minimum 90.0% admission average are automatically considered for a University of Guelph Entrance Scholarship. Values shown are $1,000 for 90.0% to 94.9% and $2,000 for 95.0%+, and Guelph's President's International Entrance Scholarship shows $7,500 for 95.0%+, $6,500 for 90.0% to 94.9%, $5,500 for 85.0% to 89.9%, and $2,000 for 70.0% to 84.9%.",
+      "tags": ["university_programs", "guelph", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Ontario Tech Computer Science?",
+      "answer": "Ontario Tech Computer Science requires the OSSD with six 4U or 4M credits, including English (ENG4U), Advanced Functions (MHF4U), and one of Calculus and Vectors (MCV4U), Physics (SPH4U), or Computer Science (ICS4U). Ontario Tech also requires a combined minimum 70% average in prerequisite computer science, math, and science courses, with a last year's cut-off of 75% and an expected cut-off of 73%.",
+      "tags": ["university_programs", "ontario_tech", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Ontario Tech Software Engineering?",
+      "answer": "Ontario Tech Software Engineering requires the OSSD with six 4U or 4M credits, including English (ENG4U) with a minimum grade of 60%, Advanced Functions (MHF4U), Calculus and Vectors (MCV4U), Chemistry (SCH4U), and Physics (SPH4U). Ontario Tech requires a combined minimum 70% average in prerequisite math and science courses, with no grade below 60%, and the published cut-off was 70% last year with an expected cut-off in the mid-70s.",
+      "tags": ["university_programs", "ontario_tech", "software_engineering"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Ontario Tech Commerce?",
+      "answer": "Ontario Tech Commerce requires the OSSD with six 4U or 4M credits, including English (ENG4U) with a minimum average of 60% and one of Advanced Functions (MHF4U), Calculus and Vectors (MCV4U), or Mathematics of Data Management (MDM4U), also with a minimum average of 60%. Ontario Tech says the published cut-off was 70% last year and the expected cut-off is in the low 70s.",
+      "tags": ["university_programs", "ontario_tech", "commerce"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Ontario Tech tuition?",
+      "answer": "Ontario Tech's 2025-26 domestic tuition page lists Bachelor of Science in Computer Science at $7,876.01 per year, Bachelor of Commerce at $10,048.02 per year, and Bachelor of Engineering at $11,219.00 per year for first through third year. The international page lists Computer Science at $36,729.54 per year, Commerce at $36,774.24 per year, and Engineering at $45,205.16 per year.",
+      "tags": ["university_programs", "ontario_tech", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Ontario Tech offer?",
+      "answer": "Ontario Tech's Awards of Recognition are automatic for Canadian secondary-school graduates with $4,000 at 95.0%+, $2,000 at 90.0% to 94.9%, and $1,000 at 85.0% to 89.9%. Its major entrance scholarships include a Chancellor's Scholarship worth $36,000, a President's Scholarship worth $30,000, a Founder’s Scholarship worth $24,000, a FIRST Robotics Canada Scholarship worth $12,000, and a Global Leadership Award worth $120,000, and these major entrance scholarships are renewable over four years.",
+      "tags": ["university_programs", "ontario_tech", "scholarships"],
+      "priority": 35
     }
   ]
 }

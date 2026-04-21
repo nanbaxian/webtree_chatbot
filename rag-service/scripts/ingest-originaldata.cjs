@@ -75,6 +75,8 @@ function sourceTypeToName(sourceType) {
       return 'Teachers Directory'
     case 'ossd_core':
       return 'OSSD Core Guide'
+    case 'ossd_outlines':
+      return 'OSSD Course Outlines'
     default:
       return sourceType
   }

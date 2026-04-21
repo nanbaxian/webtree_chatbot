@@ -17,6 +17,7 @@ Files here are preserved in their original form and grouped by source type.
 - `ossd/`
   - Ontario Secondary School Diploma reference summaries
   - Best for graduation requirements, course-code explanations, and stream reference
+  - Course outline summaries for common OSSD subjects
 - `media/screenshots/`
   - Image evidence and message captures
   - Best for OCR, manual transcription, or provenance-only storage
@@ -27,6 +28,7 @@ Files here are preserved in their original form and grouped by source type.
 - `staff/teachers.docx`
 - `academic/Master Timetable 2025-2026 (1).xlsx`
 - `ossd/ossd_core_guide.md`
+- `ossd/ossd_course_outlines.md`
 - `media/screenshots/Screenshot_20260419_200523_WeChat.jpg`
 - `media/screenshots/Screenshot_20260419_200532_WeChat.jpg`
 
@@ -37,8 +39,9 @@ Files here are preserved in their original form and grouped by source type.
 - For RAG ingestion, the most useful order is usually:
   1. `site_archive/`
   2. `academic/`
-  3. `staff/`
-  4. `media/screenshots/`
+  3. `ossd/`
+  4. `staff/`
+  5. `media/screenshots/`
 
 ## Processed Layer
 
@@ -48,6 +51,7 @@ Processed, RAG-friendly artifacts are stored under `processed/`.
 - `processed/academic/master_timetable.extracted.md`
 - `processed/staff/teachers.extracted.md`
 - `processed/ossd/ossd_core_guide.md`
+- `processed/ossd/ossd_course_outlines.md`
 - `processed/media/screenshots.manifest.md`
 - `processed/qa_seed.json`
 - `processed/qa_seed_delta.json`

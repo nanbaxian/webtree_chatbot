@@ -16,6 +16,9 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `ossd/ossd_core_guide.md`
   - Compact OSSD reference summary
   - Best for graduation requirements, course-code interpretation, and stream explanations
+- `ossd/ossd_course_outlines.md`
+  - Common OSSD course outline summaries
+  - Best for course-family questions and program planning
 - `media/screenshots.manifest.md`
   - Provenance-only inventory of screenshot assets
   - Excluded from the current RAG ingestion set

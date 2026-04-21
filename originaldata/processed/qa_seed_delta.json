@@ -70,6 +70,48 @@
       "priority": 40
     },
     {
+      "question": "What does ENG3U cover?",
+      "answer": "ENG3U is Grade 11 English at the university-preparation level. It focuses on reading, writing, oral communication, media literacy, and critical analysis of texts and ideas.",
+      "tags": ["ossd", "english", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does MCR3U cover?",
+      "answer": "MCR3U is Grade 11 Functions at the university-preparation level. It focuses on algebraic reasoning, functions, graphs, equations, problem solving, and modeling real-world situations.",
+      "tags": ["ossd", "math", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does SBI3U cover?",
+      "answer": "SBI3U is Grade 11 Biology at the university-preparation level. It covers biological systems, cells, genetics, evolution, and the scientific inquiry process.",
+      "tags": ["ossd", "science", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does GLC2O cover?",
+      "answer": "GLC2O is Career Studies. It focuses on career planning, pathway selection, goal setting, learning skills, and preparing for postsecondary life.",
+      "tags": ["ossd", "guidance", "outline"],
+      "priority": 45
+    },
+    {
+      "question": "What does AMU3M cover?",
+      "answer": "AMU3M is Grade 11 Music at the university/college-preparation level. It focuses on performance, composition, listening, music theory, and reflection on musical styles and culture.",
+      "tags": ["ossd", "arts", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does BAF3M cover?",
+      "answer": "BAF3M is Financial Accounting Fundamentals. It introduces accounting principles, financial statements, bookkeeping, and basic business analysis.",
+      "tags": ["ossd", "business", "outline"],
+      "priority": 40
+    },
+    {
+      "question": "What does CHV2O cover?",
+      "answer": "CHV2O is Civics and Citizenship. It focuses on government, civic engagement, rights and responsibilities, and how students can participate in democratic life.",
+      "tags": ["ossd", "civics", "outline"],
+      "priority": 40
+    },
+    {
       "question": "What is the school's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
       "tags": ["site_archive", "contact"],

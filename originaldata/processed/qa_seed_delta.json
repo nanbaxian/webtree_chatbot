@@ -1232,6 +1232,84 @@
       "answer": "McMaster's automatic entrance award table shows Computer Science at 97.00%+ gets $3,000, iBioMed at 98.00%+ gets $3,000, Faculty of Health Sciences at 98.00%+ gets $1,000, Nursing at 93.00%+ gets $1,000, and Midwifery at 93.00%+ gets $1,000.",
       "tags": ["university_programs", "mcmaster", "scholarships"],
       "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for York Schulich BBA?",
+      "answer": "York Schulich says BBA admission is based on academic performance and the supplementary application. Ontario high school applicants must complete ENG4U, MHF4U, and MCV4U or MDM4U as part of their top six Grade 12 courses, with at least 70% in ENG4U and MHF4U. Competitive applicants generally sit in the high 80s to low 90s, and Schulich says the program is broadly direct entry and does not consider external transfer students.",
+      "tags": ["university_programs", "york", "schulich", "business"],
+      "priority": 45
+    },
+    {
+      "question": "How much is York Schulich tuition?",
+      "answer": "York SFS shows current Schulich BBA/iBBA per-credit rates for students entering on or after May 5, 2025. Domestic Ontario students pay $389.54 per credit total, domestic out-of-province students pay $394.03 per credit total, and international students pay $1,427.46 per credit total. York says a full 30-credit load is calculated by multiplying the per-credit amount by 30.",
+      "tags": ["university_programs", "york", "schulich", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does York Schulich offer?",
+      "answer": "Incoming BBA/iBBA students are automatically considered for York University entrance scholarships. Schulich's undergraduate awards page lists the Seymour Schulich BBA/iBBA Entrance Scholarship at $7,970, the Monika Federau Scholarship for Women in Business at $1,000, and the Nissan Canada Leadership Entrance Award at $3,500.",
+      "tags": ["university_programs", "york", "schulich", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Queen's Commerce?",
+      "answer": "Queen's Smith Commerce admission has two elements: required courses and marks from high school transcripts, plus a mandatory supplementary application. The official Smith Commerce brochure states an Ontario minimum average mark requirement of 87%, and Queen's directs applicants to Undergraduate Admission and Recruitment for the full course-by-course details and deadlines.",
+      "tags": ["university_programs", "queens", "commerce"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Queen's Commerce tuition?",
+      "answer": "Queen's Smith BCom current fees are $17,798.42 for domestic students, $20,365.16 for domestic non-Ontario students, and $63,106.73 for international students. Smith notes that residence, meal plan, textbooks, and supplies are additional costs.",
+      "tags": ["university_programs", "queens", "commerce", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships are available for Queen's Commerce?",
+      "answer": "Queen's says applicants to Arts and Science, Commerce, Health Science, and Engineering and Applied Science are automatically considered for International Admission Awards. The International Admission Award values shown are $100,000, $80,000, $60,000, and $40,000 over four years, and Queen's also offers an International Admission Scholarship with a total value of $9,000 for all programs of study.",
+      "tags": ["university_programs", "queens", "commerce", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Carleton Computer Science?",
+      "answer": "Carleton Computer Science requires the OSSD or equivalent with six 4U/M courses, including Advanced Functions and Calculus and Vectors. Carleton says the posted minimum is only a baseline because the actual cutoff can be higher, and direct admission to co-op also requires full-time registration in the BCS Honours program and eligibility to work in Canada.",
+      "tags": ["university_programs", "carleton", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Carleton International Business?",
+      "answer": "Carleton International Business requires the OSSD or equivalent with six 4U/M courses, including English, Advanced Functions, and either Calculus and Vectors or Mathematics of Data Management. Calculus and Vectors is preferred, and the program is built around a full year of study abroad in third year.",
+      "tags": ["university_programs", "carleton", "international_business"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Carleton Computer Science tuition?",
+      "answer": "Carleton's Fall 2025 and Winter 2026 Ontario domestic fees show Bachelor of Computer Science at $10,549.48 in first year. The international fee table shows Bachelor of Computer Science at $56,273.62 in first year.",
+      "tags": ["university_programs", "carleton", "computer_science", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Carleton offer?",
+      "answer": "Carleton's Prestige Scholarships range from $5,000 to $14,178 per year and are renewable. Carleton also says eligible international students who accept their offer and pay the deposit can be automatically nominated for one of five International Students' Tuition Prizes worth $10,000 each.",
+      "tags": ["university_programs", "carleton", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for uOttawa Telfer BCom?",
+      "answer": "The Telfer FAQ lists the core Ontario prerequisites as ENG4U, MHF4U, and MCV4U. It frames Telfer as a direct-entry business program with competitive admissions.",
+      "tags": ["university_programs", "uottawa", "telfer", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for uOttawa Engineering?",
+      "answer": "The uOttawa Engineering program guide says Canadian high school applicants need the listed Ontario prerequisite courses for each program and that the minimum combined average is 70% for science and/or mathematics prerequisites, except Software Engineering, which requires 70% in each prerequisite. For Computer Engineering, the guide shows ENG4U or FRA4U, MHF4U, MCV4U, SCH4U, and SPH4U, with a mid-80s competitive average.",
+      "tags": ["university_programs", "uottawa", "engineering"],
+      "priority": 45
+    },
+    {
+      "question": "What scholarships does uOttawa offer?",
+      "answer": "University of Ottawa admission scholarships automatically provide between $1,000 and $3,000 to eligible full-time students with an average of 85% to 100% in a direct-entry faculty. The Faculty of Engineering also awards a $2,000 scholarship to seven female students, one from each engineering program except computer science, with a minimum admission average of 80%, and the Engineering Program Guide lists a Dean's Merit Scholarship of $5,000 for 95-100% and $4,000 for 90-94.9%.",
+      "tags": ["university_programs", "uottawa", "scholarships"],
+      "priority": 35
     }
   ]
 }

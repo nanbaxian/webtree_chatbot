@@ -138,6 +138,87 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
   - Midwifery at 93.00%+ gets $1,000
 - McMaster's faculty-specific award table also shows Honours Health Sciences at 93% to 97.99% gets $500.
 
+## York University
+
+### Schulich Bachelor of Business Administration
+- Admission is based on two equally weighted criteria: academic performance and the supplementary application.
+- Ontario high school applicants must complete ENG4U, MHF4U, and MCV4U or MDM4U as part of their top six Grade 12 courses.
+- A minimum of 70% is required in ENG4U and MHF4U.
+- The page says competitive applicants generally sit in the high 80s to low 90s, and past cutoffs have ranged between 91% and 92%.
+- Schulich says the BBA is broadly a direct-entry program and does not consider external transfer students.
+
+### Schulich tuition snapshot
+- York SFS shows current Schulich BBA/iBBA per-credit rates for students entering on or after May 5, 2025.
+- Domestic Ontario students: $389.54 per credit total.
+- Domestic out-of-province students: $394.03 per credit total.
+- International students: $1,427.46 per credit total.
+- York notes that a full 30-credit load is calculated by multiplying the per-credit amount by 30.
+
+### Schulich scholarship snapshot
+- Incoming BBA/iBBA students are automatically considered for York University entrance scholarships.
+- The Seymour Schulich BBA/iBBA Entrance Scholarship is listed at $7,970.
+- The Monika Federau Scholarship for Women in Business is $1,000.
+- The Nissan Canada Leadership Entrance Award is $3,500.
+
+## Queen's University
+
+### Smith Commerce
+- Admission has two elements: required courses and marks from high school transcripts, plus a mandatory supplementary application.
+- The official Smith Commerce brochure states an Ontario minimum average mark requirement of 87%.
+- Queen's directs applicants to Undergraduate Admission and Recruitment for the full course-by-course details and deadlines.
+
+### Smith Commerce tuition snapshot
+- Queen's Smith BCom current fees are:
+  - Domestic: $17,798.42
+  - Domestic non-Ontario: $20,365.16
+  - International: $63,106.73
+- Smith also notes that residence, meal plan, textbooks, and supplies are additional costs.
+
+### Smith Commerce scholarship snapshot
+- Queen's says applicants to Arts and Science, Commerce, Health Science, and Engineering and Applied Science are automatically considered for International Admission Awards.
+- International Admission Award values shown are $100,000, $80,000, $60,000, and $40,000 over four years.
+- Queen's also offers an International Admission Scholarship with a total value of $9,000 for all programs of study.
+
+## Carleton University
+
+### Computer Science
+- OSSD or equivalent with six 4U/M courses.
+- The six courses must include Advanced Functions and Calculus and Vectors.
+- Carleton says the minimum average is only a baseline; actual cutoffs can be higher because of limited enrolment.
+- Direct admission to co-op requires the needed overall average, full-time registration in the BCS Honours program, and eligibility to work in Canada.
+
+### International Business
+- OSSD or equivalent with six 4U/M courses.
+- The six courses must include English, Advanced Functions, and either Calculus and Vectors or Mathematics of Data Management.
+- Calculus and Vectors is preferred.
+- The program is built around a full year of study abroad in third year.
+
+### Carleton tuition snapshot
+- Fall 2025 and Winter 2026 Ontario domestic fees show:
+  - Bachelor of Computer Science: $10,549.48 first year
+  - Bachelor of Commerce: $11,164.63 first year
+- Fall 2025 and Winter 2026 international fees show:
+  - Bachelor of Computer Science: $56,273.62 first year
+
+### Carleton scholarship snapshot
+- Carleton's Prestige Scholarships range from $5,000 to $14,178 per year and are renewable.
+- Carleton says eligible international students who accept their offer and pay the deposit can be automatically nominated for one of five International Students' Tuition Prizes worth $10,000 each.
+
+## University of Ottawa
+
+### Telfer BCom
+- The Telfer FAQ lists the core Ontario prerequisites as ENG4U, MHF4U, and MCV4U.
+- The FAQ also frames Telfer as a direct-entry business program with competitive admissions.
+
+### Engineering
+- The Faculty of Engineering program guide says Canadian high school applicants need the specified Ontario prerequisite courses for each program and that the minimum combined average is 70% for science and/or mathematics prerequisites, except Software Engineering, which requires 70% in each prerequisite.
+- For Computer Engineering, the guide shows ENG4U or FRA4U, MHF4U, MCV4U, SCH4U, and SPH4U, with a mid-80s competitive average.
+
+### uOttawa scholarship snapshot
+- University of Ottawa admission scholarships automatically provide between $1,000 and $3,000 to eligible full-time students with an average of 85% to 100% in a direct-entry faculty.
+- The Faculty of Engineering awards a $2,000 scholarship to seven female students, one from each engineering program except computer science, with a minimum admission average of 80%.
+- The Faculty of Engineering Program Guide also lists a Dean's Merit Scholarship of $5,000 for 95-100% and $4,000 for 90-94.9%.
+
 ## Notes
 
 - This is a seed set, not a complete catalog of Canadian universities or Ontario programs.
@@ -156,3 +237,17 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://www.torontomu.ca/programs/undergraduate/computer-science/
 - https://future.mcmaster.ca/programs/health-sciences/
 - https://future.mcmaster.ca/supplementary-applications/
+- https://schulich.yorku.ca/admissions/admissions-requirements/bba/
+- https://students.yorku.ca/sfs/fees/courses/2025/summer/schulich
+- https://schulich.yorku.ca/student-life-services/financial-aid/undergraduate-scholarships-awards/
+- https://smith.queensu.ca/bcom/program-details/admission.php
+- https://smith.queensu.ca/bcom/program-details/fees.php
+- https://www.queensu.ca/admission/international/Americas
+- https://calendar.carleton.ca/undergrad/regulations/admissions/programs/computerscience/
+- https://calendar.carleton.ca/undergrad/regulations/admissions/programs/internationalbusiness/
+- https://carleton.ca/studentaccounts/tuition-fees/fw-ug/f25w26-ug-ontario/
+- https://carleton.ca/studentaccounts/tuition-fees/fw-ug/f25w26-ug-international/
+- https://admissions.carleton.ca/scholarships/usa-and-international-costs/
+- https://telfer.uottawa.ca/en/bcom/faq/eligibility-and-admissions/
+- https://www.uottawa.ca/faculty-engineering/sites/g/files/bhrskd396/files/2025-09/uOttawaEngineeringProgramGuide2026-EN-web.pdf
+- https://www.uottawa.ca/study/fees-financial-support/scholarships-awards-overview

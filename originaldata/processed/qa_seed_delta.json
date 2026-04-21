@@ -1418,6 +1418,84 @@
       "answer": "Ontario Tech's Awards of Recognition are automatic for Canadian secondary-school graduates with $4,000 at 95.0%+, $2,000 at 90.0% to 94.9%, and $1,000 at 85.0% to 89.9%. Its major entrance scholarships include a Chancellor's Scholarship worth $36,000, a President's Scholarship worth $30,000, a Founder’s Scholarship worth $24,000, a FIRST Robotics Canada Scholarship worth $12,000, and a Global Leadership Award worth $120,000, and these major entrance scholarships are renewable over four years.",
       "tags": ["university_programs", "ontario_tech", "scholarships"],
       "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Windsor Computer Science?",
+      "answer": "University of Windsor Computer Science requires ENG4U plus one of MHF4U, MCV4U, or MDM4U. The minimum average is 70%, and the co-op minimum average is 75%. Windsor lists a mean average of 86% for high school applicants.",
+      "tags": ["university_programs", "windsor", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Windsor Business Administration?",
+      "answer": "University of Windsor Business Administration requires ENG4U plus one of MHF4U, MCV4U, or MDM4U. The minimum average is 73%, with 70% in at least one Grade 12 U math course. The minimum average for co-op is 78%, and Windsor lists a mean average of 84.7%.",
+      "tags": ["university_programs", "windsor", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Windsor Engineering?",
+      "answer": "University of Windsor Engineering requires ENG4U, MHF4U, SCH4U, and SPH4U. The engineering average of math and science courses must be at least 74%, Calculus and Vectors (MCV4U) is strongly recommended, and there is no supplemental application for undergraduate engineering programs.",
+      "tags": ["university_programs", "windsor", "engineering"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Windsor tuition?",
+      "answer": "University of Windsor's student awards page lists estimated full-time domestic undergraduate tuition as $9,024 for Computer Science, $9,027 for Business, and $9,795 for Engineering. The 2025/26 tuition fee package lists international cohort rates at $18,750 per semester for Computer Science, $18,390 per semester for Business, and $21,000 per semester for Engineering. Windsor also notes a co-op fee of $460 per semester, subject to change.",
+      "tags": ["university_programs", "windsor", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Windsor offer?",
+      "answer": "University of Windsor automatic open entrance scholarships are $4,000 per year at 95% to 100%, $2,500 per year at 90% to 94.99%, and $1,000 first year only at 85% to 89.99%. Windsor also offers Outstanding Scholar Candidate support of $750 per semester in first year and up to $1,500 per semester in years 2-4, plus an Indigenous entrance scholarship of up to $20,000 for eligible first-entry Science or Engineering students.",
+      "tags": ["university_programs", "windsor", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Queen's Computing?",
+      "answer": "Queen's Computing requires ENG4U, Advanced Functions (MHF4U), and Calculus and Vectors (MCV4U). Queen's says the competitive average for Computing is mid-80s, and admissions are based on grades and supplementary information.",
+      "tags": ["university_programs", "queens", "computing"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Queen's Engineering?",
+      "answer": "Queen's Smith Engineering requires ENG4U, Calculus and Vectors (MCV4U), Chemistry (SCH4U), Physics (SPH4U), and Advanced Functions (MHF4U). Queen's says Smith Engineering is competitive and the average for admission consideration is mid-80s.",
+      "tags": ["university_programs", "queens", "engineering"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Queen's tuition?",
+      "answer": "Queen's 2025-26 tuition page lists Computing at $9,512.23 total cost for Ontario students and $9,909.43 total cost for international students, based on 30 units. Queen's Undergraduate Viewbook lists approximate first-year tuition and fees for Smith Engineering at $13,504 for domestic students and $16,071 for international students.",
+      "tags": ["university_programs", "queens", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Queen's offer?",
+      "answer": "Queen's Major Admission Awards are open to students entering first-year undergraduate programs and are based on superior academic ability, leadership, and related criteria. Queen's Chancellor's Scholarship has a total value of $48,000, is renewable for 4 years with a GPA of 3.5, and requires a 90%+ average plus high school nomination. Queen's also lists admission bursaries and Promise Scholars.",
+      "tags": ["university_programs", "queens", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Brock Computer Science?",
+      "answer": "Brock's BSc in Computer Science has an expected cut-off in the high 70s. Ontario prerequisites are ENG4U plus Advanced Functions (MHF4U) with 70% or Calculus and Vectors (MCV4U) with 70%, and Brock also recommends ICS4U.",
+      "tags": ["university_programs", "brock", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Brock Business Administration?",
+      "answer": "Brock's BBA has an expected cut-off in the high 70s, while BBA Co-op is in the low 80s. Ontario prerequisites are ENG4U and one 4U math, and admission is based on the top six 4U or 4M courses, including required subjects.",
+      "tags": ["university_programs", "brock", "business"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Brock tuition?",
+      "answer": "Brock's fees estimator and student accounts pages show estimated full-time domestic undergraduate tuition around $9,024 for Computer Science and $9,027 for Business. Brock's 2025-26 estimator also shows a co-op charge of about $1,217.89 for programs with co-op, and actual fees may vary.",
+      "tags": ["university_programs", "brock", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Brock offer?",
+      "answer": "Brock's 2026 future-students awards page shows domestic entrance scholarships of $7,000 at 95.0%+, $5,000 at 90.0% to 94.9%, and $3,000 at 85.0% to 89.9%, with renewal amounts listed for eligible students. Brock's Goodman scholarships for BBA students are worth up to $8,000 and can be renewed with a 75% average at Brock, and Brock also offers the Brock Leaders Citizenship Society Award and a Chancellor's First Nations Award.",
+      "tags": ["university_programs", "brock", "scholarships"],
+      "priority": 35
     }
   ]
 }

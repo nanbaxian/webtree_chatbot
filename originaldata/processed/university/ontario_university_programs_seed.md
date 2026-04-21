@@ -167,17 +167,25 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - The official Smith Commerce brochure states an Ontario minimum average mark requirement of 87%.
 - Queen's directs applicants to Undergraduate Admission and Recruitment for the full course-by-course details and deadlines.
 
-### Smith Commerce tuition snapshot
-- Queen's Smith BCom current fees are:
-  - Domestic: $17,798.42
-  - Domestic non-Ontario: $20,365.16
-  - International: $63,106.73
-- Smith also notes that residence, meal plan, textbooks, and supplies are additional costs.
+### Computing
+- Ontario applicants need ENG4U, Advanced Functions (MHF4U), and Calculus and Vectors (MCV4U).
+- Queen's says the competitive average for Computing is mid-80s, and admissions are based on grades and supplementary information.
+- The School of Computing also highlights specializations such as Fundamental Computation, Artificial Intelligence, Security Software Design, and Computing, Mathematics and Analytics.
 
-### Smith Commerce scholarship snapshot
-- Queen's says applicants to Arts and Science, Commerce, Health Science, and Engineering and Applied Science are automatically considered for International Admission Awards.
-- International Admission Award values shown are $100,000, $80,000, $60,000, and $40,000 over four years.
-- Queen's also offers an International Admission Scholarship with a total value of $9,000 for all programs of study.
+### Smith Engineering
+- Ontario applicants need ENG4U, Calculus and Vectors (MCV4U), Chemistry (SCH4U), Physics (SPH4U), and Advanced Functions (MHF4U).
+- Queen's says Smith Engineering is competitive and the average for admission consideration is mid-80s.
+- Direct-entry engineering options include Chemical, Civil, Computer, Mining, and Mechatronics and Robotics Engineering.
+
+### Queen's tuition snapshot
+- Queen's 2025-26 tuition page lists Computing at $9,512.23 total cost for Ontario students and $9,909.43 total cost for international students, based on 30 units.
+- The Queen's Undergraduate Viewbook lists approximate first-year tuition and fees for Smith Engineering at $13,504 for domestic students and $16,071 for international students.
+- Queen's also states that tuition and fees are based on 2025-26 fee schedules and should be checked on the registrar page for program-specific detail.
+
+### Queen's scholarship snapshot
+- Queen's Major Admission Awards are open to students entering first-year undergraduate programs and are based on superior academic ability, leadership, and related criteria.
+- Queen's Chancellor's Scholarship has a total value of $48,000, is renewable for 4 years with a GPA of 3.5, and requires a 90%+ average plus high school nomination.
+- Queen's also lists program-specific admission awards and bursaries, including Promise Scholars and other admission bursaries.
 
 ## Carleton University
 
@@ -327,6 +335,55 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - The major entrance scholarships include a Chancellor's Scholarship worth $36,000, a President's Scholarship worth $30,000, a Founder’s Scholarship worth $24,000, a FIRST Robotics Canada Scholarship worth $12,000, and a Global Leadership Award worth $120,000.
 - Ontario Tech says these major entrance scholarships are renewable over four years.
 
+## University of Windsor
+
+### Computer Science
+- Ontario applicants need ENG4U plus one of MHF4U, MCV4U, or MDM4U.
+- Minimum average is 70%, with a 75% minimum average for co-op.
+- Windsor lists a mean average of 86% for high school applicants.
+
+### Business Administration
+- Ontario applicants need ENG4U plus one of MHF4U, MCV4U, or MDM4U.
+- Minimum average is 73%, with 70% in at least one Grade 12 U math course.
+- Minimum average for co-op is 78%, and Windsor lists a mean average of 84.7%.
+
+### Engineering
+- Ontario applicants need ENG4U, MHF4U, SCH4U, SPH4U, and the engineering average of math and science courses must be at least 74%.
+- Calculus and Vectors (MCV4U) is strongly recommended but not yet mandatory.
+- All undergraduate engineering programs have no supplemental application and are based on a minimum 74% average from the top six high school courses.
+
+### Windsor tuition snapshot
+- University of Windsor's student awards page lists estimated full-time domestic undergraduate tuition as $9,024 for Computer Science, $9,027 for Business, and $9,795 for Engineering.
+- The 2025/26 tuition fee package lists international cohort rates at $18,750 per semester for Computer Science, $18,390 per semester for Business, and $21,000 per semester for Engineering.
+- The same page says the co-op fee is $460 per semester, based on 2023-2024 and subject to change.
+
+### Windsor scholarship snapshot
+- Automatic open entrance scholarships are $4,000/year at 95% to 100%, $2,500/year at 90% to 94.99%, and $1,000 first year only at 85% to 89.99%.
+- Windsor says approximately 100 high-achieving first-year students are offered Outstanding Scholar Candidate status, with $750 per semester in first year and up to $1,500 per semester in years 2-4.
+- The university also notes an Indigenous entrance scholarship of up to $20,000 for eligible first-entry Science or Engineering students.
+
+## Brock University
+
+### Computer Science
+- Brock's BSc in Computer Science has an expected cut-off in the high 70s.
+- Ontario prerequisites are ENG4U plus Advanced Functions (MHF4U) with 70% or Calculus and Vectors (MCV4U) with 70%.
+- Brock also recommends ICS4U.
+
+### Business Administration
+- Brock's BBA has an expected cut-off in the high 70s, while BBA Co-op is in the low 80s.
+- Ontario prerequisites are ENG4U and one 4U math.
+- Admission is based on the top six 4U or 4M courses, including required subjects.
+
+### Brock tuition snapshot
+- Brock's fees estimator and student accounts pages show estimated full-time domestic undergraduate tuition around $9,024 for Computer Science and $9,027 for Business.
+- The university's 2025-26 estimator also shows a co-op charge of about $1,217.89 for programs with co-op.
+- Brock warns that actual fees may vary and should be checked through the estimator or student account.
+
+### Brock scholarship snapshot
+- Brock's 2026 future-students awards page shows domestic entrance scholarships of $7,000 at 95.0%+, $5,000 at 90.0% to 94.9%, and $3,000 at 85.0% to 89.9%, with renewal amounts listed for eligible students.
+- Brock's Goodman scholarships for BBA students are worth up to $8,000 and can be renewed with a 75% average at Brock.
+- Brock also offers the Brock Leaders Citizenship Society Award at $8,000 total value, plus a Chancellor's First Nations Award that can cover tuition, residence, meal plan, and textbooks for eligible students.
+
 ## Notes
 
 - This is a seed set, not a complete catalog of Canadian universities or Ontario programs.
@@ -378,3 +435,18 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://registrar.ontariotechu.ca/fees-and-payment/international-student-tuition/undergraduate-international-tuition1.php
 - https://safa.ontariotechu.ca/awards-bursaries-and-scholarships/undergraduate-student-finances/scholarships/index.php
 - https://safa.ontariotechu.ca/awards-bursaries-and-scholarships/scholarships/application-based-scholarships/canadian-secondary-school-student-scholarships.php
+- https://www.future.uwindsor.ca/program/computer-science/
+- https://www.future.uwindsor.ca/program/business-administration/
+- https://www.future.uwindsor.ca/kba/applying-to-uwindsor-engineering/
+- https://www.future.uwindsor.ca/student-awards/
+- https://www.uwindsor.ca/secretariat/sites/uwindsor.ca.secretariat/files/apc250410p-_combined_april_10_2025_apc_package.pdf
+- https://www.queensu.ca/admission/applying/admission-requirements/ontario
+- https://www.queensu.ca/admission/applying/competitive-average
+- https://www.cs.queensu.ca/undergraduate/
+- https://www.queensu.ca/registrar/tuition-fees/undergraduate-25-26
+- https://www.queensu.ca/admission/sites/uarwww/files/uploaded_files/QU-Viewbook-Domestic.pdf
+- https://www.queensu.ca/registrar/financial-aid/application-required/future-students/major-awards
+- https://brocku.ca/programs/undergraduate/computer-science/
+- https://brocku.ca/goodman/programs/bba/
+- https://brocku.ca/safa/undergraduate-fees-estimator/
+- https://brocku.ca/safa/2026-future-students/

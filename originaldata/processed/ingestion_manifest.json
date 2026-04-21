@@ -90,7 +90,17 @@
         "https://www.torontomu.ca/tedrogersschool/business-management/students/admission-requirements/",
         "https://www.torontomu.ca/programs/undergraduate/computer-science/",
         "https://future.mcmaster.ca/programs/health-sciences/",
-        "https://future.mcmaster.ca/supplementary-applications/"
+        "https://future.mcmaster.ca/supplementary-applications/",
+        "https://www.trentu.ca/futurestudents/admissions/admission-requirements/ontario-secondary-school-students",
+        "https://www.trentu.ca/futurestudents/scholarships-tuition",
+        "https://www.trentu.ca/studentfinances/peterborough-fall-2025-winter-2026-tuition-fees-ontario-students",
+        "https://www.lakeheadu.ca/programs/undergraduate-programs/computer-science/node/1110",
+        "https://www.lakeheadu.ca/programs/undergraduate-programs/business/node/3456",
+        "https://www.lakeheadu.ca/studentcentral/financing-budgeting/entrance-scholarships-for-future-new-students",
+        "https://www.nipissingu.ca/departments/office-registrar/admission-requirements/ontario-program-specific",
+        "https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/bbabcommcollege-partnershipcomputer",
+        "https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/arts-and-science-first-year",
+        "https://www.nipissingu.ca/departments/student-financial-services/student-awards-and-financial-aid/guaranteed-entrance"
       ],
       "processed_path": "originaldata/processed/university/ontario_university_programs_seed.md",
       "status": "ready",

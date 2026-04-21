@@ -32,6 +32,16 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Application note: the Admission Information Form is required.
 - Extra note: Waterloo strongly encourages the Canadian Senior Mathematics Contest and/or Euclid Mathematics Contest.
 
+### Waterloo tuition snapshot
+- Waterloo says first-year tuition varies by program and student type.
+- Example first-year Ontario domestic fees shown on the page: Computer Science $16,000, Software Engineering $21,000, Computing and Financial Management $11,000.
+- Waterloo co-op students pay a fee of $836 per school term.
+
+### Waterloo math entrance scholarships
+- The Faculty of Mathematics awards 200 entrance scholarships.
+- Values shown include $10,000 over four years, $8,000 over four years, and one-year scholarships ranging from $1,000 to $5,000.
+- Students must write the Euclid Mathematics Contest or the Canadian Senior Mathematics Contest and submit an Admission Information Form to be considered.
+
 ### Data Science
 - Ontario students need six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, any Grade 12 U English, and one other 4U course.
 - Recommended: Grade 11 U Introduction to Computer Science.
@@ -71,6 +81,12 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Ontario secondary school qualifications shown on the page: ENG4U / EAE4U, MHF4U, MCV4U, SCH4U, and SPH4U.
 - Supplemental application required.
 
+### U of T awards snapshot
+- U of T says most entrance scholarships and admission awards are automatic and do not require a separate application.
+- The Awards Profile is used for awards based on financial need, leadership, community involvement, and other non-academic criteria.
+- The President's Scholars of Excellence Program is about 150 awards at $15,000 in the first year.
+- The University of Toronto Scholars Program is about 900 awards at $10,000.
+
 ## Toronto Metropolitan University
 
 ### Business Management
@@ -90,6 +106,17 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Required Grade 12 U courses: ENG4U/EAE4U preferred, MHF4U, and MCV4U.
 - The page shows a grade range in the mid-80s.
 
+### TMU tuition snapshot
+- TMU says full-time undergraduate Ontario students pay about $7,284 to $11,738 for the 2025-2026 academic year, depending on program and residency.
+- TMU's Accounting & Finance current-students fee schedule shows Year 1 at $12,525.94 for domestic out-of-province rates.
+
+### TMU scholarship snapshot
+- TMU says it has over $7 million designated for entrance scholarship support.
+- For students admitted for 2026-2027 with a Canadian secondary school average of 86% or higher, TMU guarantees a renewable entrance scholarship.
+- The renewable award values shown are $3,000 at 95%+, $1,500 at 90-94.99%, and $750 at 86-89.99%.
+- TMU's President's Entrance Scholarship is $40,000 total, paid as $10,000 per year and renewable.
+- TMU's International Student Leadership Award is $10,000 for up to 53 recipients.
+
 ## McMaster University
 
 ### Honours Health Sciences
@@ -101,6 +128,15 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - McMaster describes iBioMed as a blended engineering and health sciences program with limited enrolment of 155 students per year.
 - The program page says the Faculty of Engineering offers $2.5M+ in entrance scholarships and research awards for students entering Level 1 engineering programs.
 - The supplementary applications page lists iBioMed as having a required supplementary application.
+
+### McMaster scholarship snapshot
+- McMaster's automatic entrance award table shows:
+  - Computer Science at 97.00%+ gets $3,000
+  - iBioMed at 98.00%+ gets $3,000
+  - Faculty of Health Sciences at 98.00%+ gets $1,000
+  - Nursing at 93.00%+ gets $1,000
+  - Midwifery at 93.00%+ gets $1,000
+- McMaster's faculty-specific award table also shows Honours Health Sciences at 93% to 97.99% gets $500.
 
 ## Notes
 

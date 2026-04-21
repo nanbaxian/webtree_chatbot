@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CheckCircle2, Loader2, Quote, SendHorizontal } from 'lucide-react'
+import { CheckCircle2, ChevronDown, CircleUserRound, Loader2, Menu, Plus, Quote, SendHorizontal } from 'lucide-react'
 import { apiUrl } from '@/lib/api-url'
 import { parseRagCitationsHeader, type RagCitation } from '@/lib/rag-protocol'
 
@@ -68,6 +68,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
   }, [input])
 
   const recentSources = useMemo(() => citations.slice(0, 2), [citations])
+  const showEmptyState = messages.length === 1 && messages[0]?.id === 'welcome'
 
   async function sendMessage() {
     const text = input.trim()
@@ -195,10 +196,43 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#0b0e13] px-4 py-4 text-white lg:px-6 lg:py-6">
-      <div className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-[1920px] gap-4 lg:gap-5">
-        <section className="flex min-w-0 flex-1 flex-col rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] backdrop-blur-xl">
-          <header className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:px-6">
+    <main className="min-h-[100dvh] bg-white text-slate-950 lg:min-h-screen lg:bg-[#0b0e13] lg:px-6 lg:py-6 lg:text-white">
+      <div className="mx-auto flex min-h-[100dvh] max-w-[1920px] gap-0 lg:h-[calc(100vh-3rem)] lg:gap-5">
+        <section className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-none border-0 bg-white shadow-none lg:rounded-[2rem] lg:border lg:border-white/10 lg:bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] lg:backdrop-blur-xl">
+          <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
+            <button
+              type="button"
+              aria-label="Open menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 transition hover:bg-slate-100"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              className="inline-flex min-w-0 items-center gap-1 rounded-full px-2 py-1 text-sm font-semibold text-slate-950"
+            >
+              <span className="truncate">Webtree Academy AI</span>
+              <ChevronDown className="h-4 w-4 text-slate-400" />
+            </button>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                aria-label="New chat"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-700 transition hover:bg-slate-100"
+              >
+                <Plus className="h-4.5 w-4.5" />
+              </button>
+              <button
+                type="button"
+                aria-label="Profile"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-700 transition hover:bg-slate-100"
+              >
+                <CircleUserRound className="h-4.5 w-4.5" />
+              </button>
+            </div>
+          </header>
+
+          <header className="hidden items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:flex lg:px-6">
             <div className="min-w-0">
               <h1 className="truncate text-xl font-semibold text-white lg:text-2xl">Webtree Academy AI</h1>
             </div>
@@ -207,7 +241,17 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
             </div>
           </header>
 
-          <div className="flex-1 overflow-y-auto px-4 py-5 lg:px-6">
+          <div className="flex-1 overflow-y-auto px-4 py-5 text-slate-950 lg:px-6 lg:text-white">
+            {showEmptyState ? (
+              <div className="flex min-h-[48vh] flex-col items-center justify-center px-6 pb-8 text-center lg:hidden">
+                <div className="text-[2rem] font-medium leading-tight tracking-[-0.03em] text-slate-950">
+                  What can I help with today?
+                </div>
+                <p className="mt-4 max-w-xs text-sm leading-6 text-slate-500">
+                  Ask about courses, admissions, timetable, or contact details.
+                </p>
+              </div>
+            ) : null}
             <div className="mx-auto flex w-full max-w-5xl flex-col gap-4">
               {messages.map(message => (
                 <div
@@ -215,11 +259,13 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
                   className={`max-w-[92%] rounded-[1.5rem] px-4 py-4 text-sm leading-7 lg:text-[15px] ${
                     message.role === 'user'
                       ? 'ml-auto rounded-br-md border border-amber-300/20 bg-amber-300 text-slate-950'
-                      : 'rounded-bl-md border border-white/10 bg-white/6 text-white/80'
+                      : message.id === 'welcome'
+                        ? 'hidden rounded-bl-md border border-white/10 bg-white/6 text-slate-700 lg:block lg:text-white/80'
+                        : 'rounded-bl-md border border-slate-200 bg-slate-50 text-slate-800 lg:border-white/10 lg:bg-white/6 lg:text-white/80'
                   }`}
                 >
                   {message.isTyping ? (
-                    <span className="inline-flex items-center gap-2 text-white/65">
+                    <span className="inline-flex items-center gap-2 text-slate-500 lg:text-white/65">
                       <Loader2 className="h-4 w-4 animate-spin" />
                       Thinking
                     </span>
@@ -232,9 +278,9 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
             </div>
           </div>
 
-          <div className="border-t border-white/10 px-4 py-4 lg:px-6">
-            <div className="mx-auto w-full max-w-5xl rounded-[1.75rem] border border-white/10 bg-slate-950/65 p-4 shadow-2xl shadow-black/20">
-              <label className="text-xs uppercase tracking-[0.26em] text-white/45">Ask a question</label>
+          <div className="sticky bottom-0 z-20 border-t border-slate-200 bg-white/95 px-3 py-3 backdrop-blur lg:static lg:border-t-white/10 lg:bg-transparent lg:px-4 lg:py-4">
+            <div className="mx-auto w-full max-w-5xl rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-[0_8px_24px_rgba(0,0,0,0.08)] lg:border-white/10 lg:bg-slate-950/65 lg:p-4 lg:shadow-2xl lg:shadow-black/20">
+              <label className="text-xs uppercase tracking-[0.26em] text-slate-400 lg:text-white/45">Ask a question</label>
               <div className="mt-3 flex items-end gap-3">
                 <textarea
                   ref={textareaRef}
@@ -243,18 +289,18 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
                   onKeyDown={handleKeyDown}
                   rows={1}
                   placeholder="Type your question..."
-                  className="min-h-[56px] max-h-[180px] flex-1 resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6 text-white outline-none placeholder:text-white/35 focus:border-amber-200/40 focus:ring-2 focus:ring-amber-200/15"
+                  className="min-h-[56px] max-h-[180px] flex-1 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-950 outline-none placeholder:text-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 lg:border-white/10 lg:bg-white/5 lg:text-white lg:placeholder:text-white/35 lg:focus:border-amber-200/40 lg:focus:ring-amber-200/15"
                 />
                 <button
                   onClick={() => void sendMessage()}
                   disabled={isSending || !input.trim()}
-                  className="inline-flex h-14 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-slate-950 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex h-14 items-center gap-2 rounded-full bg-slate-950 px-5 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50 lg:bg-white lg:text-slate-950 lg:hover:bg-amber-100"
                 >
                   {isSending ? 'Sending' : 'Send'}
                   <SendHorizontal className="h-4 w-4" />
                 </button>
               </div>
-              <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/45">
+              <div className="mt-3 hidden flex-wrap gap-2 text-xs text-slate-500 lg:flex lg:text-white/45">
                 <button
                   onClick={() => setInput('What sources were used to answer the last question?')}
                   className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"

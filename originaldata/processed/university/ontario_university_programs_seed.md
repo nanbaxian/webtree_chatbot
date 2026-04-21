@@ -384,6 +384,86 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Brock's Goodman scholarships for BBA students are worth up to $8,000 and can be renewed with a 75% average at Brock.
 - Brock also offers the Brock Leaders Citizenship Society Award at $8,000 total value, plus a Chancellor's First Nations Award that can cover tuition, residence, meal plan, and textbooks for eligible students.
 
+## Trent University
+
+### Computer Science
+- Ontario applicants need ENG4U and a 4U math.
+- Estimated admission range: 70-85%, with a co-op average range of 85-90%.
+- Trent highlights specializations such as Theoretical Computer Science, Data Analytics, and Software Engineering.
+
+### Bachelor of Business Administration
+- Ontario applicants need ENG4U and a 4U math.
+- Estimated admission range: 80-85%.
+- The program offers co-op and several specializations, including Accounting, Finance, Marketing, Human Resource Management, and Information Systems.
+
+### Nursing
+- Ontario applicants need ENG4U, SBI4U, SCH4U, and a 4U math, with a minimum final grade of 70% in each.
+- Estimated admission range: 80-85%.
+- Trent says the School of Nursing includes more than 1,000 hours of clinical placements across four years.
+
+### Trent tuition snapshot
+- Trent's viewbook shows an estimated average domestic tuition budget of $6,118 for Ontario students.
+- The same budget page shows $950-$1,500 for ancillary fees and $1,500 for books and supplies.
+- Trent notes that tuition rates vary by program and by student type.
+
+### Trent scholarship snapshot
+- Trent's entrance scholarship grid shows 95%+ gets $18,118 maximum potential, including free first-year tuition.
+- 90%-94.9% gets $3,000 per year, 85%-89.9% gets $2,000 per year, and 80%-84.9% gets $1,500 per year.
+- Trent says these scholarships are renewable when students maintain an 80% average.
+
+## Lakehead University
+
+### Computer Science
+- Ontario high school applicants need OSSD, six Grade 12 U or M courses, and a minimum 70% average.
+- Program-specific prerequisites are ENG4U, MHF4U, and one of MCV4U, ICS4U, or MDM4U.
+- Lakehead offers Business Focus and Science Focus streams, plus co-op.
+
+### Honours Bachelor of Commerce
+- Ontario high school applicants need OSSD, six Grade 12 U or M courses, and a minimum 70% average.
+- Program-specific prerequisites are ENG4U and one of MHF4U, MCV4U, or MDM4U.
+- The business program offers majors in Accounting, Business Administration, Business Economics, Finance, Human Resources/Industrial Relations, General Management, Business Analytics and Information Systems, International Business, and Marketing.
+
+### Engineering
+- Lakehead says students can enter first-year engineering directly from high school, or complete the Common Year in Applied Science if more preparation is needed.
+- Co-op/internship is available in all Thunder Bay BEng programs.
+- Thunder Bay offers Chemical, Civil, Electrical, Mechanical, Mechatronics, and Software Engineering.
+
+### Lakehead tuition snapshot
+- 2025-26 domestic first-year Computer Science total fees are $6,992.86.
+- 2025-26 domestic first-year Engineering total fees are $10,691.55.
+- Lakehead's international first-year totals are $31,359.35 for Computer Science and $41,437.35 for Engineering.
+
+### Lakehead scholarship snapshot
+- Lakehead's academic entrance scholarships are automatic for direct-from-high-school Canadian students.
+- 95%+ gets $16,000 or free tuition, 90%-94.9% gets $10,000, 85%-89.9% gets $5,000, and 80%-84.9% gets $3,000.
+- Lakehead says renewable awards require maintaining the specified average in each academic year.
+
+## Nipissing University
+
+### Computer Science
+- Ontario applicants need a 70% average.
+- The FAQ says Computer Science needs ENG4U, Calculus & Vectors, one other Mathematics, and one of Biology, Chemistry, or Physics.
+- Nipissing also lists Computer Science within its Ontario program-specific admission requirements page.
+
+### Bachelor of Business Administration
+- Ontario applicants need a 70% average and English.
+- Two Grade 12 U Mathematics courses are recommended.
+- Students admitted without two 4U math courses must complete MATH1911 and/or MATH1912 in first year.
+
+### Bachelor of Science in Nursing
+- Ontario applicants need a 70% average and English, Biology, and Chemistry.
+- The FAQ lists Nursing as an Ontario program-specific admission stream with those required courses.
+
+### Nipissing tuition snapshot
+- 2025-26 Ontario 30-credit total fees are $10,837.83 for BBA/Computer Science/Data Science.
+- 2025-26 Ontario 30-credit total fees are $9,235.72 for BScN.
+- Nipissing's total fee tables include tuition, ancillary fees, student insurance, and bus pass.
+
+### Nipissing scholarship snapshot
+- Nipissing says it has over $4.3 million in scholarships, bursaries, and awards.
+- Guaranteed Entrance Scholarships are automatic with no application required.
+- The NU Guaranteed Entrance Scholarship ranges from $1,000 up to free tuition.
+
 ## Notes
 
 - This is a seed set, not a complete catalog of Canadian universities or Ontario programs.
@@ -450,3 +530,19 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://brocku.ca/goodman/programs/bba/
 - https://brocku.ca/safa/undergraduate-fees-estimator/
 - https://brocku.ca/safa/2026-future-students/
+- https://www.trentu.ca/futurestudents/admissions/admission-requirements/ontario-secondary-school-students
+- https://www.trentu.ca/futurestudents/sites/trentu.ca.futurestudents/files/2024-12/TrentU_Viewbook_2025.pdf
+- https://www.trentu.ca/studentfinances/peterborough-fall-2025-winter-2026-tuition-fees-ontario-students
+- https://www.trentu.ca/studentfinances/scholarships-awards-bursaries/entrance-scholarships
+- https://www.lakeheadu.ca/programs/undergraduate-programs/computer-science
+- https://www.lakeheadu.ca/programs/undergraduate-programs/business/node/3456
+- https://www.lakeheadu.ca/programs/faculties/engineering/undergraduate-programs
+- https://www.lakeheadu.ca/students/finances/student-fees/fees/undergraduate-fees/2025-2026?page=1
+- https://www.lakeheadu.ca/students/finances/student-fees/fees/undergraduate-fees/2025-2026?page=2
+- https://www.lakeheadu.ca/studentcentral/financing-budgeting/entrance-scholarships-for-future-new-students
+- https://www.nipissingu.ca/departments/office-registrar/admission-requirements/ontario-program-specific
+- https://www.nipissingu.ca/sites/default/files/2024-12/2425%20FAQ101%20Offer%20of%20Admissions%204Dec24.pdf
+- https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/bbabcommcollege-partnershipcomputer
+- https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/arts-and-science-first-year
+- https://www.nipissingu.ca/future-students/financial-support
+- https://www.nipissingu.ca/departments/student-financial-services/student-awards-and-financial-aid/guaranteed-entrance

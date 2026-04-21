@@ -1496,6 +1496,96 @@
       "answer": "Brock's 2026 future-students awards page shows domestic entrance scholarships of $7,000 at 95.0%+, $5,000 at 90.0% to 94.9%, and $3,000 at 85.0% to 89.9%, with renewal amounts listed for eligible students. Brock's Goodman scholarships for BBA students are worth up to $8,000 and can be renewed with a 75% average at Brock, and Brock also offers the Brock Leaders Citizenship Society Award and a Chancellor's First Nations Award.",
       "tags": ["university_programs", "brock", "scholarships"],
       "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Trent Computer Science?",
+      "answer": "Trent Computer Science asks for ENG4U and a 4U math. The viewbook shows an estimated admission range of 70% to 85%, with a co-op average range of 85% to 90%.",
+      "tags": ["university_programs", "trent", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Trent BBA?",
+      "answer": "Trent's Bachelor of Business Administration asks for ENG4U and a 4U math. The viewbook shows an estimated admission range of 80% to 85%, and co-op is available.",
+      "tags": ["university_programs", "trent", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Trent Nursing?",
+      "answer": "Trent Nursing asks for ENG4U, SBI4U, SCH4U, and a 4U math, with a minimum final grade of 70% in each. The viewbook shows an estimated admission range of 80% to 85%.",
+      "tags": ["university_programs", "trent", "nursing"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Trent tuition?",
+      "answer": "Trent's viewbook shows an estimated domestic tuition budget of $6,118 for Ontario students, with $950 to $1,500 in ancillary fees and about $1,500 for books and supplies. The page notes that tuition varies by program and student type.",
+      "tags": ["university_programs", "trent", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Trent offer?",
+      "answer": "Trent's entrance scholarship grid gives $18,118 maximum potential at 95%+, including free first-year tuition, $3,000 per year at 90% to 94.9%, $2,000 per year at 85% to 89.9%, and $1,500 per year at 80% to 84.9%. The scholarships are renewable when students maintain an 80% average.",
+      "tags": ["university_programs", "trent", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Lakehead Computer Science?",
+      "answer": "Lakehead Computer Science requires the OSSD, six Grade 12 U or M courses, and a minimum 70% average. Ontario applicants need ENG4U, MHF4U, and one of MCV4U, ICS4U, or MDM4U.",
+      "tags": ["university_programs", "lakehead", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Lakehead Commerce?",
+      "answer": "Lakehead's Honours Bachelor of Commerce requires the OSSD, six Grade 12 U or M courses, and a minimum 70% average. Ontario applicants need ENG4U and one of MHF4U, MCV4U, or MDM4U.",
+      "tags": ["university_programs", "lakehead", "business"],
+      "priority": 45
+    },
+    {
+      "question": "How does Lakehead Engineering work?",
+      "answer": "Lakehead says students can enter first-year engineering directly from high school, or complete the Common Year in Applied Science if they need more preparation. Co-op or internship is available in all Thunder Bay BEng programs.",
+      "tags": ["university_programs", "lakehead", "engineering"],
+      "priority": 40
+    },
+    {
+      "question": "How much is Lakehead tuition?",
+      "answer": "Lakehead's 2025-26 domestic first-year total fees are $6,992.86 for Computer Science and $10,691.55 for Engineering. The international first-year totals are $31,359.35 for Computer Science and $41,437.35 for Engineering.",
+      "tags": ["university_programs", "lakehead", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Lakehead offer?",
+      "answer": "Lakehead's academic entrance scholarships are automatic for direct-from-high-school Canadian students. The grid shows $16,000 or free tuition at 95%+, $10,000 at 90% to 94.9%, $5,000 at 85% to 89.9%, and $3,000 at 80% to 84.9%.",
+      "tags": ["university_programs", "lakehead", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Nipissing Computer Science?",
+      "answer": "Nipissing Computer Science requires a 70% average. The FAQ says the program needs ENG4U, Calculus and Vectors, one other Mathematics, and one of Biology, Chemistry, or Physics.",
+      "tags": ["university_programs", "nipissing", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Nipissing BBA?",
+      "answer": "Nipissing's Bachelor of Business Administration requires a 70% average and English. Two Grade 12 U Mathematics courses are recommended, and students without two 4U math courses must complete MATH1911 and/or MATH1912 in first year.",
+      "tags": ["university_programs", "nipissing", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Nipissing Nursing?",
+      "answer": "Nipissing's Bachelor of Science in Nursing requires a 70% average and English, Biology, and Chemistry.",
+      "tags": ["university_programs", "nipissing", "nursing"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Nipissing tuition?",
+      "answer": "Nipissing's 2025-26 Ontario 30-credit total fees are $10,837.83 for BBA/Computer Science/Data Science and $9,235.72 for BScN. The total fee tables include tuition, ancillary fees, student insurance, and bus pass.",
+      "tags": ["university_programs", "nipissing", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Nipissing offer?",
+      "answer": "Nipissing says it has over $4.3 million in scholarships, bursaries, and awards. Guaranteed Entrance Scholarships are automatic with no application required, and the NU Guaranteed Entrance Scholarship ranges from $1,000 up to free tuition.",
+      "tags": ["university_programs", "nipissing", "scholarships"],
+      "priority": 35
     }
   ]
 }

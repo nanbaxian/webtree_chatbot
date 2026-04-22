@@ -253,9 +253,6 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
                 <div className="text-[2rem] font-medium leading-tight tracking-[-0.03em] text-white lg:text-[2.6rem]">
                   What can I help with today?
                 </div>
-                <p className="mt-4 max-w-md text-sm leading-6 text-white/60">
-                  Ask about courses, admissions, timetable, or contact details.
-                </p>
               </div>
             ) : null}
             <div className="mx-auto flex w-full max-w-5xl flex-col gap-4">

@@ -213,6 +213,8 @@ function toOpenAIHistory(messages: D1Message[], currentUserText: string, imageBa
 
 function buildSystemPrompt(
   bot: D1Bot,
+  tenantId: string,
+  botId: string,
   tenantName: string,
   language: ReplyLanguage,
   ragPromptBlock: string,
@@ -223,12 +225,16 @@ function buildSystemPrompt(
 
   const botSettings = parseSettings<Record<string, unknown>>(bot.settings_json, {})
   const maxTurns = typeof botSettings.max_history_turns === 'number' ? botSettings.max_history_turns : 10
+  const isWebtreeDemo = tenantId === 'tenant_demo' || botId === 'bot_demo'
 
   return [
     `You are ${bot.name} for tenant "${tenantName}".`,
     `Persona: ${bot.persona}`,
     `Tone: ${bot.tone}`,
     `Welcome: ${bot.welcome_msg}`,
+    isWebtreeDemo
+      ? 'School context: This demo is about Webtree Academy. If the user asks about tuition, fees, schedule, address, admissions, or contact details without naming another school, assume they mean Webtree Academy.'
+      : '',
     `Fallback if knowledge is missing:\n- If the answer cannot be verified from the current sources, say so plainly.\n- Tell the user to email the school's contact email at info@webtreeedu.com.\n- Do not invent or guess any other email address.`,
     `Language rules:\n${langRule}`,
     `Conversation policy:\n- Answer directly and concisely.\n- Do not invent knowledge-base facts.\n- Treat retrieved evidence as the source of truth.\n- Prefer exact extraction over paraphrase for schedules, fees, addresses, dates, names, and numbers.\n- If the user asks for a source-backed answer, cite the strongest matching evidence in plain language.\n- If the request is vague and several sources could match, ask one short clarifying question instead of guessing.\n- If there is related evidence but no exact match, say what is supported and what remains ambiguous.\n- If you still cannot verify the answer, tell the user to email info@webtreeedu.com. Do not invent or guess any other email address.`,
@@ -395,7 +401,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const citationsHeader = serializeRagCitationsHeader(citations)
   const assistantMessageId = crypto.randomUUID()
 
-  const systemPrompt = buildSystemPrompt(bot, tenantId, replyLanguage, rag.promptBlock, message, ossdCourse?.promptHint)
+  const systemPrompt = buildSystemPrompt(bot, tenantId, bot.id, replyLanguage, rag.promptBlock, message, ossdCourse?.promptHint)
   const messages = toOpenAIHistory(history, message, imageBase64, imageMime)
 
   if (env.DB) {

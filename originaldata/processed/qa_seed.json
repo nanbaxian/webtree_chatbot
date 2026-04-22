@@ -16,6 +16,12 @@
       "priority": 30
     },
     {
+      "question": "What is Webtree Academy's address?",
+      "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
+      "tags": ["site_archive", "contact", "webtree"],
+      "priority": 32
+    },
+    {
       "question": "Where is Webtree Academy located?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
       "tags": ["site_archive", "contact", "location"],
@@ -34,16 +40,46 @@
       "priority": 30
     },
     {
+      "question": "What is Webtree Academy's phone number?",
+      "answer": "(416) 792-8280.",
+      "tags": ["site_archive", "contact", "webtree"],
+      "priority": 32
+    },
+    {
       "question": "What is the school's email address?",
       "answer": "info@webtreeedu.com.",
       "tags": ["site_archive", "contact"],
       "priority": 30
     },
     {
+      "question": "What is Webtree Academy's email address?",
+      "answer": "info@webtreeedu.com.",
+      "tags": ["site_archive", "contact", "webtree"],
+      "priority": 32
+    },
+    {
       "question": "How do I contact Webtree Academy?",
       "answer": "You can contact Webtree Academy at (416) 792-8280 or info@webtreeedu.com. The school is located at 60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
       "tags": ["site_archive", "contact"],
       "priority": 35
+    },
+    {
+      "question": "学校的地址是？",
+      "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
+      "tags": ["site_archive", "contact", "zh"],
+      "priority": 31
+    },
+    {
+      "question": "学校电话是多少？",
+      "answer": "(416) 792-8280.",
+      "tags": ["site_archive", "contact", "zh"],
+      "priority": 31
+    },
+    {
+      "question": "学校邮箱是多少？",
+      "answer": "info@webtreeedu.com.",
+      "tags": ["site_archive", "contact", "zh"],
+      "priority": 31
     },
     {
       "question": "What is the contact email for the school?",
@@ -68,6 +104,42 @@
       "answer": "The archive shows international tuition for Grades 7-12 at $27,000.",
       "tags": ["site_archive", "tuition"],
       "priority": 40
+    },
+    {
+      "question": "What is Webtree Academy's tuition?",
+      "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000 and international tuition for Grades 7-12 at $27,000.",
+      "tags": ["site_archive", "tuition", "webtree"],
+      "priority": 45
+    },
+    {
+      "question": "Webtree Academy的学费是多少?",
+      "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000 and international tuition for Grades 7-12 at $27,000.",
+      "tags": ["site_archive", "tuition", "webtree", "zh"],
+      "priority": 45
+    },
+    {
+      "question": "学校学费是多少?",
+      "answer": "If you mean Webtree Academy, the archive shows domestic tuition for Grades 7-12 at $23,000 and international tuition for Grades 7-12 at $27,000.",
+      "tags": ["site_archive", "tuition", "webtree", "zh"],
+      "priority": 42
+    },
+    {
+      "question": "What is Webtree Academy's schedule?",
+      "answer": "The Grade 9-12 daily schedule shows Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.",
+      "tags": ["site_archive", "schedule", "webtree"],
+      "priority": 45
+    },
+    {
+      "question": "Webtree Academy的上课时间是？",
+      "answer": "The Grade 9-12 daily schedule shows Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.",
+      "tags": ["site_archive", "schedule", "webtree", "zh"],
+      "priority": 45
+    },
+    {
+      "question": "学校的上课时间是？",
+      "answer": "If you mean Webtree Academy, the Grade 9-12 daily schedule shows Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.",
+      "tags": ["site_archive", "schedule", "webtree", "zh"],
+      "priority": 44
     },
     {
       "question": "What support services are listed for international students?",

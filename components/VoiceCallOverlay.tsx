@@ -7,6 +7,7 @@ import { Mic, MicOff, PhoneOff, Volume2, VolumeX } from 'lucide-react'
 import { supabase } from '@/lib/supabase-browser'
 import { apiUrl } from '@/lib/api-url'
 import { useI18n } from '@/lib/i18n/context'
+import { getLanguageLocale } from '@/lib/reply-language'
 
 interface Props {
   persona: Persona
@@ -47,21 +48,18 @@ async function speakWithBrowserTts(text: string, lang: ReplyLanguage): Promise<b
   const synth = window.speechSynthesis
   if (!synth) return false
 
-  const voiceLangPrefix = lang === 'zh' ? 'zh' : 'en'
+  const voiceLocale = getLanguageLocale(lang)
+  const voiceLangPrefix = voiceLocale.slice(0, 2)
   const pickVoice = (): SpeechSynthesisVoice | null => {
     const voices = synth.getVoices()
     if (!voices.length) return null
     const lower = voices.map(v => ({ raw: v, lang: v.lang.toLowerCase() }))
-    if (lang === 'zh') {
-      return (
-        lower.find(v => v.lang === 'zh-cn')?.raw ||
-        lower.find(v => v.lang.startsWith('zh-'))?.raw ||
-        lower.find(v => v.lang.startsWith('zh'))?.raw ||
-        voices[0] ||
-        null
-      )
-    }
-    return lower.find(v => v.lang.startsWith(voiceLangPrefix))?.raw || voices[0] || null
+    return (
+      lower.find(v => v.lang === voiceLocale.toLowerCase())?.raw ||
+      lower.find(v => v.lang.startsWith(voiceLangPrefix))?.raw ||
+      voices[0] ||
+      null
+    )
   }
 
   // Chrome may lazily populate voices; wait a bit for first list.
@@ -79,7 +77,7 @@ async function speakWithBrowserTts(text: string, lang: ReplyLanguage): Promise<b
   }
 
   const utter = new SpeechSynthesisUtterance(text.slice(0, 1200))
-  utter.lang = lang === 'zh' ? 'zh-CN' : 'en-US'
+  utter.lang = voiceLocale
   utter.volume = 1
   utter.rate = 1
   utter.pitch = 1

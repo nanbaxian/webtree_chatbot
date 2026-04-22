@@ -11,6 +11,7 @@ import {
   type RagChunk,
 } from '../../lib/rag-protocol'
 import { expandOssdCourseQuery } from '../../lib/ossd-course-mapper'
+import { detectReplyLanguageFromText, getLanguageReplyRule } from '../../lib/reply-language'
 import { type OpenAIMessage } from '../../lib/openai-client'
 import { type ReplyLanguage } from '../../types/index'
 import {
@@ -153,15 +154,7 @@ function buildSystemPrompt(
   latestUserText: string,
   courseHint?: string,
 ): string {
-  const langRule = language === 'en'
-    ? [
-        '- Reply fully in natural English.',
-        '- Do not use Chinese characters.',
-      ].join('\n')
-    : [
-        '- Reply fully in Simplified Chinese.',
-        '- Do not mix in English unless it is a product name, code, or proper noun.',
-      ].join('\n')
+  const langRule = getLanguageReplyRule(language)
 
   const botSettings = parseSettings<Record<string, unknown>>(bot.settings_json, {})
   const maxTurns = typeof botSettings.max_history_turns === 'number' ? botSettings.max_history_turns : 10
@@ -284,7 +277,10 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const tenantId = body.tenant_id || readTenantId(request)
   const message = (body.message || '').trim()
   const voiceMode = body.voice_mode === true
-  const replyLanguage: ReplyLanguage = body.replyLanguage === 'en' ? 'en' : 'zh'
+  const replyLanguage: ReplyLanguage = detectReplyLanguageFromText(
+    message,
+    body.replyLanguage === 'en' ? 'en' : 'zh',
+  )
   let imageBase64 = body.imageBase64
   let imageMime = 'image/jpeg'
 

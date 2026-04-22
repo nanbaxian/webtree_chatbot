@@ -38,8 +38,8 @@ interface Env {
   VOICE_KV: KVNamespace
 }
 
-type SttLanguage = 'zh' | 'en'
-type VoiceLanguage = 'zh' | 'en'
+type SttLanguage = 'zh' | 'en' | 'fr' | 'ko' | 'ja' | 'es' | 'de' | 'pt' | 'ru' | 'ar' | 'it'
+type VoiceLanguage = SttLanguage
 type TtsProvider = 'deepgram' | 'elevenlabs' | 'google'
 
 const cors = {
@@ -112,13 +112,30 @@ function getDeepgramDetectedLanguage(dgJson: any): string {
 }
 
 function normalizeSttLanguage(v: unknown): SttLanguage {
-  if (v === 'zh' || v === 'en') return v
+  if (v === 'zh' || v === 'en' || v === 'fr' || v === 'ko' || v === 'ja' || v === 'es' || v === 'de' || v === 'pt' || v === 'ru' || v === 'ar' || v === 'it') return v
   return 'zh'
 }
 
 function normalizeVoiceLanguage(v: unknown): VoiceLanguage {
-  if (v === 'zh' || v === 'en') return v
+  if (v === 'zh' || v === 'en' || v === 'fr' || v === 'ko' || v === 'ja' || v === 'es' || v === 'de' || v === 'pt' || v === 'ru' || v === 'ar' || v === 'it') return v
   return 'zh'
+}
+
+function languageToGoogleCode(lang: VoiceLanguage): string {
+  const map: Record<VoiceLanguage, string> = {
+    zh: 'cmn-CN',
+    en: 'en-US',
+    fr: 'fr-FR',
+    ko: 'ko-KR',
+    ja: 'ja-JP',
+    es: 'es-ES',
+    de: 'de-DE',
+    pt: 'pt-BR',
+    ru: 'ru-RU',
+    ar: 'ar-SA',
+    it: 'it-IT',
+  }
+  return map[lang]
 }
 
 function normalizeTtsProvider(v: unknown): TtsProvider {
@@ -341,7 +358,7 @@ export const onRequestGet: PagesFunction<Env> = async (ctx) => {
     return jsonError('text 参数不能为空', 400)
   }
   const resolvedVoiceLanguage = voiceLanguage
-  const googleLanguageCode = resolvedVoiceLanguage === 'zh' ? 'cmn-CN' : 'en-US'
+  const googleLanguageCode = languageToGoogleCode(resolvedVoiceLanguage)
 
   // Free 配额检查
   let remaining = 0

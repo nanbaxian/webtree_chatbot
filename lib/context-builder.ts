@@ -2,6 +2,7 @@
 // Central prompt and message-history builders.
 
 import type { Persona, MemoryContext, MemorySnapshot, DbMessage, ReplyLanguage } from '../types/index'
+import { getLanguageReplyRule } from './reply-language'
 
 export type { Persona }
 
@@ -141,21 +142,10 @@ function directQuestionGuide(latestUserText: string): string {
 }
 
 function languageGuide(_userText: string, uiLanguage: ReplyLanguage): string {
-  if (uiLanguage === 'en') {
-    return [
-      '- Highest priority: reply fully in natural English.',
-      '- Do not switch to Chinese unless user changes UI language to Chinese or asks explicitly.',
-      '- Keep names and fixed terms as-is.',
-    ].join('\n')
-  }
-
-  if (uiLanguage === 'zh') {
-    return [
-      '- Highest priority: reply fully in Simplified Chinese.',
-      '- Keep names and fixed terms as-is.',
-    ].join('\n')
-  }
-  return '- Reply in Simplified Chinese.'
+  return [
+    `- Highest priority: ${getLanguageReplyRule(uiLanguage)}`,
+    '- Keep names and fixed terms as-is.',
+  ].join('\n')
 }
 
 function formatMid(s: MemorySnapshot): string {

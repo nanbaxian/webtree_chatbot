@@ -437,6 +437,33 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Brock's Goodman scholarships for BBA students are worth up to $8,000 and can be renewed with a 75% average at Brock.
 - Brock also offers the Brock Leaders Citizenship Society Award at $8,000 total value, plus a Chancellor's First Nations Award that can cover tuition, residence, meal plan, and textbooks for eligible students.
 
+## OCAD University
+
+### Graphic Design
+- Ontario high school applicants need a minimum overall average of 70%.
+- A portfolio, statement of intent, and official transcripts are required.
+- OCAD says the program is four years long and leads to a BDes.
+
+### Illustration
+- Ontario high school applicants need a minimum overall average of 70%.
+- A portfolio, statement of intent, and official transcripts are required.
+- OCAD says the program is four years long and leads to a BDes.
+
+### Industrial Design
+- Ontario high school applicants need a minimum overall average of 70%.
+- A portfolio, statement of intent, and official transcripts are required.
+- OCAD says the program is four years long and leads to a BDes.
+
+### OCAD tuition snapshot
+- OCAD's 2025/2026 tuition page lists domestic fees at approximately $7,800 per academic year for BFA and BA programs.
+- The same page lists domestic BDes fees at approximately $8,900 per academic year.
+- OCAD lists international fees at approximately $32,000 per academic year.
+
+### OCAD scholarship snapshot
+- OCAD's funding options page says undergraduate entrance scholarships and awards range from $500 to $5,000.
+- New full-time first-entry undergraduate students are automatically considered.
+- OCAD's Money Matters presentation says entrance scholarships are determined by high school average and portfolio score and do not require an application.
+
 ## Trent University
 
 ### Computer Science

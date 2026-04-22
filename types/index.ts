@@ -9,7 +9,7 @@ export interface Persona {
   voice_id?: string
 }
 
-export type ReplyLanguage = 'zh' | 'en'
+export type ReplyLanguage = 'zh' | 'en' | 'fr' | 'ko' | 'ja' | 'es' | 'de' | 'pt' | 'ru' | 'ar' | 'it'
 
 export interface Message {
   id: string

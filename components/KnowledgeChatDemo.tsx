@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { CheckCircle2, ChevronDown, CircleUserRound, Loader2, Menu, Plus, Quote, SendHorizontal } from 'lucide-react'
 import { apiUrl } from '@/lib/api-url'
 import { parseRagCitationsHeader, type RagCitation } from '@/lib/rag-protocol'
+import { detectReplyLanguageFromText } from '@/lib/reply-language'
 
 type ChatMessage = {
   id: string
@@ -92,6 +93,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
     setIsSending(true)
 
     try {
+      const replyLanguage = detectReplyLanguageFromText(text, 'en')
       const res = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: {
@@ -102,7 +104,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
           tenant_id: tenantId,
           bot_id: botId,
           message: text,
-          replyLanguage: 'en',
+          replyLanguage,
         }),
       })
 

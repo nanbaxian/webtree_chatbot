@@ -1700,6 +1700,36 @@
       "answer": "University of Windsor Nursing requires Grade 12 U English, Grade 12 U Biology, Grade 12 U Chemistry, and any Grade 12 mathematics required. The minimum average is 70%, the mean average is 91%, and Windsor recommends an 85% average for the top six Grade 12 U or M courses.",
       "tags": ["university_programs", "windsor", "nursing"],
       "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for OCAD Graphic Design?",
+      "answer": "OCAD Graphic Design requires a minimum overall average of 70%, plus a portfolio, statement of intent, and official transcripts. The program is four years long and leads to a BDes.",
+      "tags": ["university_programs", "ocad", "graphic_design"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for OCAD Illustration?",
+      "answer": "OCAD Illustration requires a minimum overall average of 70%, plus a portfolio, statement of intent, and official transcripts. The program is four years long and leads to a BDes.",
+      "tags": ["university_programs", "ocad", "illustration"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for OCAD Industrial Design?",
+      "answer": "OCAD Industrial Design requires a minimum overall average of 70%, plus a portfolio, statement of intent, and official transcripts. The program is four years long and leads to a BDes.",
+      "tags": ["university_programs", "ocad", "industrial_design"],
+      "priority": 45
+    },
+    {
+      "question": "How much is OCAD tuition?",
+      "answer": "OCAD's 2025/2026 tuition page lists domestic fees at approximately $7,800 per academic year for BFA and BA programs, about $8,900 per academic year for BDes, and approximately $32,000 per academic year for international students.",
+      "tags": ["university_programs", "ocad", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does OCAD offer?",
+      "answer": "OCAD says undergraduate entrance scholarships and awards range from $500 to $5,000. New full-time first-entry undergraduate students are automatically considered, and entrance scholarships are determined by high school average and portfolio score without an application.",
+      "tags": ["university_programs", "ocad", "scholarships"],
+      "priority": 35
     }
   ]
 }

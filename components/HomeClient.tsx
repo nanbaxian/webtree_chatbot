@@ -12,6 +12,7 @@ import SettingsPanel from '@/components/SettingsPanel'
 import type { ChatSessionDetail, ChatSessionSummary, Message, Persona, ReplyLanguage } from '@/types'
 import { apiUrl } from '@/lib/api-url'
 import { parseRagCitationsHeader } from '@/lib/rag-protocol'
+import { detectReplyLanguageFromText } from '@/lib/reply-language'
 import { useI18n } from '@/lib/i18n/context'
 import { localizePersona } from '@/lib/persona-localization'
 
@@ -164,6 +165,7 @@ export default function HomeClient() {
   ): Promise<string | null> => {
     if (!text && !imageUrl) return null
 
+    const resolvedReplyLanguage = detectReplyLanguageFromText(text, lang)
     const sessionId = await ensureSession(text || t('app.imageChatSeed'), sessionType)
 
     const userMsg: Message = {
@@ -197,7 +199,7 @@ export default function HomeClient() {
         body: JSON.stringify({
           message: text,
           imageUrl,
-          replyLanguage: lang,
+          replyLanguage: resolvedReplyLanguage,
           session_id: sessionId,
           voice_mode: sessionType === 'voice',
         }),

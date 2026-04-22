@@ -1682,6 +1682,24 @@
       "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
       "tags": ["university_programs", "laurier", "double_degree"],
       "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for McMaster Computer Science?",
+      "answer": "McMaster Computer Science requires six Grade 12 U/M courses including ENG4U and MCV4U. The remaining two science or technology courses can be chosen from SBI4U, SCH4U, SPH4U, SES4U, ICS4U, or TEJ4M. McMaster lists an anticipated admission range of 90% and says the supplementary application is required.",
+      "tags": ["university_programs", "mcmaster", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for McMaster Engineering?",
+      "answer": "McMaster Engineering requires completion of a high school diploma plus six Grade 12 U/M level courses including English. McMaster lists a minimum anticipated admission average of 87% and says the supplementary application is required.",
+      "tags": ["university_programs", "mcmaster", "engineering"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Windsor Nursing?",
+      "answer": "University of Windsor Nursing requires Grade 12 U English, Grade 12 U Biology, Grade 12 U Chemistry, and any Grade 12 mathematics required. The minimum average is 70%, the mean average is 91%, and Windsor recommends an 85% average for the top six Grade 12 U or M courses.",
+      "tags": ["university_programs", "windsor", "nursing"],
+      "priority": 45
     }
   ]
 }

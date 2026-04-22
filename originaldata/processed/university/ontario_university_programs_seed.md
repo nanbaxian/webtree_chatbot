@@ -134,6 +134,16 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - The program page says the Faculty of Engineering offers $2.5M+ in entrance scholarships and research awards for students entering Level 1 engineering programs.
 - The supplementary applications page lists iBioMed as having a required supplementary application.
 
+### Computer Science
+- Ontario applicants need six Grade 12 U/M courses including ENG4U and MCV4U.
+- The remaining two science or technology courses can be chosen from SBI4U, SCH4U, SPH4U, SES4U, ICS4U, or TEJ4M.
+- McMaster lists an anticipated admission range of 90% and says the supplementary application is required.
+
+### Engineering
+- Ontario applicants need completion of a high school diploma plus six Grade 12 U/M level courses including English.
+- McMaster lists a minimum anticipated admission average of 87%.
+- The supplementary application is required, and high school courses required for admission will not change.
+
 ### McMaster scholarship snapshot
 - McMaster's automatic entrance award table shows:
   - Computer Science at 97.00%+ gets $3,000
@@ -400,6 +410,11 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Windsor says approximately 100 high-achieving first-year students are offered Outstanding Scholar Candidate status, with $750 per semester in first year and up to $1,500 per semester in years 2-4.
 - The university also notes an Indigenous entrance scholarship of up to $20,000 for eligible first-entry Science or Engineering students.
 
+### Nursing
+- Ontario high school applicants need Grade 12 U English, Grade 12 U Biology, Grade 12 U Chemistry, and any Grade 12 mathematics required.
+- The minimum average is 70%, and the mean average is 91%.
+- Windsor says the program is very competitive and recommends an 85% average for the top six Grade 12 U or M courses, along with at least 80% in Grade 12 U Biology and Grade 12 U Chemistry.
+
 ## Brock University
 
 ### Computer Science
@@ -633,6 +648,11 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/arts-and-science-first-year
 - https://www.nipissingu.ca/future-students/financial-support
 - https://www.nipissingu.ca/departments/student-financial-services/student-awards-and-financial-aid/guaranteed-entrance
+- https://future.mcmaster.ca/programs/computer-science/
+- https://www.eng.mcmaster.ca/programs/undergraduate-programs-degrees/engineering-1/
+- https://registrar.mcmaster.ca/entrance-awards/
+- https://registrar.mcmaster.ca/fees/undergraduate/
+- https://future.uwindsor.ca/program/nursing/
 - https://algomau.ca/admissions/admissions-requirements/
 - https://algomau.ca/program/ADMN/details
 - https://algomau.ca/students/awards-scholarships/application-awards/entrance-scholarships/

@@ -114,6 +114,10 @@
         "https://laurentian.ca/fees-financing/undergraduate-tuition",
         "https://laurentian.ca/fees-financing/scholarships-bursaries",
         "https://uwaterloo.ca/future-students/programs/management-engineering",
+        "https://future.mcmaster.ca/programs/computer-science/",
+        "https://www.eng.mcmaster.ca/programs/undergraduate-programs-degrees/engineering-1/",
+        "https://registrar.mcmaster.ca/fees/undergraduate/",
+        "https://registrar.mcmaster.ca/entrance-awards/",
         "https://www.uoguelph.ca/admission/undergraduate/requirements/ontario/",
         "https://www.uoguelph.ca/admission/undergraduate/funding/",
         "https://www.uoguelph.ca/registrar/finances-fees/scholarships-bursaries/",
@@ -125,7 +129,8 @@
         "https://www.guelphhumber.ca/programs/media-communication",
         "https://www.wlu.ca/programs/business-and-economics/undergraduate/business-bba-and-computer-science-bsc/",
         "https://students.wlu.ca/finances/tuition-and-fees/fees-breakdown/tuition-fees.html",
-        "https://www.wlu.ca/future-students/undergraduate/tuition-finances/entrance-scholarships.html"
+        "https://www.wlu.ca/future-students/undergraduate/tuition-finances/entrance-scholarships.html",
+        "https://future.uwindsor.ca/program/nursing/"
       ],
       "processed_path": "originaldata/processed/university/ontario_university_programs_seed.md",
       "status": "ready",

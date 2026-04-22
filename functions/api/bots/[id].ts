@@ -33,7 +33,9 @@ export const onRequestPatch: PagesFunction<Env, 'id'> = async ctx => {
     persona: body.persona || 'Professional and concise',
     tone: body.tone || 'concise',
     welcome_msg: body.welcome_msg || 'Hello, how can I help?',
-    fallback_msg: body.fallback_msg || 'I could not find a matching source.',
+    fallback_msg:
+      body.fallback_msg ||
+      'I cannot verify this from the current sources. Please email info@webtreeedu.com for the latest official answer and do not guess any other email address.',
     language: body.language || 'zh-CN',
     settings_json: typeof body.settings_json === 'string' ? body.settings_json : JSON.stringify(body.settings_json ?? {}),
     created_at: body.created_at || now,

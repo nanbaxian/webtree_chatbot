@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS bots (
   persona TEXT NOT NULL,
   tone TEXT NOT NULL,
   welcome_msg TEXT NOT NULL,
-  fallback_msg TEXT NOT NULL,
+  fallback_msg TEXT NOT NULL DEFAULT 'I cannot verify this from the current sources. Please email info@webtreeedu.com for the latest official answer and do not guess any other email address.',
   language TEXT NOT NULL,
   settings_json TEXT NOT NULL,
   created_at TEXT NOT NULL,
@@ -138,4 +138,3 @@ CREATE TABLE IF NOT EXISTS retrieval_logs (
   latency_ms INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL
 );
-

@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS bots (
   persona TEXT NOT NULL DEFAULT 'Professional',
   tone TEXT NOT NULL DEFAULT 'concise',
   welcome_msg TEXT NOT NULL DEFAULT 'Hello, how can I help?',
-  fallback_msg TEXT NOT NULL DEFAULT 'Sorry, I could not find a relevant answer.',
+  fallback_msg TEXT NOT NULL DEFAULT 'I cannot verify this from the current sources. Please email info@webtreeedu.com for the latest official answer and do not guess any other email address.',
   language TEXT NOT NULL DEFAULT 'zh-CN',
   settings_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),

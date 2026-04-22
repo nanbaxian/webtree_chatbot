@@ -114,6 +114,9 @@ function stringifyJson(value: unknown): string {
   return JSON.stringify(value ?? {})
 }
 
+const DEFAULT_FALLBACK_MSG =
+  'I cannot verify this from the current sources. Please email info@webtreeedu.com for the latest official answer and do not guess any other email address.'
+
 function parseJson<T>(value: string | null | undefined, fallback: T): T {
   if (!value) return fallback
   try {
@@ -154,7 +157,7 @@ export function botSeed(tenantId: string, overrides: Partial<D1Bot> = {}): D1Bot
     persona: overrides.persona ?? 'Professional and concise',
     tone: overrides.tone ?? 'concise',
     welcome_msg: overrides.welcome_msg ?? 'Hello, how can I help?',
-    fallback_msg: overrides.fallback_msg ?? 'I could not find a matching source.',
+    fallback_msg: overrides.fallback_msg ?? DEFAULT_FALLBACK_MSG,
     language: overrides.language ?? 'zh-CN',
     settings_json: overrides.settings_json ?? stringifyJson({
       max_history_turns: 10,

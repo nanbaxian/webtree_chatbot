@@ -198,14 +198,14 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
   }
 
   return (
-    <main className="relative isolate min-h-[100dvh] overflow-hidden bg-[#0b0e13] text-white lg:min-h-screen lg:px-6 lg:py-6">
+    <main className="relative isolate h-[100dvh] overflow-hidden bg-[#0b0e13] text-white lg:h-screen lg:px-6 lg:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,216,140,0.12),transparent_34%),linear-gradient(180deg,#0b0e13_0%,#0f1218_52%,#090b0f_100%)]"
       />
-      <div className="mx-auto flex min-h-[100dvh] max-w-[1920px] gap-0 lg:h-[calc(100vh-3rem)] lg:gap-5">
-        <section className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-none border-0 bg-[#11151d] shadow-none lg:rounded-[2rem] lg:border lg:border-white/10 lg:bg-[#11151d] lg:backdrop-blur-xl">
-          <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-white/10 bg-[#0f1319]/95 px-4 py-3 backdrop-blur lg:hidden">
+      <div className="mx-auto flex h-full max-w-[1920px] gap-0 lg:h-[calc(100vh-3rem)] lg:gap-5">
+        <section className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-none border-0 bg-[#11151d] shadow-none lg:rounded-[2rem] lg:border lg:border-white/10 lg:bg-[#11151d] lg:backdrop-blur-xl">
+          <header className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 bg-[#0f1319]/95 px-4 py-3 backdrop-blur lg:hidden">
             <button
               type="button"
               aria-label="Open menu"
@@ -238,7 +238,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
             </div>
           </header>
 
-          <header className="hidden items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:flex lg:px-6">
+          <header className="hidden shrink-0 items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:flex lg:px-6">
             <div className="min-w-0">
               <h1 className="truncate text-xl font-semibold text-white lg:text-2xl">Webtree Academy AI</h1>
             </div>
@@ -247,7 +247,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
             </div>
           </header>
 
-          <div className="flex-1 overflow-y-auto bg-[#11151d] px-4 py-5 text-white lg:px-6">
+          <div className="chat-history-scroll flex-1 min-h-0 overflow-y-scroll bg-[#11151d] px-4 py-5 text-white lg:px-6">
             {showEmptyState ? (
               <div className="flex min-h-[48vh] flex-col items-center justify-center px-6 pb-8 text-center lg:min-h-[56vh]">
                 <div className="text-[2rem] font-medium leading-tight tracking-[-0.03em] text-white lg:text-[2.6rem]">
@@ -284,9 +284,9 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
             </div>
           </div>
 
-          <div className="sticky bottom-0 z-20 border-t border-white/10 bg-[#0f1319]/95 px-3 py-3 backdrop-blur lg:static lg:border-t-white/10 lg:bg-[#11151d] lg:px-4 lg:py-4">
+          <div className="shrink-0 border-t border-white/10 bg-[#0f1319]/95 px-3 py-3 backdrop-blur lg:border-t-white/10 lg:bg-[#11151d] lg:px-4 lg:py-4">
             <div className="mx-auto w-full max-w-5xl rounded-[1.75rem] border border-white/10 bg-[#121720] p-3 shadow-[0_8px_24px_rgba(0,0,0,0.20)] lg:p-4 lg:shadow-2xl lg:shadow-black/20">
-              <label className="text-xs uppercase tracking-[0.26em] text-white/45">Ask a question</label>
+              <label className="sr-only">Ask a question</label>
               <div className="mt-3 flex items-end gap-3">
                 <textarea
                   ref={textareaRef}
@@ -300,10 +300,14 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
                 <button
                   onClick={() => void sendMessage()}
                   disabled={isSending || !input.trim()}
+                  aria-label="Send message"
                   className="inline-flex h-14 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-slate-950 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  {isSending ? 'Sending' : 'Send'}
-                  <SendHorizontal className="h-4 w-4" />
+                  {isSending ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <SendHorizontal className="h-4 w-4" />
+                  )}
                 </button>
               </div>
               <div className="mt-3 hidden flex-wrap gap-2 text-xs text-white/45 lg:flex">

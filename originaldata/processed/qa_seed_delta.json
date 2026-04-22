@@ -1586,6 +1586,66 @@
       "answer": "Nipissing says it has over $4.3 million in scholarships, bursaries, and awards. Guaranteed Entrance Scholarships are automatic with no application required, and the NU Guaranteed Entrance Scholarship ranges from $1,000 up to free tuition.",
       "tags": ["university_programs", "nipissing", "scholarships"],
       "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Algoma Computer Science?",
+      "answer": "Algoma's Bachelor of Computer Science requires ENG4U and Grade 12 Mathematics. The minimum average is 70%, and the program is offered in Sault Ste. Marie, Brampton, and Timmins.",
+      "tags": ["university_programs", "algoma", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Algoma BBA?",
+      "answer": "Algoma's Bachelor of Business Administration requires ENG4U and Grade 12 Mathematics. The minimum average is 75%, and the business faculty highlights specializations such as Accounting, Human Resources, Marketing, Economics, Aviation, and Esports Business.",
+      "tags": ["university_programs", "algoma", "business"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Algoma tuition?",
+      "answer": "Algoma's undergraduate tuition page lists Ontario resident 2026/27 30-credit total fees at $7,070.08 with SGA or $6,879.82 with AEF. Out-of-province 30-credit totals are $7,758.49 with SGA or $7,568.23 with AEF, and co-op adds an extra fee equivalent to 1.0 credit tuition for COOP 0101 and work terms.",
+      "tags": ["university_programs", "algoma", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Algoma offer?",
+      "answer": "Algoma U Awards of Excellence are automatic for eligible Canadian citizen high school graduates. Platinum is $4,000 at 95%+, Gold is $3,000 at 90% to 94.9%, Silver is $2,500 at 85% to 89.9%, and Bronze is $1,500 at 80% to 84.9%. These awards are renewable for up to three additional years if the renewal average is maintained.",
+      "tags": ["university_programs", "algoma", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Laurentian Computer Science?",
+      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
+      "tags": ["university_programs", "laurentian", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Laurentian BBA?",
+      "answer": "Laurentian Business Administration requires ENG4U, one Grade 12 math, and four other Grade 12 U/M courses. The minimum overall average is 70%, and the program is offered on campus and online.",
+      "tags": ["university_programs", "laurentian", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Laurentian Nursing?",
+      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
+      "tags": ["university_programs", "laurentian", "nursing"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Laurentian tuition?",
+      "answer": "Laurentian's undergraduate tuition page lists Ontario resident 30-credit tuition at $6,000.30. The total with SGA is $7,070.08, or $6,879.82 with AEF, and out-of-province 30-credit totals are $7,758.49 with SGA or $7,568.23 with AEF.",
+      "tags": ["university_programs", "laurentian", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Laurentian offer?",
+      "answer": "Laurentian's Academic Excellence scholarships are based on admission average. 80% to 84.9% gets up to $4,000, 85% to 89.9% gets up to $6,000, 90% to 94.9% gets up to $12,000, and 95% to 100% gets up to $16,000, with renewal based on maintaining the average.",
+      "tags": ["university_programs", "laurentian", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Waterloo Management Engineering?",
+      "answer": "Waterloo Management Engineering requires six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, Chemistry, Physics, and English. The admission average is individual selection from the mid- to high 80s, and an Admission Information Form is required. An online video interview is strongly recommended.",
+      "tags": ["university_programs", "waterloo", "management_engineering"],
+      "priority": 45
     }
   ]
 }

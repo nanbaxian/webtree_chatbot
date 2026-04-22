@@ -103,7 +103,17 @@
         "https://www.nipissingu.ca/sites/default/files/2024-12/2425%20FAQ101%20Offer%20of%20Admissions%204Dec24.pdf",
         "https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/bbabcommcollege-partnershipcomputer",
         "https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/arts-and-science-first-year",
-        "https://www.nipissingu.ca/departments/student-financial-services/student-awards-and-financial-aid/guaranteed-entrance"
+        "https://www.nipissingu.ca/departments/student-financial-services/student-awards-and-financial-aid/guaranteed-entrance",
+        "https://algomau.ca/admissions/admissions-requirements/",
+        "https://algomau.ca/program/ADMN/details",
+        "https://algomau.ca/students/awards-scholarships/application-awards/entrance-scholarships/",
+        "https://algomau.ca/students/student-accounts/tuition-residence-fees/",
+        "https://laurentian.ca/academics/program/computer-science",
+        "https://laurentian.ca/program/ADMN/details",
+        "https://laurentian.ca/program/nursing",
+        "https://laurentian.ca/fees-financing/undergraduate-tuition",
+        "https://laurentian.ca/fees-financing/scholarships-bursaries",
+        "https://uwaterloo.ca/future-students/programs/management-engineering"
       ],
       "processed_path": "originaldata/processed/university/ontario_university_programs_seed.md",
       "status": "ready",

@@ -53,6 +53,11 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Admission average: mid-80s.
 - Recommended background: Grade 12 Principles of Financial Accounting and Grade 12 Mathematics of Data Management.
 
+### Management Engineering
+- Ontario students need six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, Chemistry, Physics, and English.
+- Admission average: individual selection from the mid- to high 80s.
+- The page says an Admission Information Form is required and an online video interview is strongly recommended.
+
 ## University of Toronto
 
 ### Computer Science at U of T Mississauga
@@ -464,6 +469,55 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Guaranteed Entrance Scholarships are automatic with no application required.
 - The NU Guaranteed Entrance Scholarship ranges from $1,000 up to free tuition.
 
+## Algoma University
+
+### Bachelor of Computer Science
+- Ontario applicants need ENG4U and Grade 12 Mathematics.
+- Minimum average is 70%.
+- Algoma says the program is offered in Sault Ste. Marie, Brampton, and Timmins.
+
+### Bachelor of Business Administration
+- Ontario applicants need ENG4U and Grade 12 Mathematics.
+- Minimum average is 75%.
+- The business faculty says the degree includes specializations such as Accounting, Human Resources, Marketing, Economics, Aviation, and Esports Business.
+
+### Algoma tuition snapshot
+- Algoma's undergraduate tuition page lists Ontario resident 2026/27 30-credit total fees at $7,070.08 with SGA or $6,879.82 with AEF.
+- The same page lists out-of-province 30-credit totals at $7,758.49 with SGA or $7,568.23 with AEF.
+- Algoma says co-op carries an additional fee equivalent to 1.0 credit tuition for COOP 0101 and work terms.
+
+### Algoma scholarship snapshot
+- Algoma U Awards of Excellence are automatic for eligible Canadian citizen high school graduates.
+- Platinum is $4,000 at 95%+, Gold is $3,000 at 90-94.9%, Silver is $2,500 at 85-89.9%, and Bronze is $1,500 at 80-84.9%.
+- The awards are renewable for up to three additional years when the renewal average is maintained.
+
+## Laurentian University
+
+### Computer Science
+- Ontario applicants need ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses.
+- Minimum overall average is 70%.
+- Laurentian says the Bachelor of Computer Science is available as BA, BSc, or BCompSc (Honours).
+
+### Business Administration
+- Ontario applicants need ENG4U, one Grade 12 math, and four other Grade 12 U/M courses.
+- Minimum overall average is 70%.
+- The program is offered on campus and online, with a four-year structure and multiple business specializations.
+
+### Nursing
+- Ontario applicants need ENG4U, a Grade 12 math, Grade 12 Biology, Grade 12 Chemistry, and two other Grade 12 U/M courses.
+- Minimum overall average is 75%.
+- Laurentian notes students must meet the College of Nurses of Ontario requisite skills and abilities for nursing practice.
+
+### Laurentian tuition snapshot
+- Laurentian's undergraduate tuition page lists Ontario resident 30-credit tuition at $6,000.30.
+- The same page lists Ontario resident 30-credit total fees at $7,070.08 with SGA or $6,879.82 with AEF.
+- Out-of-province 30-credit total fees are $7,758.49 with SGA or $7,568.23 with AEF.
+
+### Laurentian scholarship snapshot
+- Laurentian's Academic Excellence scholarships are based on admission average.
+- 80-84.9% gets up to $4,000, 85-89.9% gets up to $6,000, 90-94.9% gets up to $12,000, and 95-100% gets up to $16,000.
+- Laurentian says the first-year amount is paid in year one and renewable if the average is maintained.
+
 ## Notes
 
 - This is a seed set, not a complete catalog of Canadian universities or Ontario programs.
@@ -546,3 +600,13 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://www.nipissingu.ca/departments/student-financial-services/fees-and-payments/undergrad-tuition-fees/arts-and-science-first-year
 - https://www.nipissingu.ca/future-students/financial-support
 - https://www.nipissingu.ca/departments/student-financial-services/student-awards-and-financial-aid/guaranteed-entrance
+- https://algomau.ca/admissions/admissions-requirements/
+- https://algomau.ca/program/ADMN/details
+- https://algomau.ca/students/awards-scholarships/application-awards/entrance-scholarships/
+- https://algomau.ca/students/student-accounts/tuition-residence-fees/
+- https://laurentian.ca/academics/program/computer-science
+- https://laurentian.ca/program/ADMN/details
+- https://laurentian.ca/program/nursing
+- https://laurentian.ca/fees-financing/undergraduate-tuition
+- https://laurentian.ca/fees-financing/scholarships-bursaries
+- https://uwaterloo.ca/future-students/programs/management-engineering

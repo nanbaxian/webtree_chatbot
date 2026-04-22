@@ -175,6 +175,26 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - The Monika Federau Scholarship for Women in Business is $1,000.
 - The Nissan Canada Leadership Entrance Award is $3,500.
 
+### Computer Science
+- Ontario applicants need ENG4U, MHF4U, one additional 4U math, and three additional 4U or M courses for the BA stream.
+- The BSc stream requires ENG4U, MHF4U, one additional 4U math, SCH4U or SPH4U, and two additional 4U or M courses.
+- York says the academic average should be in the low 80s, and maintaining the offer requires a final average of 80%.
+
+### Commerce
+- Ontario applicants need ENG4U, MHF4U, and four additional 4U or M courses.
+- York says the academic average should be in the low 80s, and maintaining the offer requires a final average of 80%.
+- The program offers paid co-op and several specialization streams.
+
+### Nursing
+- Ontario high school applicants need ENG4U, 4U Math, SBI4U, and SCH4U or SPH4U, plus two additional 4U/M courses.
+- York says the overall average should be in the high 80s.
+- The Direct Entry Nursing program is highly competitive and requires the prerequisites to be completed by June 30.
+
+### Psychology
+- York Psychology BA for Ontario high school students requires OSSD, ENG4U, and five additional 4U or M courses.
+- York says the academic average should be in the mid-70s and maintaining the offer requires a final average of 70%.
+- York's Psychology BSc requires ENG4U, 4U Math, and SBI4U or SCH4U or SPH4U, plus three additional 4U or M courses.
+
 ## Queen's University
 
 ### Smith Commerce
@@ -254,6 +274,11 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Western Engineering says students must complete the first-year engineering program and then apply into a second-year program.
 - Direct admission and later specialization decisions are based on first-year performance.
 - The Engineering Excellence Admission Program says students with a minimum 85% mid-year and final admission average and at least an 80% year-weighted average in first year can be guaranteed acceptance into their program of choice except Mechatronic Systems Engineering.
+
+### Nursing
+- Western Nursing requires ENG4U, SBI4U, SCH4U, and one of MCF3M or MCR3U, with 70% in each prerequisite.
+- The program has a Casper test requirement and a February 15 application deadline.
+- Western lists the guideline average for Nursing as high 80s to low 90s.
 
 ### Western tuition snapshot
 - Western's 2025-26 tuition schedule shows first-entry degree program fees.
@@ -426,6 +451,11 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Brock's BBA has an expected cut-off in the high 70s, while BBA Co-op is in the low 80s.
 - Ontario prerequisites are ENG4U and one 4U math.
 - Admission is based on the top six 4U or 4M courses, including required subjects.
+
+### Nursing
+- Brock's BScN requires ENG4U, SBI4U, SCH4U, and one of MHF4U or MCV4U.
+- Each prerequisite must be at least 75%.
+- Brock says Nursing is highly competitive with extremely limited enrolment.
 
 ### Brock tuition snapshot
 - Brock's fees estimator and student accounts pages show estimated full-time domestic undergraduate tuition around $9,024 for Computer Science and $9,027 for Business.
@@ -633,6 +663,9 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://www.wlu.ca/programs/science/undergraduate/computer-science-ba-or-bsc-milton/index.html
 - https://students.wlu.ca/finances/tuition-and-fees/fees-breakdown/tuition-fees.html
 - https://wlu.ca/future-students/undergraduate/tuition-finances/entrance-scholarships.html
+- https://brocku.ca/programs/undergraduate/nursing/
+- https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/nursing.html
+- https://futurestudents.yorku.ca/requirements
 - https://www.uoguelph.ca/admission/undergraduate/requirements/ontario/
 - https://www.uoguelph.ca/registrar/finances-fees/tuition-fees/guelph-undergrad/f25-w26-s26/
 - https://www.uoguelph.ca/registrar/finances-fees/scholarships-bursaries/

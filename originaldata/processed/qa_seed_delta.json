@@ -1730,6 +1730,42 @@
       "answer": "OCAD says undergraduate entrance scholarships and awards range from $500 to $5,000. New full-time first-entry undergraduate students are automatically considered, and entrance scholarships are determined by high school average and portfolio score without an application.",
       "tags": ["university_programs", "ocad", "scholarships"],
       "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for York Computer Science?",
+      "answer": "York Computer Science BA requires ENG4U, MHF4U, one additional 4U math, and three additional 4U or M courses. The BSc requires ENG4U, MHF4U, one additional 4U math, SCH4U or SPH4U, and two additional 4U or M courses. York says the academic average should be in the low 80s and the offer must be maintained at 80%.",
+      "tags": ["university_programs", "york", "computer_science"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for York Commerce?",
+      "answer": "York Commerce requires ENG4U, MHF4U, and four additional 4U or M courses. York says the academic average should be in the low 80s and the offer must be maintained at 80%.",
+      "tags": ["university_programs", "york", "commerce"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for York Nursing?",
+      "answer": "York Direct Entry Nursing requires ENG4U, 4U Math, SBI4U, and SCH4U or SPH4U, plus two additional 4U/M courses. York says the overall average should be in the high 80s and the program is highly competitive.",
+      "tags": ["university_programs", "york", "nursing"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Brock Nursing?",
+      "answer": "Brock's BScN requires ENG4U, SBI4U, SCH4U, and one of MHF4U or MCV4U. Each prerequisite must be at least 75%, and Brock says Nursing is highly competitive with extremely limited enrolment.",
+      "tags": ["university_programs", "brock", "nursing"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Western Nursing?",
+      "answer": "Western Nursing requires ENG4U, SBI4U, SCH4U, and one of MCF3M or MCR3U, with 70% in each prerequisite. The program also requires the Casper test and has a February 15 application deadline.",
+      "tags": ["university_programs", "western", "nursing"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for York Psychology?",
+      "answer": "York Psychology BA for Ontario high school students requires OSSD, ENG4U, and five additional 4U or M courses. York says the academic average should be in the mid-70s and maintaining the offer requires a final average of 70%. The BSc path requires ENG4U, 4U Math, and SBI4U or SCH4U or SPH4U, plus three additional 4U or M courses.",
+      "tags": ["university_programs", "york", "psychology"],
+      "priority": 45
     }
   ]
 }

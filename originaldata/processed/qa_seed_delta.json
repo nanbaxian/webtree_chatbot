@@ -1826,6 +1826,60 @@
       "answer": "IELTS Academic 测试 listening、reading、writing 和 speaking。它被很多大学和机构接受，家长经常会拿它和 TOEFL 一起比较。",
       "tags": ["competitions_exams", "ielts", "english"],
       "priority": 48
+    },
+    {
+      "question": "Grade 11 的学生应该先看什么考试？",
+      "answer": "如果目标是加拿大或美国大学申请，通常先看 SAT、ACT、AP、TOEFL 或 IELTS；如果目标是数学竞赛，可以看 AMC 10、AIME 或 Euclid；如果目标是编程竞赛，可以看 CCC Senior。具体先选哪一个，要看是申请、冲奖学金，还是做学术提升。",
+      "tags": ["competitions_exams", "grade11", "planning"],
+      "priority": 46
+    },
+    {
+      "question": "Grade 8 的孩子适合考什么？",
+      "answer": "Grade 8 学生常见的选择是 AMC 8、SSAT Middle Level，或者为 SAT、ACT、AP 做早期准备。如果孩子喜欢数学，可以先从 AMC 8 开始；如果是申请私校，可以看 SSAT；如果是未来大学路径，可以开始熟悉 SAT 题型。",
+      "tags": ["competitions_exams", "grade8", "planning"],
+      "priority": 46
+    },
+    {
+      "question": "AMC 10 和 AMC 12 怎么选？",
+      "answer": "AMC 10 面向 10 年级及以下，AMC 12 面向 12 年级及以下。一般来说，如果学生还没有学完整个高中数学，或者更适合初阶竞赛题，可以先看 AMC 10；如果已经学到更完整的高中数学并且想要更强挑战，可以看 AMC 12。",
+      "tags": ["competitions_exams", "amc", "planning"],
+      "priority": 48
+    },
+    {
+      "question": "AIME 是不是必须先考 AMC？",
+      "answer": "AIME 不是普通报名考试，它是邀请制的数学竞赛。通常需要在 AMC 10 或 AMC 12 上达到相应表现才会收到邀请，所以很多学生会把 AMC 10/12 作为 AIME 的前置路径。",
+      "tags": ["competitions_exams", "aime", "planning"],
+      "priority": 47
+    },
+    {
+      "question": "CCC 适合什么年级？",
+      "answer": "CCC 面向 9 到 12 年级学生，Junior 和 Senior 两个级别都适合不同经验层次的编程学生。刚开始学编程的学生可以先从 Junior 级别或基础算法开始，有经验的学生可以直接准备 Senior。",
+      "tags": ["competitions_exams", "ccc", "planning"],
+      "priority": 48
+    },
+    {
+      "question": "SAT 和 ACT 应该怎么选？",
+      "answer": "SAT 和 ACT 都是大学入学考试。很多学生会根据强项来选：如果更适应数字化自适应阅读写作和数学题型，可以先看 SAT；如果更喜欢固定节奏、英语和阅读速度强、并且愿意处理可选科学部分，可以看 ACT。",
+      "tags": ["competitions_exams", "sat", "act", "planning"],
+      "priority": 48
+    },
+    {
+      "question": "SSAT 和 SAT 有什么区别？",
+      "answer": "SSAT 主要用于私立学校申请，面向 3 到 11 年级；SAT 主要用于大学申请，面向高中阶段学生。两者都看阅读、写作相关能力和数学，但目标学校和年级段不同。",
+      "tags": ["competitions_exams", "ssat", "sat", "planning"],
+      "priority": 48
+    },
+    {
+      "question": "TOEFL 和 IELTS 应该怎么选？",
+      "answer": "TOEFL iBT 和 IELTS Academic 都是英语能力考试。很多家长会根据目标学校、考试形式偏好、以及学生更擅长的题型来选；TOEFL 更偏学术英语和机考风格，IELTS 更强调四项技能平衡和口语面试感。",
+      "tags": ["competitions_exams", "toefl", "ielts", "planning"],
+      "priority": 48
+    },
+    {
+      "question": "如果孩子喜欢数学和编程，先看什么？",
+      "answer": "如果更喜欢数学，可以先看 AMC 8、AMC 10，再看 AIME 或 Euclid；如果更喜欢编程，可以先看 CCC。很多家长会先从孩子当前年级和已有基础出发，再决定先数学还是先编程。",
+      "tags": ["competitions_exams", "math", "computer_science", "planning"],
+      "priority": 47
     }
   ]
 }

@@ -97,12 +97,34 @@ This guide covers the most common tests and competitions families ask about in C
 - If the goal is math enrichment or olympiad pathways, start with AMC and then AIME or Euclid.
 - If the goal is programming enrichment, start with CCC.
 
+## By Grade
+
+- Grade 3-4: SSAT Elementary is the relevant private school test family.
+- Grade 5-7: SSAT Middle Level is the usual private school test family.
+- Grade 8-10: AMC 8 and sometimes SSAT Middle or Upper, depending on the goal.
+- Grade 9-10: AMC 10, CCC Junior or Senior, SAT prep, ACT prep, and AP planning often start here.
+- Grade 11: SAT, ACT, AP, AMC 10/12, CCC Senior, and Euclid become more relevant.
+- Grade 12: SAT, ACT, AP, TOEFL/IELTS, AMC 12, CCC Senior, and Euclid are common.
+
+## Prep Path
+
+- For SSAT, focus on vocabulary, reading speed, quantitative reasoning, and timed practice.
+- For SAT, focus on reading and writing patterns, algebra, advanced math, and Bluebook familiarity.
+- For ACT, focus on pace, grammar, math fluency, reading speed, and optional science if needed.
+- For AP, focus on course content, free-response practice, and the specific Bluebook or hybrid exam mode.
+- For AMC, focus on algebra, counting, number theory, geometry, and contest strategy.
+- For AIME, focus on proof-style thinking, multi-step problem solving, and deeper contest math.
+- For CCC, focus on Python, Java, or C++, algorithm practice, and debugging under time pressure.
+- For TOEFL and IELTS, focus on academic listening, reading, speaking fluency, and writing structure.
+
 ## Common Questions
 
 - “Is this for Grade 8, 9, 10, 11, or 12?”
 - “Is this an admissions test, a contest, or an English proficiency test?”
 - “Is the goal private school, university admission, scholarship, or enrichment?”
 - “Do I need the official date, the format, or the prep path?”
+- “Which one should my child take first?”
+- “What is the easiest or most recognized option for this goal?”
 
 ## Official Sources
 

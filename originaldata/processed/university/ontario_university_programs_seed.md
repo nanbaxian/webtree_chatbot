@@ -268,12 +268,18 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - BA requires English at 60% and Advanced Functions at 60%.
 - BSc requires English at 60%, Advanced Functions at 60%, and one of Calculus and Vectors, Chemistry, or Physics at 60%.
 
+### Business Administration and Computer Science double degree
+- The program is a five-year co-op double degree that combines Laurier's BBA with Laurier's BSc in Computer Science.
+- Ontario High School Admission Requirements are English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%.
+- Laurier lists the average admission range as high 80s and says all prerequisite courses are calculated in the admissions average.
+
 ### Laurier tuition snapshot
 - Laurier's 2026/27 tuition tables show:
   - BBA domestic Ontario: $5,777.82 per 3.5 credits and $6,749.08 for 4.0 credits.
   - BBA domestic non-Ontario: $6,920.77 per 3.5 credits and $8,597.50 for 4.0 credits.
   - Computer Science domestic Ontario: $1,922.00 per 1.0 credit.
   - Computer Science domestic non-Ontario: $1,922.00 per 1.0 credit.
+  - Business Administration and Computer Science double degree domestic Ontario: $7,750.00 per 5.0 credits and $8,985.00 for 5.5 credits.
 
 ### Laurier scholarship snapshot
 - Laurier's President's Gold Scholarship is automatically awarded at a 95%+ final admission average.
@@ -313,6 +319,33 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - Values shown are $1,000 for 90.0% to 94.9% and $2,000 for 95.0%+.
 - Guelph's President's International Entrance Scholarship shows $7,500 for 95.0%+, $6,500 for 90.0% to 94.9%, $5,500 for 85.0% to 89.9%, and $2,000 for 70.0% to 84.9%.
 - The University also lists renewable international scholarships ranging from $32,000 to $37,500 over four years.
+
+## University of Guelph-Humber
+
+### Business Administration
+- Ontario applicants need ENG4U and any 4U math.
+- The estimated cut-off range is 70-75%.
+- The program is a combined degree and diploma pathway with an integrated University of Guelph and Humber Polytechnic curriculum.
+
+### Early Childhood Studies
+- Ontario applicants need ENG4U and five additional 4U/M courses.
+- The estimated cut-off range is 70-75%.
+- The program is a combined degree and diploma pathway with a strong field-placement focus.
+
+### Media and Communication Studies
+- Ontario applicants need ENG4U and five additional 4U/M courses.
+- The estimated cut-off range is 70-75%.
+- The program is a combined degree and diploma pathway with media production and communication study.
+
+### Guelph-Humber tuition snapshot
+- Ontario full-time on-campus Business Administration totals $9,871 per academic year, with $4,935 per semester.
+- Ontario full-time on-campus all other programs total $7,451 per academic year, with $3,725 per semester.
+- International full-time Business Administration totals $38,359 per academic year.
+
+### Guelph-Humber scholarship snapshot
+- Renewable Entrance Scholarship starts at a 75% admission average and can reach up to $17,000 over four years for Canadian high school applicants.
+- International Student Entrance Scholarship starts at a 70% admission average and can reach up to $20,500 over four years.
+- Guelph-Humber also lists a part-time program entrance scholarship and a transfer student entrance scholarship.
 
 ## Ontario Tech University
 
@@ -610,3 +643,15 @@ Tuition, scholarships, and full curriculum maps can be added in a second pass.
 - https://laurentian.ca/fees-financing/undergraduate-tuition
 - https://laurentian.ca/fees-financing/scholarships-bursaries
 - https://uwaterloo.ca/future-students/programs/management-engineering
+- https://www.uoguelph.ca/admission/undergraduate/requirements/ontario/
+- https://www.uoguelph.ca/admission/undergraduate/funding/
+- https://www.uoguelph.ca/registrar/finances-fees/scholarships-bursaries/
+- https://www.guelphhumber.ca/admission/ontario-high-school
+- https://www.guelphhumber.ca/tuition-support/tuition-fees
+- https://www.guelphhumber.ca/tuition-support/entrance-scholarships
+- https://www.guelphhumber.ca/programs/business
+- https://www.guelphhumber.ca/programs/early-childhood
+- https://www.guelphhumber.ca/programs/media-communication
+- https://www.wlu.ca/programs/business-and-economics/undergraduate/business-bba-and-computer-science-bsc/
+- https://students.wlu.ca/finances/tuition-and-fees/fees-breakdown/tuition-fees.html
+- https://www.wlu.ca/future-students/undergraduate/tuition-finances/entrance-scholarships.html

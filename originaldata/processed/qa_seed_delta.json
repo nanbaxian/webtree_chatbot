@@ -1646,6 +1646,42 @@
       "answer": "Waterloo Management Engineering requires six Grade 12 U and/or M courses including Advanced Functions, Calculus and Vectors, Chemistry, Physics, and English. The admission average is individual selection from the mid- to high 80s, and an Admission Information Form is required. An online video interview is strongly recommended.",
       "tags": ["university_programs", "waterloo", "management_engineering"],
       "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Guelph-Humber Business Administration?",
+      "answer": "Guelph-Humber Business Administration requires six 4U/M courses including ENG4U and any 4U math. The estimated cut-off range is 70% to 75%.",
+      "tags": ["university_programs", "guelph_humber", "business"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Guelph-Humber Early Childhood Studies?",
+      "answer": "Guelph-Humber Early Childhood Studies requires six 4U/M courses including ENG4U and five additional 4U/M courses. The estimated cut-off range is 70% to 75%.",
+      "tags": ["university_programs", "guelph_humber", "early_childhood"],
+      "priority": 45
+    },
+    {
+      "question": "What are the admission requirements for Guelph-Humber Media and Communication Studies?",
+      "answer": "Guelph-Humber Media and Communication Studies requires six 4U/M courses including ENG4U and five additional 4U/M courses. The estimated cut-off range is 70% to 75%.",
+      "tags": ["university_programs", "guelph_humber", "media"],
+      "priority": 45
+    },
+    {
+      "question": "How much is Guelph-Humber tuition?",
+      "answer": "Guelph-Humber's 2025-26 tuition page lists Ontario full-time Business Administration at $9,871 per academic year and all other on-campus programs at $7,451 per academic year. International full-time Business Administration is listed at $38,359 per academic year.",
+      "tags": ["university_programs", "guelph_humber", "tuition"],
+      "priority": 35
+    },
+    {
+      "question": "What scholarships does Guelph-Humber offer?",
+      "answer": "Guelph-Humber's Renewable Entrance Scholarship starts at a 75% admission average and can reach up to $17,000 over four years for Canadian high school applicants. The International Student Entrance Scholarship starts at a 70% admission average and can reach up to $20,500 over four years.",
+      "tags": ["university_programs", "guelph_humber", "scholarships"],
+      "priority": 35
+    },
+    {
+      "question": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
+      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
+      "tags": ["university_programs", "laurier", "double_degree"],
+      "priority": 45
     }
   ]
 }

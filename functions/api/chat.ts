@@ -60,6 +60,8 @@ const CHINESE_RAG_HINTS: Array<{ pattern: RegExp; terms: string }> = [
   { pattern: /(自然语言|自然描述|家长会问|怎么选课|选什么课|适合)/, terms: 'natural language course selection course recommendation' },
   { pattern: /(数学课|英语课|科学课|商科课|计算机课|艺术课|体育课|法语课)/, terms: 'math english science business computer science arts pe french' },
   { pattern: /(上课时间|课程时间|课表|时间表|什么时候上课|哪天上课|几点上课|上课地点|课程名字|课程名称)/, terms: 'schedule timetable class time course schedule course title course name location' },
+  { pattern: /(竞赛|考试|标化|标考|备考|冲刺|入学考试|大学入学考试|英语考试|数学竞赛|编程竞赛|升学考试)/, terms: 'competition contest exam standardized test admissions test prep math contest programming contest english proficiency' },
+  { pattern: /(SSAT|SAT|ACT|AP|AMC|AIME|CCC|Euclid|TOEFL|IELTS|Bluebook)/i, terms: 'SSAT SAT ACT AP AMC AIME CCC Euclid TOEFL IELTS' },
   { pattern: /(今年|本年|当年)/, terms: 'this year current year academic year' },
 ]
 

@@ -79,6 +79,8 @@ function sourceTypeToName(sourceType) {
       return 'OSSD Course Outlines'
     case 'university_programs':
       return 'Ontario University Program Seed'
+    case 'competitions_exams':
+      return 'Canada and US Competitions and Exams Guide'
     default:
       return sourceType
   }

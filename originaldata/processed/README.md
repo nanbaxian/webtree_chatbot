@@ -22,6 +22,9 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `university/ontario_university_programs_seed.md`
   - Ontario university program admission seed set
   - Best for popular program prerequisites, averages, and supplementary applications
+- `competitions/canada_us_competitions_exams.md`
+  - Canada and US competitions plus major test guide
+  - Best for admissions tests, math contests, CS contests, and English proficiency questions
 - `media/screenshots.manifest.md`
   - Provenance-only inventory of screenshot assets
   - Excluded from the current RAG ingestion set
@@ -57,7 +60,8 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 3. `staff/`
 4. `ossd/`
 5. `university/`
-6. `media/screenshots/`
+6. `competitions/`
+7. `media/screenshots/`
 
 ## Notes
 

@@ -399,6 +399,11 @@ function normalizeQuery(input: string): string {
   return input.toLowerCase().replace(/\s+/g, ' ').trim()
 }
 
+function isCompetitionOrExamQuery(query: string): boolean {
+  return /\b(ssat|sat|act|ap|amc|aime|ccc|euclid|toefl|ielts|duolingo|bluebook|collegeboard|college board|contest|competition|exam|test prep|admissions test|standardized test)\b/i.test(query)
+    || /(?:竞赛|考试|标化|标考|备考|冲刺|入学考试|大学入学考试|英语考试|数学竞赛|编程竞赛|升学考试)/.test(query)
+}
+
 function detectGrade(query: string): 9 | 10 | 11 | 12 | null {
   if (/\b(?:9\u5e74\u7ea7|\u521d\u4e09|\u9ad8\u4e00)\b/.test(query)) return 9
   if (/\b(?:10\u5e74\u7ea7|\u9ad8\u4e8c)\b/.test(query)) return 10
@@ -540,6 +545,9 @@ function mapFamily(
 
 function mapAnyOssdCourse(query: string): OssdCourseMapping | null {
   const normalized = normalizeQuery(query)
+  if (isCompetitionOrExamQuery(normalized)) {
+    return null
+  }
   const exact = detectExactCode(normalized)
   if (exact) {
     return buildMapping(
@@ -624,6 +632,7 @@ export function expandOssdCourseQuery(query: string): OssdCourseMapping | null {
 export function expandOssdMathQuery(query: string): OssdCourseMapping | null {
   const normalized = normalizeQuery(query)
   if (!/\b(math|mathematics)\b/.test(normalized)) return null
+  if (isCompetitionOrExamQuery(normalized)) return null
   const grade = detectGrade(normalized)
   const stream = detectStream(normalized)
   return mapFamily(COURSE_FAMILIES[0], query, grade, stream)

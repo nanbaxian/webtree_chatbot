@@ -1766,6 +1766,66 @@
       "answer": "York Psychology BA for Ontario high school students requires OSSD, ENG4U, and five additional 4U or M courses. York says the academic average should be in the mid-70s and maintaining the offer requires a final average of 70%. The BSc path requires ENG4U, 4U Math, and SBI4U or SCH4U or SPH4U, plus three additional 4U or M courses.",
       "tags": ["university_programs", "york", "psychology"],
       "priority": 45
+    },
+    {
+      "question": "SSAT 是什么？",
+      "answer": "SSAT 是私立学校入学考试，面向 3 到 11 年级学生。它考 verbal、math、reading，并包含不计分的 writing sample。家长通常在申请加拿大或美国的独立学校时会问这个考试。",
+      "tags": ["competitions_exams", "ssat", "admissions"],
+      "priority": 50
+    },
+    {
+      "question": "SAT 是什么？",
+      "answer": "SAT 是数字化的大学入学考试，分为 Reading and Writing 和 Math 两部分，总时长 2 小时 14 分钟。它常用于美国大学申请，也被很多加拿大大学接受。",
+      "tags": ["competitions_exams", "sat", "admissions"],
+      "priority": 50
+    },
+    {
+      "question": "ACT 是什么？",
+      "answer": "ACT 是大学学术准备考试，包含 English、Math、Reading，另外 Science 和 Writing 是可选部分。很多美国大学接受 SAT 或 ACT，家长通常会根据学生优势来选。",
+      "tags": ["competitions_exams", "act", "admissions"],
+      "priority": 50
+    },
+    {
+      "question": "AP 考试是什么？",
+      "answer": "AP 是 Advanced Placement。AP 考试通常每年 5 月举行，很多科目已经转为 Bluebook 上的数字化或混合数字化考试。AP 成绩常用于大学学分、课程免修或 placement。",
+      "tags": ["competitions_exams", "ap", "admissions"],
+      "priority": 48
+    },
+    {
+      "question": "AMC 是什么？",
+      "answer": "AMC 是 American Mathematics Competitions，是北美最常见的 K-12 数学竞赛之一。AMC 8 面向较低年级，AMC 10 面向 10 年级及以下，AMC 12 面向 12 年级及以下。AMC 10 和 AMC 12 都是 25 题、75 分钟的选择题竞赛。",
+      "tags": ["competitions_exams", "amc", "math"],
+      "priority": 50
+    },
+    {
+      "question": "AIME 是什么？",
+      "answer": "AIME 是 American Invitational Mathematics Examination，是邀请制数学竞赛。通常只有在 AMC 10 或 AMC 12 表现很好的学生才会被邀请参加。AIME 是 15 题、3 小时，答案是 0 到 999 的整数。",
+      "tags": ["competitions_exams", "aime", "math"],
+      "priority": 48
+    },
+    {
+      "question": "CCC 是什么？",
+      "answer": "CCC 是 Canadian Computing Competition，加拿大常见的编程竞赛，由 Waterloo CEMC 主办。它有 Junior 和 Senior 两个级别，主要考算法和编程能力。",
+      "tags": ["competitions_exams", "ccc", "computer_science"],
+      "priority": 50
+    },
+    {
+      "question": "Euclid 竞赛是什么？",
+      "answer": "Euclid Contest 是 Waterloo CEMC 的高年级数学竞赛，面向中学高年级学生。它偏证明和解题表达，是很多准备数学专业或强数学路径学生会关注的竞赛。",
+      "tags": ["competitions_exams", "euclid", "math"],
+      "priority": 46
+    },
+    {
+      "question": "TOEFL iBT 是什么？",
+      "answer": "TOEFL iBT 是学术英语考试，主要测试 listening、reading、speaking 和 writing。它常用于大学申请和英语能力证明。",
+      "tags": ["competitions_exams", "toefl", "english"],
+      "priority": 48
+    },
+    {
+      "question": "IELTS Academic 是什么？",
+      "answer": "IELTS Academic 测试 listening、reading、writing 和 speaking。它被很多大学和机构接受，家长经常会拿它和 TOEFL 一起比较。",
+      "tags": ["competitions_exams", "ielts", "english"],
+      "priority": 48
     }
   ]
 }

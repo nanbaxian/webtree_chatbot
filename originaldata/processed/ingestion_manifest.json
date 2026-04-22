@@ -8,6 +8,7 @@
     "ossd_core",
     "ossd_outlines",
     "university_programs",
+    "competitions_exams",
     "media/screenshots"
   ],
   "sources": [
@@ -151,6 +152,29 @@
         "university program admissions",
         "Ontario applicant planning",
         "program comparison"
+      ]
+    },
+    {
+      "source_type": "competitions_exams",
+      "raw_path": [
+        "https://www.ssat.org/about/about-the-ssat",
+        "https://www.ssat.org/testing/paper/standard",
+        "https://satsuite.collegeboard.org/sat/whats-on-the-test/structure",
+        "https://www.act.org/content/act/en/products-and-services/the-act.html",
+        "https://apstudents.collegeboard.org/exam-dates",
+        "https://maa.org/student-programs/amc/",
+        "https://maa.org/maa-invitational-competitions/",
+        "https://cemc.uwaterloo.ca/contests/ccc",
+        "https://cemc.uwaterloo.ca/contests/euclid",
+        "https://www.ets.org/toefl/institutions/ibt/about.html",
+        "https://ielts.org/about-ielts"
+      ],
+      "processed_path": "originaldata/processed/competitions/canada_us_competitions_exams.md",
+      "status": "ready",
+      "recommended_use": [
+        "admissions test overview",
+        "math and computing competitions",
+        "English proficiency and prep guidance"
       ]
     },
     {

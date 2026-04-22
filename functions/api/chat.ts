@@ -31,6 +31,25 @@ import {
   upsertConversation,
 } from '../../lib/knowledgeos-d1'
 
+const CJK_RE = /[\u4e00-\u9fff]/
+
+const CHINESE_RAG_HINTS: Array<{ pattern: RegExp; terms: string }> = [
+  { pattern: /(学费|费用|收费|多少钱)/, terms: 'tuition fees' },
+  { pattern: /(奖学金|助学金|资助)/, terms: 'scholarships financial aid' },
+  { pattern: /(入学要求|录取要求|招生要求|申请条件)/, terms: 'admission requirements' },
+  { pattern: /(申请|报考|报名)/, terms: 'apply admission' },
+  { pattern: /(专业|课程|项目|program)/i, terms: 'program major' },
+  { pattern: /(计算机科学|电脑科学)/, terms: 'computer science' },
+  { pattern: /(商科|商业|工商管理|管理)/, terms: 'business administration commerce management' },
+  { pattern: /(工程|工科)/, terms: 'engineering' },
+  { pattern: /(护理|护士)/, terms: 'nursing' },
+  { pattern: /(心理学|心理)/, terms: 'psychology' },
+  { pattern: /(国际学生|留学生)/, terms: 'international students' },
+  { pattern: /(本地学生|安省学生|加拿大本地学生)/, terms: 'Ontario domestic students domestic students' },
+  { pattern: /(截止日期|申请截止|deadline)/i, terms: 'deadline due date' },
+  { pattern: /(课程|学分|先修|前置)/, terms: 'course credits prerequisites' },
+]
+
 interface Env extends D1Env {
   BUCKET: R2Bucket
   OPENAI_MODEL?: string
@@ -129,6 +148,22 @@ async function loadRagContext(
       promptBlock: 'External RAG retrieval failed. Respond carefully and avoid fabricating knowledge-base facts.',
     }
   }
+}
+
+function buildRagSearchQuery(query: string, locale?: ReplyLanguage): string {
+  const base = String(query || '').trim()
+  if (!base) return base
+
+  if (locale !== 'zh' && !CJK_RE.test(base)) return base
+
+  const hints = CHINESE_RAG_HINTS
+    .filter(entry => entry.pattern.test(base))
+    .map(entry => entry.terms)
+
+  if (hints.length === 0) return base
+
+  const tail = [...new Set(hints)].join(' ')
+  return `${base} ${tail}`.trim()
 }
 
 function toOpenAIHistory(messages: D1Message[], currentUserText: string, imageBase64?: string, imageMime?: string): OpenAIMessage[] {
@@ -320,7 +355,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     : null
   const history = Array.isArray(recentMessages) ? recentMessages : []
   const ossdCourse = expandOssdCourseQuery(message)
-  const ragQuery = ossdCourse?.searchQuery || message
+  const ragQuery = buildRagSearchQuery(ossdCourse?.searchQuery || message, replyLanguage)
 
   const ragStartedAt = Date.now()
   const rag = await loadRagContext(env, tenantId, bot.id, ragQuery, 8, reqId, conversationKey, replyLanguage)

@@ -281,88 +281,88 @@ const COOP_COURSES: OssdCourseCandidate[] = [
 const COURSE_FAMILIES: CourseFamily[] = [
   {
     name: 'Math',
-    keywords: [/\b(math|mathematics|functions|advanced functions|calculus|vectors|data management|maths)\b/],
+    keywords: [/\b(math|mathematics|functions|advanced functions|calculus|vectors|data management|maths|数学|数学课|微积分|代数|函数)\b/],
     candidates: MATH_COURSES,
     ambiguityHint: 'Grade or stream may be needed for Ontario math courses.',
     clarifyWhenGenericGrade3Or4: true,
   },
   {
     name: 'English',
-    keywords: [/\b(english|eng|writing|reading|literature|literacy)\b/],
+    keywords: [/\b(english|eng|writing|reading|literature|literacy|英语|英文|写作|阅读|文学)\b/],
     candidates: ENGLISH_COURSES,
     ambiguityHint: 'Grade or stream may be needed for Ontario English courses.',
     clarifyWhenGenericGrade3Or4: true,
   },
   {
     name: 'ESL/ELD',
-    keywords: [/\b(esl|eld|english as a second language|english literacy development)\b/],
+    keywords: [/\b(esl|eld|english as a second language|english literacy development|英语作为第二语言|英语作为第二语言课程|英语语言发展)\b/],
     candidates: ESL_ELD_COURSES,
     ambiguityHint: 'ESL/ELD level usually needs a grade or level number.',
   },
   {
     name: 'French',
-    keywords: [/\b(french|core french|extended french|french immersion|fsf|fef|fif)\b/],
+    keywords: [/\b(french|core french|extended french|french immersion|fsf|fef|fif|法语|核心法语|延伸法语|法语沉浸)\b/],
     candidates: FSL_COURSES,
     ambiguityHint: 'French programs often need the program type: core, extended, or immersion.',
   },
   {
     name: 'Science',
-    keywords: [/\b(science|biology|chemistry|physics|environmental science|earth and space)\b/],
+    keywords: [/\b(science|biology|chemistry|physics|environmental science|earth and space|科学|生物|化学|物理|环境科学|地球与宇宙科学)\b/],
     candidates: SCIENCE_COURSES,
     ambiguityHint: 'Ontario science often needs the specific strand, especially in Grade 11 and 12.',
     clarifyWhenGenericGrade3Or4: true,
   },
   {
     name: 'Business',
-    keywords: [/\b(business|accounting|entrepreneurship|marketing|international business|leadership|commerce|ict in business)\b/],
+    keywords: [/\b(business|accounting|entrepreneurship|marketing|international business|leadership|commerce|ict in business|商科|商业|会计|创业|市场营销|国际商务|领导力)\b/],
     candidates: BUSINESS_COURSES,
     ambiguityHint: 'Business courses often need the stream: open, workplace, college, or university/college.',
   },
   {
     name: 'Computer',
-    keywords: [/\b(computer science|computer programming|computer studies|programming|code)\b/],
+    keywords: [/\b(computer science|computer programming|computer studies|programming|code|计算机|电脑|编程|程序设计|代码)\b/],
     candidates: COMPUTER_COURSES,
     ambiguityHint: 'Computer studies often need grade and stream to separate ICS3U, ICS3C, ICS4U, and ICS4C.',
   },
   {
     name: 'Canadian and World Studies',
-    keywords: [/\b(geography|history|civics|law|world issues|spatial technologies|tourism|economics|politics)\b/],
+    keywords: [/\b(geography|history|civics|law|world issues|spatial technologies|tourism|economics|politics|地理|历史|公民|法律|世界问题|旅游|经济|政治)\b/],
     candidates: CWS_COURSES,
     ambiguityHint: 'Canadian and World Studies often needs the specific branch: geography, history, civics, law, or economics.',
   },
   {
     name: 'Social Sciences and Humanities',
-    keywords: [/\b(social science|social sciences|humanities|family studies|food and nutrition|parenting|anthropology|psychology|sociology|challenge and change|equity|world cultures)\b/],
+    keywords: [/\b(social science|social sciences|humanities|family studies|food and nutrition|parenting|anthropology|psychology|sociology|challenge and change|equity|world cultures|社会科学|人文|心理学|社会学|家庭研究|营养|育儿|公平|世界文化)\b/],
     candidates: SOCIAL_SCIENCES_COURSES,
     ambiguityHint: 'Social Sciences and Humanities often needs the subject branch: family studies, food and nutrition, or psychology/sociology.',
   },
   {
     name: 'Health and PE',
-    keywords: [/\b(health|physical education|pe|healthy active living|kinesiology|fitness)\b/],
+    keywords: [/\b(health|physical education|pe|healthy active living|kinesiology|fitness|健康|体育|体能|运动|运动科学)\b/],
     candidates: HEALTH_COURSES,
     ambiguityHint: 'Health and physical education often needs grade and whether the user means healthy active living or kinesiology.',
   },
   {
     name: 'Technological Education',
-    keywords: [/\b(technology|technological|technological design|transportation|manufacturing|communications technology|construction|green industries|hairstyling|health care|hospitality|tourism|teched)\b/],
+    keywords: [/\b(technology|technological|technological design|transportation|manufacturing|communications technology|construction|green industries|hairstyling|health care|hospitality|tourism|teched|技术|科技|技术设计|制造|运输|传媒技术|建筑|旅游与酒店)\b/],
     candidates: TECH_COURSES,
     ambiguityHint: 'Technological education often needs the specialization, like transportation, manufacturing, or hospitality and tourism.',
   },
   {
     name: 'Arts',
-    keywords: [/\b(arts|art|visual arts|drama|music|media arts|dance)\b/],
+    keywords: [/\b(arts|art|visual arts|drama|music|media arts|dance|艺术|美术|视觉艺术|戏剧|音乐|媒体艺术|舞蹈)\b/],
     candidates: ARTS_COURSES,
     ambiguityHint: 'The arts usually need the discipline: visual arts, drama, music, or media arts.',
   },
   {
     name: 'Guidance and Career Education',
-    keywords: [/\b(career studies|learning strategies|leadership and peer support|peer support|opportunities for learning and work|glc|gls|gpp|gwl)\b/],
+    keywords: [/\b(career studies|learning strategies|leadership and peer support|peer support|opportunities for learning and work|glc|gls|gpp|gwl|职业研究|学习策略|同伴支持|学习与工作机会)\b/],
     candidates: GUIDANCE_COURSES,
     ambiguityHint: 'Guidance and career education often needs the specific course, such as career studies, learning strategies, or creating opportunities for learning and work.',
   },
   {
     name: 'Co-op',
-    keywords: [/\b(co[- ]?op|cooperative education|coop)\b/],
+    keywords: [/\b(co[- ]?op|cooperative education|coop|实习|合作教育|带薪实习)\b/],
     candidates: COOP_COURSES,
     ambiguityHint: 'Co-op courses are usually open and need the credit year, such as Grade 11 or 12 cooperative education.',
   },
@@ -378,6 +378,10 @@ function normalizeQuery(input: string): string {
 }
 
 function detectGrade(query: string): 9 | 10 | 11 | 12 | null {
+  if (/\b(9年级|初三|高一)\b/.test(query)) return 9
+  if (/\b(10年级|高二)\b/.test(query)) return 10
+  if (/\b(11年级|高三)\b/.test(query)) return 11
+  if (/\b(12年级|高四)\b/.test(query)) return 12
   if (/\b(grade\s*9|g9|9th\s*grade|9\s*grade)\b/.test(query)) return 9
   if (/\b(grade\s*10|g10|10th\s*grade|10\s*grade)\b/.test(query)) return 10
   if (/\b(grade\s*11|g11|11th\s*grade|11\s*grade)\b/.test(query)) return 11
@@ -386,6 +390,11 @@ function detectGrade(query: string): 9 | 10 | 11 | 12 | null {
 }
 
 function detectStream(query: string): StreamHint {
+  if (/\b(大学预备|大学预科|u课|u课|university prep|uprep)\b/i.test(query)) return 'university'
+  if (/\b(大学\/学院|u\/c|大学学院|混合|university and college)\b/i.test(query)) return 'university_college'
+  if (/\b(学院预备|college prep|college preparation)\b/i.test(query)) return 'college'
+  if (/\b(工作场所|职场|workplace)\b/i.test(query)) return 'workplace'
+  if (/\b(开放|open)\b/i.test(query)) return 'open'
   if (/\b(university\/college|u\/c|university and college|mixed)\b/.test(query)) return 'university_college'
   if (/\b(university|academic|pre[- ]?u|preuniversity)\b/.test(query)) return 'university'
   if (/\b(college|pre[- ]?c|precollege)\b/.test(query)) return 'college'
@@ -512,9 +521,51 @@ function mapAnyOssdCourse(query: string): OssdCourseMapping | null {
   const grade = detectGrade(normalized)
   const stream = detectStream(normalized)
 
+  if (/\b(course code|course codes|代码|课号|课程代码|课程号)\b/i.test(normalized)) {
+    const codeHints = normalized.match(/\b[a-z]{3}[0-9][a-z]\b/gi) || []
+    if (codeHints.length > 0) {
+      const matches = codeHints
+        .map(code => EXACT_INDEX.get(code.toUpperCase()))
+        .filter((course): course is OssdCourseCandidate => Boolean(course))
+      if (matches.length > 0) {
+        return buildMapping(
+          query,
+          matches,
+          matches.length === 1 ? 'mapped' : 'ambiguous',
+          `Course code lookup detected. Possible matches: ${formatCandidates(matches)}.`,
+        )
+      }
+    }
+  }
+
   for (const family of COURSE_FAMILIES) {
     if (familyMatches(family, normalized)) {
       return mapFamily(family, query, grade, stream)
+    }
+  }
+
+  if (/\b(课程|course|科目|subject|自然语言|自然描述|家长会问|适合|想选)\b/i.test(normalized) || /[\u4e00-\u9fff]/.test(normalized)) {
+    const hints: string[] = []
+    if (/\b(数学|math)\b/i.test(normalized)) hints.push('math')
+    if (/\b(英语|english)\b/i.test(normalized)) hints.push('english')
+    if (/\b(生物|biology)\b/i.test(normalized)) hints.push('biology')
+    if (/\b(化学|chemistry)\b/i.test(normalized)) hints.push('chemistry')
+    if (/\b(物理|physics)\b/i.test(normalized)) hints.push('physics')
+    if (/\b(计算机|电脑|coding|programming|computer)\b/i.test(normalized)) hints.push('computer science')
+    if (/\b(商科|商业|business|accounting|marketing)\b/i.test(normalized)) hints.push('business')
+    if (/\b(心理|psychology)\b/i.test(normalized)) hints.push('psychology')
+    if (/\b(设计|art|visual|media)\b/i.test(normalized)) hints.push('arts and design')
+    if (/\b(co[- ]?op|实习|合作教育)\b/i.test(normalized)) hints.push('co-op')
+    if (/\b(大学预备|大学预科|u课|university)\b/i.test(normalized)) hints.push('university prep')
+    if (/\b(学院预备|college)\b/i.test(normalized)) hints.push('college prep')
+
+    if (hints.length > 0) {
+      return buildMapping(
+        query,
+        [],
+        'ambiguous',
+        `Natural-language course query detected. Try these Ontario course families or codes in the search: ${[...new Set(hints)].join(', ')}. Ask for grade and stream if needed.`,
+      )
     }
   }
 

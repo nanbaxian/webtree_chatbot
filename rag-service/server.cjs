@@ -131,6 +131,57 @@ function normalizeSearchQuery(value) {
     .trim()
 }
 
+function hasCjk(value) {
+  return /[\u4e00-\u9fff]/.test(String(value || ''))
+}
+
+const CHINESE_QUERY_HINTS = [
+  { pattern: /(学费|费用|收费|多少钱)/, terms: 'tuition fees cost price' },
+  { pattern: /(奖学金|助学金|资助)/, terms: 'scholarships financial aid bursaries' },
+  { pattern: /(入学要求|录取要求|招生要求|申请条件)/, terms: 'admission requirements entry requirements' },
+  { pattern: /(申请|报考|报名)/, terms: 'apply admission application' },
+  { pattern: /(ouac|安省申请中心|安大略大学申请中心)/i, terms: 'OUAC Ontario Universities' },
+  { pattern: /(专业|课程|项目)/, terms: 'program major degree course' },
+  { pattern: /(本科|大学本科|学士)/, terms: 'undergraduate bachelor degree' },
+  { pattern: /(计算机科学|电脑科学)/, terms: 'computer science' },
+  { pattern: /(商科|商业|工商管理|管理)/, terms: 'business administration commerce management' },
+  { pattern: /(工程|工科)/, terms: 'engineering' },
+  { pattern: /(护理|护士)/, terms: 'nursing' },
+  { pattern: /(心理学|心理)/, terms: 'psychology' },
+  { pattern: /(传媒|媒体|传播)/, terms: 'media communication communications' },
+  { pattern: /(设计|平面|视觉)/, terms: 'design graphic illustration industrial design' },
+  { pattern: /(早教|幼教|儿童发展|儿童教育)/, terms: 'early childhood studies child studies' },
+  { pattern: /(国际学生|留学生)/, terms: 'international students' },
+  { pattern: /(本地学生|安省学生|加拿大本地学生|国内学生)/, terms: 'Ontario domestic students domestic students' },
+  { pattern: /(截止日期|申请截止|deadline)/, terms: 'deadline due date' },
+  { pattern: /(课程|学分|先修|前置)/, terms: 'course credits prerequisites' },
+  { pattern: /(实习|co-?op|带薪实习)/i, terms: 'co-op internship placement' },
+  { pattern: /(平均分|录取均分|分数线|最低分|竞争均分|competitive average|average)/i, terms: 'admission average competitive average minimum average' },
+  { pattern: /(附加费|杂费|ancillary|supplementary fee|student fee)/i, terms: 'ancillary fees student fees supplementary fees' },
+  { pattern: /(校园|校区|地址|location|campus)/i, terms: 'campus location address' },
+  { pattern: /(课程代码|课号|代码|course code|course codes)/i, terms: 'course code course codes course number' },
+  { pattern: /(自然语言|自然描述|家长会问|怎么选课|选什么课|适合)/, terms: 'natural language course selection course recommendation' },
+  { pattern: /(数学课|英语课|科学课|商科课|计算机课|艺术课|体育课|法语课)/, terms: 'math english science business computer science arts pe french' },
+  { pattern: /(今年|本年|当年)/, terms: 'this year current year academic year' },
+]
+
+function collectChineseQueryHints(value) {
+  const text = String(value || '')
+  if (!hasCjk(text)) return []
+
+  const hints = new Set()
+  for (const entry of CHINESE_QUERY_HINTS) {
+    if (entry.pattern.test(text)) {
+      String(entry.terms)
+        .split(/\s+/)
+        .map(token => token.trim())
+        .filter(Boolean)
+        .forEach(token => hints.add(token))
+    }
+  }
+  return [...hints]
+}
+
 function buildSearchVariants(value) {
   const original = String(value || '').trim()
   const normalized = normalizeSearchQuery(original)
@@ -148,6 +199,15 @@ function buildSearchVariants(value) {
   pushVariant(original)
   pushVariant(normalized)
   pushVariant(tokens.join(' '))
+
+  const chineseHints = collectChineseQueryHints(original)
+  if (chineseHints.length > 0) {
+    pushVariant(`${original} ${chineseHints.join(' ')}`)
+    pushVariant(chineseHints.join(' '))
+    if (tokens.length > 0) {
+      pushVariant(`${tokens.join(' ')} ${chineseHints.join(' ')}`)
+    }
+  }
 
   if (tokens.length > 1) {
     pushVariant(tokens.join(' OR '))

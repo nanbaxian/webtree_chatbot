@@ -117,6 +117,90 @@ This guide covers the most common tests and competitions families ask about in C
 - For CCC, focus on Python, Java, or C++, algorithm practice, and debugging under time pressure.
 - For TOEFL and IELTS, focus on academic listening, reading, speaking fluency, and writing structure.
 
+## Application Path
+
+- Private school application: SSAT is usually the main test family.
+- US college application: SAT or ACT are the main admissions tests, and AP can strengthen the profile.
+- Canadian or US university English requirement: TOEFL iBT or IELTS Academic are the most common English tests.
+- Math-heavy application support: AMC 10/12, AIME, and Euclid can help show mathematical strength.
+- Computer science application support: CCC can help show programming and algorithm ability.
+
+## Subject Path
+
+- Math: AMC 8, AMC 10, AMC 12, AIME, Euclid.
+- English: SAT Reading and Writing, ACT English and Reading, TOEFL, IELTS.
+- Science: SAT Math plus AP science subjects, and ACT Science if a student wants that route.
+- Computing: CCC.
+- General admissions: SSAT, SAT, ACT, AP.
+
+### Math Path
+
+- If the student is in Grade 8 or below, start with AMC 8.
+- If the student is in Grade 9 or 10, move toward AMC 10.
+- If the student is in Grade 11 or 12, compare AMC 12, AIME, and Euclid.
+- If the student wants a university math signal, Euclid is especially useful in Canada.
+
+### English Path
+
+- If the goal is university admission, start with SAT Reading and Writing and ACT English and Reading.
+- If the goal is English proficiency, start with TOEFL iBT or IELTS Academic.
+- If the student needs both, use one official diagnostic test to decide whether TOEFL or IELTS is the better fit.
+
+### Science Path
+
+- If the student likes science broadly, start with AP science subjects or school science courses.
+- If the student wants a US admissions test angle, ACT Science may be relevant.
+- If the student is aiming at stronger STEM admissions, combine strong math with AP science or contest results.
+
+### Computing Path
+
+- If the student is new to programming, start with basic coding practice before CCC.
+- If the student already codes, CCC is the main Canadian programming contest family.
+- If the student wants to build a stronger computer science profile, use CCC together with school CS courses and projects.
+
+## Grade 8 To 12 Roadmap
+
+### Grade 8
+
+- Start with AMC 8 if the child likes math.
+- Start with SSAT Middle Level if private school admission is the main goal.
+- Begin light SAT or ACT familiarization only if the student is advanced.
+- For English, focus on reading habits and vocabulary before full test prep.
+
+### Grade 9
+
+- Consider AMC 10 prep if the student is already strong in math.
+- Start CCC Junior or Senior exposure if coding is a serious interest.
+- Build reading and writing speed for later SAT, ACT, or AP work.
+- If private school is still relevant, keep SSAT Middle or Upper in view.
+
+### Grade 10
+
+- AMC 10 becomes a common target.
+- SAT and ACT prep can begin in earnest.
+- CCC Junior or Senior can be used to judge whether the student is ready for algorithmic practice.
+- AP planning often starts here for students in advanced schools.
+
+### Grade 11
+
+- This is a major year for SAT, ACT, AP, AMC 10 or 12, CCC Senior, and Euclid.
+- Many families decide whether the student is stronger on math contests, computing contests, or admissions tests.
+- TOEFL or IELTS planning becomes important if university English proof is needed.
+
+### Grade 12
+
+- Focus on final admissions testing and any remaining AP, TOEFL, IELTS, AMC 12, CCC Senior, or Euclid goals.
+- At this stage, families usually prioritize the test that best matches the target application deadline.
+
+## Simple Decision Rule
+
+- Private school: SSAT first.
+- US university: SAT or ACT first.
+- English requirement: TOEFL or IELTS first.
+- Math strength signal: AMC, then AIME or Euclid.
+- Computing strength signal: CCC.
+- Academic enrichment: AP.
+
 ## Common Questions
 
 - “Is this for Grade 8, 9, 10, 11, or 12?”
@@ -125,6 +209,9 @@ This guide covers the most common tests and competitions families ask about in C
 - “Do I need the official date, the format, or the prep path?”
 - “Which one should my child take first?”
 - “What is the easiest or most recognized option for this goal?”
+- “Is the goal math, English, science, or computer science?”
+- “What is the roadmap for this grade?”
+- “What should we do next if the child is in Grade 9 / 10 / 11 / 12?”
 
 ## Official Sources
 

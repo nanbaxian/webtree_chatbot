@@ -1880,6 +1880,96 @@
       "answer": "如果更喜欢数学，可以先看 AMC 8、AMC 10，再看 AIME 或 Euclid；如果更喜欢编程，可以先看 CCC。很多家长会先从孩子当前年级和已有基础出发，再决定先数学还是先编程。",
       "tags": ["competitions_exams", "math", "computer_science", "planning"],
       "priority": 47
+    },
+    {
+      "question": "如果目标是美国大学，先准备什么考试？",
+      "answer": "如果目标是美国大学，通常先看 SAT 或 ACT；如果学校或项目也看 AP，可以再按课程情况加入 AP。若英文能力需要证明，还要看 TOEFL iBT 或 IELTS Academic。",
+      "tags": ["competitions_exams", "us_admissions", "planning"],
+      "priority": 47
+    },
+    {
+      "question": "如果目标是加拿大大学，先准备什么考试？",
+      "answer": "加拿大大学申请里，很多学校更看重课程和成绩，但如果需要英语证明，通常会看 TOEFL iBT 或 IELTS Academic。对数学或计算机特别强的学生，也可以考虑 AMC、AIME、Euclid 或 CCC 作为补充亮点。",
+      "tags": ["competitions_exams", "canada_admissions", "planning"],
+      "priority": 46
+    },
+    {
+      "question": "如果孩子想申请私校，先看什么？",
+      "answer": "通常先看 SSAT。SSAT 是私立学校入学考试，家长最常见的问题是孩子当前年级对应哪个 SSAT level，以及要不要配合学校面试和成绩单一起准备。",
+      "tags": ["competitions_exams", "ssat", "private_school"],
+      "priority": 48
+    },
+    {
+      "question": "如果孩子想冲数学强校，先看什么？",
+      "answer": "通常先看 AMC 10 或 AMC 12，然后根据结果和年级再看 AIME 或 Euclid。很多家长会把 AMC 作为起点，因为它既能训练竞赛思维，也能帮助判断孩子是否适合继续往更高阶竞赛走。",
+      "tags": ["competitions_exams", "math", "planning"],
+      "priority": 47
+    },
+    {
+      "question": "如果孩子想冲计算机方向，先看什么？",
+      "answer": "通常先看 CCC。CCC 是加拿大常见的编程竞赛，适合用来训练算法和编程基础。对已经有一定基础的学生，也可以用它来判断是否适合继续往更高阶的计算机竞赛或计算机科学路径走。",
+      "tags": ["competitions_exams", "ccc", "computer_science"],
+      "priority": 47
+    },
+    {
+      "question": "如果孩子英语不强，先准备 TOEFL 还是 IELTS？",
+      "answer": "TOEFL iBT 和 IELTS Academic 都可以，但要看孩子更适应哪种题型。一般可以先做一套官方样题，再决定：如果更适应学术阅读和机考节奏，可以偏 TOEFL；如果更适应听说读写平衡和口语面试感，可以偏 IELTS。",
+      "tags": ["competitions_exams", "english", "planning"],
+      "priority": 47
+    },
+    {
+      "question": "Grade 8 到底应该怎么排路线？",
+      "answer": "Grade 8 可以先从孩子最强的方向切入：如果喜欢数学，就先看 AMC 8；如果目标是私校，就先看 SSAT Middle Level；如果未来想走大学申请，就先建立 SAT、ACT 和英语阅读写作的基础。",
+      "tags": ["competitions_exams", "grade8", "roadmap"],
+      "priority": 47
+    },
+    {
+      "question": "Grade 9 应该怎么排路线？",
+      "answer": "Grade 9 可以开始把方向分开：数学强的学生可以尝试 AMC 10 预备，编程强的学生可以开始 CCC 基础练习，目标大学申请的学生则可以先把英语阅读、写作和基础数学打好。",
+      "tags": ["competitions_exams", "grade9", "roadmap"],
+      "priority": 47
+    },
+    {
+      "question": "Grade 10 应该怎么排路线？",
+      "answer": "Grade 10 通常是 SAT、ACT、AMC 10、CCC 和 AP 规划都开始变重要的一年。家长一般会根据孩子的目标，把大学入学考试、竞赛和课程成绩三个方向一起规划。",
+      "tags": ["competitions_exams", "grade10", "roadmap"],
+      "priority": 47
+    },
+    {
+      "question": "Grade 11 应该怎么排路线？",
+      "answer": "Grade 11 往往是 SAT、ACT、AP、AMC 10/12、CCC Senior 和 Euclid 的关键年。很多家长会在这一年决定主攻哪个方向，因为它会直接影响大学申请材料和最后一年压力分配。",
+      "tags": ["competitions_exams", "grade11", "roadmap"],
+      "priority": 48
+    },
+    {
+      "question": "Grade 12 应该怎么排路线？",
+      "answer": "Grade 12 通常要把重点放在最接近申请截止日的考试上，比如 SAT、ACT、AP、TOEFL、IELTS、AMC 12、CCC Senior 或 Euclid。这个阶段更重要的是优先级，不是同时把所有考试都做完。",
+      "tags": ["competitions_exams", "grade12", "roadmap"],
+      "priority": 48
+    },
+    {
+      "question": "数学路线应该怎么开始？",
+      "answer": "数学路线通常先从年级最匹配的竞赛开始。Grade 8 或更低可以先看 AMC 8；Grade 9 或 10 可以看 AMC 10；Grade 11 或 12 可以继续看 AMC 12、AIME 和 Euclid。加拿大路径里，Euclid 尤其适合想做大学数学信号的学生。",
+      "tags": ["competitions_exams", "math", "roadmap"],
+      "priority": 48
+    },
+    {
+      "question": "英语路线应该怎么开始？",
+      "answer": "英语路线如果是大学申请，通常先看 SAT Reading and Writing 和 ACT English/Reading；如果是英语能力证明，通常先看 TOEFL iBT 或 IELTS Academic。很多家长会先用一套官方样题判断孩子更适合哪一种。",
+      "tags": ["competitions_exams", "english", "roadmap"],
+      "priority": 48
+    },
+    {
+      "question": "科学路线应该怎么开始？",
+      "answer": "科学路线通常先从学校科学课程和 AP science subjects 开始；如果是美国大学申请里的测试侧重点，还可以关注 ACT Science。对想走更强 STEM 路线的学生，科学成绩最好和数学强度一起规划。",
+      "tags": ["competitions_exams", "science", "roadmap"],
+      "priority": 47
+    },
+    {
+      "question": "编程路线应该怎么开始？",
+      "answer": "编程路线通常先从基础编程和算法练习开始，然后再进入 CCC。CCC 是加拿大最常见的编程竞赛之一，适合已经会写基础程序、想进一步训练算法能力的学生。",
+      "tags": ["competitions_exams", "computer_science", "roadmap"],
+      "priority": 48
     }
   ]
 }

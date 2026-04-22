@@ -34,7 +34,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
       content: 'Ask a question. I will stream the answer here and keep source hints on the side.',
     },
   ])
-  const [input, setInput] = useState('How does source citation work?')
+  const [input, setInput] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [citations, setCitations] = useState<RagCitation[]>([
     {
@@ -308,26 +308,6 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
                   ) : (
                     <SendHorizontal className="h-4 w-4" />
                   )}
-                </button>
-              </div>
-              <div className="mt-3 hidden flex-wrap gap-2 text-xs text-white/45 lg:flex">
-                <button
-                  onClick={() => setInput('What sources were used to answer the last question?')}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"
-                >
-                  Explain citations
-                </button>
-                <button
-                  onClick={() => setInput('Summarize the answer in one sentence.')}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"
-                >
-                  Short answer
-                </button>
-                <button
-                  onClick={() => setInput('What should I ask next?')}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10"
-                >
-                  Follow-up prompt
                 </button>
               </div>
             </div>

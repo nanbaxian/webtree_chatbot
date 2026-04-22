@@ -162,6 +162,7 @@ const CHINESE_QUERY_HINTS = [
   { pattern: /(课程代码|课号|代码|course code|course codes)/i, terms: 'course code course codes course number' },
   { pattern: /(自然语言|自然描述|家长会问|怎么选课|选什么课|适合)/, terms: 'natural language course selection course recommendation' },
   { pattern: /(数学课|英语课|科学课|商科课|计算机课|艺术课|体育课|法语课)/, terms: 'math english science business computer science arts pe french' },
+  { pattern: /(上课时间|课程时间|课表|时间表|什么时候上课|哪天上课|几点上课|上课地点|课程名字|课程名称)/, terms: 'schedule timetable class time course schedule course title course name location' },
   { pattern: /(今年|本年|当年)/, terms: 'this year current year academic year' },
 ]
 
@@ -229,7 +230,7 @@ function buildSearchVariants(value) {
 
 function isScheduleHeavyQuery(query) {
   const normalized = normalizeSearchQuery(query)
-  return /(?:\bperiod\b|\bschedule\b|\bclubs?\b|\btutoring\b|\bielts\b|\bterm\b|\bbreak\b|\bafter school\b|\bdaily schedule\b)/i.test(normalized)
+  return /(?:\bperiod\b|\bschedule\b|\bclubs?\b|\btutoring\b|\bielts\b|\bterm\b|\bbreak\b|\bafter school\b|\bdaily schedule\b|(?:\u4e0a\u8bfe\u65f6\u95f4|\u8bfe\u8868|\u65f6\u95f4\u8868|\u4ec0\u4e48\u65f6\u5019\u4e0a\u8bfe|\u54ea\u5929\u4e0a\u8bfe|\u51e0\u70b9\u4e0a\u8bfe|\u8bfe\u65f6|\u8bfe\u7a0b\u65f6\u95f4))/i.test(normalized)
 }
 
 async function searchWithQuery(client, req, queryText) {

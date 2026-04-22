@@ -22,6 +22,11 @@ type CourseFamily = {
   clarifyWhenGenericGrade3Or4?: boolean
 }
 
+type ChineseFamilyHint = {
+  family: string
+  pattern: RegExp
+}
+
 const MATH_COURSES: OssdCourseCandidate[] = [
   { code: 'MPM1D', title: 'Principles of Mathematics', grade: 9, stream: 'Academic' },
   { code: 'MFM1P', title: 'Foundations of Mathematics', grade: 9, stream: 'Applied' },
@@ -368,6 +373,23 @@ const COURSE_FAMILIES: CourseFamily[] = [
   },
 ]
 
+const CHINESE_FAMILY_HINTS: ChineseFamilyHint[] = [
+  { family: 'Math', pattern: /(?:\u6570\u5b66|\u51fd\u6570|\u5fae\u79ef\u5206|\u4ee3\u6570|\u77e9\u5f62)/ },
+  { family: 'English', pattern: /(?:\u82f1\u8bed|\u82f1\u6587|\u5199\u4f5c|\u9605\u8bfb|\u6587\u5b66)/ },
+  { family: 'ESL/ELD', pattern: /(?:ESL|ELD|\u82f1\u8bed\u4f5c\u4e3a\u7b2c\u4e8c\u8bed\u8a00|\u82f1\u8bed\u8bed\u8a00\u53d1\u5c55)/i },
+  { family: 'French', pattern: /(?:\u6cd5\u8bed|\u6838\u5fc3\u6cd5\u8bed|\u6f14\u4f38\u6cd5\u8bed|\u6cd5\u8bed\u6c89\u6d78)/ },
+  { family: 'Science', pattern: /(?:\u79d1\u5b66|\u751f\u7269|\u5316\u5b66|\u7269\u7406|\u73af\u5883\u79d1\u5b66|\u5730\u7403\u4e0e\u5b87\u5b99\u79d1\u5b66)/ },
+  { family: 'Business', pattern: /(?:\u5546\u79d1|\u5546\u4e1a|\u4f1a\u8ba1|\u521b\u4e1a|\u5e02\u573a\u8425\u9500|\u56fd\u9645\u5546\u52a1|\u9886\u5bfc\u529b)/ },
+  { family: 'Computer', pattern: /(?:\u8ba1\u7b97\u673a|\u7535\u8111|\u7f16\u7a0b|\u7a0b\u5e8f\u8bbe\u8ba1|\u4ee3\u7801)/ },
+  { family: 'Canadian and World Studies', pattern: /(?:\u5730\u7406|\u5386\u53f2|\u516c\u6c11|\u6cd5\u5f8b|\u4e16\u754c\u95ee\u9898|\u65c5\u6e38|\u7ecf\u6d4e|\u653f\u6cbb)/ },
+  { family: 'Social Sciences and Humanities', pattern: /(?:\u793e\u4f1a\u79d1\u5b66|\u4eba\u6587|\u5fc3\u7406\u5b66|\u793e\u4f1a\u5b66|\u5bb6\u5ead\u7814\u7a76|\u8425\u517b|\u80b2\u513f|\u516c\u5e73|\u4e16\u754c\u6587\u5316)/ },
+  { family: 'Health and PE', pattern: /(?:\u5065\u5eb7|\u4f53\u80b2|\u4f53\u80fd|\u8fd0\u52a8|\u8fd0\u52a8\u79d1\u5b66)/ },
+  { family: 'Technological Education', pattern: /(?:\u6280\u672f|\u79d1\u6280|\u6280\u672f\u8bbe\u8ba1|\u5236\u9020|\u8fd0\u8f93|\u4f20\u5a92\u6280\u672f|\u5efa\u7b51|\u65c5\u6e38\u4e0e\u9152\u5e97)/ },
+  { family: 'Arts', pattern: /(?:\u827a\u672f|\u7f8e\u672f|\u89c6\u89c9\u827a\u672f|\u620f\u5267|\u97f3\u4e50|\u5a92\u4f53\u827a\u672f|\u821e\u8e48)/ },
+  { family: 'Guidance and Career Education', pattern: /(?:\u804c\u4e1a\u7814\u7a76|\u5b66\u4e60\u7b56\u7565|\u540c\u4f34\u652f\u6301|\u5b66\u4e60\u4e0e\u5de5\u4f5c\u673a\u4f1a)/ },
+  { family: 'Co-op', pattern: /(?:\u5b9e\u4e60|\u5408\u4f5c\u6559\u80b2|\u5e26\u85aa\u5b9e\u4e60)/ },
+]
+
 const EXACT_INDEX = new Map<string, OssdCourseCandidate>()
 for (const course of COURSE_FAMILIES.flatMap(family => family.candidates)) {
   EXACT_INDEX.set(course.code, course)
@@ -378,6 +400,10 @@ function normalizeQuery(input: string): string {
 }
 
 function detectGrade(query: string): 9 | 10 | 11 | 12 | null {
+  if (/\b(?:9\u5e74\u7ea7|\u521d\u4e09|\u9ad8\u4e00)\b/.test(query)) return 9
+  if (/\b(?:10\u5e74\u7ea7|\u9ad8\u4e8c)\b/.test(query)) return 10
+  if (/\b(?:11\u5e74\u7ea7|\u9ad8\u4e09)\b/.test(query)) return 11
+  if (/\b(?:12\u5e74\u7ea7|\u9ad8\u56db)\b/.test(query)) return 12
   if (/\b(9年级|初三|高一)\b/.test(query)) return 9
   if (/\b(10年级|高二)\b/.test(query)) return 10
   if (/\b(11年级|高三)\b/.test(query)) return 11
@@ -390,6 +416,11 @@ function detectGrade(query: string): 9 | 10 | 11 | 12 | null {
 }
 
 function detectStream(query: string): StreamHint {
+  if (/\b(?:\u5927\u5b66\u9884\u5907|\u5927\u5b66\u9884\u79d1|u\u8bfe|university prep|uprep)\b/i.test(query)) return 'university'
+  if (/\b(?:\u5927\u5b66\/\u5b66\u9662|u\/c|\u5927\u5b66\u5b66\u9662|\u6df7\u5408|university and college)\b/i.test(query)) return 'university_college'
+  if (/\b(?:\u5b66\u9662\u9884\u5907|college prep|college preparation)\b/i.test(query)) return 'college'
+  if (/\b(?:\u5de5\u4f5c\u573a\u6240|\u804c\u573a|workplace)\b/i.test(query)) return 'workplace'
+  if (/\b(?:\u5f00\u653e|open)\b/i.test(query)) return 'open'
   if (/\b(大学预备|大学预科|u课|u课|university prep|uprep)\b/i.test(query)) return 'university'
   if (/\b(大学\/学院|u\/c|大学学院|混合|university and college)\b/i.test(query)) return 'university_college'
   if (/\b(学院预备|college prep|college preparation)\b/i.test(query)) return 'college'
@@ -457,6 +488,16 @@ function familyMatches(family: CourseFamily, query: string): boolean {
   return family.keywords.some(pattern => pattern.test(query))
 }
 
+function detectChineseFamily(query: string): CourseFamily | null {
+  const normalized = normalizeQuery(query)
+  for (const hint of CHINESE_FAMILY_HINTS) {
+    if (hint.pattern.test(normalized)) {
+      return COURSE_FAMILIES.find(family => family.name === hint.family) ?? null
+    }
+  }
+  return null
+}
+
 function filterByGradeAndStream(
   candidates: OssdCourseCandidate[],
   grade: 9 | 10 | 11 | 12 | null,
@@ -520,6 +561,10 @@ function mapAnyOssdCourse(query: string): OssdCourseMapping | null {
 
   const grade = detectGrade(normalized)
   const stream = detectStream(normalized)
+  const chineseFamily = detectChineseFamily(normalized)
+  if (chineseFamily) {
+    return mapFamily(chineseFamily, query, grade, stream)
+  }
 
   if (/\b(course code|course codes|代码|课号|课程代码|课程号)\b/i.test(normalized)) {
     const codeHints = normalized.match(/\b[a-z]{3}[0-9][a-z]\b/gi) || []

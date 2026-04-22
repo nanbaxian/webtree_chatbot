@@ -238,7 +238,7 @@ export default function KnowledgeChatDemo({ botId }: { botId: string }) {
             </div>
           </header>
 
-          <header className="hidden shrink-0 items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:flex lg:px-6">
+          <header className="hidden shrink-0 items-center justify-between gap-3 border-b border-white/10 px-5 py-4 lg:sticky lg:top-0 lg:z-30 lg:flex lg:h-16 lg:px-6 lg:py-0 lg:bg-[#0f1319]/95 lg:backdrop-blur lg:shadow-[0_1px_0_rgba(255,255,255,0.06)]">
             <div className="min-w-0">
               <h1 className="truncate text-xl font-semibold text-white lg:text-2xl">Webtree Academy AI</h1>
             </div>

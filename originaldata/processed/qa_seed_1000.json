@@ -751,6 +751,514 @@
       }
     },
     {
+      "id": "qa-0136a2e5749fbb43",
+      "question": "What should students expect day to day?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence"
+      ],
+      "priority": 800,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "original"
+      }
+    },
+    {
+      "id": "qa-07f4ff0f870b2158",
+      "question": "How do I make sense of boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "role"
+      }
+    },
+    {
+      "id": "qa-ee50a2bb0693b835",
+      "question": "I am trying to learn about boarding available for students.",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "role"
+      }
+    },
+    {
+      "id": "qa-d61167fb52fc4f9d",
+      "question": "I am wondering about boarding available for students.",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-19c170ce0d4e18a4",
+      "question": "Could you tell me more about boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-9e8b4471b1e84f9f",
+      "question": "As a parent, could you tell me about boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-6ee25504f8fa2134",
+      "question": "As a student, could you tell me about boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-7641381612c3e215",
+      "question": "How does boarding available for students work in practice?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-35b7a604d0ef20ed",
+      "question": "Is there anything important I should know about boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-b3a9daafee9aa8d2",
+      "question": "Could you tell me about boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-d1ee1822b040538c",
+      "question": "I would like to know more about boarding available for students.",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-85362a63c1aebfac",
+      "question": "Can you explain boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-08fe28267eaebcaf",
+      "question": "Please give me the details on boarding available for students.",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-a6ce46f8d16910d0",
+      "question": "How does boarding available for students work?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-6acd9fdc42816622",
+      "question": "What should I know about boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": [
+        "life",
+        "boarding",
+        "residence",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "Is boarding available for students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-bc1f5a053fcf6dbb",
+      "question": "How should a family prepare for school life?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay"
+      ],
+      "priority": 800,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "original"
+      }
+    },
+    {
+      "id": "qa-6eec8f350e94b337",
+      "question": "Could you tell me more about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "role"
+      }
+    },
+    {
+      "id": "qa-7986e8dadd555af8",
+      "question": "How do I make sense of what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "role"
+      }
+    },
+    {
+      "id": "qa-6323358901417046",
+      "question": "I am trying to learn about what housing options are available for international students.",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-2454a299c3bf1a22",
+      "question": "I am wondering about what housing options are available for international students.",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-08b53bf790d705e6",
+      "question": "As a parent, could you tell me about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-0646145309dde641",
+      "question": "As a student, could you tell me about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-bda3f0965f294f86",
+      "question": "I would like to know more about what housing options are available for international students.",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-3a0596ac77881c48",
+      "question": "Can you explain what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-b7fb3cd13b7df66b",
+      "question": "Please give me the details on what housing options are available for international students.",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-8e1cec834a49344e",
+      "question": "How does what housing options are available for international students work?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-8f716bf11f38f1d6",
+      "question": "What should I know about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-4c9cf56f02d8e2f1",
+      "question": "What do parents usually ask about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-c6c74555c35d3b08",
+      "question": "What do students usually want to know about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-615dbf0f337f16b1",
+      "question": "How should an international student think about what housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": [
+        "life",
+        "housing",
+        "homestay",
+        "variant"
+      ],
+      "priority": 798,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "What housing options are available for international students?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
       "id": "qa-19b81ba357c896ca",
       "question": "How should I think about what scholarships are available for Queen's Commerce?",
       "answer": "Queen's says applicants to Arts and Science, Commerce, Health Science, and Engineering and Applied Science are automatically considered for International Admission Awards. The International Admission Award values shown are $100,000, $80,000, $60,000, and $40,000 over four years, and Queen's also offers an International Admission Scholarship with a total value of $9,000 for all programs of study.",
@@ -4209,6 +4717,226 @@
       "metadata": {
         "source_file": "qa_seed_delta.json",
         "variant_of": "What scholarships does Windsor offer?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-120170d009639dbb",
+      "question": "What is the school's address?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute"
+      ],
+      "priority": 550,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "original"
+      }
+    },
+    {
+      "id": "qa-baf02e25b2b44b27",
+      "question": "I am wondering about how do students get around campus and the city.",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "role"
+      }
+    },
+    {
+      "id": "qa-ccfea6d9f90e3ac9",
+      "question": "Could you tell me more about how do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "role"
+      }
+    },
+    {
+      "id": "qa-db523abf2dbade52",
+      "question": "How do I make sense of how do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-18b6d2c97a9e00bd",
+      "question": "I am trying to learn about how do students get around campus and the city.",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-ff0a32b8da70ca06",
+      "question": "How does how do students get around campus and the city work in practice?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-77dc57effa8ad5d9",
+      "question": "Is there anything important I should know about how do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-e35d4cfb6711ccb7",
+      "question": "Could you tell me about how do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-6c217090bf77e323",
+      "question": "I would like to know more about how do students get around campus and the city.",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-724f1bb7e54d7ee5",
+      "question": "Can you explain how do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-2846e2aa1bcce912",
+      "question": "Please give me the details on how do students get around campus and the city.",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-0dc7d9aae903e3c7",
+      "question": "How does how do students get around campus and the city work?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
+        "variant_type": "paraphrase"
+      }
+    },
+    {
+      "id": "qa-f8a6a3ea1c49ec5b",
+      "question": "What should I know about how do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": [
+        "life",
+        "transport",
+        "commute",
+        "variant"
+      ],
+      "priority": 548,
+      "metadata": {
+        "source_file": "qa_seed_delta.json",
+        "variant_of": "How do students get around campus and the city?",
         "variant_type": "paraphrase"
       }
     },
@@ -16264,737 +16992,6 @@
       "metadata": {
         "source_file": "qa_seed_delta.json",
         "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-61cb65abb98c606d",
-      "question": "I am wondering about the admission requirements for Laurentian Computer Science.",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-f922222880ba06d8",
-      "question": "As a parent, could you tell me about the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-c31c4413490ae8ee",
-      "question": "As a student, could you tell me about the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-4bf9f3dad881dca5",
-      "question": "I would like to know more about the admission requirements for Laurentian Computer Science.",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-0d79e9c84abb6a2f",
-      "question": "Can you explain the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-ce889b886d108646",
-      "question": "Please give me the details on the admission requirements for Laurentian Computer Science.",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-5b4b5dc6f942c8d8",
-      "question": "How does the admission requirements for Laurentian Computer Science work?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-7211d939e0305f98",
-      "question": "What should I know about the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-ab28f71968da5005",
-      "question": "What do parents usually ask about the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-9e2ddcddea167db6",
-      "question": "What do students usually want to know about the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-1d8ddbdf7638d773",
-      "question": "How should an international student think about the admission requirements for Laurentian Computer Science?",
-      "answer": "Laurentian Computer Science requires ENG4U, Advanced Functions, one other Grade 12 math, and three other Grade 12 U/M courses. The minimum overall average is 70%.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "computer_science",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Computer Science?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-5009e0cd78c3c4cb",
-      "question": "How do I make sense of the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "role"
-      }
-    },
-    {
-      "id": "qa-4903e80e3a3cb064",
-      "question": "I am trying to learn about the admission requirements for Laurentian Nursing.",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "role"
-      }
-    },
-    {
-      "id": "qa-30d0cd8c12f4e479",
-      "question": "I am wondering about the admission requirements for Laurentian Nursing.",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-0f6082da6ed00c70",
-      "question": "Could you tell me more about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-8b6ee83d3f3d19b9",
-      "question": "As a parent, could you tell me about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-87636bf995d48b24",
-      "question": "As a student, could you tell me about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-192ef9149c070e57",
-      "question": "Could you tell me about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-e6768517e2fb3047",
-      "question": "I would like to know more about the admission requirements for Laurentian Nursing.",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-7e7fd4d24959e3c5",
-      "question": "Can you explain the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-55723b81613e8282",
-      "question": "Please give me the details on the admission requirements for Laurentian Nursing.",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-130b08e5a9e9e899",
-      "question": "How does the admission requirements for Laurentian Nursing work?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-3dd4f5079a6007ef",
-      "question": "What should I know about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-20b18c42f9d48b44",
-      "question": "What do parents usually ask about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-6e7887de85600fb0",
-      "question": "What do students usually want to know about the admission requirements for Laurentian Nursing?",
-      "answer": "Laurentian Nursing requires ENG4U, Grade 12 math, Biology, Chemistry, and two other Grade 12 U/M courses. The minimum overall average is 75%, and applicants must meet the College of Nurses of Ontario requisite skills and abilities.",
-      "tags": [
-        "university_programs",
-        "laurentian",
-        "nursing",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurentian Nursing?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-29edd47bbb94c002",
-      "question": "I am trying to learn about the admission requirements for Laurier BBA and Computer Science double degree.",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "role"
-      }
-    },
-    {
-      "id": "qa-34a428497a8a065d",
-      "question": "I am wondering about the admission requirements for Laurier BBA and Computer Science double degree.",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "role"
-      }
-    },
-    {
-      "id": "qa-f6d1d59cee01dba7",
-      "question": "Could you tell me more about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-166e087085bd2de5",
-      "question": "How do I make sense of the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-2fda25011a496d27",
-      "question": "As a parent, could you tell me about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-e6be3caa81bd0d8e",
-      "question": "As a student, could you tell me about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-3e1997558b6c26c9",
-      "question": "Is there anything important I should know about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-5840225a48bd1b0e",
-      "question": "Could you tell me about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-ac6badfe8d35ec89",
-      "question": "I would like to know more about the admission requirements for Laurier BBA and Computer Science double degree.",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-9cbbcea905e09597",
-      "question": "Can you explain the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-528a54807877d73a",
-      "question": "Please give me the details on the admission requirements for Laurier BBA and Computer Science double degree.",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-a7fe13ef82b90c0e",
-      "question": "How does the admission requirements for Laurier BBA and Computer Science double degree work?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-1cc9dec37df9f494",
-      "question": "What should I know about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-568021cba7ee6cdf",
-      "question": "What do parents usually ask about the admission requirements for Laurier BBA and Computer Science double degree?",
-      "answer": "Laurier's BBA and Computer Science double degree is a five-year co-op program. Ontario high school applicants need English at 70%, Advanced Functions at 75%, and Calculus and Vectors at 75%, and Laurier lists the average admission range as high 80s.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "double_degree",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA and Computer Science double degree?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-675dd491122662cc",
-      "question": "How do I make sense of the admission requirements for Laurier BBA?",
-      "answer": "Laurier BBA has an average admission range in the high 80s. Ontario prerequisites shown on the page are Advanced Functions at 70%, English at 70%, and one of Calculus and Vectors or Data Management at 60%, and Laurier says all prerequisite courses are counted in the admissions average.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "business",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA?",
-        "variant_type": "role"
-      }
-    },
-    {
-      "id": "qa-3b3ba46419dc1c92",
-      "question": "I am trying to learn about the admission requirements for Laurier BBA.",
-      "answer": "Laurier BBA has an average admission range in the high 80s. Ontario prerequisites shown on the page are Advanced Functions at 70%, English at 70%, and one of Calculus and Vectors or Data Management at 60%, and Laurier says all prerequisite courses are counted in the admissions average.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "business",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA?",
-        "variant_type": "role"
-      }
-    },
-    {
-      "id": "qa-b0ca7d7141ca618c",
-      "question": "I am wondering about the admission requirements for Laurier BBA.",
-      "answer": "Laurier BBA has an average admission range in the high 80s. Ontario prerequisites shown on the page are Advanced Functions at 70%, English at 70%, and one of Calculus and Vectors or Data Management at 60%, and Laurier says all prerequisite courses are counted in the admissions average.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "business",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA?",
-        "variant_type": "paraphrase"
-      }
-    },
-    {
-      "id": "qa-51ab04f7f87bfa68",
-      "question": "Could you tell me more about the admission requirements for Laurier BBA?",
-      "answer": "Laurier BBA has an average admission range in the high 80s. Ontario prerequisites shown on the page are Advanced Functions at 70%, English at 70%, and one of Calculus and Vectors or Data Management at 60%, and Laurier says all prerequisite courses are counted in the admissions average.",
-      "tags": [
-        "university_programs",
-        "laurier",
-        "business",
-        "variant"
-      ],
-      "priority": 343,
-      "metadata": {
-        "source_file": "qa_seed_delta.json",
-        "variant_of": "What are the admission requirements for Laurier BBA?",
         "variant_type": "paraphrase"
       }
     }

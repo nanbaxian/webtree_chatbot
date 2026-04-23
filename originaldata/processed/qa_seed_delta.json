@@ -1970,6 +1970,48 @@
       "answer": "编程路线通常先从基础编程和算法练习开始，然后再进入 CCC。CCC 是加拿大最常见的编程竞赛之一，适合已经会写基础程序、想进一步训练算法能力的学生。",
       "tags": ["competitions_exams", "computer_science", "roadmap"],
       "priority": 48
+    },
+    {
+      "question": "What housing options are available for international students?",
+      "answer": "We offer various housing options including homestays with local families, on-campus dormitories, and off-campus apartments. Homestays provide a cultural immersion experience and support for daily life.",
+      "tags": ["life", "housing", "homestay"],
+      "priority": 50
+    },
+    {
+      "question": "Are meal plans available at the school?",
+      "answer": "Yes, we provide several meal plan options ranging from full board to flexible plans. Our cafeteria offers a variety of international cuisines to accommodate different dietary needs.",
+      "tags": ["life", "meals", "food"],
+      "priority": 50
+    },
+    {
+      "question": "How do students get around campus and the city?",
+      "answer": "We have shuttle buses, bike rentals, and public transportation passes available. The campus is also walkable, and we provide maps and guidance for commuting.",
+      "tags": ["life", "transport", "commute"],
+      "priority": 50
+    },
+    {
+      "question": "What support services are offered for student life?",
+      "answer": "We offer counseling services, health and wellness programs, academic support centers, and a variety of extracurricular activities to ensure a well-rounded and supportive student experience.",
+      "tags": ["life", "support", "student life"],
+      "priority": 50
+    },
+    {
+      "question": "Is boarding available for students?",
+      "answer": "Yes, we have boarding facilities for students who prefer to live on campus. These include shared dormitories and supervised living arrangements.",
+      "tags": ["life", "boarding", "residence"],
+      "priority": 50
+    },
+    {
+      "question": "What transportation options are there for commuting students?",
+      "answer": "For commuting students, we offer bus passes, carpooling information, and partnerships with local transportation services. Some areas also have bike paths and walking routes.",
+      "tags": ["life", "commute", "transport"],
+      "priority": 50
+    },
+    {
+      "question": "How does the school support student living arrangements?",
+      "answer": "We assist with finding suitable living arrangements through our housing office, including homestay placements, apartment recommendations, and guidance on local neighborhoods.",
+      "tags": ["life", "living", "housing"],
+      "priority": 50
     }
   ]
 }

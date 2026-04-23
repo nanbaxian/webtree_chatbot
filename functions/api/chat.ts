@@ -326,6 +326,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const startedAt = Date.now()
   apiLog.start()
 
+  try {
   let body: {
     tenant_id?: string
     bot_id?: string
@@ -591,6 +592,10 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
       'X-KnowledgeOS-RAG-Latency-Ms': String(ragLatencyMs),
     },
   })
+  } catch (error) {
+    apiLog.fail(error, { stage: 'unhandled' })
+    return errJson('服务器内部错误，请稍后再试。', 500)
+  }
 }
 
 function errJson(msg: string, status: number): Response {

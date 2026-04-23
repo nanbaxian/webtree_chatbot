@@ -215,7 +215,6 @@ function buildSystemPrompt(
   bot: D1Bot,
   tenantId: string,
   botId: string,
-  tenantName: string,
   language: ReplyLanguage,
   ragPromptBlock: string,
   latestUserText: string,
@@ -226,6 +225,7 @@ function buildSystemPrompt(
   const botSettings = parseSettings<Record<string, unknown>>(bot.settings_json, {})
   const maxTurns = typeof botSettings.max_history_turns === 'number' ? botSettings.max_history_turns : 10
   const isWebtreeDemo = tenantId === 'tenant_demo' || botId === 'bot_demo'
+  const tenantName = isWebtreeDemo ? 'Webtree Academy' : tenantId
 
   return [
     `You are ${bot.name} for tenant "${tenantName}".`,
@@ -593,8 +593,10 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     },
   })
   } catch (error) {
-    apiLog.fail(error, { stage: 'unhandled' })
-    return errJson('服务器内部错误，请稍后再试。', 500)
+    const stack = error instanceof Error ? error.stack : String(error)
+    console.error(`[knowledgeos:chat ${reqId}] unhandled_error`, stack)
+    apiLog.fail(error, { stage: 'unhandled', stack })
+    return errJson('Server error, please try again.', 500)
   }
 }
 

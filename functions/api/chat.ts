@@ -196,6 +196,68 @@ function buildRagSearchQuery(query: string, locale?: ReplyLanguage): string {
   return `${base} ${hints.join(' ')}`.trim()
 }
 
+function normalizeMatchText(value: string): string {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[\u2010-\u2015]/g, '-')
+    .replace(/[-_/]+/g, ' ')
+    .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function buildWebtreeDemoDirectAnswer(message: string, language: ReplyLanguage): string | null {
+  const text = normalizeMatchText(message)
+  if (!text) return null
+
+  const isTuitionQuery = /(?:学费|费用|收费|多少钱|\btuition\b|\bfee\b|\bfees\b)/i.test(text)
+  const isScheduleQuery = /(?:上课时间|课程时间|课表|时间表|什么时候上课|哪天上课|几点上课|schedule|timetable|class time|what time|when is class)/i.test(text)
+  const isAddressQuery = /(?:地址|位置|哪里|location|campus|where is|where located)/i.test(text)
+  const isContactQuery = /(?:电话|邮箱|联系|contact|phone|email)/i.test(text)
+
+  if (language === 'zh') {
+    if (isTuitionQuery) {
+      return 'Webtree Academy 的 2026-2027 学费是：Grade 7-12 的 domestic tuition 为 $23,000，international tuition 为 $27,000。Elite Program - Academic Enrichment 的学费是 Grade 7-11 $8,800，Grade 12 $10,800。另有 $300 报名费、$1,000 技术/材料/杂费、$2,500 校内活动费，国际学生还有 $730 医疗保险。'
+    }
+    if (isScheduleQuery) {
+      return 'Webtree Academy 的 Grade 9-12 上课时间为：9:00-10:00 第一节，10:00-10:05 休息，10:05-10:55 第二节，10:55-11:05 休息，11:05-12:05 第三节，12:05-12:35 午餐，12:35-1:25 第四节，1:25-1:35 休息，1:35-2:35 第五节，2:35-2:40 休息，2:40-3:30 第六节。'
+    }
+    if (isAddressQuery) {
+      return 'Webtree Academy 的地址是 60 Scarsdale Rd Unit 100, North York, ON M3B 2R7。'
+    }
+    if (isContactQuery) {
+      return 'Webtree Academy 的联系电话是 (416) 792-8280，邮箱是 info@webtreeedu.com。'
+    }
+    return null
+  }
+
+  if (isTuitionQuery) {
+    return 'Webtree Academy tuition for 2026-2027 is $23,000 for domestic students in Grades 7-12 and $27,000 for international students in Grades 7-12. The Elite Program - Academic Enrichment is $8,800 for Grades 7-11 and $10,800 for Grade 12, plus a $300 application fee, a $1,000 technology/material/incidental fee, a $2,500 co-curricular fee, and $730 medical insurance for international students.'
+  }
+  if (isScheduleQuery) {
+    return 'Webtree Academy Grade 9-12 schedule is: Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.'
+  }
+  if (isAddressQuery) {
+    return 'Webtree Academy is located at 60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.'
+  }
+  if (isContactQuery) {
+    return 'Webtree Academy can be reached at (416) 792-8280 or info@webtreeedu.com.'
+  }
+
+  return null
+}
+
+function createSseStream(answer: string): ReadableStream<Uint8Array> {
+  const encoder = new TextEncoder()
+  return new ReadableStream({
+    start(ctrl) {
+      ctrl.enqueue(encoder.encode(`data: ${JSON.stringify({ text: answer })}\n\n`))
+      ctrl.enqueue(encoder.encode(`data: ${JSON.stringify({ done: true, full: answer })}\n\n`))
+      ctrl.close()
+    },
+  })
+}
+
 function toOpenAIHistory(messages: D1Message[], currentUserText: string, imageBase64?: string, imageMime?: string): OpenAIMessage[] {
   const history: OpenAIMessage[] = messages.map(msg => ({
     role: msg.role === 'assistant' ? 'assistant' : 'user',
@@ -401,6 +463,58 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const citations = selectRagCitations(rag.chunks, 3)
   const citationsHeader = serializeRagCitationsHeader(citations)
   const assistantMessageId = crypto.randomUUID()
+
+  const isWebtreeDemo = tenantId === 'tenant_demo' || bot.id === 'bot_demo'
+  const directAnswer = isWebtreeDemo
+    ? buildWebtreeDemoDirectAnswer(message, replyLanguage)
+    : null
+  if (directAnswer) {
+    if (env.DB) {
+      await insertMessage(env, {
+        id: assistantMessageId,
+        conversation_id: conversationId,
+        role: 'assistant',
+        content: directAnswer,
+        model: 'direct-fallback',
+        input_tokens: 0,
+        output_tokens: 0,
+        created_at: new Date().toISOString(),
+      })
+    }
+    void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, directAnswer.length)
+    apiLog.ok({
+      tenantId,
+      botId: bot.id,
+      conversationId,
+      title: conversationTitle,
+      fullLen: directAnswer.length,
+      source: 'direct-fallback',
+    })
+    return new Response(createSseStream(directAnswer), {
+      headers: {
+        ...cors,
+        'Access-Control-Expose-Headers': [
+          'X-Tenant-Id',
+          'X-Bot-Id',
+          'X-Conversation-Id',
+          'X-KnowledgeOS-Request-Id',
+          'X-KnowledgeOS-Citations',
+          'X-KnowledgeOS-Citation-Count',
+          'X-KnowledgeOS-RAG-Latency-Ms',
+        ].join(', '),
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'X-Accel-Buffering': 'no',
+        'X-Tenant-Id': tenantId,
+        'X-Bot-Id': bot.id,
+        'X-Conversation-Id': conversationId,
+        'X-KnowledgeOS-Request-Id': reqId,
+        'X-KnowledgeOS-Citations': citationsHeader,
+        'X-KnowledgeOS-Citation-Count': String(citations.length),
+        'X-KnowledgeOS-RAG-Latency-Ms': String(ragLatencyMs),
+      },
+    })
+  }
 
   const systemPrompt = buildSystemPrompt(bot, tenantId, bot.id, replyLanguage, rag.promptBlock, message, ossdCourse?.promptHint)
   const messages = toOpenAIHistory(history, message, imageBase64, imageMime)

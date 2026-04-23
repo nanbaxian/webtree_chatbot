@@ -49,6 +49,10 @@ This folder contains normalized, RAG-friendly derivatives of the raw source file
 - `qa_seed_delta6.json`
   - Additional academic schedule and club QA
   - Best for period timing, summer, planning, and club questions
+- `qa_seed_1000.json`
+  - Expanded bilingual question bank generated from the curated QA set and paraphrase variants
+  - Best for broad retrieval coverage and phrase diversity
+  - Ingest with `rag-service/scripts/ingest-qa-seed.cjs --input originaldata/processed/qa_seed_1000.json`
 - `university/ontario_university_programs_seed.md`
   - Ontario university program admission seed set
   - Best for popular program prerequisites, averages, and supplementary applications

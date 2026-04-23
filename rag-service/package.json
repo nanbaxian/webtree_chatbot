@@ -10,6 +10,8 @@
     "ingest:originaldata:dry": "node scripts/ingest-originaldata.cjs --dry-run",
     "ingest:qa-seed": "node scripts/ingest-qa-seed.cjs",
     "ingest:qa-seed:dry": "node scripts/ingest-qa-seed.cjs --dry-run",
+    "ingest:qa-bank": "node scripts/ingest-qa-seed.cjs --input originaldata/processed/qa_seed_1000.json",
+    "ingest:qa-bank:dry": "node scripts/ingest-qa-seed.cjs --input originaldata/processed/qa_seed_1000.json --dry-run",
     "ingest:qa-delta": "node scripts/ingest-qa-delta.cjs",
     "ingest:qa-delta:dry": "node scripts/ingest-qa-delta.cjs --dry-run",
     "ingest:qa-delta2": "node scripts/ingest-qa-delta2.cjs",
@@ -33,7 +35,8 @@
     "ingest:qa-delta11": "node scripts/ingest-qa-delta11.cjs",
     "ingest:qa-delta11:dry": "node scripts/ingest-qa-delta11.cjs --dry-run",
     "ingest:qa-delta12": "node scripts/ingest-qa-delta12.cjs",
-    "ingest:qa-delta12:dry": "node scripts/ingest-qa-delta12.cjs --dry-run"
+    "ingest:qa-delta12:dry": "node scripts/ingest-qa-delta12.cjs --dry-run",
+    "generate:qa-bank": "node scripts/generate-qa-bank.cjs"
   },
   "dependencies": {
     "pg": "^8.15.6"

@@ -11,7 +11,6 @@ import {
   type RagChunk,
 } from '../../lib/rag-protocol'
 import { expandOssdCourseQuery } from '../../lib/ossd-course-mapper'
-import { buildCrossLingualRagQuery } from '../../lib/cross-lingual-query'
 import { detectReplyLanguageFromText, getLanguageReplyRule } from '../../lib/reply-language'
 import { type OpenAIMessage } from '../../lib/openai-client'
 import { type ReplyLanguage } from '../../types/index'
@@ -196,13 +195,18 @@ async function loadRagContext(
 }
 
 function buildRagSearchQuery(query: string, locale?: ReplyLanguage): string {
-  return buildCrossLingualRagQuery(query, locale)
+  const base = String(query || '').trim()
+  if (!base) return base
+  if (!CJK_RE.test(base)) return base
+
+  const hints = collectChineseQueryHints(base)
+  if (hints.length > 0) return hints.join(' ')
+  return base
 }
 
 async function rewriteRagQueryWithOpenAI(env: Env, query: string, reqId: string, locale?: ReplyLanguage): Promise<string | null> {
   const base = String(query || '').trim()
   if (!base) return null
-  if (locale !== 'zh' && !CJK_RE.test(base)) return null
   if (!env.CHAT_BACKEND_URL) return null
 
   try {
@@ -232,6 +236,44 @@ async function rewriteRagQueryWithOpenAI(env: Env, query: string, reqId: string,
     return rewritten || null
   } catch (error) {
     console.error('[knowledgeos:rag] rewrite failed', error)
+    return null
+  }
+}
+
+async function translateTextWithOpenAI(env: Env, text: string, targetLanguage: ReplyLanguage, reqId: string): Promise<string | null> {
+  const base = String(text || '').trim()
+  if (!base) return null
+  if (targetLanguage === 'en') return base
+  if (!env.CHAT_BACKEND_URL) return null
+
+  try {
+    const abortController = new AbortController()
+    const timeoutMs = Number.parseInt(env.CHAT_BACKEND_TIMEOUT_MS || '', 10)
+    const timeout = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 15000
+    const timer = setTimeout(() => abortController.abort('translate request timed out'), timeout)
+    const res = await fetch(`${env.CHAT_BACKEND_URL.replace(/\/+$/, '')}/translate-text`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-KnowledgeOS-Request-Id': reqId,
+      },
+      body: JSON.stringify({
+        text: base,
+        targetLanguage,
+        reqId,
+        model: env.OPENAI_MODEL || 'gpt-4.1',
+      }),
+      signal: abortController.signal,
+    }).finally(() => {
+      clearTimeout(timer)
+    })
+
+    if (!res.ok) return null
+    const data = (await res.json()) as { text?: string }
+    const translated = String(data.text || '').trim()
+    return translated || null
+  } catch (error) {
+    console.error('[knowledgeos:rag] translate failed', error)
     return null
   }
 }
@@ -352,7 +394,7 @@ function buildSystemPrompt(
     `Tone: ${bot.tone}`,
     `Welcome: ${bot.welcome_msg}`,
     isWebtreeDemo
-      ? 'School context: This demo is about Webtree Academy. The aliases "????", "??", "????", "????", and "??" all refer to Webtree Academy. If the user asks about tuition, fees, schedule, address, admissions, legitimacy, registration, alumni outcomes, or contact details without naming another school, assume they mean Webtree Academy.'
+      ? 'School context: This demo is about Webtree Academy. The aliases "万博学校", "万博", "万博高中", "我们学校", and "我校" all refer to Webtree Academy. If the user asks about tuition, fees, schedule, address, admissions, legitimacy, registration, alumni outcomes, or contact details without naming another school, assume they mean Webtree Academy.'
       : '',
     `Fallback if knowledge is missing:\n- If the answer cannot be verified from the current sources, say so plainly.\n- Tell the user to email the school's contact email at info@webtreeedu.com.\n- Do not invent or guess any other email address.`,
     `Language rules:\n${langRule}`,
@@ -516,7 +558,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const ragQuery = buildRagSearchQuery(rewrittenQuery || querySeed, replyLanguage)
 
   const ragStartedAt = Date.now()
-  const rag = await loadRagContext(env, tenantId, bot.id, ragQuery, 8, reqId, conversationKey, replyLanguage)
+  const rag = await loadRagContext(env, tenantId, bot.id, ragQuery, 8, reqId, conversationKey, 'en')
   const ragLatencyMs = Date.now() - ragStartedAt
   await saveRetrievalLog(env, tenantId, bot.id, message, rag.chunks, ragLatencyMs)
   const citations = selectRagCitations(rag.chunks, 3)
@@ -529,29 +571,32 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     ? buildWebtreeDemoDirectAnswer(message, replyLanguage)
     : null
   if (directAnswer) {
+    const finalDirectAnswer = replyLanguage === 'en'
+      ? directAnswer
+      : (await translateTextWithOpenAI(env, directAnswer, replyLanguage, reqId)) || directAnswer
     const directCitationsHeader = serializeRagCitationsHeader([])
     if (env.DB) {
       await insertMessage(env, {
         id: assistantMessageId,
         conversation_id: conversationId,
         role: 'assistant',
-        content: directAnswer,
+        content: finalDirectAnswer,
         model: 'direct-fallback',
         input_tokens: 0,
         output_tokens: 0,
         created_at: new Date().toISOString(),
       })
     }
-    void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, directAnswer.length)
+    void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, finalDirectAnswer.length)
     apiLog.ok({
       tenantId,
       botId: bot.id,
       conversationId,
       title: conversationTitle,
-      fullLen: directAnswer.length,
+      fullLen: finalDirectAnswer.length,
       source: 'direct-fallback',
     })
-    return new Response(createSseStream(directAnswer), {
+    return new Response(createSseStream(finalDirectAnswer), {
       headers: {
         ...cors,
         'Access-Control-Expose-Headers': [
@@ -577,7 +622,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     })
   }
 
-  const systemPrompt = buildSystemPrompt(bot, tenantId, bot.id, replyLanguage, rag.promptBlock, message, ossdCourse?.promptHint)
+  const systemPrompt = buildSystemPrompt(bot, tenantId, bot.id, 'en', rag.promptBlock, message, ossdCourse?.promptHint)
   const messages = toOpenAIHistory(history, message, imageBase64, imageMime)
 
   if (env.DB) {
@@ -585,7 +630,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
       id: crypto.randomUUID(),
       conversation_id: conversationId,
       role: 'user',
-      content: message || '（发送了图片）',
+      content: message || '???????',
       model: null,
       input_tokens: 0,
       output_tokens: 0,
@@ -594,9 +639,8 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   }
 
   const maxOutputTokens = voiceMode ? 64 : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10)
-  const coalesceChars = voiceMode ? 4 : Number.parseInt(env.OPENAI_COALESCE_CHARS || '', 10)
   const openaiModel = env.OPENAI_MODEL || 'gpt-4.1'
-  const provider = 'worker-backend'
+  const provider = 'worker-backend-complete'
 
   apiLog.info('generation:start', {
     tenantId,
@@ -608,17 +652,17 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     prepMs: Date.now() - startedAt,
   })
 
-  let upstream: ReadableStream<Uint8Array>
+  let englishAnswer = ''
   try {
     if (!env.CHAT_BACKEND_URL) {
       apiLog.fail('missing CHAT_BACKEND_URL', { stage: 'model', provider })
-      return errJson('缺少 CHAT_BACKEND_URL', 500)
+      return errJson('?? CHAT_BACKEND_URL', 500)
     }
     const backendAbort = new AbortController()
     const timeoutMs = Number.parseInt(env.CHAT_BACKEND_TIMEOUT_MS || '', 10)
     const timeout = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 60000
     const timer = setTimeout(() => backendAbort.abort('chat backend timed out'), timeout)
-    const backendRes = await fetch(`${env.CHAT_BACKEND_URL.replace(/\/+$/, '')}/chat`, {
+    const backendRes = await fetch(env.CHAT_BACKEND_URL.replace(/\/+$/, '') + '/chat-complete', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -629,7 +673,6 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
         messages,
         model: openaiModel,
         maxOutputTokens: Number.isFinite(maxOutputTokens) ? maxOutputTokens : undefined,
-        coalesceChars: Number.isFinite(coalesceChars) ? coalesceChars : undefined,
         reqId,
       }),
       signal: backendAbort.signal,
@@ -638,112 +681,54 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     })
     if (!backendRes.ok) {
       const errText = await backendRes.text()
-      apiLog.fail(`backend status=${backendRes.status} body=${errText.slice(0, 300)}`, {
+      apiLog.fail('backend status=' + backendRes.status + ' body=' + errText.slice(0, 300), {
         stage: 'model',
         provider,
       })
-      return errJson(`模型后端错误: ${errText.slice(0, 180) || backendRes.status}`, 500)
+      return errJson('??????: ' + (errText.slice(0, 180) || backendRes.status), 500)
     }
-    if (!backendRes.body) {
-      apiLog.fail('backend body empty', { stage: 'model', provider })
-      return errJson('模型调用失败', 500)
+    const backendJson = (await backendRes.json()) as { text?: string }
+    englishAnswer = String(backendJson.text || '').trim()
+    if (!englishAnswer) {
+      apiLog.fail('backend text empty', { stage: 'model', provider })
+      return errJson('??????', 500)
     }
-    upstream = backendRes.body
   } catch (error) {
-    apiLog.fail(error, { stage: 'model', provider })
-    return errJson('模型调用失败', 500)
+    apiLog.fail(error, { stage: "model", provider })
+    return errJson('??????', 500)
   }
 
-  let fullText = ''
-  let savedAi = false
-  let chatBuffer = ''
+  const finalAnswer = replyLanguage === "en"
+    ? englishAnswer
+    : (await translateTextWithOpenAI(env, englishAnswer, replyLanguage, reqId)) || englishAnswer
 
-  const transform = new TransformStream<Uint8Array, Uint8Array>({
-    transform(chunk, ctrl) {
-      ctrl.enqueue(chunk)
-      try {
-        chatBuffer += new TextDecoder().decode(chunk)
-        const lines = chatBuffer.split('\n')
-        chatBuffer = lines.pop() ?? ''
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue
-          try {
-            const d = JSON.parse(line.slice(6)) as { text?: string; error?: string; done?: boolean }
-            if (d.text) fullText += d.text
-            if (d.error) console.error(`[knowledgeos:chat ${reqId}] stream_error=${String(d.error).slice(0, 300)}`)
-            if (d.done && !savedAi) {
-              savedAi = true
-              if (env.DB) {
-                void insertMessage(env, {
-                  id: assistantMessageId,
-                  conversation_id: conversationId,
-                  role: 'assistant',
-                  content: fullText || '...',
-                  model: openaiModel,
-                  input_tokens: 0,
-                  output_tokens: 0,
-                  created_at: new Date().toISOString(),
-                })
-                if (citations.length > 0) {
-                  void insertMessageCitations(env, assistantMessageId, citations)
-                }
-              }
-              void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, fullText.length)
-              apiLog.ok({
-                tenantId,
-                botId: bot.id,
-                conversationId,
-                title: conversationTitle,
-                fullLen: fullText.length,
-              })
-            }
-          } catch {
-            // ignore malformed SSE chunk lines
-          }
-        }
-      } catch {
-        // ignore decode errors
-      }
-    },
-    flush() {
-      if (chatBuffer.startsWith('data: ') && !savedAi) {
-        try {
-          const d = JSON.parse(chatBuffer.slice(6)) as { done?: boolean }
-          if (d.done) {
-            savedAi = true
-            if (env.DB) {
-                void insertMessage(env, {
-                  id: assistantMessageId,
-                  conversation_id: conversationId,
-                  role: 'assistant',
-                  content: fullText || '...',
-                  model: openaiModel,
-                  input_tokens: 0,
-                  output_tokens: 0,
-                  created_at: new Date().toISOString(),
-                })
-              if (citations.length > 0) {
-                void insertMessageCitations(env, assistantMessageId, citations)
-              }
-            }
-            void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, fullText.length)
-            apiLog.ok({
-              tenantId,
-              botId: bot.id,
-              conversationId,
-              title: conversationTitle,
-              fullLen: fullText.length,
-              source: 'flush',
-            })
-          }
-        } catch {
-          // ignore
-        }
-      }
-    },
+  if (env.DB) {
+    await insertMessage(env, {
+      id: assistantMessageId,
+      conversation_id: conversationId,
+      role: 'assistant',
+      content: finalAnswer || '...',
+      model: openaiModel,
+      input_tokens: 0,
+      output_tokens: 0,
+      created_at: new Date().toISOString(),
+    })
+    if (citations.length > 0) {
+      await insertMessageCitations(env, assistantMessageId, citations)
+    }
+  }
+
+  void saveUsage(env, tenantId, bot.id, new Date().toISOString().slice(0, 10), message.length, finalAnswer.length)
+  apiLog.ok({
+    tenantId,
+    botId: bot.id,
+    conversationId,
+    title: conversationTitle,
+    fullLen: finalAnswer.length,
+    source: replyLanguage === 'en' ? 'complete' : 'complete+translate',
   })
 
-  return new Response(upstream.pipeThrough(transform), {
+  return new Response(createSseStream(finalAnswer), {
     headers: {
       ...cors,
       'Access-Control-Expose-Headers': [
@@ -768,10 +753,8 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     },
   })
   } catch (error) {
-    const stack = error instanceof Error ? error.stack : String(error)
-    console.error(`[knowledgeos:chat ${reqId}] unhandled_error`, stack)
-    apiLog.fail(error, { stage: 'unhandled', stack })
-    return errJson('Server error, please try again.', 500)
+    apiLog.fail(error, { stage: 'model', provider })
+    return errJson('??????', 500)
   }
 }
 

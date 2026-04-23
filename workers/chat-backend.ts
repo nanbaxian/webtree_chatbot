@@ -21,8 +21,24 @@ interface ChatRequestBody {
   reqId?: string
 }
 
+interface ChatCompleteRequestBody {
+  systemPrompt?: string
+  messages?: OpenAIMessage[]
+  model?: string
+  maxOutputTokens?: number
+  reqId?: string
+}
+
 interface RewriteRequestBody {
   text?: string
+  reqId?: string
+  model?: string
+  maxOutputTokens?: number
+}
+
+interface TranslateRequestBody {
+  text?: string
+  targetLanguage?: string
   reqId?: string
   model?: string
   maxOutputTokens?: number
@@ -107,6 +123,91 @@ export default {
       } catch (error) {
         console.error('[chat-backend] rewrite failed', error)
         return json({ error: error instanceof Error ? error.message : 'Rewrite failed' }, { status: 500 })
+      }
+    }
+
+    if (request.method === 'POST' && url.pathname === '/translate-text') {
+      if (!env.OPENAI_API_KEY) {
+        return json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 })
+      }
+
+      let body: TranslateRequestBody
+      try {
+        body = (await request.json()) as TranslateRequestBody
+      } catch {
+        return json({ error: 'Invalid JSON' }, { status: 400 })
+      }
+
+      const text = String(body.text || '').trim()
+      if (!text) {
+        return json({ error: 'text is required' }, { status: 400 })
+      }
+
+      const targetLanguage = String(body.targetLanguage || 'zh').trim().toLowerCase()
+      const languageLabel = targetLanguage === 'en' ? 'English' : 'Simplified Chinese'
+      const prompt = [
+        `Translate the following answer into ${languageLabel}.`,
+        'Rules:',
+        '- Output only the translated text.',
+        '- Preserve school names, course codes, numbers, dates, URLs, email addresses, and phone numbers exactly when possible.',
+        '- Preserve factual meaning and tone.',
+        '- Do not add explanations, labels, bullets, or markdown.',
+        '- If the text is already in the target language, lightly normalize it without changing meaning.',
+        '',
+        `Text: ${text}`,
+      ].join('\n')
+
+      try {
+        const output = await completeOpenAIChat(env.OPENAI_API_KEY, prompt, {
+          reqId: body.reqId || 'translate',
+          model: body.model || env.OPENAI_MODEL || 'gpt-4.1',
+          maxOutputTokens: Number.isFinite(body.maxOutputTokens)
+            ? body.maxOutputTokens
+            : 256,
+          orgId: env.OPENAI_ORG_ID,
+          projectId: env.OPENAI_PROJECT_ID,
+        })
+
+        return json({ text: output.trim() })
+      } catch (error) {
+        console.error('[chat-backend] translate failed', error)
+        return json({ error: error instanceof Error ? error.message : 'Translate failed' }, { status: 500 })
+      }
+    }
+
+    if (request.method === 'POST' && url.pathname === '/chat-complete') {
+      if (!env.OPENAI_API_KEY) {
+        return json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 })
+      }
+
+      let body: ChatCompleteRequestBody
+      try {
+        body = (await request.json()) as ChatCompleteRequestBody
+      } catch {
+        return json({ error: 'Invalid JSON' }, { status: 400 })
+      }
+
+      const systemPrompt = String(body.systemPrompt || '').trim()
+      const messages = Array.isArray(body.messages) ? body.messages : []
+      if (!systemPrompt || !messages.length) {
+        return json({ error: 'systemPrompt and messages are required' }, { status: 400 })
+      }
+
+      try {
+        const text = await completeOpenAIChat(env.OPENAI_API_KEY, systemPrompt, messages, {
+          reqId: body.reqId || 'complete',
+          model: body.model || env.OPENAI_MODEL || 'gpt-4.1',
+          maxOutputTokens: Number.isFinite(body.maxOutputTokens)
+            ? body.maxOutputTokens
+            : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10) || undefined,
+          orgId: env.OPENAI_ORG_ID,
+          projectId: env.OPENAI_PROJECT_ID,
+        })
+
+        return json({ text })
+      } catch (error) {
+        console.error('[chat-backend] completion failed', error)
+        return json({ error: error instanceof Error ? error.message : 'Completion failed' }, { status: 500 })
       }
     }
 

@@ -4,7 +4,7 @@ const fs = require('node:fs/promises')
 const path = require('node:path')
 
 const ROOT = path.resolve(__dirname, '..', '..')
-const QA_SEED_PATH = path.resolve(ROOT, 'originaldata', 'processed', 'qa_seed.json')
+const DEFAULT_QA_SEED_PATH = path.resolve(ROOT, 'originaldata', 'processed', 'qa_seed.json')
 
 function parseArgs(argv) {
   const args = {
@@ -12,6 +12,7 @@ function parseArgs(argv) {
     tenantId: process.env.RAG_INGEST_TENANT_ID || 'tenant_demo',
     botId: process.env.RAG_INGEST_BOT_ID || 'bot_demo',
     apiKey: process.env.RAG_API_KEY || '',
+    inputPath: DEFAULT_QA_SEED_PATH,
     dryRun: false,
   }
 
@@ -19,6 +20,8 @@ function parseArgs(argv) {
     const token = argv[i]
     if (token === '--dry-run') {
       args.dryRun = true
+    } else if (token === '--input') {
+      args.inputPath = path.resolve(ROOT, argv[++i])
     } else if (token === '--base-url') {
       args.baseUrl = argv[++i]
     } else if (token === '--tenant-id') {
@@ -35,11 +38,6 @@ function parseArgs(argv) {
   }
 
   return args
-}
-
-async function loadSeed() {
-  const raw = await fs.readFile(QA_SEED_PATH, 'utf8')
-  return JSON.parse(raw)
 }
 
 async function postJson(url, body, apiKey) {
@@ -66,6 +64,7 @@ function printHelp() {
 
 Options:
   --dry-run          Print planned payload without writing to RAG
+  --input <path>     QA seed JSON path (default: originaldata/processed/qa_seed.json)
   --base-url <url>   RAG service base URL (default: ${process.env.RAG_INGEST_URL || process.env.RAG_API_URL || 'http://127.0.0.1:8789'})
   --tenant-id <id>   Tenant ID (default: tenant_demo)
   --bot-id <id>      Bot ID (default: bot_demo)
@@ -80,7 +79,7 @@ async function main() {
     return
   }
 
-  const seed = await loadSeed()
+  const seed = JSON.parse(await fs.readFile(args.inputPath, 'utf8'))
   const qaPairs = Array.isArray(seed.qa_pairs) ? seed.qa_pairs : []
   if (!qaPairs.length) {
     console.log('[ingest-qa-seed] no qa pairs found')

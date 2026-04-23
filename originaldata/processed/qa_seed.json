@@ -94,6 +94,36 @@
       "priority": 25
     },
     {
+      "question": "毕业生去向如何？",
+      "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
+      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "priority": 46
+    },
+    {
+      "question": "毕业生都去了什么大学？",
+      "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
+      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "priority": 46
+    },
+    {
+      "question": "主要去了哪些大学？",
+      "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
+      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "priority": 45
+    },
+    {
+      "question": "毕业生一般去加拿大哪些大学？",
+      "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
+      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "priority": 45
+    },
+    {
+      "question": "毕业生会去 U of T、Waterloo、York 这些学校吗？",
+      "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
+      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "priority": 44
+    },
+    {
       "question": "What is the domestic tuition for Grades 7-12?",
       "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000.",
       "tags": ["site_archive", "tuition"],

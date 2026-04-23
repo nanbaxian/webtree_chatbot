@@ -32,8 +32,19 @@ import {
 } from '../../lib/knowledgeos-d1'
 
 const CJK_RE = /[\u4e00-\u9fff]/
+const WEBTREE_ALIAS_RE = /(?:万博学校|万博高中|我们学校|我校|webtree(?:\s*academy)?|webtreeedu)/i
+const WEBTREE_LEGITIMACY_RE = /(?:正规|正式|合法的吗|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|ministry of education|inspected|accredited)/i
+const WEBTREE_ALUMNI_RE = /(?:毕业生|毕业去向|去向|走向|升学去向|主要去哪些大学|去了哪些大学|去了哪些学校|大学名单|大学去向|加拿大哪些大学|top colleges? and universities?|university placement|graduates?|alumni|first choice)/i
 
 const CHINESE_RAG_HINTS: Array<{ pattern: RegExp; terms: string }> = [
+  {
+    pattern: /(万博学校|万博高中|我们学校|我校|webtree(?:\s*academy)?|webtreeedu)/i,
+    terms: 'Webtree Academy 万博学校 万博 万博高中 我们学校 我校',
+  },
+  {
+    pattern: /(正规|正式|合法的吗|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|private school|inspected|accredited)/i,
+    terms: 'Ministry of Education-inspected private school BSID 883796 private school credit courses university application guidance',
+  },
   { pattern: /(学费|费用|收费|多少钱)/, terms: 'tuition fees cost price' },
   { pattern: /(奖学金|助学金|资助)/, terms: 'scholarships financial aid bursaries' },
   { pattern: /(入学要求|录取要求|招生要求|申请条件)/, terms: 'admission requirements entry requirements' },
@@ -209,6 +220,8 @@ function normalizeMatchText(value: string): string {
 function buildWebtreeDemoDirectAnswer(message: string, language: ReplyLanguage): string | null {
   const text = normalizeMatchText(message)
   if (!text) return null
+  const isLegitimacyQuery = WEBTREE_LEGITIMACY_RE.test(text)
+  const isAliasQuery = WEBTREE_ALIAS_RE.test(text)
 
   const isTuitionQuery = /(?:学费|费用|收费|多少钱|\btuition\b|\bfee\b|\bfees\b)/i.test(text)
   const isScheduleQuery = /(?:上课时间|课程时间|课表|时间表|什么时候上课|哪天上课|几点上课|schedule|timetable|class time|what time|when is class)/i.test(text)
@@ -216,6 +229,15 @@ function buildWebtreeDemoDirectAnswer(message: string, language: ReplyLanguage):
   const isContactQuery = /(?:电话|邮箱|联系|contact|phone|email)/i.test(text)
 
   if (language === 'zh') {
+    if (isAlumniQuery) {
+      return '?????????????Webtree Academy ???????????????????????? 100% university placement rate?graduates accepted into top colleges and universities????????????????????????????????????????????????????????????????/?????????????'
+    }
+    if (isLegitimacyQuery) {
+      return 'Webtree Academy 的资料显示它是 Ministry of Education-inspected private school，页面还显示 BSID#883796。也就是说，当前来源能确认它是受安省教育部检查的私立学校；如果你要确认最新注册状态、办学许可或某个具体学历/文凭认可结论，现有来源没有给出完整官方证明，建议再向学校官方核实。'
+    }
+    if (isAliasQuery) {
+      return '你说的“万博学校 / 万博 / 万博高中 / 我们学校 / 我校”，都是指 Webtree Academy。'
+    }
     if (isTuitionQuery) {
       return 'Webtree Academy 的 2026-2027 学费是：Grade 7-12 的 domestic tuition 为 $23,000，international tuition 为 $27,000。Elite Program - Academic Enrichment 的学费是 Grade 7-11 $8,800，Grade 12 $10,800。另有 $300 报名费、$1,000 技术/材料/杂费、$2,500 校内活动费，国际学生还有 $730 医疗保险。'
     }
@@ -231,6 +253,12 @@ function buildWebtreeDemoDirectAnswer(message: string, language: ReplyLanguage):
     return null
   }
 
+  if (isLegitimacyQuery) {
+    return 'Webtree Academy’s materials describe it as a Ministry of Education-inspected private school and show BSID#883796. That supports saying it is a Ministry-inspected private school, but the current sources do not provide a full official conclusion on registration, accreditation, or recognition of a specific diploma. Please verify those details with the school directly if you need the latest status.'
+  }
+  if (isAliasQuery) {
+    return 'The names "万博学校", "万博", "万博高中", "我们学校", and "我校" all refer to Webtree Academy.'
+  }
   if (isTuitionQuery) {
     return 'Webtree Academy tuition for 2026-2027 is $23,000 for domestic students in Grades 7-12 and $27,000 for international students in Grades 7-12. The Elite Program - Academic Enrichment is $8,800 for Grades 7-11 and $10,800 for Grade 12, plus a $300 application fee, a $1,000 technology/material/incidental fee, a $2,500 co-curricular fee, and $730 medical insurance for international students.'
   }
@@ -295,7 +323,7 @@ function buildSystemPrompt(
     `Tone: ${bot.tone}`,
     `Welcome: ${bot.welcome_msg}`,
     isWebtreeDemo
-      ? 'School context: This demo is about Webtree Academy. If the user asks about tuition, fees, schedule, address, admissions, or contact details without naming another school, assume they mean Webtree Academy.'
+      ? 'School context: This demo is about Webtree Academy. The aliases "????", "??", "????", "????", and "??" all refer to Webtree Academy. If the user asks about tuition, fees, schedule, address, admissions, legitimacy, registration, alumni outcomes, or contact details without naming another school, assume they mean Webtree Academy.'
       : '',
     `Fallback if knowledge is missing:\n- If the answer cannot be verified from the current sources, say so plainly.\n- Tell the user to email the school's contact email at info@webtreeedu.com.\n- Do not invent or guess any other email address.`,
     `Language rules:\n${langRule}`,

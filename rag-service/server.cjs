@@ -136,6 +136,9 @@ function hasCjk(value) {
 }
 
 const CHINESE_QUERY_HINTS = [
+  { pattern: /(\u6bd5\u4e1a\u751f|\u6bd5\u4e1a\u53bb\u5411|\u53bb\u5411|\u8d70\u5411|\u5347\u5b66\u53bb\u5411|\u4e3b\u8981\u53bb\u54ea\u4e9b\u5927\u5b66|\u53bb\u4e86\u54ea\u4e9b\u5927\u5b66|\u53bb\u4e86\u54ea\u4e9b\u5b66\u6821|\u5927\u5b66\u540d\u5355|\u5927\u5b66\u53bb\u5411|\u52a0\u62ff\u5927\u54ea\u4e9b\u5927\u5b66|graduates?|alumni|university placement|top colleges? and universities?|first choice)/i, terms: 'graduates alumni university placement top colleges universities first choice university accepted placement rate' },
+  { pattern: /(万博学校|万博高中|我们学校|我校|webtree(?:\s*academy)?|webtreeedu)/i, terms: 'Webtree Academy 万博学校 万博 万博高中 我们学校 我校' },
+  { pattern: /(正规|正式|合法的吗|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|private school|inspected|accredited)/i, terms: 'Ministry of Education-inspected private school BSID 883796 private school credit courses university application guidance' },
   { pattern: /(学费|费用|收费|多少钱)/, terms: 'tuition fees cost price' },
   { pattern: /(奖学金|助学金|资助)/, terms: 'scholarships financial aid bursaries' },
   { pattern: /(入学要求|录取要求|招生要求|申请条件)/, terms: 'admission requirements entry requirements' },

@@ -469,6 +469,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     ? buildWebtreeDemoDirectAnswer(message, replyLanguage)
     : null
   if (directAnswer) {
+    const directCitationsHeader = serializeRagCitationsHeader([])
     if (env.DB) {
       await insertMessage(env, {
         id: assistantMessageId,
@@ -509,8 +510,8 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
         'X-Bot-Id': bot.id,
         'X-Conversation-Id': conversationId,
         'X-KnowledgeOS-Request-Id': reqId,
-        'X-KnowledgeOS-Citations': citationsHeader,
-        'X-KnowledgeOS-Citation-Count': String(citations.length),
+        'X-KnowledgeOS-Citations': directCitationsHeader,
+        'X-KnowledgeOS-Citation-Count': '0',
         'X-KnowledgeOS-RAG-Latency-Ms': String(ragLatencyMs),
       },
     })

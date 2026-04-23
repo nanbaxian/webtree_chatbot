@@ -11,6 +11,7 @@ import {
   type RagChunk,
 } from '../../lib/rag-protocol'
 import { expandOssdCourseQuery } from '../../lib/ossd-course-mapper'
+import { buildCrossLingualRagQuery } from '../../lib/cross-lingual-query'
 import { detectReplyLanguageFromText, getLanguageReplyRule } from '../../lib/reply-language'
 import { type OpenAIMessage } from '../../lib/openai-client'
 import { type ReplyLanguage } from '../../types/index'
@@ -195,16 +196,44 @@ async function loadRagContext(
 }
 
 function buildRagSearchQuery(query: string, locale?: ReplyLanguage): string {
+  return buildCrossLingualRagQuery(query, locale)
+}
+
+async function rewriteRagQueryWithOpenAI(env: Env, query: string, reqId: string, locale?: ReplyLanguage): Promise<string | null> {
   const base = String(query || '').trim()
-  if (!base) return base
+  if (!base) return null
+  if (locale !== 'zh' && !CJK_RE.test(base)) return null
+  if (!env.CHAT_BACKEND_URL) return null
 
-  if (locale !== 'zh' && !CJK_RE.test(base)) return base
+  try {
+    const abortController = new AbortController()
+    const timeoutMs = Number.parseInt(env.CHAT_BACKEND_TIMEOUT_MS || '', 10)
+    const timeout = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 15000
+    const timer = setTimeout(() => abortController.abort('rewrite request timed out'), timeout)
+    const res = await fetch(`${env.CHAT_BACKEND_URL.replace(/\/+$/, '')}/rewrite-query`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-KnowledgeOS-Request-Id': reqId,
+      },
+      body: JSON.stringify({
+        text: base,
+        reqId,
+        model: env.OPENAI_MODEL || 'gpt-4.1',
+      }),
+      signal: abortController.signal,
+    }).finally(() => {
+      clearTimeout(timer)
+    })
 
-  const hints = collectChineseQueryHints(base)
-
-  if (hints.length === 0) return base
-
-  return `${base} ${hints.join(' ')}`.trim()
+    if (!res.ok) return null
+    const data = (await res.json()) as { text?: string }
+    const rewritten = String(data.text || '').trim()
+    return rewritten || null
+  } catch (error) {
+    console.error('[knowledgeos:rag] rewrite failed', error)
+    return null
+  }
 }
 
 function normalizeMatchText(value: string): string {
@@ -482,7 +511,9 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     : null
   const history = Array.isArray(recentMessages) ? recentMessages : []
   const ossdCourse = expandOssdCourseQuery(message)
-  const ragQuery = buildRagSearchQuery(ossdCourse?.searchQuery || message, replyLanguage)
+  const querySeed = ossdCourse?.searchQuery || message
+  const rewrittenQuery = await rewriteRagQueryWithOpenAI(env, querySeed, reqId, replyLanguage)
+  const ragQuery = buildRagSearchQuery(rewrittenQuery || querySeed, replyLanguage)
 
   const ragStartedAt = Date.now()
   const rag = await loadRagContext(env, tenantId, bot.id, ragQuery, 8, reqId, conversationKey, replyLanguage)

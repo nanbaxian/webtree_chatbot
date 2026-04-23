@@ -1,7 +1,7 @@
 // workers/chat-backend.ts
-// Cloudflare Worker backend for OpenAI chat generation.
+// Cloudflare Worker backend for OpenAI chat generation and query rewriting.
 
-import { streamOpenAIChat, type OpenAIMessage } from '../lib/openai-client'
+import { completeOpenAIChat, streamOpenAIChat, type OpenAIMessage } from '../lib/openai-client'
 
 interface Env {
   OPENAI_API_KEY: string
@@ -19,6 +19,13 @@ interface ChatRequestBody {
   maxOutputTokens?: number
   coalesceChars?: number
   reqId?: string
+}
+
+interface RewriteRequestBody {
+  text?: string
+  reqId?: string
+  model?: string
+  maxOutputTokens?: number
 }
 
 const cors = {
@@ -53,6 +60,54 @@ export default {
         has_openai_key: Boolean(env.OPENAI_API_KEY),
         model: env.OPENAI_MODEL || 'gpt-4.1',
       })
+    }
+
+    if (request.method === 'POST' && url.pathname === '/rewrite-query') {
+      if (!env.OPENAI_API_KEY) {
+        return json({ error: 'Missing OPENAI_API_KEY' }, { status: 500 })
+      }
+
+      let body: RewriteRequestBody
+      try {
+        body = (await request.json()) as RewriteRequestBody
+      } catch {
+        return json({ error: 'Invalid JSON' }, { status: 400 })
+      }
+
+      const text = String(body.text || '').trim()
+      if (!text) {
+        return json({ error: 'text is required' }, { status: 400 })
+      }
+
+      const prompt = [
+        'Rewrite the user query into concise English search keywords for a school RAG system.',
+        'Rules:',
+        '- Output only the rewritten English query.',
+        '- Do not add explanation, labels, quotes, bullets, or markdown.',
+        '- Keep school names, course codes, numbers, dates, and proper nouns unchanged when useful.',
+        '- Expand colloquial Chinese into search-friendly English terms.',
+        '- Prefer retrieval keywords such as tuition, admission requirements, university placement, graduation outcomes, schedule, contact, address, registration, accreditation, homestay, student life, and OSSD when relevant.',
+        '- If the input is already English, normalize it into a shorter search query.',
+        '',
+        `User query: ${text}`,
+      ].join('\n')
+
+      try {
+        const output = await completeOpenAIChat(env.OPENAI_API_KEY, prompt, {
+          reqId: body.reqId || 'rewrite',
+          model: body.model || env.OPENAI_MODEL || 'gpt-4.1',
+          maxOutputTokens: Number.isFinite(body.maxOutputTokens)
+            ? body.maxOutputTokens
+            : 96,
+          orgId: env.OPENAI_ORG_ID,
+          projectId: env.OPENAI_PROJECT_ID,
+        })
+
+        return json({ text: output.trim() })
+      } catch (error) {
+        console.error('[chat-backend] rewrite failed', error)
+        return json({ error: error instanceof Error ? error.message : 'Rewrite failed' }, { status: 500 })
+      }
     }
 
     if (request.method !== 'POST' || url.pathname !== '/chat') {

@@ -464,7 +464,8 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   const citationsHeader = serializeRagCitationsHeader(citations)
   const assistantMessageId = crypto.randomUUID()
 
-  const isWebtreeDemo = tenantId === 'tenant_demo' || bot.id === 'bot_demo'
+  const isWebtreeDemo =
+    tenantId === 'tenant_demo' || bot.id === 'bot_demo' || bot.id === 'demo'
   const directAnswer = isWebtreeDemo
     ? buildWebtreeDemoDirectAnswer(message, replyLanguage)
     : null

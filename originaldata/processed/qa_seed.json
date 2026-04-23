@@ -6,259 +6,426 @@
     {
       "question": "What is Webtree Academy?",
       "answer": "Webtree Academy is a private school in North York, Ontario, with public website and PDF archive content captured in the site archive source.",
-      "tags": ["site_archive", "overview"],
+      "tags": [
+        "site_archive",
+        "overview"
+      ],
       "priority": 30
     },
     {
       "question": "What is the school's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 30
     },
     {
       "question": "What is Webtree Academy's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
-      "tags": ["site_archive", "contact", "webtree"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "webtree"
+      ],
       "priority": 32
     },
     {
       "question": "Where is Webtree Academy located?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
-      "tags": ["site_archive", "contact", "location"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "location"
+      ],
       "priority": 30
     },
     {
       "question": "What is the contact information for Webtree Academy?",
       "answer": "Address: 60 Scarsdale Rd Unit 100, North York, ON M3B 2R7. Phone: (416) 792-8280. Email: info@webtreeedu.com.",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 35
     },
     {
       "question": "What is the school's phone number?",
       "answer": "(416) 792-8280.",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 30
     },
     {
       "question": "What is Webtree Academy's phone number?",
       "answer": "(416) 792-8280.",
-      "tags": ["site_archive", "contact", "webtree"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "webtree"
+      ],
       "priority": 32
     },
     {
       "question": "What is the school's email address?",
       "answer": "info@webtreeedu.com.",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 30
     },
     {
       "question": "What is Webtree Academy's email address?",
       "answer": "info@webtreeedu.com.",
-      "tags": ["site_archive", "contact", "webtree"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "webtree"
+      ],
       "priority": 32
     },
     {
       "question": "How do I contact Webtree Academy?",
       "answer": "You can contact Webtree Academy at (416) 792-8280 or info@webtreeedu.com. The school is located at 60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 35
     },
     {
-      "question": "学校的地址是？",
+      "question": "What is the school's address?",
       "answer": "60 Scarsdale Rd Unit 100, North York, ON M3B 2R7.",
-      "tags": ["site_archive", "contact", "zh"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "en"
+      ],
       "priority": 31
     },
     {
-      "question": "学校电话是多少？",
+      "question": "What is the school's phone number?",
       "answer": "(416) 792-8280.",
-      "tags": ["site_archive", "contact", "zh"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "en"
+      ],
       "priority": 31
     },
     {
-      "question": "学校邮箱是多少？",
+      "question": "What is the school's email address?",
       "answer": "info@webtreeedu.com.",
-      "tags": ["site_archive", "contact", "zh"],
+      "tags": [
+        "site_archive",
+        "contact",
+        "en"
+      ],
       "priority": 31
     },
     {
       "question": "What is the contact email for the school?",
       "answer": "info@webtreeedu.com.",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 25
     },
     {
       "question": "What is the school's website?",
       "answer": "https://www.webtreeedu.com/",
-      "tags": ["site_archive", "contact"],
+      "tags": [
+        "site_archive",
+        "contact"
+      ],
       "priority": 25
     },
     {
-      "question": "毕业生去向如何？",
+      "question": "What are the graduate outcomes?",
       "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
-      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "tags": [
+        "site_archive",
+        "webtree",
+        "en",
+        "alumni",
+        "placement"
+      ],
       "priority": 46
     },
     {
-      "question": "毕业生都去了什么大学？",
+      "question": "Which universities do graduates go to?",
       "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
-      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "tags": [
+        "site_archive",
+        "webtree",
+        "en",
+        "alumni",
+        "placement"
+      ],
       "priority": 46
     },
     {
-      "question": "主要去了哪些大学？",
+      "question": "What are the main university destinations?",
       "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
-      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "tags": [
+        "site_archive",
+        "webtree",
+        "en",
+        "alumni",
+        "placement"
+      ],
       "priority": 45
     },
     {
-      "question": "毕业生一般去加拿大哪些大学？",
+      "question": "Which Canadian universities do graduates usually attend?",
       "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
-      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "tags": [
+        "site_archive",
+        "webtree",
+        "en",
+        "alumni",
+        "placement"
+      ],
       "priority": 45
     },
     {
-      "question": "毕业生会去 U of T、Waterloo、York 这些学校吗？",
+      "question": "Do graduates go to schools like U of T, Waterloo, and York?",
       "answer": "The archive says Webtree Academy claims a 100% university placement rate and says graduates are accepted into top colleges and universities, often at first choice. The current sources do not list a complete named university destination list, so I can confirm the overall outcome but not every specific university name.",
-      "tags": ["site_archive", "webtree", "zh", "alumni", "placement"],
+      "tags": [
+        "site_archive",
+        "webtree",
+        "en",
+        "alumni",
+        "placement"
+      ],
       "priority": 44
     },
     {
       "question": "What is the domestic tuition for Grades 7-12?",
       "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000.",
-      "tags": ["site_archive", "tuition"],
+      "tags": [
+        "site_archive",
+        "tuition"
+      ],
       "priority": 40
     },
     {
       "question": "What is the international tuition for Grades 7-12?",
       "answer": "The archive shows international tuition for Grades 7-12 at $27,000.",
-      "tags": ["site_archive", "tuition"],
+      "tags": [
+        "site_archive",
+        "tuition"
+      ],
       "priority": 40
     },
     {
       "question": "What is Webtree Academy's tuition?",
       "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000 and international tuition for Grades 7-12 at $27,000.",
-      "tags": ["site_archive", "tuition", "webtree"],
+      "tags": [
+        "site_archive",
+        "tuition",
+        "webtree"
+      ],
       "priority": 45
     },
     {
-      "question": "Webtree Academy的学费是多少?",
+      "question": "What is Webtree Academy's tuition?",
       "answer": "The archive shows domestic tuition for Grades 7-12 at $23,000 and international tuition for Grades 7-12 at $27,000.",
-      "tags": ["site_archive", "tuition", "webtree", "zh"],
+      "tags": [
+        "site_archive",
+        "tuition",
+        "webtree",
+        "en"
+      ],
       "priority": 45
     },
     {
-      "question": "学校学费是多少?",
+      "question": "What is the school's tuition?",
       "answer": "If you mean Webtree Academy, the archive shows domestic tuition for Grades 7-12 at $23,000 and international tuition for Grades 7-12 at $27,000.",
-      "tags": ["site_archive", "tuition", "webtree", "zh"],
+      "tags": [
+        "site_archive",
+        "tuition",
+        "webtree",
+        "en"
+      ],
       "priority": 42
     },
     {
       "question": "What is Webtree Academy's schedule?",
       "answer": "The Grade 9-12 daily schedule shows Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.",
-      "tags": ["site_archive", "schedule", "webtree"],
+      "tags": [
+        "site_archive",
+        "schedule",
+        "webtree"
+      ],
       "priority": 45
     },
     {
-      "question": "Webtree Academy的上课时间是？",
+      "question": "What is Webtree Academy's schedule?",
       "answer": "The Grade 9-12 daily schedule shows Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.",
-      "tags": ["site_archive", "schedule", "webtree", "zh"],
+      "tags": [
+        "site_archive",
+        "schedule",
+        "webtree",
+        "en"
+      ],
       "priority": 45
     },
     {
-      "question": "学校的上课时间是？",
+      "question": "What is the school's schedule?",
       "answer": "If you mean Webtree Academy, the Grade 9-12 daily schedule shows Period 1 from 9:00 to 10:00, a 5-minute break from 10:00 to 10:05, Period 2 from 10:05 to 10:55, a 10-minute break from 10:55 to 11:05, Period 3 from 11:05 to 12:05, lunch from 12:05 to 12:35, Period 4 from 12:35 to 1:25, a 10-minute break from 1:25 to 1:35, Period 5 from 1:35 to 2:35, a 5-minute break from 2:35 to 2:40, and Period 6 from 2:40 to 3:30.",
-      "tags": ["site_archive", "schedule", "webtree", "zh"],
+      "tags": [
+        "site_archive",
+        "schedule",
+        "webtree",
+        "en"
+      ],
       "priority": 44
     },
     {
       "question": "What support services are listed for international students?",
       "answer": "The archive lists English language and academic support, university applications and credit transfers, immigration and visa guidance, health insurance, homestay placement, social and academic support, emergency help, and one-on-one counseling and tutoring.",
-      "tags": ["site_archive", "international_students"],
+      "tags": [
+        "site_archive",
+        "international_students"
+      ],
       "priority": 35
     },
     {
       "question": "How many countries are represented by the international student body?",
       "answer": "The archive says students represent 14 countries.",
-      "tags": ["site_archive", "international_students"],
+      "tags": [
+        "site_archive",
+        "international_students"
+      ],
       "priority": 25
     },
     {
       "question": "What student-to-teacher ratio values appear in the archive?",
       "answer": "The archive captures two values: the About page says 6:1 average student-to-teacher ratio, while the Our People page says 5:1 student-to-faculty ratio. Verify manually before operational use.",
-      "tags": ["site_archive", "ratio", "discrepancy"],
+      "tags": [
+        "site_archive",
+        "ratio",
+        "discrepancy"
+      ],
       "priority": 20
     },
     {
       "question": "What application fee discrepancy is captured in the archive?",
       "answer": "The admissions page says the application fee is $300 CAD, while the View Book PDF says it is $250 CAD.",
-      "tags": ["site_archive", "discrepancy", "admissions"],
+      "tags": [
+        "site_archive",
+        "discrepancy",
+        "admissions"
+      ],
       "priority": 20
     },
     {
       "question": "What is the daily schedule for Period 1 in the timetable?",
       "answer": "Period 1 runs from 9:00 to 10:00 in the Grade 9-12 daily schedule.",
-      "tags": ["academic", "schedule"],
+      "tags": [
+        "academic",
+        "schedule"
+      ],
       "priority": 35
     },
     {
       "question": "When is lunch break in the timetable?",
       "answer": "Lunch break is shown from 12:05 to 12:35 in the Grade 9-12 daily schedule.",
-      "tags": ["academic", "schedule"],
+      "tags": [
+        "academic",
+        "schedule"
+      ],
       "priority": 30
     },
     {
       "question": "What are the clubs and tutoring hours in the timetable?",
       "answer": "Clubs and tutoring run from 3:30 to 5:00 in the Grade 9-12 daily schedule.",
-      "tags": ["academic", "schedule"],
+      "tags": [
+        "academic",
+        "schedule"
+      ],
       "priority": 25
     },
     {
       "question": "What do P1, P2, and P3 mean in the schedule notes?",
       "answer": "P1, P2, and P3 mean Period 1, Period 2, and Period 3.",
-      "tags": ["academic", "manual_note", "terminology"],
+      "tags": [
+        "academic",
+        "manual_note",
+        "terminology"
+      ],
       "priority": 35
     },
     {
       "question": "What issue was noted for Term 1 with Atef?",
       "answer": "Atef could not be scheduled for that Term 1 class because he was already teaching both Grade 11 and Grade 12.",
-      "tags": ["academic", "manual_note", "conflict"],
+      "tags": [
+        "academic",
+        "manual_note",
+        "conflict"
+      ],
       "priority": 40
     },
     {
       "question": "How long are Grade 7 and Grade 8 classes?",
       "answer": "Grade 7 and Grade 8 classes are 1 hour long.",
-      "tags": ["academic", "manual_note", "schedule"],
+      "tags": [
+        "academic",
+        "manual_note",
+        "schedule"
+      ],
       "priority": 35
     },
     {
       "question": "What do the red-boxed items in the schedule notes mean?",
       "answer": "The red-boxed items are dropped classes and do not need to be processed.",
-      "tags": ["academic", "manual_note", "cleanup"],
+      "tags": [
+        "academic",
+        "manual_note",
+        "cleanup"
+      ],
       "priority": 30
     },
     {
       "question": "What is Ms. Ashley Afful's qualification?",
       "answer": "Ms. Ashley Afful holds a Bachelor of Design in Environmental Design from OCAD University and a Diploma in Graphic Design and Interactive Media from Toronto Film School.",
-      "tags": ["staff", "faculty"],
+      "tags": [
+        "staff",
+        "faculty"
+      ],
       "priority": 40
     },
     {
       "question": "What does Ms. Michelle Ali specialize in?",
       "answer": "Ms. Michelle Ali has over 20 years of experience teaching high school English and Social Science and specializes in individualized lesson plans for diverse learning needs.",
-      "tags": ["staff", "faculty"],
+      "tags": [
+        "staff",
+        "faculty"
+      ],
       "priority": 40
     },
     {
       "question": "What is Michael Chemello's teaching focus?",
       "answer": "Michael Chemello specializes in human anatomy, physiology, injury assessment, rehabilitation, injury prevention, and strength and conditioning.",
-      "tags": ["staff", "faculty"],
+      "tags": [
+        "staff",
+        "faculty"
+      ],
       "priority": 40
     },
     {
       "question": "How long has Mr. James Dickinson been teaching?",
       "answer": "Mr. James Dickinson has over 30 years of teaching experience specializing in ESL, English, and IELTS training.",
-      "tags": ["staff", "faculty"],
+      "tags": [
+        "staff",
+        "faculty"
+      ],
       "priority": 35
     }
   ]

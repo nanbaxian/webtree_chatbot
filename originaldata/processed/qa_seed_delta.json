@@ -40,7 +40,7 @@
       "priority": 40
     },
     {
-      "question": "What do Ontario course codes like ENG3U mean?",
+      "question": "What does ENG3U mean?",
       "answer": "Ontario course codes usually show the subject area, the grade level, and the course level. For example, ENG3U means Grade 11 English at the university-preparation level.",
       "tags": ["ossd", "course codes", "streams"],
       "priority": 45

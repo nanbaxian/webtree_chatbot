@@ -187,10 +187,23 @@ function makeCanonicalQuestion(question, tags = []) {
   const lower = q.toLowerCase()
   const isCourseCodeQuery = /\b(course code|course codes|what does|what do|mean|means|cover|covers|covered|stand for)\b/i.test(q)
   const family = (() => {
-    if (/\b(contact|address|phone|email|location|where is|where are|how do i contact)\b/i.test(topicHint + ' ' + q)) return 'contact'
-    if (/\b(tuition|fee|fees|cost|price|payment|bill|budget)\b/i.test(topicHint + ' ' + q)) return 'tuition'
-    if (/\b(admission|admissions|apply|application|enroll|enrollment|enrolment|deadline|requirements)\b/i.test(topicHint + ' ' + q)) return 'admissions'
-    if (/\b(homestay|residence|boarding|living|meal|lunch|transport|commute|winter)\b/i.test(topicHint + ' ' + q)) return 'life'
+    if (/\b(address|location|where is|where are|campus)\b/i.test(topicHint + ' ' + q)) return 'contact_address'
+    if (/\b(phone|call|contact number|telephone)\b/i.test(topicHint + ' ' + q)) return 'contact_phone'
+    if (/\b(email|mail|contact email)\b/i.test(topicHint + ' ' + q)) return 'contact_email'
+    if (/\b(contact|reach the school|how do i contact|who should i contact)\b/i.test(topicHint + ' ' + q)) return 'contact_general'
+    if (/\b(refund|refunds|withdraw|withdrawal|payment|pay|billing|invoice|bill|budget|cost|price)\b/i.test(topicHint + ' ' + q)) return 'tuition_payment'
+    if (/\b(tuition|fee|fees|cost|price|budget)\b/i.test(topicHint + ' ' + q)) return 'tuition_general'
+    if (/\b(application fee|application fees)\b/i.test(topicHint + ' ' + q)) return 'tuition_application'
+    if (/\b(scholarship|bursary|financial aid)\b/i.test(topicHint + ' ' + q)) return 'tuition_aid'
+    if (/\b(deadline|due date|timeline|when is|when do|last day)\b/i.test(topicHint + ' ' + q)) return 'admissions_deadline'
+    if (/\b(document|documents|transcript|report card|passport|reference|recommendation|portfolio)\b/i.test(topicHint + ' ' + q)) return 'admissions_docs'
+    if (/\b(interview|assessment|test|testing|evaluation)\b/i.test(topicHint + ' ' + q)) return 'admissions_assessment'
+    if (/\b(apply|application|admission|admissions|enroll|enrollment|enrolment|requirements)\b/i.test(topicHint + ' ' + q)) return 'admissions_general'
+    if (/\b(homestay|residence|boarding|living|meal|lunch|cafeteria|transport|commute|winter|dress|climate|support|counseling|counselling)\b/i.test(topicHint + ' ' + q)) return 'life_general'
+    if (/\b(homestay|boarding family)\b/i.test(topicHint + ' ' + q)) return 'life_homestay'
+    if (/\b(residence|dorm|dormitory)\b/i.test(topicHint + ' ' + q)) return 'life_residence'
+    if (/\b(meal|lunch|cafeteria|food)\b/i.test(topicHint + ' ' + q)) return 'life_meals'
+    if (/\b(commute|transport|bus|pickup|dropoff|winter)\b/i.test(topicHint + ' ' + q)) return 'life_commute'
     if (/\b(schedule|timetable|period|class time|what time|when does|when is class)\b/i.test(topicHint + ' ' + q)) return 'schedule'
     if (/\b(alumni|graduate|graduation|placement|university|college|destination)\b/i.test(topicHint + ' ' + q)) return 'outcomes'
     if (isCourseCodeQuery) return 'course'
@@ -235,37 +248,111 @@ function makeCanonicalQuestion(question, tags = []) {
       topic => `What should a student focus on in ${topic}?`,
       topic => `Can you put ${topic} in plain English?`,
     ],
-    contact: [
-      topic => `How do I contact the school about ${topic}?`,
-      topic => `Where can I find the school's ${topic}?`,
-      topic => `Could you give me the ${topic} for the school?`,
-      topic => `How do I get the school's ${topic}?`,
-      topic => `How do I reach the school?`,
-      topic => `Who should I contact about ${topic}?`,
+    contact_address: [
+      topic => `Where is the school located?`,
+      topic => `What is the school's address?`,
+      topic => `How do I find the campus address?`,
+      topic => `Which address should families use for ${topic}?`,
     ],
-    tuition: [
+    contact_phone: [
+      topic => `What is the school's phone number?`,
+      topic => `How do I call the school?`,
+      topic => `What number should I use to reach the school?`,
+      topic => `Is there a direct line for the school?`,
+    ],
+    contact_email: [
+      topic => `What is the school's email address?`,
+      topic => `How do I email the school?`,
+      topic => `Which email should families use?`,
+      topic => `Is there a contact email for the school?`,
+    ],
+    contact_general: [
+      topic => `How do I contact the school?`,
+      topic => `Who should I contact at the school?`,
+      topic => `What is the best way to reach the school?`,
+      topic => `How do families usually get in touch?`,
+    ],
+    tuition_payment: [
+      topic => `How should we pay the tuition?`,
+      topic => `What payment options are available?`,
+      topic => `Can tuition be paid in installments?`,
+      topic => `What is the refund policy if we withdraw?`,
+      topic => `Are there any payment deadlines?`,
+    ],
+    tuition_application: [
+      topic => `How much is the application fee?`,
+      topic => `Is there an application fee?`,
+      topic => `What does the application fee cover?`,
+      topic => `Do we need to pay anything to apply?`,
+    ],
+    tuition_aid: [
+      topic => `Are scholarships available?`,
+      topic => `What financial aid options are there?`,
+      topic => `Is there any bursary support?`,
+      topic => `How can families apply for aid?`,
+    ],
+    tuition_general: [
       topic => `How much is ${topic}?`,
       topic => `What does ${topic} include?`,
-      topic => `What fees should families expect?`,
       topic => `How much should we budget for ${topic}?`,
       topic => `How much does ${topic} cost in total?`,
       topic => `Are there any extra fees for ${topic}?`,
     ],
-    admissions: [
-      topic => `How do I apply for ${topic}?`,
-      topic => `What are the admission requirements for ${topic}?`,
-      topic => `What documents do I need for ${topic}?`,
-      topic => `When is the deadline for ${topic}?`,
-      topic => `What steps are involved in ${topic}?`,
-      topic => `How does the application process for ${topic} work?`,
+    admissions_deadline: [
+      topic => `When is the deadline to apply?`,
+      topic => `What is the application deadline?`,
+      topic => `When do applications close?`,
+      topic => `Is there a deadline families should know?`,
     ],
-    life: [
-      topic => `What is student life like for ${topic}?`,
-      topic => `How does ${topic} work?`,
-      topic => `What should students expect for ${topic}?`,
-      topic => `What support is available for ${topic}?`,
-      topic => `How should a family prepare for ${topic}?`,
-      topic => `What are the practical details of ${topic}?`,
+    admissions_docs: [
+      topic => `What documents do I need to apply?`,
+      topic => `Which documents should we prepare?`,
+      topic => `What paperwork is required?`,
+      topic => `What should families submit with the application?`,
+    ],
+    admissions_assessment: [
+      topic => `Is there an interview or assessment?`,
+      topic => `Do students need to be interviewed or tested?`,
+      topic => `What evaluation steps are involved?`,
+      topic => `How does the assessment process work?`,
+    ],
+    admissions_general: [
+      topic => `How do I apply?`,
+      topic => `What are the admission requirements?`,
+      topic => `What steps are involved in the application process?`,
+      topic => `How does enrollment work?`,
+      topic => `What should families know before applying?`,
+    ],
+    life_homestay: [
+      topic => `How does homestay work?`,
+      topic => `What is homestay like for students?`,
+      topic => `How are homestay families arranged?`,
+      topic => `What should parents know about homestay?`,
+    ],
+    life_residence: [
+      topic => `What is residence life like?`,
+      topic => `How does student housing work?`,
+      topic => `What should students expect in residence?`,
+      topic => `What are the residence options?`,
+    ],
+    life_meals: [
+      topic => `How are meals handled?`,
+      topic => `What are the lunch options?`,
+      topic => `Is food provided for students?`,
+      topic => `What should families know about meals?`,
+    ],
+    life_commute: [
+      topic => `How do students get to school?`,
+      topic => `What are the commute options?`,
+      topic => `Is transportation provided?`,
+      topic => `How should families plan for winter commuting?`,
+    ],
+    life_general: [
+      topic => `What is student life like?`,
+      topic => `What should students expect day to day?`,
+      topic => `What support is available for students?`,
+      topic => `How should a family prepare for school life?`,
+      topic => `What are the practical details families should know?`,
     ],
     schedule: [
       topic => `What does the school schedule look like for ${topic}?`,
@@ -320,16 +407,28 @@ async function loadSourcePairs() {
       const question = String(qa.question || '').trim()
       const answer = String(qa.answer || '').trim()
       if (!question || !answer) continue
+      const combined = `${question} ${answer}`.toLowerCase()
+      let priority = Number.isFinite(Number(qa.priority)) ? Number(qa.priority) : 0
+      if (/\b(address|phone|email|location|contact|campus)\b/i.test(combined)) priority += 500
+      if (/\b(tuition|fee|fees|cost|price|payment|refund|scholarship|bursary|financial aid)\b/i.test(combined)) priority += 400
+      if (/\b(apply|application|admission|admissions|deadline|documents|interview|assessment|enroll|enrollment|enrolment)\b/i.test(combined)) priority += 300
+      if (/\b(homestay|residence|boarding|lunch|meal|commute|transport|winter|support|student life)\b/i.test(combined)) priority += 250
       pairs.push({
         source_file: file,
         question,
         answer,
         tags: Array.isArray(qa.tags) ? qa.tags.map(String) : [],
-        priority: Number.isFinite(Number(qa.priority)) ? Number(qa.priority) : 0,
+        priority,
       })
     }
   }
-  return pairs
+  return pairs.sort((left, right) => {
+    const priorityDelta = (right.priority || 0) - (left.priority || 0)
+    if (priorityDelta !== 0) return priorityDelta
+    const fileDelta = left.source_file.localeCompare(right.source_file)
+    if (fileDelta !== 0) return fileDelta
+    return left.question.localeCompare(right.question)
+  })
 }
 
 async function main() {

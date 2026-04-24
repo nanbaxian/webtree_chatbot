@@ -33,7 +33,7 @@ import {
 
 const CJK_RE = /[\u4e00-\u9fff]/
 const WEBTREE_ALIAS_RE = /(?:万博学校|万博高中|我们学校|我校|webtree(?:\s*academy)?|webtreeedu)/i
-const WEBTREE_LEGITIMACY_RE = /(?:正规|正式|合法的吗|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|ministry of education|inspected|accredited)/i
+const WEBTREE_LEGITIMACY_RE = /(?:正规|正宗|正经|正不正规|正式|合法的吗|靠不靠谱|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|ministry of education|inspected|accredited)/i
 const WEBTREE_ALUMNI_RE = /(?:毕业生|毕业去向|去向|走向|升学去向|主要去哪些大学|去了哪些大学|去了哪些学校|大学名单|大学去向|加拿大哪些大学|top colleges? and universities?|university placement|graduates?|alumni|first choice)/i
 
 const CHINESE_RAG_HINTS: Array<{ pattern: RegExp; terms: string }> = [
@@ -42,7 +42,7 @@ const CHINESE_RAG_HINTS: Array<{ pattern: RegExp; terms: string }> = [
     terms: 'Webtree Academy 万博学校 万博 万博高中 我们学校 我校',
   },
   {
-    pattern: /(正规|正式|合法的吗|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|private school|inspected|accredited)/i,
+    pattern: /(正规|正宗|正经|正不正规|正式|合法的吗|靠不靠谱|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|private school|inspected|accredited)/i,
     terms: 'Ministry of Education-inspected private school BSID 883796 private school credit courses university application guidance',
   },
   { pattern: /(学费|费用|收费|多少钱)/, terms: 'tuition fees cost price' },

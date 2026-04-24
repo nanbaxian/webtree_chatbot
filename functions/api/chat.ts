@@ -32,9 +32,9 @@ import {
 } from '../../lib/knowledgeos-d1'
 
 const CJK_RE = /[\u4e00-\u9fff]/
-const WEBTREE_ALIAS_RE = /(?:万博学校|万博高中|我们学校|我校|webtree(?:\s*academy)?|webtreeedu)/i
-const WEBTREE_LEGITIMACY_RE = /(?:正规|正宗|正经|正不正规|正式|合法的吗|靠不靠谱|靠谱|认可|认证|注册|教育局|教育部|学历|文凭|牌照|资质|办学许可|ministry of education|inspected|accredited)/i
-const WEBTREE_ALUMNI_RE = /(?:毕业生|毕业去向|去向|走向|升学去向|主要去哪些大学|去了哪些大学|去了哪些学校|大学名单|大学去向|加拿大哪些大学|top colleges? and universities?|university placement|graduates?|alumni|first choice)/i
+const WEBTREE_ALIAS_RE = /(?:\u4e07\u535a\u5b66\u6821|\u4e07\u535a\u9ad8\u4e2d|\u4e07\u535a|\u6211\u4eec\u5b66\u6821|\u6211\u6821|webtree(?:\s*academy)?|webtreeedu)/i
+const WEBTREE_LEGITIMACY_RE = /(?:\u6b63\u89c4|\u6b63\u5b97|\u6b63\u7ecf|\u6b63\u4e0d\u6b63\u89c4|\u6b63\u5f0f|\u662f\u4e0d\u662f\u6b63\u89c4|\u662f\u5426\u6b63\u89c4|\u5408\u6cd5\u7684\u5417|\u5408\u6cd5\u5417|\u9760\u4e0d\u9760\u8c31|\u9760\u8c31|\u8ba4\u53ef|\u8ba4\u8bc1|\u53ef\u4ee5\u8ba4\u53ef|\u8ba4\u53ef\u5417|\u6ce8\u518c|\u6559\u80b2\u5c40|\u6559\u80b2\u90e8|\u5b66\u5386|\u6587\u51ed|\u724c\u7167|\u8d44\u8d28|\u529e\u5b66\u8bb8\u53ef|\u529e\u5b66\u8bb8\u53ef\u8bc1|\u8ba4\u53ef\u5417|ministry of education|inspected|accredited)/i
+const WEBTREE_ALUMNI_RE = /(?:\u6bd5\u4e1a\u751f|\u6bd5\u4e1a\u53bb\u5411|\u53bb\u5411|\u8d70\u5411|\u5347\u5b66\u53bb\u5411|\u4e3b\u8981\u53bb\u54ea\u4e9b\u5927\u5b66|\u53bb\u4e86\u54ea\u4e9b\u5927\u5b66|\u53bb\u4e86\u54ea\u4e9b\u5b66\u6821|\u4e0a\u4e86\u54ea\u4e9b\u5927\u5b66|\u8003\u4e0a\u4e86\u54ea\u91cc|\u5927\u5b66\u540d\u5355|\u5927\u5b66\u53bb\u5411|\u52a0\u62ff\u5927\u54ea\u4e9b\u5927\u5b66|\u8fd4\u56de\u7684\u662f\u54ea\u4e9b\u5b66\u6821|top colleges? and universities?|university placement|graduates?|alumni|first choice)/i
 
 const CHINESE_RAG_HINTS: Array<{ pattern: RegExp; terms: string }> = [
   {
@@ -293,6 +293,7 @@ function buildWebtreeDemoDirectAnswer(message: string, language: ReplyLanguage):
   if (!text) return null
   const isLegitimacyQuery = WEBTREE_LEGITIMACY_RE.test(text)
   const isAliasQuery = WEBTREE_ALIAS_RE.test(text)
+  const isAlumniQuery = WEBTREE_ALUMNI_RE.test(text)
 
   const isTuitionQuery = /(?:学费|费用|收费|多少钱|\btuition\b|\bfee\b|\bfees\b)/i.test(text)
   const isScheduleQuery = /(?:上课时间|课程时间|课表|时间表|什么时候上课|哪天上课|几点上课|schedule|timetable|class time|what time|when is class)/i.test(text)
@@ -640,13 +641,12 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
 
   const maxOutputTokens = voiceMode ? 64 : Number.parseInt(env.OPENAI_MAX_TOKENS || '', 10)
   const openaiModel = env.OPENAI_MODEL || 'gpt-4.1'
-  const provider = 'worker-backend-complete'
 
   apiLog.info('generation:start', {
     tenantId,
     botId: bot.id,
     conversationId,
-    provider,
+    provider: 'worker-backend-complete',
     historyCount: history.length,
     ragChunks: rag.chunks.length,
     prepMs: Date.now() - startedAt,
@@ -655,7 +655,7 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
   let englishAnswer = ''
   try {
     if (!env.CHAT_BACKEND_URL) {
-      apiLog.fail('missing CHAT_BACKEND_URL', { stage: 'model', provider })
+      apiLog.fail('missing CHAT_BACKEND_URL', { stage: 'model', provider: 'worker-backend-complete' })
       return errJson('?? CHAT_BACKEND_URL', 500)
     }
     const backendAbort = new AbortController()
@@ -683,19 +683,19 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
       const errText = await backendRes.text()
       apiLog.fail('backend status=' + backendRes.status + ' body=' + errText.slice(0, 300), {
         stage: 'model',
-        provider,
+        provider: 'worker-backend-complete',
       })
-      return errJson('??????: ' + (errText.slice(0, 180) || backendRes.status), 500)
+      return errJson('backend-error: ' + (errText.slice(0, 180) || backendRes.status), 500)
     }
     const backendJson = (await backendRes.json()) as { text?: string }
     englishAnswer = String(backendJson.text || '').trim()
     if (!englishAnswer) {
-      apiLog.fail('backend text empty', { stage: 'model', provider })
-      return errJson('??????', 500)
+      apiLog.fail('backend text empty', { stage: 'model', provider: 'worker-backend-complete' })
+      return errJson('backend-empty', 500)
     }
   } catch (error) {
-    apiLog.fail(error, { stage: "model", provider })
-    return errJson('??????', 500)
+    apiLog.fail(error, { stage: "model", provider: 'worker-backend-complete' })
+    return errJson('backend-catch: ' + (error instanceof Error ? error.message : String(error)), 500)
   }
 
   const finalAnswer = replyLanguage === "en"
@@ -753,8 +753,8 @@ export const onRequestPost: PagesFunction<Env> = async ctx => {
     },
   })
   } catch (error) {
-    apiLog.fail(error, { stage: 'model', provider })
-    return errJson('??????', 500)
+    apiLog.fail(error, { stage: 'model', provider: 'worker-backend-complete' })
+    return errJson('postprocess-catch: ' + (error instanceof Error ? error.message : String(error)), 500)
   }
 }
 

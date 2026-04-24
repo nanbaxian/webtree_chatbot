@@ -428,7 +428,7 @@ export async function insertMessageCitations(
       `INSERT INTO message_citations (id, message_id, chunk_id, qa_pair_id, score, source_label, source_url, page_num, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        citation.id ?? crypto.randomUUID(),
+        crypto.randomUUID(),
         messageId,
         citation.chunk_id ?? null,
         citation.qa_pair_id ?? null,
